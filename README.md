@@ -1,12 +1,25 @@
-# Field Trip Design — Cloudflare Pages
+# Field Trip Design
 
-A lean, image-led website for Field Trip Design, LLC. The current public ChatGPT site remains separate until a Cloudflare Pages deployment is connected.
+The launch uses the existing main website directly. There is no separate landing page.
 
-## Deployment
-Connect this repository to Cloudflare Pages. Use **no build command** and set the output directory to `/` (repository root). The `_redirects` file provides route fallback.
+Current site: https://field-trip-design.adamthabo409.chatgpt.site/home
 
-## Asset provenance
-Portfolio photographs are temporarily referenced from the existing public Field Trip site; they must be migrated into this repository or Cloudflare R2 before changing domains or decommissioning that site. Preserve credits and verify rights before release. Concept renderings must remain labeled **Artist Rendering**.
+## What this repository contains
+
+This repository contains a temporary redirect to the current published website. It does **not** contain the full React/Vinext application or an independently deployed Cloudflare Worker. The old placeholder homepage has been removed.
+
+If this repository is connected to Cloudflare Pages, `_redirects` sends visitors directly to the current site. The HTML file is a fallback. Query strings continue to the destination. Existing numbered-ticket links on the temporary redirect should use the current site's root URL so its ticket routing runs.
+
+## Full Cloudflare launch
+
+Use the latest **Field-Trip-Cloudflare** release package and its `CLOUDFLARE-START-HERE.md`. It contains the editable application, compiled Worker, static assets and D1 preparation instructions. The full application requires **Cloudflare Workers with Static Assets**, not a no-build Pages upload.
+
+The application redirects `/` and `/entrance` to `/home` in both hosting environments and retains ticket-number handling. Before switching domains, deploy and verify the standalone Worker with real account/database IDs, configure the final canonical origin, and review the domain configuration. Preserve existing mail records.
+
+## Nameserver status
+
+On 28 October 2026, Google Public DNS and Cloudflare's public resolver both returned Squarespace nameservers for `fieldtripdesign.com`. This repository update does not change DNS or establish a Cloudflare deployment.
 
 ## Editorial rules
-Lead with project photography. Write short factual project descriptions. Preserve distinct roles and credits. Do not claim an installation, opening, or image clearance without evidence.
+
+Preserve the approved design, original project photography, precise contributor credits and current content. Do not restore a landing page or substitute the temporary redirect repository for the full application.
