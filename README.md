@@ -8,7 +8,7 @@ Current site: https://field-trip-design.adamthabo409.chatgpt.site/home
 
 This repository contains a temporary redirect to the current published website. It does **not** contain the full React/Vinext application or an independently deployed Cloudflare Worker. The old placeholder homepage has been removed.
 
-If this repository is connected to Cloudflare Pages, `_redirects` sends visitors directly to the current site. The HTML file is a fallback. Query strings continue to the destination. Existing numbered-ticket links on the temporary redirect should use the current site's root URL so its ticket routing runs.
+If this repository is connected to Cloudflare Pages, `_redirects` sends visitors directly to the current site. The HTML file is a fallback. Query strings continue to the destination. Root and entrance requests continue through the current site's entry routing so existing numbered-ticket links also keep working.
 
 ## Full Cloudflare launch
 
