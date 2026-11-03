@@ -114,5 +114,17 @@
   "external_media": [
     "Vimeo",
     "video.squarespace-cdn.com"
-  ]
+  ],
+  "deployment_hotfix": {
+    "name": "MP4 autoplay without hover",
+    "date": "2026-11-03",
+    "canonical_source_commit": "6aaab6ae48838c368bcb0478e613c8b4639579e2",
+    "base_sites_version": 575,
+    "changes": [
+      "Request MP4 playback without a preload-buffer prerequisite",
+      "Muted inline autoplay for active zero-start MP4 clips",
+      "Fresh URLs for affected browser modules"
+    ],
+    "validation": "34 focused playback checks passed; production build passed"
+  }
 }

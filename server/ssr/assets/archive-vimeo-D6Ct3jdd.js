@@ -59,7 +59,7 @@ function NativeFilm({ film, active, full = false, playRequest = 0, playFromGestu
 		const player = video.current;
 		if (!player) return;
 		let cancelled = false, started = false, restored = false, completed = false;
-		let startupReady = startupBufferSeconds <= 0, pendingPlay = false, playGeneration = 0, autoplayBlocked = false;
+		let startupReady = startupBufferSeconds <= 0 || /\.mp4(?:[?#]|$)/i.test(film.src), pendingPlay = false, playGeneration = 0, autoplayBlocked = false;
 		let interruptedStartupRetried = false;
 		let destroy;
 		let loading;
@@ -299,6 +299,7 @@ function NativeFilm({ film, active, full = false, playRequest = 0, playFromGestu
 	}, [active, playRequest]);
 	return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("video", {
 		ref: video,
+		autoPlay: active && muted && start === 0 && /\.mp4(?:[?#]|$)/i.test(film.src),
 		muted,
 		playsInline: true,
 		loop,
