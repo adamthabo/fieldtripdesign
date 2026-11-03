@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="760" viewBox="0 0 1000 760" role="img" aria-label="CNC hardwood tray">
+<rect width="100%" height="100%" fill="#FFFFFF"/>
+<text x="36" y="37" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="600" fill="#3B2923" text-anchor="start">FIELD - TRIP</text>
+<text x="964" y="34" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#C83225" text-anchor="end">MONTHLY OBJECTS / 03</text>
+<polyline points="36.00,53.00 964.00,53.00" fill="none" stroke="#F2EBDD" stroke-width="2"/>
+<text x="36" y="86" font-family="Arial,Helvetica,sans-serif" font-size="27" font-weight="400" fill="#3B2923" text-anchor="start">CNC hardwood tray</text>
+<text x="36" y="111" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#3B2923" text-anchor="start">Single solid blank / 180 x 100 x 20 finished / 14 deep pocket / 6 mm floor</text>
+<text x="75" y="147" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" fill="#3B2923" text-anchor="start">PLAN / grain along the 180 mm length</text>
+<rect x="87" y="179" width="458.99999999999994" height="254.99999999999997" rx="25.5" fill="#FFFFFF" stroke="#3B2923" stroke-width="1.7"/>
+<rect x="117.6" y="209.6" width="397.79999999999995" height="193.79999999999998" rx="20.4" fill="#F2EBDD" stroke="#3B2923" stroke-width="1.5"/>
+<polyline points="87.00,434.00 87.00,474.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="546.00,434.00 546.00,474.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="87.00,468.00 546.00,468.00" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="83.00,472.00 91.00,464.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="542.00,472.00 550.00,464.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="316.5" y="460.0" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="middle">180</text>
+<polyline points="87.00,179.00 67.00,179.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="87.00,434.00 67.00,434.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="61.00,179.00 61.00,434.00" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="57.00,183.00 65.00,175.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="57.00,438.00 65.00,430.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="53" y="310.5" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="end">100</text>
+<polyline points="117.60,326.90 515.40,326.90" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="113.60,330.90 121.60,322.90" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="511.40,330.90 519.40,322.90" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="316.5" y="318.9" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="middle">156 pocket</text>
+<text x="314" y="344" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="middle">76 pocket width</text>
+<polyline points="316.50,169.00 316.50,444.00" fill="none" stroke="#C83225" stroke-width="0.8" stroke-dasharray="6 5"/>
+<text x="325.5" y="164" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#C83225" text-anchor="start">A</text>
+<text x="325.5" y="446.0" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#C83225" text-anchor="start">A</text>
+<polyline points="538.53,186.47 609.00,173.00 750.00,173.00" fill="none" stroke="#C83225" stroke-width="0.8"/>
+<text x="649" y="161" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="start">R10 outside corners</text>
+<text x="635" y="240" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="600" fill="#3B2923" text-anchor="start">Pocket corners: R8</text>
+<text x="635" y="267" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#3B2923" text-anchor="start">12 mm minimum wall</text>
+<text x="635" y="292" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#3B2923" text-anchor="start">14 mm pocket depth</text>
+<text x="635" y="317" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="400" fill="#3B2923" text-anchor="start">6 mm remaining floor</text>
+<text x="635" y="357" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">A 6 mm cutter can produce the R8 pocket.</text>
+<text x="635" y="378" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">Machining sequence and feeds are shop-set.</text>
+<text x="75" y="528" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="600" fill="#3B2923" text-anchor="start">SECTION A-A / across the 100 mm width</text>
+<polygon points="87.00,604.00 437.00,604.00 437.00,534.00 395.00,534.00 395.00,583.00 129.00,583.00 129.00,534.00 87.00,534.00" fill="#F2EBDD" stroke="#3B2923" stroke-width="1.5"/>
+<polyline points="87.00,534.00 63.00,534.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="87.00,604.00 63.00,604.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="57.00,534.00 57.00,604.00" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="53.00,538.00 61.00,530.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="53.00,608.00 61.00,600.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="49" y="573.0" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="end">20</text>
+<polyline points="437.00,583.00 486.00,583.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="437.00,604.00 486.00,604.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="480.00,583.00 480.00,604.00" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="476.00,587.00 484.00,579.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="476.00,608.00 484.00,600.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="472" y="597.5" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="end">6</text>
+<polyline points="87.00,604.00 87.00,641.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="129.00,604.00 129.00,641.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="87.00,635.00 129.00,635.00" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="83.00,639.00 91.00,631.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="125.00,639.00 133.00,631.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="108.0" y="627" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="middle">12</text>
+<polyline points="129.00,604.00 129.00,641.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="395.00,604.00 395.00,641.00" fill="none" stroke="#C83225" stroke-width="0.7"/>
+<polyline points="129.00,635.00 395.00,635.00" fill="none" stroke="#C83225" stroke-width="0.9"/>
+<polyline points="125.00,639.00 133.00,631.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<polyline points="391.00,639.00 399.00,631.00" fill="none" stroke="#C83225" stroke-width="1"/>
+<text x="262.0" y="627" font-family="Arial,Helvetica,sans-serif" font-size="13" font-weight="400" fill="#C83225" text-anchor="middle">76 pocket</text>
+<text x="635" y="531" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="600" fill="#3B2923" text-anchor="start">Machining + finishing</text>
+<text x="635" y="558" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">Surface stock to 20 mm before pocketing.</text>
+<text x="635" y="581" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">Pocket first; profile last with secure workholding.</text>
+<text x="635" y="604" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">Ease the rim and underside edges by hand.</text>
+<text x="635" y="627" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">Engrave the number on the underside, max 0.5 deep.</text>
+<text x="635" y="650" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="400" fill="#3B2923" text-anchor="start">Check the floor for movement after machining.</text>
+<polyline points="36.00,717.00 964.00,717.00" fill="none" stroke="#F2EBDD" stroke-width="2"/>
+<text x="36" y="739" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="400" fill="#3B2923" text-anchor="start">REV B / 30 SEP 2026 / DIMENSIONS IN mm / DRAWINGS NOT TO SCALE</text>
+<text x="964" y="739" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="400" fill="#C83225" text-anchor="end">Prototype required before production</text>
+</svg>

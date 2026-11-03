@@ -1,25 +1,35 @@
-# Field Trip Design
+# Field Trip — Cloudflare release v575
 
-The launch uses the existing main website directly. There is no separate landing page.
+This folder contains the ready-to-deploy public portfolio, including the corrected full-width Currently On Display landscape photographs. It matches the public design and content of Sites v575, published November 2, 2026.
 
-Current site: https://field-trip-design.adamthabo409.chatgpt.site/home
+## Put these files in GitHub Desktop
 
-## What this repository contains
+1. Unzip Field-Trip-GitHub-v575.zip.
+2. In GitHub Desktop, select the existing **fieldtripdesign** repository and **main** branch.
+3. Choose **Repository → Show in Finder** (Shift–Command–F on a Mac).
+4. Copy the **contents** of this extracted folder into that repository folder. Replace the existing README.md, index.html and _redirects when Finder asks. Keep the repository folder itself and its hidden .git folder. Do not copy the ZIP or put the enclosing Field-Trip-GitHub-v575 folder inside the repository.
+5. The repository should now directly contain **wrangler.jsonc**, **package.json**, **server**, and **assets**.
+6. Return to GitHub Desktop. Review the Changes tab. Enter **Update website to v575 — fix homepage image framing** in Summary and click **Commit to main**.
+7. Click **Push origin**. Cloudflare should start its connected build automatically.
 
-This repository contains a temporary redirect to the current published website. It does **not** contain the full React/Vinext application or an independently deployed Cloudflare Worker. The old placeholder homepage has been removed.
+## Existing Cloudflare settings
 
-If this repository is connected to Cloudflare Pages, `_redirects` sends visitors directly to the current site. The HTML file is a fallback. Query strings continue to the destination. Root and entrance requests continue through the current site's entry routing so existing numbered-ticket links also keep working.
+- Worker: **fieldtripdesign**
+- Repository: **adamthabo/fieldtripdesign**
+- Branch: **main**
+- Root directory: **/**
+- Build command: **leave empty** (the site is already compiled)
+- Deploy command: **npx wrangler deploy**
+- No API keys or account IDs need to be pasted into these files. The existing Cloudflare GitHub build integration supplies deployment authorization.
 
-## Full Cloudflare launch
+After the deployment shows success, open https://fieldtripdesign.adamthabo.workers.dev/home and check the Home carousel, Projects, About and Contact. Connect fieldtripdesign.com after the deployment is verified; this package does not change DNS or email settings.
 
-Use the latest **Field-Trip-Cloudflare** release package and its `CLOUDFLARE-START-HERE.md`. It contains the editable application, compiled Worker, static assets and D1 preparation instructions. The full application requires **Cloudflare Workers with Static Assets**, not a no-build Pages upload.
+## Release contents and portability
 
-The application redirects `/` and `/entrance` to `/home` in both hosting environments and retains ticket-number handling. Before switching domains, deploy and verify the standalone Worker with real account/database IDs, configure the final canonical origin, and review the domain configuration. Preserve existing mail records.
+The public pages, films, original photographs, navigation, theme, motion and captions come from Sites v575. The public image metadata correction is included without requiring a separate database. Canonical metadata points to fieldtripdesign.com.
 
-## Nameserver status
+This is a precompiled deployment package: edit the canonical Site source for future changes and export a fresh release. The Sites owner editor, private request records and administration routes are not exported. Legacy object-request links lead to Contact on this public deployment. External Vimeo/Squarespace-hosted films continue to depend on those providers; the MCNY Home excerpt is included locally.
 
-On 28 October 2026, Google Public DNS and Cloudflare's public resolver both returned Squarespace nameservers for `fieldtripdesign.com`. This repository update does not change DNS or establish a Cloudflare deployment.
+The root index.html and _redirects replace the old temporary redirect files. Cloudflare serves the actual application from server/ and assets/ using wrangler.jsonc.
 
-## Editorial rules
-
-Preserve the approved design, original project photography, precise contributor credits and current content. Do not restore a landing page or substitute the temporary redirect repository for the full application.
+RELEASE.json records provenance and checks. SHA256SUMS records file integrity. Cloudflare deployment itself is completed only after you push and the connected build succeeds.

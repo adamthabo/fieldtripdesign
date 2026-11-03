@@ -1,0 +1,349 @@
+//#region app/verified-image-credits.json
+var verified_image_credits_default = {
+	"/project-galleries/beat-repeat/overview-original.jpg": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-galleries/china-institute/completed-gallery-front.jpg": {
+		"label": "Source: East China Normal University, School of Design",
+		"href": "https://english.ecnu.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=4011&wbtreeid=1599"
+	},
+	"/project-galleries/china-institute/completed-gallery-wall.jpg": {
+		"label": "Source: East China Normal University, School of Design",
+		"href": "https://english.ecnu.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=4011&wbtreeid=1599"
+	},
+	"/project-galleries/china-institute/completed-gallery-panorama.jpg": {
+		"label": "Source: East China Normal University, School of Design",
+		"href": "https://english.ecnu.edu.cn/content.jsp?urltype=news.NewsContentUrl&wbnewsid=4011&wbtreeid=1599"
+	},
+	"/project-galleries/beat-repeat/02.webp": {
+		"label": "Documentation: Nathan Punwar / Red Paper Heart",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-galleries/dia-beacon/01.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/project-galleries/dia-beacon/02.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/project-galleries/dia-beacon/03.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/dia-beacon/01.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/dia-beacon/02.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/dia-beacon/03.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/dia-beacon/04.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/dia-beacon/05.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/dia-beacon/06.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/portfolio-carousel/droog/01.webp": {
+		"label": "Source: A. Thabo portfolio",
+		"href": "https://www.adamthabo.com/more"
+	},
+	"/projects/dia-beacon.webp": {
+		"label": "Photo: Bill Jacobson Studio, New York · Artwork © Tehching Hsieh",
+		"href": "https://www.diaart.org/exhibition/exhibitions-projects/tehching-hsieh-lifeworks-19781999-exhibition"
+	},
+	"/project-galleries/hunt-for-paradise/01.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/02.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/03.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/04.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/05.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/06.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/07.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/08.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/09.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/hunt-for-paradise/10.webp": {
+		"label": "Images by Perry Hu",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b"
+	},
+	"/project-galleries/sacred-splendor/01.jpg": {
+		"label": "Photo: Kris Graves · Courtesy The Jewish Museum",
+		"href": "https://artssummary.com/2026/09/30/sacred-splendor-at-jewish-museum-september-18-2026-through-february-7-2027/"
+	},
+	"/project-galleries/sacred-splendor/02.jpg": {
+		"label": "Photo: Kris Graves · Courtesy The Jewish Museum",
+		"href": "https://artssummary.com/2026/09/30/sacred-splendor-at-jewish-museum-september-18-2026-through-february-7-2027/"
+	},
+	"/project-galleries/sacred-splendor/03.jpg": {
+		"label": "Photo: Kris Graves · Courtesy The Jewish Museum",
+		"href": "https://artssummary.com/2026/09/30/sacred-splendor-at-jewish-museum-september-18-2026-through-february-7-2027/"
+	},
+	"/project-galleries/modigliani-beyond-the-myth/01.jpg": {
+		"label": "Source: Imrey Studio / Imrey Culbert portfolio",
+		"href": "https://www.imreystudio.com/projects/jewish-museum-modigliani.html"
+	},
+	"/project-galleries/bronx-science-holocaust-museum/01.png": {
+		"label": "Photo: Amy Beckerman · Source: South Side Design & Building archive",
+		"href": "https://web.archive.org/web/20160609231034/http://southsidedb.com/portfolio/holocaust-museum-and-study-center/"
+	},
+	"/project-galleries/touro-loeb-visitors-center/01.png": {
+		"label": "Source: South Side Design & Building archive",
+		"href": "https://web.archive.org/web/20190202084041/https://www.southsidedb.com/touro-synogogue/"
+	},
+	"/project-galleries/touro-loeb-visitors-center/02.png": {
+		"label": "Source: South Side Design & Building archive",
+		"href": "https://web.archive.org/web/20190202084041/https://www.southsidedb.com/touro-synogogue/"
+	},
+	"/project-galleries/coney-island-carousel-museum/01.png": {
+		"label": "Source: South Side Design & Building archive",
+		"href": "https://web.archive.org/web/20160818111918/http://southsidedb.com/portfolio/bb-carousell-steeplechase-pavillion/"
+	},
+	"/people/adam-thabo-risd-2024.jpg": {
+		"label": "Source: RISD",
+		"href": "https://www.risd.edu/academics/interior-architecture/faculty/adam-thabo"
+	},
+	"/project-galleries/heliogram-series/01.jpg": {
+		"label": "Courtesy of the Milwaukee Art Museum, via BOMB",
+		"href": "https://bombmagazine.org/articles/2018/10/29/saul-melman/"
+	},
+	"/project-galleries/heliogram-series/02.jpg": {
+		"label": "Source: BoxoHOUSE",
+		"href": "https://boxoblog.blogspot.com/2012/07/saul-melman-untitled-work-in-progress.html"
+	},
+	"/project-galleries/heliogram-series/03.jpg": {
+		"label": "Source: BoxoHOUSE",
+		"href": "https://boxoblog.blogspot.com/2012/07/saul-melman-untitled-work-in-progress.html"
+	},
+	"/project-research-images/core-nyc/source-003.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-004.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-005.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-006.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-007.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-008.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-009.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/core-nyc/source-010.webp": {
+		"label": "Source: South Side Design & Building",
+		"href": "https://www.southsidedb.com/portfolio-1/new-portfolio-item-3"
+	},
+	"/project-research-images/beat-repeat/source-202.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-203.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-205.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-206.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-207.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-208.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-209.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-210.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-211.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/beat-repeat/source-212.webp": {
+		"label": "Photo: Nathan Punwar",
+		"href": "https://redpaperheart.com/work/beat-repeat"
+	},
+	"/project-research-images/ascend/source-214.webp": {
+		"label": "Source: See Through Lab",
+		"href": "https://seethroughlab.com/projects/delta-ascend/"
+	},
+	"/project-research-images/ascend/source-215.webp": {
+		"label": "Source: See Through Lab",
+		"href": "https://seethroughlab.com/projects/delta-ascend/"
+	},
+	"/project-research-images/ascend/source-215-clean-20261101.webp": {
+		"label": "Source: See Through Lab",
+		"href": "https://seethroughlab.com/projects/delta-ascend/"
+	},
+	"/project-research-images/ascend/source-216.webp": {
+		"label": "Source: See Through Lab",
+		"href": "https://seethroughlab.com/projects/delta-ascend/"
+	},
+	"/project-research-images/ascend/source-217.webp": {
+		"label": "Source: See Through Lab",
+		"href": "https://seethroughlab.com/projects/delta-ascend/"
+	},
+	"/project-research-images/wheat-thins-popped/source-218.webp": {
+		"label": "Source: SFDS",
+		"href": "https://www.sfdshop.com/portfolio/ejfjgmmf6ndw23z-exgyr-mrmxx-rm24f-axx2c"
+	},
+	"/project-research-images/wheat-thins-popped/source-219.webp": {
+		"label": "Source: SFDS",
+		"href": "https://www.sfdshop.com/portfolio/ejfjgmmf6ndw23z-exgyr-mrmxx-rm24f-axx2c"
+	},
+	"/project-research-images/wheat-thins-popped/source-220.webp": {
+		"label": "Source: SFDS",
+		"href": "https://www.sfdshop.com/portfolio/ejfjgmmf6ndw23z-exgyr-mrmxx-rm24f-axx2c"
+	},
+	"/project-research-images/wheat-thins-popped/source-221.webp": {
+		"label": "Source: SFDS",
+		"href": "https://www.sfdshop.com/portfolio/ejfjgmmf6ndw23z-exgyr-mrmxx-rm24f-axx2c"
+	},
+	"/press/risd-wintersession-exhibition-design-2026.jpg": {
+		"label": "Photo: Kaylee Pugliese / RISD",
+		"href": "https://www.risd.edu/news/stories/wintersession-exhibition-design-course-risd-emphasizes-real-world-problem-solving"
+	},
+	"/project-galleries/women-who-rock/01.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock"
+	},
+	"/project-galleries/women-who-rock/02.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock"
+	},
+	"/project-galleries/women-who-rock/03.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock"
+	},
+	"/project-galleries/women-who-rock/04.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock"
+	},
+	"/project-galleries/women-who-rock/05.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock"
+	},
+	"/project-galleries/women-who-rock/06.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock"
+	},
+	"/project-galleries/new-bamboo/01.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b-9cmgn"
+	},
+	"/project-galleries/new-bamboo/02.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b-9cmgn"
+	},
+	"/project-galleries/new-bamboo/03.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b-9cmgn"
+	},
+	"/project-galleries/new-bamboo/04.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b-9cmgn"
+	},
+	"/project-galleries/new-bamboo/05.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b-9cmgn"
+	},
+	"/project-galleries/new-bamboo/06.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-3pr8b-9cmgn"
+	},
+	"/project-galleries/fox-studios-titanic/01.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj"
+	},
+	"/project-galleries/fox-studios-titanic/02.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj"
+	},
+	"/project-galleries/fox-studios-titanic/03.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj"
+	},
+	"/project-galleries/fox-studios-titanic/04.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj"
+	},
+	"/project-galleries/fox-studios-titanic/05.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj"
+	},
+	"/project-galleries/fox-studios-titanic/06.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj"
+	},
+	"/education/rca-show/01.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock-y6dl4"
+	},
+	"/education/rca-show/02.webp": {
+		"label": "Source: Elkan & Levinsohn archive",
+		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock-y6dl4"
+	}
+};
+//#endregion
+export { verified_image_credits_default as t };

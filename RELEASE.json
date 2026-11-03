@@ -1,0 +1,118 @@
+{
+  "sites_version": 575,
+  "published_source_commit": "975dec67fb7eaed791dfda60793231937ee93402",
+  "published_review_url": "https://field-trip-design.adamthabo409.chatgpt.site/home",
+  "created_at": "2026-11-02",
+  "target_worker": "fieldtripdesign",
+  "cloudflare_deployed": false,
+  "format": "precompiled Cloudflare Worker and static assets",
+  "public_design_css_sha256": "8a7b9dacc2a4fe5383b410d5eb0a1b0d49f7977b6f9bfd18973f9bd072ab9a0e",
+  "standalone_adaptations": [
+    "Canonical metadata uses fieldtripdesign.com",
+    "Public image metadata correction included without D1",
+    "Sites-only owner editor and private/admin routes excluded",
+    "Legacy object-request links route to Contact",
+    "Static original images used directly; unused optimization endpoint disabled"
+  ],
+  "private_data_exported": false,
+  "source_build": "Vinext 0.0.50, Wrangler 4.92.0; exact source release plus documented hosting adaptations",
+  "validation": {
+    "publicRoutes": 44,
+    "projectPages": 37,
+    "referencedLocalAssets": 335,
+    "staticAssetFiles": 883,
+    "staticAssetBytes": 259572873,
+    "largestAsset": {
+      "file": "dist/client/landing-reel/reel-desktop.mp4",
+      "bytes": 21525861
+    },
+    "socialLinksPerPage": 3,
+    "anonymousEditor": "not rendered",
+    "standalonePrivateRoutes": "blocked",
+    "legacyRedirects": "passed"
+  },
+  "cloudflare_runtime": {
+    "runtime": "Cloudflare workerd via Miniflare",
+    "checks": [
+      {
+        "route": "/",
+        "status": 301
+      },
+      {
+        "route": "/home",
+        "status": 200
+      },
+      {
+        "route": "/work",
+        "status": 200
+      },
+      {
+        "route": "/work/dia-beacon",
+        "status": 200
+      },
+      {
+        "route": "/work/brooklyn-museum",
+        "status": 200
+      },
+      {
+        "route": "/about",
+        "status": 200
+      },
+      {
+        "route": "/news",
+        "status": 200
+      },
+      {
+        "route": "/contact",
+        "status": 200
+      },
+      {
+        "route": "/sitemap.xml",
+        "status": 200
+      },
+      {
+        "route": "/robots.txt",
+        "status": 200
+      },
+      {
+        "route": "/home.rsc",
+        "status": 200
+      },
+      {
+        "route": "/api/editor",
+        "status": 404
+      },
+      {
+        "route": "/studio-tools.rsc",
+        "status": 404
+      },
+      {
+        "route": "/work/images",
+        "status": 404
+      },
+      {
+        "route": "/private-assets/test.webp",
+        "status": 404
+      },
+      {
+        "route": "/objects",
+        "status": 302
+      },
+      {
+        "route": "/project-galleries/dia-beacon/02.webp",
+        "status": 200
+      }
+    ]
+  },
+  "wrangler_dry_run": {
+    "passed": true,
+    "gzip_worker_kib": 767.75,
+    "required_bindings": [
+      "ASSETS"
+    ]
+  },
+  "external_media": [
+    "Vimeo",
+    "video.squarespace-cdn.com"
+  ]
+}

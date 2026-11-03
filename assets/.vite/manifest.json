@@ -1,0 +1,380 @@
+{
+  "../fieldtrip-v574/node_modules/hls.js/dist/hls.mjs": {
+    "file": "assets/hls-Cu85B-yt.js",
+    "name": "hls",
+    "src": "../fieldtrip-v574/node_modules/hls.js/dist/hls.mjs",
+    "isDynamicEntry": true
+  },
+  "../fieldtrip-v574/node_modules/vinext/dist/shims/layout-segment-context.js": {
+    "file": "assets/layout-segment-context-C4B2m5w8.js",
+    "name": "layout-segment-context",
+    "src": "../fieldtrip-v574/node_modules/vinext/dist/shims/layout-segment-context.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "../fieldtrip-v574/node_modules/vinext/dist/shims/link.js": {
+    "file": "assets/link-CmbG7NRD.js",
+    "name": "link",
+    "src": "../fieldtrip-v574/node_modules/vinext/dist/shims/link.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "../fieldtrip-v574/node_modules/vinext/dist/shims/router.js"
+    ]
+  },
+  "../fieldtrip-v574/node_modules/vinext/dist/shims/router.js": {
+    "file": "assets/router-66tXpMjx.js",
+    "name": "router",
+    "src": "../fieldtrip-v574/node_modules/vinext/dist/shims/router.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js",
+      "../fieldtrip-v574/node_modules/vinext/dist/shims/link.js"
+    ],
+    "dynamicImports": [
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_archive-vimeo-Cx9FFbQM.js": {
+    "file": "assets/archive-vimeo-Cx9FFbQM.js",
+    "name": "archive-vimeo",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "../fieldtrip-v574/node_modules/hls.js/dist/hls.mjs"
+    ]
+  },
+  "_core-nyc-media-BcR7VisQ.js": {
+    "file": "assets/core-nyc-media-BcR7VisQ.js",
+    "name": "core-nyc-media"
+  },
+  "_dist-DMe5_7ii.js": {
+    "file": "assets/dist-DMe5_7ii.js",
+    "name": "dist",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_image-credit-policy-DDKKWur1.js",
+      "_verified-image-credits-Bj9pwluZ.js",
+      "_utils-BqdF6cM_.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_field-trip-name--QdBMp7U.js": {
+    "file": "assets/field-trip-name--QdBMp7U.js",
+    "name": "field-trip-name",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_framework-CXnKph_e.js": {
+    "file": "assets/framework-CXnKph_e.js",
+    "name": "framework",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js"
+    ]
+  },
+  "_home-video-sequence-D50dtifk.js": {
+    "file": "assets/home-video-sequence-D50dtifk.js",
+    "name": "home-video-sequence",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_archive-vimeo-Cx9FFbQM.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_image-catalog-B4-Y1HMF.js": {
+    "file": "assets/image-catalog-B4-Y1HMF.js",
+    "name": "image-catalog",
+    "imports": [
+      "_core-nyc-media-BcR7VisQ.js",
+      "_verified-image-credits-Bj9pwluZ.js"
+    ]
+  },
+  "_image-credit-policy-DDKKWur1.js": {
+    "file": "assets/image-credit-policy-DDKKWur1.js",
+    "name": "image-credit-policy"
+  },
+  "_project-caption-QmrOEeOg.js": {
+    "file": "assets/project-caption-QmrOEeOg.js",
+    "name": "project-caption"
+  },
+  "_project-title-B0bEZ937.js": {
+    "file": "assets/project-title-B0bEZ937.js",
+    "name": "project-title",
+    "imports": [
+      "_field-trip-name--QdBMp7U.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "_reel-fullscreen-button-BLUj-fRd.css": {
+    "file": "assets/reel-fullscreen-button-BLUj-fRd.css",
+    "src": "_reel-fullscreen-button-BLUj-fRd.css"
+  },
+  "_reel-fullscreen-button-DFQFqtZo.js": {
+    "file": "assets/reel-fullscreen-button-DFQFqtZo.js",
+    "name": "reel-fullscreen-button",
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "css": [
+      "assets/reel-fullscreen-button-BLUj-fRd.css"
+    ]
+  },
+  "_rolldown-runtime-S-ySWqyJ.js": {
+    "file": "assets/rolldown-runtime-S-ySWqyJ.js",
+    "name": "rolldown-runtime"
+  },
+  "_utils-BqdF6cM_.js": {
+    "file": "assets/utils-BqdF6cM_.js",
+    "name": "utils"
+  },
+  "_verified-image-credits-Bj9pwluZ.js": {
+    "file": "assets/verified-image-credits-Bj9pwluZ.js",
+    "name": "verified-image-credits"
+  },
+  "app/about/capability-anchors.tsx": {
+    "file": "assets/capability-anchors-BylvFFyX.js",
+    "name": "capability-anchors",
+    "src": "app/about/capability-anchors.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/chameleon-wordmark.tsx": {
+    "file": "assets/chameleon-wordmark-BpVz3aec.js",
+    "name": "chameleon-wordmark",
+    "src": "app/chameleon-wordmark.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/color-theme.tsx": {
+    "file": "assets/color-theme-_OQbZFPL.js",
+    "name": "color-theme",
+    "src": "app/color-theme.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/complementary-colors.tsx": {
+    "file": "assets/complementary-colors-CXBEv4r7.js",
+    "name": "complementary-colors",
+    "src": "app/complementary-colors.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/contact/project-brief.tsx": {
+    "file": "assets/project-brief-dOll2dyo.js",
+    "name": "project-brief",
+    "src": "app/contact/project-brief.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_utils-BqdF6cM_.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/header-menu.tsx": {
+    "file": "assets/header-menu-DVXtfUPk.js",
+    "name": "header-menu",
+    "src": "app/header-menu.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js",
+      "../fieldtrip-v574/node_modules/vinext/dist/shims/link.js"
+    ]
+  },
+  "app/header-scroll-offset.tsx": {
+    "file": "assets/header-scroll-offset-Cv1vvfxy.js",
+    "name": "header-scroll-offset",
+    "src": "app/header-scroll-offset.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/home/desktop-home-films.tsx": {
+    "file": "assets/desktop-home-films-C6rhYUxK.js",
+    "name": "desktop-home-films",
+    "src": "app/home/desktop-home-films.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_image-catalog-B4-Y1HMF.js",
+      "_field-trip-name--QdBMp7U.js",
+      "_home-video-sequence-D50dtifk.js",
+      "_archive-vimeo-Cx9FFbQM.js",
+      "_project-caption-QmrOEeOg.js",
+      "_reel-fullscreen-button-DFQFqtZo.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "css": [
+      "assets/desktop-home-films-Czq1j_Ll.css"
+    ]
+  },
+  "app/home/on-display-carousel.tsx": {
+    "file": "assets/on-display-carousel-CwhtoRdM.js",
+    "name": "on-display-carousel",
+    "src": "app/home/on-display-carousel.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_image-credit-policy-DDKKWur1.js",
+      "_reel-fullscreen-button-DFQFqtZo.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/landing-reel.tsx": {
+    "file": "assets/landing-reel-D0RsfE5I.js",
+    "name": "landing-reel",
+    "src": "app/landing-reel.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_core-nyc-media-BcR7VisQ.js",
+      "_field-trip-name--QdBMp7U.js",
+      "_home-video-sequence-D50dtifk.js",
+      "_image-credit-policy-DDKKWur1.js",
+      "_project-caption-QmrOEeOg.js",
+      "_project-title-B0bEZ937.js",
+      "_reel-fullscreen-button-DFQFqtZo.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "css": [
+      "assets/landing-reel-wdaXh3OY.css"
+    ]
+  },
+  "app/page-section-navigation.tsx": {
+    "file": "assets/page-section-navigation-2jMVaN7b.js",
+    "name": "page-section-navigation",
+    "src": "app/page-section-navigation.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_field-trip-name--QdBMp7U.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/project-photo-motion.tsx": {
+    "file": "assets/project-photo-motion-B2-ds7pR.js",
+    "name": "project-photo-motion",
+    "src": "app/project-photo-motion.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "virtual:vinext-app-browser-entry",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/theme-artwork.tsx": {
+    "file": "assets/theme-artwork-3yXpZkR9.js",
+    "name": "theme-artwork",
+    "src": "app/theme-artwork.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ]
+  },
+  "app/work/archive-explorer.tsx": {
+    "file": "assets/archive-explorer-B48GENQr.js",
+    "name": "archive-explorer",
+    "src": "app/work/archive-explorer.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_core-nyc-media-BcR7VisQ.js",
+      "_image-catalog-B4-Y1HMF.js",
+      "_field-trip-name--QdBMp7U.js",
+      "_dist-DMe5_7ii.js",
+      "_project-caption-QmrOEeOg.js",
+      "_project-title-B0bEZ937.js",
+      "_utils-BqdF6cM_.js",
+      "_framework-CXnKph_e.js",
+      "../fieldtrip-v574/node_modules/vinext/dist/shims/link.js"
+    ],
+    "css": [
+      "assets/archive-explorer-CmsICZr7.css"
+    ]
+  },
+  "app/work/project-image-archive.tsx": {
+    "file": "assets/project-image-archive-D2vuOYd-.js",
+    "name": "project-image-archive",
+    "src": "app/work/project-image-archive.tsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_field-trip-name--QdBMp7U.js",
+      "_archive-vimeo-Cx9FFbQM.js",
+      "_image-credit-policy-DDKKWur1.js",
+      "_dist-DMe5_7ii.js",
+      "_project-caption-QmrOEeOg.js",
+      "_project-title-B0bEZ937.js",
+      "_reel-fullscreen-button-DFQFqtZo.js",
+      "_utils-BqdF6cM_.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "css": [
+      "assets/project-image-archive-s1Hhu1v1.css"
+    ]
+  },
+  "virtual:vinext-app-browser-entry": {
+    "file": "assets/index-WawYrrAd.js",
+    "name": "index",
+    "src": "virtual:vinext-app-browser-entry",
+    "isEntry": true,
+    "imports": [
+      "_rolldown-runtime-S-ySWqyJ.js",
+      "_framework-CXnKph_e.js"
+    ],
+    "dynamicImports": [
+      "../fieldtrip-v574/node_modules/vinext/dist/shims/layout-segment-context.js",
+      "app/header-scroll-offset.tsx",
+      "app/home/desktop-home-films.tsx",
+      "app/project-photo-motion.tsx",
+      "app/chameleon-wordmark.tsx",
+      "app/theme-artwork.tsx",
+      "virtual:vinext-app-browser-entry",
+      "app/color-theme.tsx",
+      "app/about/capability-anchors.tsx",
+      "app/work/archive-explorer.tsx",
+      "app/complementary-colors.tsx",
+      "app/home/on-display-carousel.tsx",
+      "app/contact/project-brief.tsx",
+      "app/landing-reel.tsx",
+      "../fieldtrip-v574/node_modules/vinext/dist/shims/link.js",
+      "app/header-menu.tsx",
+      "app/page-section-navigation.tsx",
+      "app/work/project-image-archive.tsx"
+    ]
+  }
+}

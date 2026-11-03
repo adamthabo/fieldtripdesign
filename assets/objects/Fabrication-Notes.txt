@@ -1,0 +1,26 @@
+FIELD TRIP / MONTHLY OBJECTS / REV B / 30 SEPTEMBER 2026
+
+PROTOTYPE GEOMETRY - NOT A PRODUCTION RELEASE
+Units: mm. SVG has a 270 x 175 mm artboard; DXF uses the same geometry.
+Laser stand: 2 identical side supports A + 2 identical crossbars B.
+Nominal material: 6 mm plywood. Finished envelope: 62 W x 110 D x 124 H.
+Crossbar shoulder span: 50; tab length: 6; tab height: 12.
+Side support slot openings: 6.15 x 12.15.
+Measure the actual plywood. For thickness t, change tab length to t and slot width to t plus calibrated allowance. Maintain 50 between shoulders.
+These are nominal part boundaries with NO kerf offset. Set inward/outward compensation in the shop software, using a coupon before the parts.
+Do not scale the whole file to correct stock thickness. Re-size the joints.
+The four tab-and-slot joints require wood glue. This is not a friction-fit product.
+Sand contact edges. Test case clearance, support, cord access, and front/rear/lateral tipping with real phones before production.
+Suggested phone envelope for prototype tests: 64-90 wide, 140-180 tall, 6-14 thick; centered in portrait orientation.
+Static geometry check assumes a centered phone of uniform mass. It is not a load or stability certification.
+
+CNC TRAY
+Finished 180 x 100 x 20; R10 outside corners.
+Pocket 156 x 76, R8 corners, 14 deep; nominal floor 6 and walls 12.
+Grain runs along 180. Surface first; pocket before outside profile; use secure workholding.
+Numbers are engraved on the underside, max 0.5 deep. Final feeds, toolpaths and finish are shop-set.
+
+DRAWINGS
+Phone-Stand-Assembly.svg, Phone-Stand-Parts.svg and CNC-Tray-Drawing.svg are annotated drawings, not laser-cut job files.
+Use Phone-Stand-Nominal-Cut.svg or .dxf for CAM setup only after checking scale and material.
+No G-code, feeds, speeds or automatic machine execution is included.

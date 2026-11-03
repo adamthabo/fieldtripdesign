@@ -1,0 +1,1733 @@
+{
+  "source": "https://www.elkanlevinsohn.com/projects",
+  "project_order": [
+    "brooklyn-museum",
+    "museum-city-new-york",
+    "dia-beacon",
+    "cooper-hewitt",
+    "noguchi-museum",
+    "china-institute",
+    "new-museum",
+    "delta",
+    "nike",
+    "intel",
+    "nabisco",
+    "sonos-janelle-monae",
+    "liberty-science-center",
+    "droog",
+    "socrates-sculpture-park",
+    "blanket-chocolate-factory",
+    "carnegie",
+    "david-bowie",
+    "adam-fuss",
+    "saul-melman-jadu-beta",
+    "katrin-sigurdardottir"
+  ],
+  "identity_assets": [
+    "/portfolio-carousel/_identity/elkan-levinsohn-logo.webp",
+    "/portfolio-carousel/_identity/field-trip-cnc-gallery-line.webp"
+  ],
+  "projects": [
+    {
+      "slug": "brooklyn-museum",
+      "label": "Brooklyn Museum",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-one-ephnc-d3jd8-ekx4d-fkbgh-2jx28"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/a4669d03-bbe6-4d72-8f5d-e80bf2f687af/DIG_E_2026_Iris_Van_Herpen_Sculpting_the_Senses_On_White_Wall_010-scaled.jpg",
+          "caption": "Iris Van Herpen: Sculpting the Senses",
+          "role": "gallery",
+          "source_width": 2500,
+          "source_height": 1668
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/65addf74-3f7b-47b6-96df-24edeefe35a8/IMG_6429.jpeg",
+          "caption": "The Brooklyn Museum, May 16 - Dec 22, 2026",
+          "role": "gallery",
+          "source_width": 2500,
+          "source_height": 3333
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/a57a3b4d-0461-4bb0-9f3d-94c5b76669b0/IMG_6428.jpeg",
+          "caption": "Bioluminescent Case Engineering- Elkan & Levinsohn",
+          "role": "gallery",
+          "source_width": 2500,
+          "source_height": 3333
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0819ea26-8ebe-4d2a-a634-7594aee3d51b/IMG_6403.png",
+          "caption": "Bioluminescent Algae Dress - Iris Van Herpen",
+          "role": "gallery",
+          "source_width": 1320,
+          "source_height": 2868
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/402a8312-0954-4e7e-bf1c-d93fe918f589/IMG_6441.jpeg",
+          "caption": "Design - Brooklyn Museum, Exhibition Fabrication - South Side Design & Building",
+          "role": "gallery",
+          "source_width": 2500,
+          "source_height": 3333
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/06.webp",
+          "source_url": "existing-site:/project-galleries/brooklyn-museum/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 934
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/07.webp",
+          "source_url": "existing-site:/project-galleries/brooklyn-museum/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1053,
+          "source_height": 1400
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/08.webp",
+          "source_url": "existing-site:/project-galleries/brooklyn-museum/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1109,
+          "source_height": 1400
+        },
+        {
+          "file": "/portfolio-carousel/brooklyn-museum/09.webp",
+          "source_url": "existing-site:/project-galleries/brooklyn-museum/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1050,
+          "source_height": 1400
+        }
+      ],
+      "image_count": 9
+    },
+    {
+      "slug": "museum-city-new-york",
+      "label": "Museum of the City of New York",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/baacf710-e143-4d99-9e98-debdc2b01d69/Screenshot+2025-12-16+at+11.57.28%E2%80%AFAM.png",
+          "caption": "New York at It's Core - Museum of The City of New York, 2018",
+          "role": "gallery",
+          "source_width": 1486,
+          "source_height": 988
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/17c87201-0f96-4540-bcb5-2508d6834f5b/Screenshot+2025-12-16+at+11.57.48%E2%80%AFAM.png",
+          "caption": "Design by Studio Joseph Fabrication by South Side Design & Building",
+          "role": "gallery",
+          "source_width": 1496,
+          "source_height": 998
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/45733a37-a7dc-4e23-bb91-f5f0d5381022/Screenshot+2025-12-16+at+11.57.38%E2%80%AFAM.png",
+          "caption": "Engineering Services by Adam Thabo of Elkan & Levinsohn",
+          "role": "gallery",
+          "source_width": 1488,
+          "source_height": 988
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/919a3ddf-a2cd-4c41-bcb3-ea3581eb2f3e/Screenshot+2025-12-16+at+11.57.58%E2%80%AFAM.png",
+          "caption": "Graphic Design by Pentagram",
+          "role": "gallery",
+          "source_width": 1488,
+          "source_height": 994
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0eee6991-ff36-4bcb-b9a6-a96b007d1035/Screenshot+2025-12-16+at+11.58.09%E2%80%AFAM.png",
+          "caption": "Recognized with the prestigious Overall Award in the 30th Annual American Alliance of Museums (AAM) Excellence in Exhibition competition (2018) and received an Honor award in the 2017 AIA New York Design Awards, a Built Environment Award in the 2017 Core77 Design Awards, and was a Finalist in the 2017 SEGD Global Design Awards.",
+          "role": "gallery",
+          "source_width": 1492,
+          "source_height": 986
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/06.webp",
+          "source_url": "existing-site:/project-galleries/core-nyc/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 933
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/07.webp",
+          "source_url": "existing-site:/project-galleries/core-nyc/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 933
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/08.webp",
+          "source_url": "existing-site:/project-galleries/core-nyc/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 933
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/09.webp",
+          "source_url": "existing-site:/project-galleries/core-nyc/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 800,
+          "source_height": 534
+        },
+        {
+          "file": "/portfolio-carousel/museum-city-new-york/10.webp",
+          "source_url": "existing-site:/project-galleries/core-nyc/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 933
+        }
+      ],
+      "image_count": 10
+    },
+    {
+      "slug": "dia-beacon",
+      "label": "Dia: Beacon",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-one-ephnc-d3jd8"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/dia-beacon/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/cf441cdf-aa3d-4ada-9ace-44663704b870/Screenshot+2025-12-16+at+11.50.21%E2%80%AFAM.png",
+          "caption": "Tehching Hsieh: Lifeworks 1978–1999 - Dia:Beacon, 2024",
+          "role": "gallery",
+          "source_width": 1568,
+          "source_height": 954
+        },
+        {
+          "file": "/portfolio-carousel/dia-beacon/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ae609d3b-5523-42a6-ad0d-1dfef393aac4/Screenshot+2025-12-16+at+11.50.36%E2%80%AFAM.png",
+          "caption": "Fabrication Services",
+          "role": "gallery",
+          "source_width": 1396,
+          "source_height": 972
+        },
+        {
+          "file": "/portfolio-carousel/dia-beacon/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/a56a9ddc-f62a-40d3-85ea-21555efec190/Screenshot+2025-12-16+at+11.50.49%E2%80%AFAM.png",
+          "caption": "With South Side Design & Building",
+          "role": "gallery",
+          "source_width": 1566,
+          "source_height": 974
+        },
+        {
+          "file": "/portfolio-carousel/dia-beacon/04.webp",
+          "source_url": "existing-site:/project-galleries/dia-beacon/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 852
+        },
+        {
+          "file": "/portfolio-carousel/dia-beacon/05.webp",
+          "source_url": "existing-site:/project-galleries/dia-beacon/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1396,
+          "source_height": 972
+        },
+        {
+          "file": "/portfolio-carousel/dia-beacon/06.webp",
+          "source_url": "existing-site:/project-galleries/dia-beacon/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 871
+        }
+      ],
+      "image_count": 6
+    },
+    {
+      "slug": "cooper-hewitt",
+      "label": "Cooper Hewitt Museum",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-two-llrgk-rmzfy"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/43fabbd7-1c2b-42a5-8775-250014bda6ef/Screenshot+2025-12-16+at+11.56.03%E2%80%AFAM.png",
+          "caption": "CASA DESENTERRADA/EXHUMING HOME - Ronald Rael, 2024",
+          "role": "gallery",
+          "source_width": 1488,
+          "source_height": 1000
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/a0ebf76d-046b-45de-a742-0e8a9236f5a0/Screenshot+2025-12-16+at+11.56.27%E2%80%AFAM.png",
+          "caption": "Engineering / Fabrication / Installation Services",
+          "role": "gallery",
+          "source_width": 1490,
+          "source_height": 994
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/6f045cdd-f3d2-4ac2-ba5e-f0cf7d2a54df/Screenshot+2025-12-16+at+11.56.39%E2%80%AFAM.png",
+          "caption": "Engineering / Fabrication / Installation Services",
+          "role": "gallery",
+          "source_width": 1498,
+          "source_height": 992
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/9a5bab46-bbe9-45a5-bd8f-6744458300eb/Screenshot+2025-12-16+at+11.56.50%E2%80%AFAM.png",
+          "caption": "With South Side Design & Building, 2024",
+          "role": "gallery",
+          "source_width": 1012,
+          "source_height": 990
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/05.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 933
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/06.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 929
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/07.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 933
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/08.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 514,
+          "source_height": 502
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/09.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/06.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 518,
+          "source_height": 516
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/10.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/07.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 504,
+          "source_height": 514
+        },
+        {
+          "file": "/portfolio-carousel/cooper-hewitt/11.webp",
+          "source_url": "existing-site:/project-galleries/cooper-hewitt/08.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 518,
+          "source_height": 520
+        }
+      ],
+      "image_count": 11
+    },
+    {
+      "slug": "noguchi-museum",
+      "label": "Isamu Noguchi Museum",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/new-portfolio-item-1"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/noguchi-museum/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0f8dfedb-6577-42c3-8ca0-8428c8965314/Screen+Shot+2015-10-05+at+2.55.18+PM.png",
+          "caption": "The Noguchi Museum, 2012 - On Becoming an Artist: Isamu Noguchi and his Contemporaries, 1922-1960",
+          "role": "page_body",
+          "source_width": 671,
+          "source_height": 487
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/af0f29c4-d809-4e2f-bb93-f66d4d273b41/Screen+Shot+2015-10-05+at+2.55.06+PM.png",
+          "caption": "Exhibition Design, fabrication, installation services",
+          "role": "page_body",
+          "source_width": 654,
+          "source_height": 490
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/3f1a3956-c49b-4097-8fbc-e76f50a65a24/Screen+Shot+2015-10-05+at+2.55.29+PM.png",
+          "caption": "curator - Amy Wolf",
+          "role": "page_body",
+          "source_width": 635,
+          "source_height": 489
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/f494030a-60db-4ebc-9533-72c0b5014cc8/L24isamu_noguchi1-640x300.jpg",
+          "caption": "PROJECTS - Isamu Noguchi Museum",
+          "role": "page_body",
+          "source_width": 640,
+          "source_height": 300
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/c2a4d7ba-cf89-43e9-92bb-419e3e2f5fe7/Screen+Shot+2015-10-05+at+2.55.47+PM.png",
+          "caption": "PROJECTS - Isamu Noguchi Museum",
+          "role": "page_body",
+          "source_width": 661,
+          "source_height": 482
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/bd72e599-5d09-465f-a631-fd0328e27c46/Screen+Shot+2015-10-05+at+2.57.41+PM.png",
+          "caption": "PROJECTS - Isamu Noguchi Museum",
+          "role": "page_body",
+          "source_width": 908,
+          "source_height": 654
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/44d64b06-c0a5-4793-bb7a-c1e74078d8f3/Screenshot+2025-12-16+at+11.58.24%E2%80%AFAM.png",
+          "caption": "Isamu Noguchi Museum portfolio listing thumbnail",
+          "role": "portfolio_listing_thumbnail+open_graph_image",
+          "source_width": 1338,
+          "source_height": 990
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/08.webp",
+          "source_url": "existing-site:/project-galleries/on-becoming-an-artist/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 516,
+          "source_height": 382
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/09.webp",
+          "source_url": "existing-site:/project-galleries/on-becoming-an-artist/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 516,
+          "source_height": 385
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/10.webp",
+          "source_url": "existing-site:/project-galleries/on-becoming-an-artist/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 514,
+          "source_height": 377
+        },
+        {
+          "file": "/portfolio-carousel/noguchi-museum/11.webp",
+          "source_url": "existing-site:/project-galleries/on-becoming-an-artist/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 519,
+          "source_height": 387
+        }
+      ],
+      "image_count": 11
+    },
+    {
+      "slug": "china-institute",
+      "label": "China Institute",
+      "page_urls": [],
+      "images": [],
+      "image_count": 0
+    },
+    {
+      "slug": "new-museum",
+      "label": "New Museum NY",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/the-new-museum"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/new-museum/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/99216f83-2a6b-4302-8a05-4c9d502859cf/Screen+Shot+2015-09-14+at+4.36.46+PM.png",
+          "caption": "To celebrate a new collaboration between Intel and SMS Audio, Tool and Sid Lee built Heart Bot.",
+          "role": "page_body",
+          "source_width": 1660,
+          "source_height": 934
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/aa21a3b6-74bd-4923-852e-4837ebc85067/Screen+Shot+2015-10-06+at+2.50.08+PM.png",
+          "caption": "The experience took place at The New Museum.",
+          "role": "page_body",
+          "source_width": 1401,
+          "source_height": 776
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/254651d6-faa6-4ed9-8cfb-fd0c089dee24/Screen+Shot+2015-09-14+at+4.33.28+PM.png",
+          "caption": "Working with Tool of NA, Adam Thabo provided design services",
+          "role": "page_body",
+          "source_width": 1667,
+          "source_height": 935
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/3a8a4bbb-7918-4866-a6d8-bfcb1354b05a/Screen+Shot+2015-09-14+at+4.33.51+PM.png",
+          "caption": "The project was fabricated and installed by South Side Design & Building",
+          "role": "page_body",
+          "source_width": 1623,
+          "source_height": 923
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/41853b2f-d3d4-4667-a8a3-4a496d62d603/Screen+Shot+2015-09-14+at+4.35.35+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 1623,
+          "source_height": 936
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0750a163-40f3-4380-904d-4e0cc87a2258/Screen+Shot+2015-09-14+at+4.38.31+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 898,
+          "source_height": 897
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/40300df7-edc5-4af9-bc30-41dbd2b37421/Screen+Shot+2015-09-14+at+4.34.20+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 1672,
+          "source_height": 928
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/08.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/9370f10c-d2f1-4c44-9ffc-cc6499d4508a/Screen+Shot+2015-10-06+at+2.50.27+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 1166,
+          "source_height": 774
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/09.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b0787ed2-0938-4602-99b6-00085889bf48/Screen+Shot+2015-09-14+at+4.39.48+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 992,
+          "source_height": 833
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/10.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d902435d-5a09-47c2-a082-b2e476fcb316/Screen+Shot+2015-10-06+at+2.51.28+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 1033,
+          "source_height": 774
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/11.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/bedae625-5031-47eb-8ade-5c657aa0c1ef/Screen+Shot+2015-09-14+at+4.39.20+PM.png",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 478,
+          "source_height": 594
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/12.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/978ea353-143a-4f9b-bcda-263d63c9cc38/578A0094.JPG",
+          "caption": "PROJECTS - New Museum NY",
+          "role": "page_body",
+          "source_width": 2500,
+          "source_height": 1667
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/13.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 640,
+          "source_height": 360
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/14.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1124,
+          "source_height": 741
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/15.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 614,
+          "source_height": 594
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/16.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1003,
+          "source_height": 840
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/17.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 807
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/18.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/06.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 796
+        },
+        {
+          "file": "/portfolio-carousel/new-museum/19.webp",
+          "source_url": "existing-site:/project-galleries/heart-bot/07.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 788
+        }
+      ],
+      "image_count": 19
+    },
+    {
+      "slug": "delta",
+      "label": "TED Vancouver for Delta",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-four-yjynj-ggpen"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/delta/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ce8a03b4-bbdf-4b90-8460-2bf066842285/Screenshot+2025-12-20+at+4.31.12%E2%80%AFPM.png",
+          "caption": "SCEND premiered at TED in 2016",
+          "role": "page_body",
+          "source_width": 1498,
+          "source_height": 988
+        },
+        {
+          "file": "/portfolio-carousel/delta/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/21499708-f331-4ed2-9f4d-3f6be13d7507/Screenshot+2025-12-20+at+4.32.10%E2%80%AFPM.png",
+          "caption": "ASCEND invited TED global attendees to climb into the stars and DREAM as they created an interactive constellation with their movement.",
+          "role": "page_body",
+          "source_width": 1756,
+          "source_height": 980
+        },
+        {
+          "file": "/portfolio-carousel/delta/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/c761b1cb-bd0a-4052-8b3a-1e314ce8b68d/Screenshot+2025-12-20+at+4.31.23%E2%80%AFPM.png",
+          "caption": "Commissioned by DELTA for TED, 2016 - Vancouver, BC.",
+          "role": "page_body",
+          "source_width": 1752,
+          "source_height": 992
+        },
+        {
+          "file": "/portfolio-carousel/delta/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/5dfe45fe-871b-407b-88b1-8f87c2d0c3c8/Screenshot+2025-12-20+at+4.31.33%E2%80%AFPM.png",
+          "caption": "Lead designer, Adam Thabo",
+          "role": "page_body",
+          "source_width": 1486,
+          "source_height": 988
+        },
+        {
+          "file": "/portfolio-carousel/delta/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/5ee1541e-08f1-4cff-9cd8-c0e78961f3ca/Screenshot+2025-12-20+at+4.31.44%E2%80%AFPM.png",
+          "caption": "With technical lead, Jeff Cruse",
+          "role": "page_body",
+          "source_width": 1786,
+          "source_height": 986
+        },
+        {
+          "file": "/portfolio-carousel/delta/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/50c498c7-e638-44a6-aaa3-f51cc589488e/Screenshot+2025-12-20+at+4.31.56%E2%80%AFPM.png",
+          "caption": "By Aramique",
+          "role": "page_body",
+          "source_width": 988,
+          "source_height": 992
+        },
+        {
+          "file": "/portfolio-carousel/delta/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/7f4fb7ab-1183-44fb-a58d-4e95acc00195/Screenshot+2025-12-17+at+3.12.44%E2%80%AFPM.png",
+          "caption": "Ted Vancouver for Delta portfolio listing thumbnail",
+          "role": "portfolio_listing_thumbnail+open_graph_image",
+          "source_width": 1494,
+          "source_height": 988
+        },
+        {
+          "file": "/portfolio-carousel/delta/08.webp",
+          "source_url": "existing-site:/project-galleries/ascend/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 640,
+          "source_height": 360
+        },
+        {
+          "file": "/portfolio-carousel/delta/09.webp",
+          "source_url": "existing-site:/project-galleries/ascend/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 929
+        },
+        {
+          "file": "/portfolio-carousel/delta/10.webp",
+          "source_url": "existing-site:/project-galleries/ascend/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 791
+        },
+        {
+          "file": "/portfolio-carousel/delta/11.webp",
+          "source_url": "existing-site:/project-galleries/ascend/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 936
+        },
+        {
+          "file": "/portfolio-carousel/delta/12.webp",
+          "source_url": "existing-site:/project-galleries/ascend/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 780
+        },
+        {
+          "file": "/portfolio-carousel/delta/13.webp",
+          "source_url": "existing-site:/project-galleries/ascend/06.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1170,
+          "source_height": 1172
+        },
+        {
+          "file": "/portfolio-carousel/delta/14.webp",
+          "source_url": "existing-site:/project-galleries/ascend/07.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 791
+        }
+      ],
+      "image_count": 14
+    },
+    {
+      "slug": "nike",
+      "label": "Nike, Inc.",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-x4mzd"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/nike/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0d3c9dfb-0de7-4248-8ebb-823d51cd55c6/Artandscience-cover.png",
+          "caption": "Nike Hyper-feel brand release",
+          "role": "project_gallery",
+          "source_width": 1200,
+          "source_height": 800
+        },
+        {
+          "file": "/portfolio-carousel/nike/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/7bdaacb5-33f3-4377-8e0d-56b238942ff7/ArtAndScienceOfFeeling_BellJar_23169.png",
+          "caption": "Concept by Aramique",
+          "role": "project_gallery",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/accf1766-f30b-42bb-82df-de72a81c8ca4/ArtAndScienceOfFeeling_Column_23170.png",
+          "caption": "Technology by Jeff Cruise",
+          "role": "project_gallery",
+          "source_width": 600,
+          "source_height": 900
+        },
+        {
+          "file": "/portfolio-carousel/nike/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/7c1bebde-aba6-4a94-b888-ce7dab736bfa/ArtAndScienceOfFeeling_Knit_23177.png",
+          "caption": "Design by Tool of NA",
+          "role": "project_gallery",
+          "source_width": 600,
+          "source_height": 900
+        },
+        {
+          "file": "/portfolio-carousel/nike/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/9a091efe-8e93-435c-826c-0b4647c9c6ee/ArtAndScienceOfFeeling_Message_23172.png",
+          "caption": "With engineering for display by Adam Thabo",
+          "role": "project_gallery",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/fa5544fe-85f8-489f-a5e1-821236266c83/ArtAndScienceOfFeeling_Pathway_23168.png",
+          "caption": "Cumulative user data combined and displayed",
+          "role": "project_gallery",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/3afb639c-65df-419f-88b9-acf58b03cd93/ArtAndScienceOfFeeling_Rocks_23173.png",
+          "caption": "ArtAndScienceOfFeeling_Rocks_23173.png",
+          "role": "project_gallery",
+          "source_width": 467,
+          "source_height": 700
+        },
+        {
+          "file": "/portfolio-carousel/nike/08.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/68144ae3-b840-41ac-9a23-e86959b6cecf/ArtAndScienceOfFeeling_Shadow_23175.png",
+          "caption": "ArtAndScienceOfFeeling_Shadow_23175.png",
+          "role": "project_gallery",
+          "source_width": 467,
+          "source_height": 700
+        },
+        {
+          "file": "/portfolio-carousel/nike/09.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/2d4614e6-9045-4b25-bbb8-030e2cf47a03/ArtAndScienceOfFeeling_ShoeBrain_23176.png",
+          "caption": "ArtAndScienceOfFeeling_ShoeBrain_23176.png",
+          "role": "project_gallery",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/10.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/bfd5c439-be13-4974-ae9e-e9e500260504/ArtAndScienceOfFeeling_ShoeLineup_23174.png",
+          "caption": "ArtAndScienceOfFeeling_ShoeLineup_23174.png",
+          "role": "project_gallery",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/11.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/fc3eecf6-b086-4e70-91a9-6d275f74de13/Nike2.png",
+          "caption": "Nike, Inc.",
+          "role": "projects_index_cover",
+          "source_width": 300,
+          "source_height": 173
+        },
+        {
+          "file": "/portfolio-carousel/nike/12.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 792
+        },
+        {
+          "file": "/portfolio-carousel/nike/13.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/14.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/15.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/16.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 467,
+          "source_height": 700
+        },
+        {
+          "file": "/portfolio-carousel/nike/17.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/06.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1104,
+          "source_height": 645
+        },
+        {
+          "file": "/portfolio-carousel/nike/18.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/07.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 900,
+          "source_height": 600
+        },
+        {
+          "file": "/portfolio-carousel/nike/19.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/08.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 633,
+          "source_height": 646
+        },
+        {
+          "file": "/portfolio-carousel/nike/20.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/09.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 467,
+          "source_height": 700
+        },
+        {
+          "file": "/portfolio-carousel/nike/21.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/10.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 663,
+          "source_height": 441
+        },
+        {
+          "file": "/portfolio-carousel/nike/22.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/11.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 600,
+          "source_height": 900
+        },
+        {
+          "file": "/portfolio-carousel/nike/23.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/12.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 600,
+          "source_height": 900
+        },
+        {
+          "file": "/portfolio-carousel/nike/24.webp",
+          "source_url": "existing-site:/project-galleries/nike-free-hyperfeel/13.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 900,
+          "source_height": 600
+        }
+      ],
+      "image_count": 24
+    },
+    {
+      "slug": "intel",
+      "label": "Intel / Intel + Opening Ceremony",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-d2h4l-cm5z7",
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9-zwswj-d2h4l"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/intel/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/978ea353-143a-4f9b-bcda-263d63c9cc38/578A0094.JPG",
+          "caption": "50 Cent",
+          "role": "project_gallery",
+          "source_width": 2500,
+          "source_height": 1667
+        },
+        {
+          "file": "/portfolio-carousel/intel/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d902435d-5a09-47c2-a082-b2e476fcb316/Screen+Shot+2015-10-06+at+2.51.28+PM.png",
+          "caption": "Industrial Design for Odd Division",
+          "role": "project_gallery",
+          "source_width": 1033,
+          "source_height": 774
+        },
+        {
+          "file": "/portfolio-carousel/intel/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d9efe66f-4db7-4d44-9bcd-0feb40f53670/Screen+Shot+2015-10-06+at+2.51.08+PM.png",
+          "caption": "Installed at Intel",
+          "role": "project_gallery",
+          "source_width": 757,
+          "source_height": 776
+        },
+        {
+          "file": "/portfolio-carousel/intel/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b0787ed2-0938-4602-99b6-00085889bf48/Screen+Shot+2015-09-14+at+4.39.48+PM.png",
+          "caption": "Collaboration with SMS audio + Intel",
+          "role": "project_gallery",
+          "source_width": 992,
+          "source_height": 833
+        },
+        {
+          "file": "/portfolio-carousel/intel/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b0617b4f-de85-4350-b970-3786068c1c96/Low-poly+head+with+futuristic+headphones.png",
+          "caption": "All Design by Adam Thabo for Odd Division",
+          "role": "project_gallery",
+          "source_width": 1536,
+          "source_height": 1024
+        },
+        {
+          "file": "/portfolio-carousel/intel/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/82b4b1a2-f098-494f-8175-879dc4fac50f/Screen+Shot+2015-09-20+at+3.17.19+PM.png",
+          "caption": "Screen Shot 2015-09-20 at 3.17.19 PM.png",
+          "role": "project_gallery",
+          "source_width": 481,
+          "source_height": 731
+        }
+      ],
+      "image_count": 6
+    },
+    {
+      "slug": "nabisco",
+      "label": "Nabisco, Inc.",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-g27gh"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/nabisco/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0a765158-7e11-4a78-b81b-49fb2ba67e64/Screen+Shot+2015-09-14+at+11.02.15+PM.png",
+          "caption": "Wheat Thins Popped",
+          "role": "project_gallery",
+          "source_width": 922,
+          "source_height": 609
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ce6f3590-78f4-4e5e-b17b-b1f5f03680d1/Screen+Shot+2015-09-14+at+11.06.35+PM.png",
+          "caption": "Time Square, New York, NY",
+          "role": "project_gallery",
+          "source_width": 516,
+          "source_height": 538
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b53698a1-0525-444b-ace5-cf51c2dcd56e/Screen+Shot+2015-09-14+at+11.01.07+PM.png",
+          "caption": "Design by Adam Thabo",
+          "role": "project_gallery",
+          "source_width": 713,
+          "source_height": 522
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/36086105-e82c-4af4-92fe-599679577b65/Screen+Shot+2015-09-14+at+11.06.25+PM.png",
+          "caption": "Concept by Aramique",
+          "role": "project_gallery",
+          "source_width": 534,
+          "source_height": 580
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d84287b0-8456-4e9f-b50e-c55e8211fad4/Screen+Shot+2014-04-15+at+10.14.34+PM.png",
+          "caption": "Technology by Jeff Cruise and Matt Metz",
+          "role": "project_gallery",
+          "source_width": 607,
+          "source_height": 607
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/bc132ded-c52f-47b5-b35b-be4dc23fb8f5/Screen+Shot+2015-09-14+at+11.07.02+PM.png",
+          "caption": "Tweets sent by phones popped balloons",
+          "role": "project_gallery",
+          "source_width": 804,
+          "source_height": 580
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b8dbc333-67d7-4d06-bf44-24ee8718cc77/Screen+Shot+2014-04-15+at+10.33.50+PM.png",
+          "caption": "Promoted by Kelly Clarkson",
+          "role": "project_gallery",
+          "source_width": 937,
+          "source_height": 809
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/08.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 607,
+          "source_height": 607
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/09.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 516,
+          "source_height": 538
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/10.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 937,
+          "source_height": 809
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/11.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 666,
+          "source_height": 654
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/12.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 804,
+          "source_height": 580
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/13.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/06.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 534,
+          "source_height": 580
+        },
+        {
+          "file": "/portfolio-carousel/nabisco/14.webp",
+          "source_url": "existing-site:/project-galleries/wheat-thins-popped/07.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 922,
+          "source_height": 609
+        }
+      ],
+      "image_count": 14
+    },
+    {
+      "slug": "sonos-janelle-monae",
+      "label": "Janelle Monae for Sonos",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9h353"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b7d281c7-2d4d-4f4b-8236-d079d33fb51c/Screen+Shot+2013-10-01+at+11.16.52+AM.png",
+          "caption": "Screen Shot 2013-10-01 at 11.16.52 AM.png",
+          "role": "project_gallery",
+          "source_width": 905,
+          "source_height": 902
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/91481f8d-5e89-4dab-934b-9f2493b90f36/Screen+Shot+2013-10-02+at+4.37.04+PM.png",
+          "caption": "Client: Sonos Audio",
+          "role": "project_gallery",
+          "source_width": 2500,
+          "source_height": 1554
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d7866f9e-7e78-4e98-848e-2aeadb3684f4/Screen+Shot+2013-10-01+at+11.17.03+AM.png",
+          "caption": "Sonos + Target collaboration",
+          "role": "project_gallery",
+          "source_width": 897,
+          "source_height": 894
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ffec4424-dd2a-474e-9426-a31e88061d24/Screen+Shot+2013-10-01+at+11.18.11+AM.png",
+          "caption": "sound, lasers and fog",
+          "role": "project_gallery",
+          "source_width": 1204,
+          "source_height": 836
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/fa63319e-9139-44d2-911e-f85a66eca5fe/Screen+Shot+2013-10-01+at+11.16.42+AM.png",
+          "caption": "For janaelle Monae's Record-release Party",
+          "role": "project_gallery",
+          "source_width": 679,
+          "source_height": 894
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/e18ba87d-2298-492f-90f5-9c691a12d5fe/JanelleMonaeTargetCelebrateReleaseElectricuKWP9iStFqjl.jpg",
+          "caption": "Peer 86, New York, NY.",
+          "role": "project_gallery",
+          "source_width": 594,
+          "source_height": 396
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/07.webp",
+          "source_url": "existing-site:/project-galleries/electric-jukebox/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 1400,
+          "source_height": 867
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/08.webp",
+          "source_url": "existing-site:/project-galleries/electric-jukebox/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 662,
+          "source_height": 452
+        },
+        {
+          "file": "/portfolio-carousel/sonos-janelle-monae/09.webp",
+          "source_url": "existing-site:/project-galleries/electric-jukebox/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 723,
+          "source_height": 476
+        }
+      ],
+      "image_count": 9
+    },
+    {
+      "slug": "liberty-science-center",
+      "label": "Liberty Science Center",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-yb2lj"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/liberty-science-center/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/006989f4-c202-4a10-b4a0-bfbade8fa5a9/Screenshot+2026-02-25+at+12.30.27%E2%80%AFPM.png",
+          "caption": "Client: Emilie Baltz",
+          "role": "content",
+          "source_width": 2062,
+          "source_height": 1368
+        },
+        {
+          "file": "/portfolio-carousel/liberty-science-center/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/5ef7753c-dcfe-410f-b341-56061f183124/Screenshot+2026-02-25+at+12.30.37%E2%80%AFPM.png",
+          "caption": "Concept Development",
+          "role": "content",
+          "source_width": 2058,
+          "source_height": 1152
+        },
+        {
+          "file": "/portfolio-carousel/liberty-science-center/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/97d70766-9591-4983-ad8c-3feaf0834103/Screenshot+2026-02-25+at+12.30.53%E2%80%AFPM.png",
+          "caption": "Exhibition Design",
+          "role": "content",
+          "source_width": 2058,
+          "source_height": 1374
+        },
+        {
+          "file": "/portfolio-carousel/liberty-science-center/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/fb43aada-dd50-43ca-8c1a-5cf220e19815/Screenshot+2026-02-25+at+12.31.15%E2%80%AFPM.png",
+          "caption": "Represent one of 10 basic human emotions",
+          "role": "content",
+          "source_width": 2054,
+          "source_height": 1144
+        },
+        {
+          "file": "/portfolio-carousel/liberty-science-center/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/867b2489-7b3e-4f98-a019-7ad2a3ed7ef0/Screenshot+2026-02-25+at+12.31.03%E2%80%AFPM.png",
+          "caption": "For More, click the image",
+          "role": "content",
+          "source_width": 2060,
+          "source_height": 1332
+        }
+      ],
+      "image_count": 5
+    },
+    {
+      "slug": "droog",
+      "label": "DROOG",
+      "page_urls": [
+        "https://www.adamthabo.com/more"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/droog/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/533cbef5e4b0aa2aaadaf992/1501016731784-H6WIGUSUE7RYRSNLVY1Z/Droog.png",
+          "caption": "Droog.png",
+          "role": "archive_thumbnail",
+          "source_width": 300,
+          "source_height": 234
+        }
+      ],
+      "image_count": 1
+    },
+    {
+      "slug": "socrates-sculpture-park",
+      "label": "Best of All Possible Worlds",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/socrates-sculpture-park"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/1bb0def9-fbff-4cd0-b111-84ca8f5c9bc4/BOAPW_Socrates_NYC_0405.png",
+          "caption": "Best Of All Possible Worlds - Socrates Sculpture Garden, NY. Saul Melman, 2011",
+          "role": "gallery",
+          "source_width": 1400,
+          "source_height": 934
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/c100c402-812b-4b1d-9249-2f3649e82210/Screen+Shot+2014-04-24+at+11.05.21+AM.png",
+          "caption": "The architectural floorplan of a New York apartment is mapped out with vacuum-formed plastic doors. The doors function as a fixed idea in the fluid, outdoor sculptural experience.",
+          "role": "gallery",
+          "source_width": 678,
+          "source_height": 465
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/93136baa-1cc8-46a3-bc93-7a6e51db66d8/Screen+Shot+2015-10-06+at+9.46.34+PM.png",
+          "caption": "The daily movement of the sun across the Park alters the viewers’ experience of the work, and imbues ephemerality to the architecture beyond the Park setting.",
+          "role": "gallery",
+          "source_width": 716,
+          "source_height": 533
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/5f0e20ba-3b46-4118-a158-1ead00d81529/Screen+Shot+2014-04-24+at+11.13.09+AM.png",
+          "caption": "Design / Fabrication / Installation Services",
+          "role": "gallery",
+          "source_width": 603,
+          "source_height": 453
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/f17a18ca-71a9-40ec-9fbd-bf627f13949a/Screen+Shot+2015-10-06+at+9.47.36+PM.png",
+          "caption": "Screen Shot 2015-10-06 at 9.47.36 PM.png",
+          "role": "gallery",
+          "source_width": 711,
+          "source_height": 534
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/45e13301-31e5-4e51-acce-0892a842a8e7/Screen+Shot+2015-10-06+at+9.46.16+PM.png",
+          "caption": "Screen Shot 2015-10-06 at 9.46.16 PM.png",
+          "role": "gallery",
+          "source_width": 716,
+          "source_height": 534
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/f906a0ec-fe21-44ea-b18d-92e0a03d435c/Screen+Shot+2015-10-06+at+9.47.26+PM.png",
+          "caption": "decordova Sculpture Park and Museum",
+          "role": "gallery",
+          "source_width": 715,
+          "source_height": 533
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/08.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/987d100c-2fb2-4ab5-ba7b-5d29cf180aae/Screen+Shot+2015-10-06+at+9.46.06+PM.png",
+          "caption": "A second iteration was installed at the deCordova Sculpture Park and Museum in Lincoln, Conn.",
+          "role": "gallery",
+          "source_width": 714,
+          "source_height": 477
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/09.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/8104fe8b-e679-43da-861d-564c972940b3/Screenshot+2025-12-16+at+12.00.21%E2%80%AFPM.png",
+          "caption": "Saul Melman artwork",
+          "role": "projects_index_cover",
+          "source_width": 1496,
+          "source_height": 1038
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/10.webp",
+          "source_url": "existing-site:/project-galleries/best-of-all-possible-worlds/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 716,
+          "source_height": 476
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/11.webp",
+          "source_url": "existing-site:/project-galleries/best-of-all-possible-worlds/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 776,
+          "source_height": 611
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/12.webp",
+          "source_url": "existing-site:/project-galleries/best-of-all-possible-worlds/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 925,
+          "source_height": 689
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/13.webp",
+          "source_url": "existing-site:/project-galleries/best-of-all-possible-worlds/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 714,
+          "source_height": 477
+        },
+        {
+          "file": "/portfolio-carousel/socrates-sculpture-park/14.webp",
+          "source_url": "existing-site:/project-galleries/best-of-all-possible-worlds/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 716,
+          "source_height": 533
+        }
+      ],
+      "image_count": 14
+    },
+    {
+      "slug": "blanket-chocolate-factory",
+      "label": "The Blanket / The Chocolate Factory",
+      "page_urls": [],
+      "images": [],
+      "image_count": 0
+    },
+    {
+      "slug": "carnegie",
+      "label": "Carnegie Museum of Natural History",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-egr8k"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/carnegie/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ac13c228-a1ff-4643-ad02-dc13a4e87f62/Carnegie.png",
+          "caption": "M Is For Museum - Carnegie Museum of Natural History. Pittsburgh, Pa. 2011",
+          "role": "gallery",
+          "source_width": 300,
+          "source_height": 200
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/a3fdce28-42d6-42e2-95a4-f5d84e25b32e/ChatGPT+Image+Feb+14%2C+2026+at+08_12_46+PM.png",
+          "caption": "M Is For Museum, Director's note in the link",
+          "role": "gallery",
+          "source_width": 1536,
+          "source_height": 1024
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/aa96792e-348a-4be4-8c46-35b73f6a6a09/Screenshot+2026-02-14+at+8.27.47%E2%80%AFPM.png",
+          "caption": "Branding by Wall-to-wall Studios",
+          "role": "gallery",
+          "source_width": 352,
+          "source_height": 630
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ac000c61-1448-440f-8507-3766b042e38b/Screenshot+2026-02-14+at+8.27.40%E2%80%AFPM.png",
+          "caption": "Branding by Wall-to-wall Studios",
+          "role": "gallery",
+          "source_width": 552,
+          "source_height": 558
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/9fe93593-878c-4a1c-883b-f061a20d82bb/Screenshot+2026-02-14+at+8.26.33%E2%80%AFPM.png",
+          "caption": "Bugs and Butterflies Ball in the link",
+          "role": "gallery",
+          "source_width": 1732,
+          "source_height": 1218
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/0da3fa29-4732-47e6-88c9-dfbff82ac797/Screenshot+2026-02-14+at+8.33.04%E2%80%AFPM.png",
+          "caption": "Fabrication / Installation by South Side Design & Building",
+          "role": "gallery",
+          "source_width": 956,
+          "source_height": 808
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/4189c64a-dafe-4ffb-9ffc-d4a504cd80c4/Screenshot+2026-02-14+at+8.24.51%E2%80%AFPM.png",
+          "caption": "M Is For Museum - Carnegie Museum of Natural History. Pittsburgh, Pa. 2011",
+          "role": "gallery",
+          "source_width": 1394,
+          "source_height": 726
+        },
+        {
+          "file": "/portfolio-carousel/carnegie/08.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/fe46edb1-1b70-4851-ac56-0d6cc1c13d5e/M+Is+For+Museum+.png",
+          "caption": "Carnegie Museum of Natural History",
+          "role": "projects_index_cover",
+          "source_width": 1125,
+          "source_height": 840
+        }
+      ],
+      "image_count": 8
+    },
+    {
+      "slug": "david-bowie",
+      "label": "David Bowie Residence",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-dtsht"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/david-bowie/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/fc60d561-6c21-4010-8371-107334a60802/Screenshot+2026-02-24+at+11.28.52%E2%80%AFPM.png",
+          "caption": "David Bowie Private Residence, New York, NY",
+          "role": "gallery",
+          "source_width": 2254,
+          "source_height": 1268
+        },
+        {
+          "file": "/portfolio-carousel/david-bowie/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/b93a4ad8-24f0-498b-b252-98a475734037/Screenshot+2026-02-24+at+11.29.19%E2%80%AFPM.png",
+          "caption": "Fabrication and Installation by South Side Design & Building",
+          "role": "gallery",
+          "source_width": 1010,
+          "source_height": 1218
+        },
+        {
+          "file": "/portfolio-carousel/david-bowie/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/2c8e9ef4-d7f3-4d46-9c9c-189c3a557627/Screenshot+2026-02-24+at+11.29.31%E2%80%AFPM.png",
+          "caption": "Homes & Gardens Article",
+          "role": "gallery",
+          "source_width": 1018,
+          "source_height": 1218
+        }
+      ],
+      "image_count": 3
+    },
+    {
+      "slug": "adam-fuss",
+      "label": "Adam Fuss artwork",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk-f3353-c76x9"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/adam-fuss/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/20f62fca-e503-4022-a9e2-bf23e47ca9f7/adamfuss-installationshots.jpg.webp",
+          "caption": "Large-scale photographic printing",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 931
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/27ce0641-3d16-4986-9930-8a9ab337f319/adamfuss-installationshots-7-.jpg.webp",
+          "caption": "adamfuss-installationshots-7-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 992
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/2b8d9a23-a4c3-4052-83d0-fa6893dd81b8/adamfuss-installationshots-5-.jpg.webp",
+          "caption": "adamfuss-installationshots-5-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 993
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/a85bf21a-2896-4498-95c1-cc491743b517/adamfuss-installationshots-3-.jpg.webp",
+          "caption": "adamfuss-installationshots-3-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 1004
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/8cb1ed43-23a1-4897-89ce-98ea7391fab2/adamfuss-installationshots-2-.jpg.webp",
+          "caption": "adamfuss-installationshots-2-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 992
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/00698c4c-b39b-491b-ac7f-1b35feecec64/adamfuss-installationshots-8-.jpg.webp",
+          "caption": "adamfuss-installationshots-8-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 1006
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/07.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/691e2b9a-f0ad-4e05-9cff-463a0bdf4c68/adamfuss-installationshots-4-.jpg.webp",
+          "caption": "adamfuss-installationshots-4-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 1008
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/08.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/8e04a59d-8922-4010-a281-00d87fababcd/adamfuss-installationshots-6-.jpg.webp",
+          "caption": "adamfuss-installationshots-6-.jpg.webp",
+          "role": "gallery",
+          "source_width": 1500,
+          "source_height": 998
+        },
+        {
+          "file": "/portfolio-carousel/adam-fuss/09.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/43ab0be5-9cf1-455d-99a9-4fdb614aad75/Screen+Shot+2014-04-07+at+7.48.14+PM.png",
+          "caption": "Adam Fuss artwork",
+          "role": "projects_index_cover",
+          "source_width": 655,
+          "source_height": 414
+        }
+      ],
+      "image_count": 9
+    },
+    {
+      "slug": "saul-melman-jadu-beta",
+      "label": "Saul Melman — Jadu Beta",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/socrates-sculpture-park"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/4c0fa503-f464-492d-8bb1-65e7c2a8f147/Screen+Shot+2015-10-06+at+10.00.07+PM.png",
+          "caption": "Burning Man, 2004",
+          "role": "gallery",
+          "source_width": 714,
+          "source_height": 493
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/bb7412f2-27a6-4149-a248-3d389aea27ba/Screen+Shot+2015-10-06+at+10.00.39+PM.png",
+          "caption": "Jadu Beta",
+          "role": "gallery",
+          "source_width": 713,
+          "source_height": 574
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d73975bf-a96c-4498-a45c-cca35e494961/Screen+Shot+2015-10-06+at+10.00.22+PM.png",
+          "caption": "Engineering / Fabrication / Installation",
+          "role": "gallery",
+          "source_width": 714,
+          "source_height": 830
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/04.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/6d35de76-9a90-4235-a1b0-b1c64edeb9ef/Screen+Shot+2015-10-06+at+9.59.57+PM.png",
+          "caption": "Saul Melman",
+          "role": "gallery",
+          "source_width": 715,
+          "source_height": 509
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/05.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/d5115411-cdd7-47a4-9af7-ecbbaf552615/Screen+Shot+2015-10-06+at+10.00.54+PM.png",
+          "caption": "400 8' dia. plastic pods tethered together",
+          "role": "gallery",
+          "source_width": 713,
+          "source_height": 474
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/06.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/5b2c1998-4579-4aef-a9f4-a056d2ed8313/Screen+Shot+2015-10-06+at+9.59.47+PM.png",
+          "caption": "Images by Adam Thabo",
+          "role": "gallery",
+          "source_width": 715,
+          "source_height": 534
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/07.webp",
+          "source_url": "existing-site:/project-galleries/jadu-beta/01.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 714,
+          "source_height": 493
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/08.webp",
+          "source_url": "existing-site:/project-galleries/jadu-beta/02.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 715,
+          "source_height": 534
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/09.webp",
+          "source_url": "existing-site:/project-galleries/jadu-beta/03.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 715,
+          "source_height": 509
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/10.webp",
+          "source_url": "existing-site:/project-galleries/jadu-beta/04.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 713,
+          "source_height": 574
+        },
+        {
+          "file": "/portfolio-carousel/saul-melman-jadu-beta/11.webp",
+          "source_url": "existing-site:/project-galleries/jadu-beta/05.webp",
+          "caption": "",
+          "role": "existing_archive_supplement",
+          "source_width": 714,
+          "source_height": 830
+        }
+      ],
+      "image_count": 11
+    },
+    {
+      "slug": "katrin-sigurdardottir",
+      "label": "Katrin Sigurdardottir artwork",
+      "page_urls": [
+        "https://www.elkanlevinsohn.com/projects/project-three-8zgh7-8frkx-9a9dk"
+      ],
+      "images": [
+        {
+          "file": "/portfolio-carousel/katrin-sigurdardottir/01.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/ba6ac4ac-db52-4928-a75f-8d3f6e1157d8/Screenshot+2026-02-14+at+6.04.33%E2%80%AFPM.png",
+          "caption": "Stage 2005/2012 - Katrín Sigurdardóttir - ARt In General, NYC. 2012",
+          "role": "gallery",
+          "source_width": 1414,
+          "source_height": 934
+        },
+        {
+          "file": "/portfolio-carousel/katrin-sigurdardottir/02.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/646efc79-954b-4cfc-a88b-36260a921292/katrin_sigurdardottir_stage.jpg",
+          "caption": "Fabrication / Installation Services",
+          "role": "gallery",
+          "source_width": 2448,
+          "source_height": 3264
+        },
+        {
+          "file": "/portfolio-carousel/katrin-sigurdardottir/03.webp",
+          "source_url": "https://images.squarespace-cdn.com/content/v1/68eed182526574092b5037c8/2cd05646-70eb-4c03-8162-46bf84cd0e52/Screen+Shot+2014-04-07+at+7.57.44+PM.png",
+          "caption": "This work is a remake of an older work from 2005.",
+          "role": "gallery",
+          "source_width": 951,
+          "source_height": 714
+        }
+      ],
+      "image_count": 3
+    }
+  ]
+}

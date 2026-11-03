@@ -1,0 +1,33 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "fieldtripdesign",
+  "main": "server/index.js",
+  "compatibility_date": "2026-05-15",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "workers_dev": true,
+  "no_bundle": true,
+  "find_additional_modules": true,
+  "base_dir": "server",
+  "rules": [
+    {
+      "type": "ESModule",
+      "globs": [
+        "**/*.js",
+        "**/*.mjs"
+      ]
+    }
+  ],
+  "assets": {
+    "directory": "./assets",
+    "binding": "ASSETS",
+    "not_found_handling": "none"
+  },
+  "vars": {
+    "FIELDTRIP_STANDALONE": "1"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
