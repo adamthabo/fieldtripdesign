@@ -1,9 +1,15 @@
-globalThis.__VINEXT_LAZY_CHUNKS__ = ["assets/hls-Cu85B-yt.js","assets/layout-segment-context-C4B2m5w8-autoplay1.js","assets/link-CmbG7NRD-autoplay1.js","assets/router-66tXpMjx-autoplay1.js","assets/archive-vimeo-Cx9FFbQM-autoplay1.js","assets/core-nyc-media-BcR7VisQ.js","assets/dist-DMe5_7ii.js","assets/field-trip-name--QdBMp7U.js","assets/home-video-sequence-D50dtifk-autoplay1.js","assets/image-catalog-B4-Y1HMF.js","assets/image-credit-policy-DDKKWur1.js","assets/project-caption-QmrOEeOg.js","assets/project-title-B0bEZ937.js","assets/reel-fullscreen-button-DFQFqtZo.js","assets/utils-BqdF6cM_.js","assets/verified-image-credits-Bj9pwluZ.js","assets/capability-anchors-BylvFFyX.js","assets/chameleon-wordmark-BpVz3aec-autoplay1.js","assets/color-theme-_OQbZFPL.js","assets/complementary-colors-CXBEv4r7-autoplay1.js","assets/project-brief-dOll2dyo.js","assets/header-menu-DVXtfUPk-autoplay1.js","assets/header-scroll-offset-Cv1vvfxy.js","assets/desktop-home-films-C6rhYUxK-autoplay1.js","assets/on-display-carousel-CwhtoRdM.js","assets/landing-reel-D0RsfE5I-autoplay1.js","assets/page-section-navigation-2jMVaN7b.js","assets/project-photo-motion-B2-ds7pR-autoplay1.js","assets/theme-artwork-3yXpZkR9.js","assets/archive-explorer-B48GENQr-autoplay1.js","assets/project-image-archive-D2vuOYd--autoplay1.js"];
+globalThis.__VINEXT_LAZY_CHUNKS__ = ["assets/archive-vimeo-BBgM2zyG.js","assets/button-CfmuHrFm.js","assets/core-nyc-media-RE1JSHgd.js","assets/createLucideIcon-7N_3PleG.js","assets/dist-CY-ixoiK.js","assets/dist-DuLpYydG.js","assets/field-trip-name-BZ06n7Fu.js","assets/home-video-sequence-P0ckMocu.js","assets/image-catalog-DMxnBbj-.js","assets/image-credit-policy-C7ojE7ol.js","assets/input-DW14JYzk.js","assets/motion-image-BtbRm0n5.js","assets/native-select-d1rPnUJL.js","assets/project-caption-poSWGFHI.js","assets/project-title-B8g49iZv.js","assets/reel-fullscreen-button-kDrKLMeE.js","assets/textarea-CpYtL2Km.js","assets/utils-BqdF6cM_.js","assets/verified-image-credits-ylJ0Uauh.js","assets/x-DqkdE5AF.js","assets/capability-anchors-BylvFFyX.js","assets/chameleon-wordmark-Bv4p3jBG.js","assets/color-theme-_OQbZFPL.js","assets/complementary-colors-dSN66CCl.js","assets/project-brief-AJiB7cVX.js","assets/editor-shell-6Xd6FJFN.js","assets/header-menu-CFKgzs4c.js","assets/header-scroll-offset-DeKlyY6q.js","assets/desktop-home-films-DwCvJ1D-.js","assets/on-display-carousel-D9uJE3c7.js","assets/landing-reel-BnDn_dZv.js","assets/request-form-xb_1Ch26.js","assets/page-section-navigation-BPzD-7t4.js","assets/project-photo-motion-BCxIhfVt.js","assets/shop-inbox-CT00Jesl.js","assets/studio-controls-DRN1JErh.js","assets/theme-artwork-BM9srxBV.js","assets/archive-explorer-Bg90Uppd.js","assets/gallery-BxndN9Su.js","assets/project-image-archive-BbzH-r9W.js","assets/hls-CWL4Mvj3.js","assets/layout-segment-context-BHuoiSKR.js","assets/link-gaaWBYhL.js","assets/router-Bb-O66sx.js"];
 import * as __viteRscAsyncHooks from "node:async_hooks";
 import { AsyncLocalStorage as AsyncLocalStorage$1 } from "node:async_hooks";
 import assetsManifest from "./__vite_rsc_assets_manifest.js";
 import "node:fs";
 import "node:path";
+import * as m$5 from "fs";
+import * as m$4 from "util";
+import * as m$3 from "stream";
+import * as m$2 from "zlib";
+import * as m$1 from "assert";
+import * as m from "buffer";
 //#region \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -36,7 +42,256 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	enumerable: true
 }) : target, mod));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/internal/als-registry.js
+//#region node_modules/vinext/dist/server/http-error-responses.js
+/**
+* Build a 400 Bad Request plain-text response.
+*
+* Used for malformed percent-encoding, invalid HTTP methods (where Next.js
+* returns 400), and other request-shape validation failures.
+*/
+function badRequestResponse(init) {
+	return new Response("Bad Request", {
+		status: 400,
+		headers: init?.headers
+	});
+}
+/**
+* Build a 403 Forbidden plain-text response.
+*
+* Used by CSRF origin validation and dev-server origin checks.
+*/
+function forbiddenResponse() {
+	return new Response("Forbidden", {
+		status: 403,
+		headers: { "Content-Type": "text/plain" }
+	});
+}
+/**
+* Build a 404 Not Found plain-text response.
+*
+* The `headers` option lets call sites merge middleware response headers into
+* the 404, matching the pattern used by `app-rsc-handler` after a route match
+* fails but middleware has already contributed headers.
+*/
+function notFoundResponse(init) {
+	return new Response("Not Found", {
+		status: 404,
+		headers: init?.headers
+	});
+}
+/**
+* Build a 405 Method Not Allowed plain-text response with the `Allow` header set.
+*
+* `allowedMethods` is rendered as the comma-separated `Allow` header value.
+* Existing headers (e.g. middleware response headers) can be merged via `init.headers`;
+* the `Allow` header takes precedence and overwrites any colliding entry.
+*/
+function methodNotAllowedResponse(allowedMethods, init) {
+	const headers = new Headers(init?.headers);
+	headers.set("Allow", allowedMethods);
+	return new Response("Method Not Allowed", {
+		status: 405,
+		headers
+	});
+}
+/**
+* Build a 413 Payload Too Large plain-text response.
+*
+* Used by server action body-size enforcement.
+*/
+function payloadTooLargeResponse() {
+	return new Response("Payload Too Large", { status: 413 });
+}
+/**
+* Build a 500 Internal Server Error plain-text response.
+*
+* The `message` argument lets dev-mode handlers surface failure details while
+* production paths fall back to the canonical body. Pass `undefined` (or omit)
+* to use the canonical "Internal Server Error" body.
+*/
+function internalServerErrorResponse(message, init) {
+	return new Response(message ?? "Internal Server Error", {
+		status: 500,
+		headers: init?.headers
+	});
+}
+//#endregion
+//#region node_modules/vinext/dist/server/image-optimization.js
+/**
+* Next.js default device sizes and image sizes.
+* These are the allowed widths for image optimization when no custom
+* config is provided. Matches Next.js defaults exactly.
+*/
+var DEFAULT_DEVICE_SIZES = [
+	640,
+	750,
+	828,
+	1080,
+	1200,
+	1920,
+	2048,
+	3840
+];
+var DEFAULT_IMAGE_SIZES = [
+	16,
+	32,
+	48,
+	64,
+	96,
+	128,
+	256,
+	384
+];
+/**
+* Absolute maximum image width. Even if custom deviceSizes/imageSizes are
+* configured, widths above this are always rejected. This prevents resource
+* exhaustion from absurdly large resize requests.
+*/
+var ABSOLUTE_MAX_WIDTH = 3840;
+/**
+* Parse and validate image optimization query parameters.
+* Returns null if the request is malformed.
+*
+* When `allowedWidths` is provided, the width must be 0 (no resize) or
+* exactly match one of the allowed values. This matches Next.js behavior
+* where only configured deviceSizes and imageSizes are accepted.
+*
+* When `allowedWidths` is not provided, any width from 0 to ABSOLUTE_MAX_WIDTH
+* is accepted (backwards-compatible fallback).
+*/
+function parseImageParams(url, allowedWidths) {
+	const imageUrl = url.searchParams.get("url");
+	if (!imageUrl) return null;
+	const w = parseInt(url.searchParams.get("w") || "0", 10);
+	const q = parseInt(url.searchParams.get("q") || "75", 10);
+	if (Number.isNaN(w) || w < 0) return null;
+	if (w > ABSOLUTE_MAX_WIDTH) return null;
+	if (allowedWidths && w !== 0 && !allowedWidths.includes(w)) return null;
+	if (Number.isNaN(q) || q < 1 || q > 100) return null;
+	const normalizedUrl = imageUrl.replaceAll("\\", "/");
+	if (!normalizedUrl.startsWith("/") || normalizedUrl.startsWith("//")) return null;
+	try {
+		const base = "https://localhost";
+		if (new URL(normalizedUrl, base).origin !== base) return null;
+	} catch {
+		return null;
+	}
+	return {
+		imageUrl: normalizedUrl,
+		width: w,
+		quality: q
+	};
+}
+/**
+* Negotiate the best output format based on the Accept header.
+* Returns an IANA media type.
+*/
+function negotiateImageFormat(acceptHeader) {
+	if (!acceptHeader) return "image/jpeg";
+	if (acceptHeader.includes("image/avif")) return "image/avif";
+	if (acceptHeader.includes("image/webp")) return "image/webp";
+	return "image/jpeg";
+}
+/**
+* Standard Cache-Control header for optimized images.
+* Optimized images are immutable because the URL encodes the transform params.
+*/
+var IMAGE_CACHE_CONTROL = "public, max-age=31536000, immutable";
+/**
+* Allowlist of Content-Types that are safe to serve from the image endpoint.
+* SVG is intentionally excluded — it can contain embedded JavaScript and is
+* essentially an XML document, not a safe raster image format.
+*/
+var SAFE_IMAGE_CONTENT_TYPES = new Set([
+	"image/jpeg",
+	"image/png",
+	"image/gif",
+	"image/webp",
+	"image/avif",
+	"image/x-icon",
+	"image/vnd.microsoft.icon",
+	"image/bmp",
+	"image/tiff"
+]);
+/**
+* Check if a Content-Type header value is a safe image type.
+* Returns false for SVG (unless dangerouslyAllowSVG is true), HTML, or any non-image type.
+*/
+function isSafeImageContentType(contentType, dangerouslyAllowSVG = false) {
+	if (!contentType) return false;
+	const mediaType = contentType.split(";")[0].trim().toLowerCase();
+	if (SAFE_IMAGE_CONTENT_TYPES.has(mediaType)) return true;
+	if (dangerouslyAllowSVG && mediaType === "image/svg+xml") return true;
+	return false;
+}
+/**
+* Apply security headers to an image optimization response.
+* These headers are set on every response from the image endpoint,
+* regardless of whether the image was transformed or served as-is.
+* When an ImageConfig is provided, uses its values for CSP and Content-Disposition.
+*/
+function setImageSecurityHeaders(headers, config) {
+	headers.set("Content-Security-Policy", config?.contentSecurityPolicy ?? "script-src 'none'; frame-src 'none'; sandbox;");
+	headers.set("X-Content-Type-Options", "nosniff");
+	headers.set("Content-Disposition", config?.contentDispositionType === "attachment" ? "attachment" : "inline");
+}
+function createPassthroughImageResponse(source, config) {
+	const headers = new Headers(source.headers);
+	headers.set("Cache-Control", IMAGE_CACHE_CONTROL);
+	headers.set("Vary", "Accept");
+	setImageSecurityHeaders(headers, config);
+	return new Response(source.body, {
+		status: 200,
+		headers
+	});
+}
+/**
+* Handle image optimization requests.
+*
+* Parses and validates the request, fetches the source image via the provided
+* handlers, optionally transforms it, and returns the response with appropriate
+* cache headers.
+*/
+async function handleImageOptimization(request, handlers, allowedWidths, imageConfig) {
+	const params = parseImageParams(new URL(request.url), allowedWidths);
+	if (!params) return badRequestResponse();
+	const { imageUrl, width, quality } = params;
+	const source = await handlers.fetchAsset(imageUrl, request);
+	if (!source.ok || !source.body) return new Response("Image not found", { status: 404 });
+	const format = negotiateImageFormat(request.headers.get("Accept"));
+	const sourceContentType = source.headers.get("Content-Type");
+	if (!isSafeImageContentType(sourceContentType, imageConfig?.dangerouslyAllowSVG)) return new Response("The requested resource is not an allowed image type", { status: 400 });
+	if (sourceContentType?.split(";")[0].trim().toLowerCase() === "image/svg+xml") return createPassthroughImageResponse(source, imageConfig);
+	if (handlers.transformImage) try {
+		const transformed = await handlers.transformImage(source.body, {
+			width,
+			format,
+			quality
+		});
+		const headers = new Headers(transformed.headers);
+		headers.set("Cache-Control", IMAGE_CACHE_CONTROL);
+		headers.set("Vary", "Accept");
+		setImageSecurityHeaders(headers, imageConfig);
+		if (!isSafeImageContentType(headers.get("Content-Type"), imageConfig?.dangerouslyAllowSVG)) headers.set("Content-Type", format);
+		return new Response(transformed.body, {
+			status: 200,
+			headers
+		});
+	} catch (e) {
+		console.error("[vinext] Image optimization error:", e);
+	}
+	try {
+		return createPassthroughImageResponse(source, imageConfig);
+	} catch (e) {
+		console.error("[vinext] Image fallback error, refetching source image:", e);
+		const refetchedSource = await handlers.fetchAsset(imageUrl, request);
+		if (!refetchedSource.ok || !refetchedSource.body) return new Response("Image not found", { status: 404 });
+		if (!isSafeImageContentType(refetchedSource.headers.get("Content-Type"), imageConfig?.dangerouslyAllowSVG)) return new Response("The requested resource is not an allowed image type", { status: 400 });
+		return createPassthroughImageResponse(refetchedSource, imageConfig);
+	}
+}
+//#endregion
+//#region node_modules/vinext/dist/shims/internal/als-registry.js
 /**
 * Shared helper for registering AsyncLocalStorage instances on `globalThis`
 * via `Symbol.for(...)` so that they survive multiple module instances.
@@ -87,7 +342,7 @@ function getOrCreateAls(key) {
 	return _g$8[sym] ??= new AsyncLocalStorage$1();
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/unified-request-context.js
+//#region node_modules/vinext/dist/shims/unified-request-context.js
 var _REQUEST_CONTEXT_ALS_KEY = Symbol.for("vinext.requestContext.als");
 var _g$7 = globalThis;
 var _als$4 = getOrCreateAls("vinext.unifiedRequestContext.als");
@@ -164,7 +419,7 @@ function isInsideUnifiedScope() {
 	return _als$4.getStore() != null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/request-context.js
+//#region node_modules/vinext/dist/shims/request-context.js
 /**
 * Request ExecutionContext — AsyncLocalStorage-backed accessor.
 *
@@ -206,81 +461,7 @@ function getRequestExecutionContext() {
 	return _als$3.getStore() ?? null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/http-error-responses.js
-/**
-* Build a 400 Bad Request plain-text response.
-*
-* Used for malformed percent-encoding, invalid HTTP methods (where Next.js
-* returns 400), and other request-shape validation failures.
-*/
-function badRequestResponse(init) {
-	return new Response("Bad Request", {
-		status: 400,
-		headers: init?.headers
-	});
-}
-/**
-* Build a 403 Forbidden plain-text response.
-*
-* Used by CSRF origin validation and dev-server origin checks.
-*/
-function forbiddenResponse() {
-	return new Response("Forbidden", {
-		status: 403,
-		headers: { "Content-Type": "text/plain" }
-	});
-}
-/**
-* Build a 404 Not Found plain-text response.
-*
-* The `headers` option lets call sites merge middleware response headers into
-* the 404, matching the pattern used by `app-rsc-handler` after a route match
-* fails but middleware has already contributed headers.
-*/
-function notFoundResponse(init) {
-	return new Response("Not Found", {
-		status: 404,
-		headers: init?.headers
-	});
-}
-/**
-* Build a 405 Method Not Allowed plain-text response with the `Allow` header set.
-*
-* `allowedMethods` is rendered as the comma-separated `Allow` header value.
-* Existing headers (e.g. middleware response headers) can be merged via `init.headers`;
-* the `Allow` header takes precedence and overwrites any colliding entry.
-*/
-function methodNotAllowedResponse(allowedMethods, init) {
-	const headers = new Headers(init?.headers);
-	headers.set("Allow", allowedMethods);
-	return new Response("Method Not Allowed", {
-		status: 405,
-		headers
-	});
-}
-/**
-* Build a 413 Payload Too Large plain-text response.
-*
-* Used by server action body-size enforcement.
-*/
-function payloadTooLargeResponse() {
-	return new Response("Payload Too Large", { status: 413 });
-}
-/**
-* Build a 500 Internal Server Error plain-text response.
-*
-* The `message` argument lets dev-mode handlers surface failure details while
-* production paths fall back to the canonical body. Pass `undefined` (or omit)
-* to use the canonical "Internal Server Error" body.
-*/
-function internalServerErrorResponse(message, init) {
-	return new Response(message ?? "Internal Server Error", {
-		status: 500,
-		headers: init?.headers
-	});
-}
-//#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/utils/base-path.js
+//#region node_modules/vinext/dist/utils/base-path.js
 /**
 * Shared basePath helpers.
 *
@@ -315,7 +496,7 @@ function removeTrailingSlash(pathname) {
 	return end === 0 ? "/" : pathname.slice(0, end);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/headers.js
+//#region node_modules/vinext/dist/server/headers.js
 /**
 * Internal HTTP header name constants used throughout vinext.
 *
@@ -401,7 +582,7 @@ var INTERNAL_HEADERS = [
 	"x-next-resume-state-length"
 ];
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/middleware-request-headers.js
+//#region node_modules/vinext/dist/server/middleware-request-headers.js
 var CREDENTIAL_REQUEST_HEADERS = ["authorization", "cookie"];
 function getMiddlewareHeaderValue(source, key) {
 	if (source instanceof Headers) return source.get(key);
@@ -432,6 +613,11 @@ function cloneHeaders(source) {
 	for (const [key, value] of source.entries()) cloned.append(key, value);
 	return cloned;
 }
+function encodeMiddlewareRequestHeaders(targetHeaders, requestHeaders) {
+	const overrideHeaderNames = [...requestHeaders.keys()];
+	targetHeaders.set(MIDDLEWARE_OVERRIDE_HEADERS, overrideHeaderNames.join(","));
+	for (const [key, value] of requestHeaders.entries()) targetHeaders.set(`${MIDDLEWARE_REQUEST_HEADER_PREFIX}${key}`, value);
+}
 function buildRequestHeadersFromMiddlewareResponse(baseHeaders, middlewareHeaders, options = {}) {
 	const overrideHeaderNames = getOverrideHeaderNames(middlewareHeaders);
 	const forwardedHeaders = getForwardedRequestHeaders(middlewareHeaders);
@@ -459,7 +645,7 @@ function shouldKeepMiddlewareHeader(key) {
 	return key === "x-middleware-override-headers" || key === "x-middleware-set-cookie" || key.startsWith("x-middleware-request-");
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/config/config-matchers.js
+//#region node_modules/vinext/dist/config/config-matchers.js
 /**
 * Cache for compiled regex patterns in matchConfigPattern.
 *
@@ -1217,7 +1403,7 @@ function matchHeaders(pathname, headers, ctx) {
 	return result;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/request-pipeline.js
+//#region node_modules/vinext/dist/server/request-pipeline.js
 /**
 * Shared request pipeline utilities.
 *
@@ -1579,7 +1765,7 @@ function cloneRequestWithHeaders(request, headers) {
 	return cloned;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/worker-utils.js
+//#region node_modules/vinext/dist/server/worker-utils.js
 /**
 * Shared utilities for Cloudflare Worker entries.
 *
@@ -1677,7 +1863,7 @@ async function resolveStaticAssetSignal(signalResponse, options) {
 	return mergeHeaders(assetResponse, extraHeaders, assetResponse.ok && signalResponse.status !== 200 ? signalResponse.status : void 0);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/@vitejs/plugin-rsc/dist/dist-rz-Bnebz.js
+//#region node_modules/@vitejs/plugin-rsc/dist/dist-rz-Bnebz.js
 function tinyassert(value, message) {
 	if (value) return;
 	if (message instanceof Error) throw message;
@@ -1705,7 +1891,7 @@ function memoize(f, options) {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/@vitejs/plugin-rsc/dist/shared-BViDMJTQ.js
+//#region node_modules/@vitejs/plugin-rsc/dist/shared-BViDMJTQ.js
 var SERVER_REFERENCE_PREFIX = "$$server:";
 var SERVER_DECODE_CLIENT_PREFIX = "$$decode-client:";
 function removeReferenceCacheTag(id) {
@@ -1721,7 +1907,7 @@ function setInternalRequire() {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react/cjs/react.react-server.production.js
+//#region node_modules/react/cjs/react.react-server.production.js
 /**
 * @license React
 * react.react-server.production.js
@@ -1995,12 +2181,12 @@ var require_react_react_server_production = /* @__PURE__ */ __commonJSMin(((expo
 	exports.version = "19.2.6";
 }));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react/react.react-server.js
+//#region node_modules/react/react.react-server.js
 var require_react_react_server = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_react_server_production();
 }));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react-dom/cjs/react-dom.react-server.production.js
+//#region node_modules/react-dom/cjs/react-dom.react-server.production.js
 /**
 * @license React
 * react-dom.react-server.production.js
@@ -2098,12 +2284,12 @@ var require_react_dom_react_server_production = /* @__PURE__ */ __commonJSMin(((
 	exports.version = "19.2.6";
 }));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react-dom/react-dom.react-server.js
+//#region node_modules/react-dom/react-dom.react-server.js
 var require_react_dom_react_server = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_dom_react_server_production();
 }));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react-server-dom-webpack/cjs/react-server-dom-webpack-server.edge.production.js
+//#region node_modules/react-server-dom-webpack/cjs/react-server-dom-webpack-server.edge.production.js
 var require_react_server_dom_webpack_server_edge_production = /* @__PURE__ */ __commonJSMin(((exports) => {
 	globalThis.AsyncLocalStorage = __viteRscAsyncHooks.AsyncLocalStorage;
 	/**
@@ -4172,7 +4358,7 @@ var require_react_server_dom_webpack_server_edge_production = /* @__PURE__ */ __
 	};
 }));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/@vitejs/plugin-rsc/dist/core/rsc.js
+//#region node_modules/@vitejs/plugin-rsc/dist/core/rsc.js
 var import_server_edge = /* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports) => {
 	var s = require_react_server_dom_webpack_server_edge_production();
 	exports.renderToReadableStream = s.renderToReadableStream;
@@ -4252,7 +4438,7 @@ function createClientManifest(options) {
 	} });
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react-server-dom-webpack/cjs/react-server-dom-webpack-client.edge.production.js
+//#region node_modules/react-server-dom-webpack/cjs/react-server-dom-webpack-client.edge.production.js
 /**
 * @license React
 * react-server-dom-webpack-client.edge.production.js
@@ -4469,7 +4655,7 @@ var createTemporaryReferenceSet = import_server_edge.createTemporaryReferenceSet
 //#region \0virtual:vite-rsc/server-references
 var server_references_default = {};
 //#endregion
-//#region ../fieldtrip-v574/node_modules/@vitejs/plugin-rsc/dist/rsc.js
+//#region node_modules/@vitejs/plugin-rsc/dist/rsc.js
 initialize();
 function initialize() {
 	setRequireModule({ load: async (id) => {
@@ -4494,7 +4680,7 @@ function renderToReadableStream$1(data, options, extraOptions) {
 	} });
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/rsc-stream-hints.js
+//#region node_modules/vinext/dist/server/rsc-stream-hints.js
 var REACT_FLIGHT_STYLESHEET_PRELOAD_HINT = /(\d*:HL\[.*?),"stylesheet"(\]|,)/g;
 /**
 * React Flight emits HL hints with "stylesheet" for CSS preloads, but the
@@ -4529,7 +4715,7 @@ function createRscRenderer(render) {
 	return (model, options) => normalizeReactFlightPreloadHints(render(model, options));
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/readonly-url-search-params.js
+//#region node_modules/vinext/dist/shims/readonly-url-search-params.js
 var import_react_react_server = /* @__PURE__ */ __toESM(require_react_react_server(), 1);
 var ReadonlyURLSearchParamsError = class extends Error {
 	constructor() {
@@ -4555,7 +4741,7 @@ var ReadonlyURLSearchParams = class extends URLSearchParams {
 	}
 };
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/url-safety.js
+//#region node_modules/vinext/dist/shims/url-safety.js
 /**
 * Shared URL safety utilities for Link, Form, and navigation shims.
 *
@@ -4583,9 +4769,21 @@ function buildDangerousSchemeRegex(scheme) {
 	const chars = scheme.split("").join(SCHEME_IGNORED);
 	return new RegExp(`^${LEADING_IGNORED}${chars}${SCHEME_IGNORED}:`, "i");
 }
-buildDangerousSchemeRegex("javascript"), buildDangerousSchemeRegex("data"), buildDangerousSchemeRegex("vbscript");
+var DANGEROUS_SCHEME_RES = [
+	buildDangerousSchemeRegex("javascript"),
+	buildDangerousSchemeRegex("data"),
+	buildDangerousSchemeRegex("vbscript")
+];
+var DANGEROUS_URL_BLOCK_MESSAGE = "Next.js has blocked a javascript: URL as a security precaution.";
+function isDangerousScheme(url) {
+	const str = "" + url;
+	return DANGEROUS_SCHEME_RES.some((re) => re.test(str));
+}
+function assertSafeNavigationUrl(url) {
+	if (isDangerousScheme(url)) throw new Error(DANGEROUS_URL_BLOCK_MESSAGE);
+}
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/utils/hash.js
+//#region node_modules/vinext/dist/utils/hash.js
 /**
 * FNV-1a hash producing a 64-bit result (two 32-bit rounds with different seeds).
 * Used for deterministic key generation where collisions must be rare.
@@ -4604,7 +4802,7 @@ function fnv1a64(input) {
 	return h1.toString(36) + h2.toString(36);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/artifact-compatibility.js
+//#region node_modules/vinext/dist/server/artifact-compatibility.js
 function createArtifactCompatibilityEnvelope(input = {}) {
 	return {
 		schemaVersion: 1,
@@ -4646,7 +4844,7 @@ function parseArtifactCompatibilityEnvelope(value) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-elements-wire.js
+//#region node_modules/vinext/dist/server/app-elements-wire.js
 var APP_INTERCEPTION_SEPARATOR = "\0";
 var APP_ARTIFACT_COMPATIBILITY_KEY = "__artifactCompatibility";
 var APP_INTERCEPTION_CONTEXT_KEY = "__interceptionContext";
@@ -4862,7 +5060,7 @@ var AppElementsWire = {
 	withLayoutFlags
 };
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-mounted-slots-header.js
+//#region node_modules/vinext/dist/server/app-mounted-slots-header.js
 /**
 * Normalize the `x-vinext-mounted-slots` header for request handling and cache keying.
 *
@@ -4880,7 +5078,7 @@ function normalizeMountedSlotsHeader(raw) {
 	return Array.from(new Set(raw.split(/\s+/).filter(Boolean))).sort().join(" ") || null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-render-mode.js
+//#region node_modules/vinext/dist/server/app-rsc-render-mode.js
 var APP_RSC_RENDER_MODE_NAVIGATION = "navigation";
 var APP_RSC_RENDER_MODE_REFRESH_PRESERVE_UI = "refresh-preserve-ui";
 var APP_RSC_RENDER_MODE_ACTION_RERENDER_PRESERVE_UI = "action-rerender-preserve-ui";
@@ -4898,7 +5096,7 @@ function parseAppRscRenderMode(value) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-cache-busting.js
+//#region node_modules/vinext/dist/server/app-rsc-cache-busting.js
 /**
 * RSC cache-busting hashes cover the headers that make a `.rsc` payload vary.
 * Client-side variant headers must survive transit through CDNs and reverse
@@ -5038,7 +5236,7 @@ async function resolveInvalidRscCacheBustingRequest(options) {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/navigation.js
+//#region node_modules/vinext/dist/shims/navigation.js
 var _SERVER_INSERTED_HTML_CTX_KEY = Symbol.for("vinext.serverInsertedHTMLContext");
 function getServerInsertedHTMLContext() {
 	if (typeof import_react_react_server.createContext !== "function") return null;
@@ -5281,7 +5479,7 @@ if (!isServer) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/client-hook-error.js
+//#region node_modules/vinext/dist/shims/client-hook-error.js
 /**
 * Shared error helper for client-only hooks called in Server Components.
 *
@@ -5294,7 +5492,7 @@ function buildClientHookErrorMessage(hookName) {
 	return `${hookName} only works in Client Components. Add the "use client" directive at the top of the file to use it. Read more: https://nextjs.org/docs/messages/react-client-hook-in-server-component`;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/internal/cookie-serialize.js
+//#region node_modules/vinext/dist/shims/internal/cookie-serialize.js
 /**
 * RFC 6265 §4.1.1: cookie-name is a token (RFC 2616 §2.2).
 * Allowed: any visible ASCII (0x21-0x7E) except separators: ()<>@,;:\"/[]?={}
@@ -5303,8 +5501,46 @@ var VALID_COOKIE_NAME_RE = /^[\x21\x23-\x27\x2A\x2B\x2D\x2E\x30-\x39\x41-\x5A\x5
 function validateCookieName(name) {
 	if (!name || !VALID_COOKIE_NAME_RE.test(name)) throw new Error(`Invalid cookie name: ${JSON.stringify(name)}`);
 }
+/**
+* Validate cookie attribute values (path, domain) to prevent injection
+* via semicolons, newlines, or other control characters.
+*/
+function validateCookieAttributeValue(value, attributeName) {
+	for (let i = 0; i < value.length; i++) {
+		const code = value.charCodeAt(i);
+		if (code <= 31 || code === 127 || value[i] === ";") throw new Error(`Invalid cookie ${attributeName} value: ${JSON.stringify(value)}`);
+	}
+}
+/**
+* Build a Set-Cookie header string from a cookie name, value, and attributes.
+*
+* - Encodes the value with `encodeURIComponent`.
+* - Defaults `Path` to `/` (matching @edge-runtime/cookies and Next.js).
+* - Validates path/domain to reject control characters and semicolons.
+* - Emits attributes in the order: Path, Domain, Max-Age, Expires, HttpOnly,
+*   Secure, SameSite.
+*
+* The caller is responsible for validating the cookie name (typically before
+* mutating any internal state) via `validateCookieName`.
+*/
+function serializeSetCookie(name, value, options) {
+	const parts = [`${name}=${encodeURIComponent(value)}`];
+	const path = options?.path ?? "/";
+	validateCookieAttributeValue(path, "Path");
+	parts.push(`Path=${path}`);
+	if (options?.domain) {
+		validateCookieAttributeValue(options.domain, "Domain");
+		parts.push(`Domain=${options.domain}`);
+	}
+	if (options?.maxAge !== void 0) parts.push(`Max-Age=${options.maxAge}`);
+	if (options?.expires) parts.push(`Expires=${options.expires.toUTCString()}`);
+	if (options?.httpOnly) parts.push("HttpOnly");
+	if (options?.secure) parts.push("Secure");
+	if (options?.sameSite) parts.push(`SameSite=${options.sameSite}`);
+	return parts.join("; ");
+}
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/internal/parse-cookie-header.js
+//#region node_modules/vinext/dist/shims/internal/parse-cookie-header.js
 /**
 * Port of the current Next.js/@edge-runtime request cookie parser semantics.
 *
@@ -5333,7 +5569,7 @@ function parseCookieHeader(cookieHeader) {
 	return cookies;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/headers.js
+//#region node_modules/vinext/dist/shims/headers.js
 var _FALLBACK_KEY$4 = Symbol.for("vinext.nextHeadersShim.fallback");
 var _g$6 = globalThis;
 var _als$2 = getOrCreateAls("vinext.nextHeadersShim.als");
@@ -5430,6 +5666,42 @@ function markDynamicUsage() {
 	const state = _getState$2();
 	if (state.headersContext?.forceStatic) return;
 	state.dynamicUsageDetected = true;
+}
+/** Symbol used by cache-runtime.ts to store the "use cache" ALS on globalThis */
+var _USE_CACHE_ALS_KEY = Symbol.for("vinext.cacheRuntime.contextAls");
+/** Symbol used by cache.ts to store the unstable_cache ALS on globalThis */
+var _UNSTABLE_CACHE_ALS_KEY = Symbol.for("vinext.unstableCache.als");
+var _gHeaders = globalThis;
+function _isInsideUseCache() {
+	return _gHeaders[_USE_CACHE_ALS_KEY]?.getStore() != null;
+}
+function _isInsideUnstableCache() {
+	return _gHeaders[_UNSTABLE_CACHE_ALS_KEY]?.getStore() === true;
+}
+/**
+* Throw if the current execution is inside a "use cache" or unstable_cache()
+* scope. Called by dynamic request APIs (headers, cookies, connection) to
+* prevent request-specific data from being frozen into cached results.
+*
+* @param apiName - The name of the API being called (e.g. "connection()")
+*/
+function throwIfInsideCacheScope(apiName) {
+	if (_isInsideUseCache()) {
+		const error = /* @__PURE__ */ new Error(`\`${apiName}\` cannot be called inside "use cache". If you need this data inside a cached function, call \`${apiName}\` outside and pass the required data as an argument.`);
+		try {
+			const ctx = getRequestContext();
+			if (ctx) ctx.invalidDynamicUsageError = error;
+		} catch {}
+		throw error;
+	}
+	if (_isInsideUnstableCache()) {
+		const error = /* @__PURE__ */ new Error(`\`${apiName}\` cannot be called inside a function cached with \`unstable_cache()\`. If you need this data inside a cached function, call \`${apiName}\` outside and pass the required data as an argument.`);
+		try {
+			const ctx = getRequestContext();
+			if (ctx) ctx.invalidDynamicUsageError = error;
+		} catch {}
+		throw error;
+	}
 }
 /**
 * Check, consume, and return any invalid dynamic usage error recorded during
@@ -5542,6 +5814,63 @@ var _HEADERS_MUTATING_METHODS = new Set([
 	"delete",
 	"append"
 ]);
+var ReadonlyHeadersError = class ReadonlyHeadersError extends Error {
+	constructor() {
+		super("Headers cannot be modified. Read more: https://nextjs.org/docs/app/api-reference/functions/headers");
+	}
+	static callable() {
+		throw new ReadonlyHeadersError();
+	}
+};
+function _decorateRequestApiPromise(promise, target) {
+	return new Proxy(promise, {
+		get(promiseTarget, prop) {
+			if (prop in promiseTarget) {
+				const value = Reflect.get(promiseTarget, prop, promiseTarget);
+				return typeof value === "function" ? value.bind(promiseTarget) : value;
+			}
+			const value = Reflect.get(target, prop, target);
+			return typeof value === "function" ? value.bind(target) : value;
+		},
+		has(promiseTarget, prop) {
+			return prop in promiseTarget || prop in target;
+		},
+		ownKeys(promiseTarget) {
+			return Array.from(new Set([...Reflect.ownKeys(promiseTarget), ...Reflect.ownKeys(target)]));
+		},
+		getOwnPropertyDescriptor(promiseTarget, prop) {
+			return Reflect.getOwnPropertyDescriptor(promiseTarget, prop) ?? Reflect.getOwnPropertyDescriptor(target, prop);
+		}
+	});
+}
+var _decoratedHeadersPromises = /* @__PURE__ */ new WeakMap();
+function _getOrCreateDecoratedRequestApiPromise(cache, target) {
+	const cached = cache.get(target);
+	if (cached) return cached;
+	const promise = _decorateRequestApiPromise(Promise.resolve(target), target);
+	cache.set(target, promise);
+	return promise;
+}
+function _decorateRejectedRequestApiPromise(error) {
+	const normalizedError = error instanceof Error ? error : new Error(String(error));
+	const promise = Promise.reject(normalizedError);
+	promise.catch(() => {});
+	return _decorateRequestApiPromise(promise, new Proxy({}, { get(_target, prop) {
+		if (prop === "then" || prop === "catch" || prop === "finally") return;
+		throw normalizedError;
+	} }));
+}
+function _sealHeaders(headers) {
+	return new Proxy(headers, { get(target, prop) {
+		if (typeof prop === "string" && _HEADERS_MUTATING_METHODS.has(prop)) throw new ReadonlyHeadersError();
+		const value = Reflect.get(target, prop, target);
+		return typeof value === "function" ? value.bind(target) : value;
+	} });
+}
+function _getReadonlyHeaders(ctx) {
+	if (!ctx.readonlyHeaders) ctx.readonlyHeaders = _sealHeaders(ctx.headers);
+	return ctx.readonlyHeaders;
+}
 /**
 * Create a HeadersContext from a standard Request object.
 *
@@ -5587,6 +5916,23 @@ function headersContextFromRequest(request) {
 		}
 	};
 }
+/**
+* Read-only Headers instance from the incoming request.
+* Returns a Promise in Next.js 15+ style (but resolves synchronously since
+* the context is already available).
+*/
+function headers() {
+	try {
+		throwIfInsideCacheScope("headers()");
+	} catch (error) {
+		return _decorateRejectedRequestApiPromise(error);
+	}
+	const state = _getState$2();
+	if (!state.headersContext) return _decorateRejectedRequestApiPromise(/* @__PURE__ */ new Error("headers() can only be called from a Server Component, Route Handler, or Server Action. Make sure you're not calling it from a Client Component."));
+	if (state.headersContext.accessError) return _decorateRejectedRequestApiPromise(state.headersContext.accessError);
+	markDynamicUsage();
+	return _getOrCreateDecoratedRequestApiPromise(_decoratedHeadersPromises, _getReadonlyHeaders(state.headersContext));
+}
 /** Accumulated Set-Cookie headers from cookies().set() / .delete() calls */
 /**
 * Get and clear all pending Set-Cookie headers generated by cookies().set()/delete().
@@ -5601,7 +5947,7 @@ function getAndClearPendingCookies() {
 var DRAFT_MODE_COOKIE = "__prerender_bypass";
 (/* @__PURE__ */ new Date(0)).toUTCString();
 function getDraftSecret() {
-	return "c304b749-e058-4b38-b56b-eb76f38eadc1";
+	return "32ea592d-71a8-4105-adac-7db429bdd0f1";
 }
 /**
 * Get any Set-Cookie header generated by draftMode().enable()/disable().
@@ -5619,7 +5965,7 @@ function isDraftModeRequest(request) {
 	return parseCookieHeader(cookieHeader).get(DRAFT_MODE_COOKIE) === getDraftSecret();
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/thenable-params.js
+//#region node_modules/vinext/dist/shims/thenable-params.js
 function hasParamProperty(obj, prop) {
 	return Object.prototype.hasOwnProperty.call(obj, prop);
 }
@@ -5673,7 +6019,7 @@ function makeThenableParams(obj) {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/react/cjs/react-jsx-runtime.react-server.production.js
+//#region node_modules/react/cjs/react-jsx-runtime.react-server.production.js
 /**
 * @license React
 * react-jsx-runtime.react-server.production.js
@@ -5708,7 +6054,7 @@ var require_react_jsx_runtime_react_server_production = /* @__PURE__ */ __common
 	exports.jsxs = jsxProd;
 }));
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/metadata.js
+//#region node_modules/vinext/dist/shims/metadata.js
 var import_jsx_runtime_react_server = (/* @__PURE__ */ __commonJSMin(((exports, module) => {
 	module.exports = require_react_jsx_runtime_react_server_production();
 })))();
@@ -6371,7 +6717,7 @@ function MetadataHead({ metadata }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(import_jsx_runtime_react_server.Fragment, { children: elements });
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/utils/encode-cache-tag.js
+//#region node_modules/vinext/dist/utils/encode-cache-tag.js
 /**
 * Cache-tag canonicalisation.
 *
@@ -6406,7 +6752,7 @@ function encodeCacheTags(tags) {
 	return tags.map(encodeCacheTag);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/internal/work-unit-async-storage.js
+//#region node_modules/vinext/dist/shims/internal/work-unit-async-storage.js
 /**
 * Shim for next/dist/server/app-render/work-unit-async-storage.external
 * and next/dist/client/components/request-async-storage.external
@@ -6420,7 +6766,7 @@ function encodeCacheTags(tags) {
 */
 var workUnitAsyncStorage = new AsyncLocalStorage$1();
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/utils/cache-control-metadata.js
+//#region node_modules/vinext/dist/utils/cache-control-metadata.js
 function isUnknownRecord(value) {
 	return value !== null && typeof value === "object" && !Array.isArray(value);
 }
@@ -6433,7 +6779,7 @@ function readCacheControlNumberField(ctx, field) {
 	return typeof value === "number" ? value : void 0;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/cache.js
+//#region node_modules/vinext/dist/shims/cache.js
 function readStringArrayField(ctx, field) {
 	const value = ctx?.[field];
 	if (!Array.isArray(value)) return [];
@@ -6568,7 +6914,7 @@ function _consumeRequestScopedCacheLife() {
 }
 getOrCreateAls("vinext.unstableCache.als");
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/fetch-cache.js
+//#region node_modules/vinext/dist/shims/fetch-cache.js
 /**
 * Extended fetch() with Next.js caching semantics.
 *
@@ -7169,7 +7515,7 @@ function ensureFetchPatch() {
 	_ensurePatchInstalled();
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/csp.js
+//#region node_modules/vinext/dist/server/csp.js
 var ESCAPE_REGEX = /[&><\u2028\u2029]/;
 function matchesDirectiveName(directive, name) {
 	return directive === name || directive.startsWith(`${name} `);
@@ -7195,7 +7541,7 @@ function getScriptNonceFromHeaderSources(...headersList) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/middleware-response-headers.js
+//#region node_modules/vinext/dist/server/middleware-response-headers.js
 var ADDITIVE_RESPONSE_HEADER_NAMES = new Set(["set-cookie", "vary"]);
 function mergeVaryHeader(target, value) {
 	const existing = target.get("Vary");
@@ -7236,7 +7582,7 @@ function mergeMiddlewareResponseHeaders(target, middlewareHeaders) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/routing/utils.js
+//#region node_modules/vinext/dist/routing/utils.js
 var PATH_DELIMITER_REGEX = /([/#?\\]|%(2f|23|3f|5c))/gi;
 function encodePathDelimiters(segment) {
 	return segment.replace(PATH_DELIMITER_REGEX, (char) => encodeURIComponent(char));
@@ -7293,7 +7639,7 @@ function decodeMatchedParams(params) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/server.js
+//#region node_modules/vinext/dist/shims/server.js
 var NextRequest = class extends Request {
 	_nextUrl;
 	_url;
@@ -7351,6 +7697,82 @@ var NextRequest = class extends Request {
 	*/
 	get buildId() {
 		return this._nextUrl.buildId;
+	}
+};
+/** Valid HTTP redirect status codes, matching Next.js's REDIRECTS set. */
+var REDIRECT_STATUSES = new Set([
+	301,
+	302,
+	303,
+	307,
+	308
+]);
+function validateURL(url) {
+	assertSafeNavigationUrl(String(url));
+	try {
+		return String(new URL(String(url)));
+	} catch (error) {
+		throw new Error(`URL is malformed "${String(url)}". Please use only absolute URLs - https://nextjs.org/docs/messages/middleware-relative-urls`, { cause: error });
+	}
+}
+var NextResponse = class NextResponse extends Response {
+	_cookies;
+	constructor(body, init) {
+		super(body, init);
+		this._cookies = new MiddlewareResponseCookies(this.headers);
+	}
+	get cookies() {
+		return this._cookies;
+	}
+	/**
+	* Create a JSON response.
+	*/
+	static json(body, init) {
+		const headers = new Headers(init?.headers);
+		if (!headers.has("content-type")) headers.set("content-type", "application/json");
+		return new NextResponse(JSON.stringify(body), {
+			...init,
+			headers
+		});
+	}
+	/**
+	* Create a redirect response.
+	*/
+	static redirect(url, init) {
+		const status = typeof init === "number" ? init : init?.status ?? 307;
+		if (!REDIRECT_STATUSES.has(status)) throw new RangeError(`Failed to execute "redirect" on "response": Invalid status code`);
+		const headers = new Headers(typeof init === "object" ? init?.headers : void 0);
+		headers.set("Location", validateURL(url));
+		return new NextResponse(null, {
+			status,
+			headers
+		});
+	}
+	/**
+	* Create a rewrite response (middleware pattern).
+	* Sets the x-middleware-rewrite header.
+	*/
+	static rewrite(destination, init) {
+		const headers = new Headers(init?.headers);
+		headers.set(MIDDLEWARE_REWRITE_HEADER, validateURL(destination));
+		if (init?.request?.headers) encodeMiddlewareRequestHeaders(headers, init.request.headers);
+		return new NextResponse(null, {
+			...init,
+			headers
+		});
+	}
+	/**
+	* Continue to the next handler (middleware pattern).
+	* Sets the x-middleware-next header.
+	*/
+	static next(init) {
+		const headers = new Headers(init?.headers);
+		headers.set(MIDDLEWARE_NEXT_HEADER, "1");
+		if (init?.request?.headers) encodeMiddlewareRequestHeaders(headers, init.request.headers);
+		return new NextResponse(null, {
+			...init,
+			headers
+		});
 	}
 };
 var NextURL = class NextURL {
@@ -7515,7 +7937,7 @@ var NextURL = class NextURL {
 	* Matches the Next.js API: `request.nextUrl.buildId`.
 	*/
 	get buildId() {
-		return "d9fdda66-3d07-4fe3-a0d8-b27da22944d1";
+		return "fbd787c8-2140-45b9-8afe-a717ab77cc35";
 	}
 };
 var RequestCookies = class {
@@ -7628,6 +8050,125 @@ function sealRequestCookies(cookies) {
 		return typeof value === "function" ? value.bind(target) : value;
 	} });
 }
+var ResponseCookies = class {
+	_headers;
+	/** Internal map keyed by cookie name — single source of truth. */
+	_parsed = /* @__PURE__ */ new Map();
+	constructor(headers) {
+		this._headers = headers;
+		for (const header of headers.getSetCookie()) {
+			const eq = header.indexOf("=");
+			if (eq === -1) continue;
+			const cookieName = header.slice(0, eq);
+			const semi = header.indexOf(";", eq);
+			const raw = header.slice(eq + 1, semi === -1 ? void 0 : semi);
+			let value;
+			try {
+				value = decodeURIComponent(raw);
+			} catch {
+				value = raw;
+			}
+			this._parsed.set(cookieName, {
+				serialized: header,
+				entry: {
+					name: cookieName,
+					value
+				}
+			});
+		}
+	}
+	set(...args) {
+		const [name, value, opts] = parseCookieSetArgs(args);
+		validateCookieName(name);
+		const serialized = serializeSetCookie(name, value, opts);
+		this._parsed.set(name, {
+			serialized,
+			entry: {
+				name,
+				value
+			}
+		});
+		this._syncHeaders();
+		return this;
+	}
+	get(...args) {
+		const key = typeof args[0] === "string" ? args[0] : args[0].name;
+		return this._parsed.get(key)?.entry;
+	}
+	has(name) {
+		return this._parsed.has(name);
+	}
+	getAll(...args) {
+		const all = [...this._parsed.values()].map((v) => v.entry);
+		if (args.length === 0) return all;
+		const key = typeof args[0] === "string" ? args[0] : args[0].name;
+		return all.filter((c) => c.name === key);
+	}
+	delete(...args) {
+		const [name, opts] = typeof args[0] === "string" ? [args[0], void 0] : [args[0].name, args[0]];
+		return this.set({
+			name,
+			value: "",
+			expires: /* @__PURE__ */ new Date(0),
+			path: opts?.path,
+			domain: opts?.domain,
+			httpOnly: opts?.httpOnly,
+			secure: opts?.secure,
+			sameSite: opts?.sameSite
+		});
+	}
+	[Symbol.iterator]() {
+		return [...this._parsed.values()].map((v) => [v.entry.name, v.entry])[Symbol.iterator]();
+	}
+	/** Delete all Set-Cookie headers and re-append from the internal map. */
+	_syncHeaders() {
+		this._headers.delete("Set-Cookie");
+		for (const { serialized } of this._parsed.values()) this._headers.append("Set-Cookie", serialized);
+	}
+};
+var MiddlewareResponseCookies = class extends ResponseCookies {
+	_responseHeaders;
+	constructor(headers) {
+		super(headers);
+		this._responseHeaders = headers;
+	}
+	set(...args) {
+		super.set(...args);
+		this._syncMiddlewareCookieHeader();
+		return this;
+	}
+	delete(...args) {
+		super.delete(...args);
+		this._syncMiddlewareCookieHeader();
+		return this;
+	}
+	_syncMiddlewareCookieHeader() {
+		const cookies = this._responseHeaders.getSetCookie();
+		if (cookies.length === 0) {
+			this._responseHeaders.delete(MIDDLEWARE_SET_COOKIE_HEADER);
+			return;
+		}
+		this._responseHeaders.set(MIDDLEWARE_SET_COOKIE_HEADER, cookies.join(","));
+	}
+};
+/**
+* Parse the overloaded arguments for ResponseCookies.set():
+*   - (name, value, options?) — positional form
+*   - ({ name, value, ...options }) — object form
+*/
+function parseCookieSetArgs(args) {
+	if (typeof args[0] === "string") return [
+		args[0],
+		args[1],
+		args[2]
+	];
+	const { name, value, ...opts } = args[0];
+	return [
+		name,
+		value,
+		opts
+	];
+}
 /**
 * Minimal NextFetchEvent — extends FetchEvent where available,
 * otherwise provides the waitUntil pattern standalone.
@@ -7651,7 +8192,7 @@ var NextFetchEvent = class {
 };
 globalThis.URLPattern;
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/normalize-path.js
+//#region node_modules/vinext/dist/server/normalize-path.js
 /**
 * Path normalization utility for request handling.
 *
@@ -7684,7 +8225,7 @@ function normalizePath(pathname) {
 	return "/" + resolved.join("/");
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/middleware-matcher.js
+//#region node_modules/vinext/dist/server/middleware-matcher.js
 var EMPTY_MIDDLEWARE_REQUEST_CONTEXT = {
 	headers: new Headers(),
 	cookies: {},
@@ -7781,7 +8322,7 @@ function compileMatcherPattern(pattern) {
 	return safeRegExp("^" + regexStr + "$");
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/middleware-runtime.js
+//#region node_modules/vinext/dist/server/middleware-runtime.js
 function isMiddlewareHandler(value) {
 	return typeof value === "function";
 }
@@ -7927,7 +8468,7 @@ async function executeMiddleware(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-middleware.js
+//#region node_modules/vinext/dist/server/app-middleware.js
 var FLIGHT_HEADER_SET = new Set(FLIGHT_HEADERS);
 function requestWithoutFlightHeaders(request) {
 	let hasFlightHeader = false;
@@ -8052,7 +8593,7 @@ async function applyAppMiddleware(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/cache-control.js
+//#region node_modules/vinext/dist/server/cache-control.js
 var NEVER_CACHE_CONTROL = "private, no-cache, no-store, max-age=0, must-revalidate";
 var STATIC_CACHE_CONTROL = "s-maxage=31536000, stale-while-revalidate";
 var STALE_REVALIDATE_CACHE_CONTROL = "s-maxage=0, stale-while-revalidate";
@@ -8083,7 +8624,7 @@ function buildCachedRevalidateCacheControl(cacheState, revalidateSeconds, expire
 	return buildRevalidateCacheControl(revalidateSeconds, expireSeconds);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-response.js
+//#region node_modules/vinext/dist/server/app-page-response.js
 function applyTimingHeader(headers, timing) {
 	if (!timing) return;
 	const handlerStart = Math.round(timing.handlerStart);
@@ -8180,7 +8721,7 @@ function buildAppPageHtmlResponse(body, options) {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/implicit-tags.js
+//#region node_modules/vinext/dist/server/implicit-tags.js
 var NEXT_CACHE_IMPLICIT_TAG_ID = "_N_T_";
 function appendUnique(tags, tag) {
 	if (!tags.includes(tag)) tags.push(tag);
@@ -8219,7 +8760,7 @@ function buildPageCacheTags(pathname, extraTags, routeSegments, leafKind) {
 	return tags.map(encodeCacheTag);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-post-middleware-context.js
+//#region node_modules/vinext/dist/server/app-post-middleware-context.js
 /**
 * Build a request context from the live ALS HeadersContext, which reflects
 * any x-middleware-request-* header mutations applied by middleware.
@@ -8242,7 +8783,7 @@ function buildPostMwRequestContext(request) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/root-params.js
+//#region node_modules/vinext/dist/shims/root-params.js
 var _FALLBACK_KEY$1 = Symbol.for("vinext.rootParams.fallback");
 var _g$3 = globalThis;
 var _fallbackState$1 = _g$3[_FALLBACK_KEY$1] ??= { rootParams: null };
@@ -8259,7 +8800,7 @@ function setRootParams(params) {
 	getState().rootParams = params;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-prerender-static-params.js
+//#region node_modules/vinext/dist/server/app-prerender-static-params.js
 async function callAppPrerenderStaticParams(options) {
 	setRootParams(pickRootParams(options.params, options.rootParamNamesByPattern[options.pattern]));
 	try {
@@ -8269,7 +8810,7 @@ async function callAppPrerenderStaticParams(options) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-prerender-endpoints.js
+//#region node_modules/vinext/dist/server/app-prerender-endpoints.js
 var STATIC_PARAMS_ENDPOINT = "/__vinext/prerender/static-params";
 var PAGES_STATIC_PATHS_ENDPOINT = "/__vinext/prerender/pages-static-paths";
 var JSON_HEADERS = { "content-type": "application/json" };
@@ -8361,7 +8902,7 @@ function isStringArray(value) {
 	return Array.isArray(value) && value.every((item) => typeof item === "string");
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-response-finalizer.js
+//#region node_modules/vinext/dist/server/app-rsc-response-finalizer.js
 /**
 * Apply App Router response finalization that must happen outside individual
 * route dispatchers.
@@ -8394,7 +8935,7 @@ function finalizeAppRscResponse(response, request, options) {
 	return response;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-request-normalization.js
+//#region node_modules/vinext/dist/server/app-rsc-request-normalization.js
 /**
 * Normalize an App Router RSC request.
 *
@@ -8454,7 +8995,7 @@ function normalizeRscRequest(request, basePath) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/routing/route-pattern.js
+//#region node_modules/vinext/dist/routing/route-pattern.js
 function routePatternPart(segment) {
 	if (segment.startsWith("[[...") && segment.endsWith("]]")) return `:${segment.slice(5, -2)}*`;
 	if (segment.startsWith("[...") && segment.endsWith("]")) return `:${segment.slice(4, -1)}+`;
@@ -8543,7 +9084,7 @@ function matchRoutePattern(urlParts, patternParts) {
 	return params;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/metadata-routes.js
+//#region node_modules/vinext/dist/server/metadata-routes.js
 /** Escape the five XML special characters in text content and attribute values. */
 function escapeXml(s) {
 	return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
@@ -8664,7 +9205,7 @@ function matchMetadataRoutePattern(urlParts, patternParts) {
 	return matchRoutePattern(urlParts, patternParts);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/metadata-route-response.js
+//#region node_modules/vinext/dist/server/metadata-route-response.js
 var routeFunctionCache = /* @__PURE__ */ new WeakMap();
 function isObject(value) {
 	return typeof value === "object" && value !== null;
@@ -8847,7 +9388,7 @@ async function handleMetadataRouteRequest(options) {
 	return null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/prerender-work-unit-setup.js
+//#region node_modules/vinext/dist/server/prerender-work-unit-setup.js
 /**
 * Sets up the work unit async storage for prerendering.
 *
@@ -8873,7 +9414,7 @@ function runWithPrerenderWorkUnit(fn, options) {
 	return fn();
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-handler.js
+//#region node_modules/vinext/dist/server/app-rsc-handler.js
 function hasProperty(value, key) {
 	return key in value;
 }
@@ -9147,7 +9688,7 @@ function createAppRscHandler(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/instrumentation.js
+//#region node_modules/vinext/dist/server/instrumentation.js
 /**
 * Get the registered onRequestError handler (if any).
 *
@@ -9178,7 +9719,7 @@ function reportRequestError(error, request, context) {
 	return promise;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-route-handler-runtime.js
+//#region node_modules/vinext/dist/server/app-route-handler-runtime.js
 var ROUTE_HANDLER_HTTP_METHODS = [
 	"GET",
 	"HEAD",
@@ -9413,7 +9954,7 @@ function createTrackedAppRouteRequest(request, options = {}) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/next-error-digest.js
+//#region node_modules/vinext/dist/server/next-error-digest.js
 /**
 * Pulls a stringified `digest` off an unknown thrown value, or returns null
 * when the value is not a digest-bearing error.
@@ -9452,7 +9993,7 @@ function parseNextHttpErrorDigest(digest) {
 	return null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-route-handler-policy.js
+//#region node_modules/vinext/dist/server/app-route-handler-policy.js
 function isPossibleAppRouteActionRequest(request) {
 	if (request.method.toUpperCase() !== "POST") return false;
 	const contentType = request.headers.get("content-type");
@@ -9511,7 +10052,7 @@ function resolveAppRouteHandlerSpecialError(error, requestUrl, options) {
 	return null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-static-generation.js
+//#region node_modules/vinext/dist/server/app-static-generation.js
 function getAppPageStaticGenerationErrorMessage() {
 	return "Page with `dynamic = \"error\"` used a dynamic API. This page was expected to be fully static, but headers(), cookies(), or searchParams was accessed. Remove the dynamic API usage or change the dynamic config to \"auto\" or \"force-dynamic\".";
 }
@@ -9528,7 +10069,7 @@ function createStaticGenerationHeadersContext(options) {
 	return context;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-route-handler-response.js
+//#region node_modules/vinext/dist/server/app-route-handler-response.js
 var APP_ROUTE_REWRITE_ERROR = "NextResponse.rewrite() was used in a app route handler, this is not currently supported. Please remove the invocation to continue.";
 var APP_ROUTE_NEXT_ERROR = "NextResponse.next() was used in a app route handler, this is not supported. See here for more info: https://nextjs.org/docs/messages/next-response-next-in-app-route-handler";
 function hasMiddlewareHeader(headers) {
@@ -9631,7 +10172,7 @@ function finalizeRouteHandlerResponse(response, options) {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-route-handler-execution.js
+//#region node_modules/vinext/dist/server/app-route-handler-execution.js
 function configureAppRouteStaticGenerationContext(options) {
 	if (options.dynamicConfig === "force-static" || options.dynamicConfig === "error") {
 		setHeadersContext(createStaticGenerationHeadersContext({
@@ -9750,7 +10291,7 @@ async function executeAppRouteHandler(options) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-route-handler-cache.js
+//#region node_modules/vinext/dist/server/app-route-handler-cache.js
 function getCachedAppRouteValue(entry) {
 	return entry?.value.value && entry.value.value.kind === "APP_ROUTE" ? entry.value.value : null;
 }
@@ -9821,7 +10362,7 @@ async function readAppRouteHandlerCacheResponse(options) {
 	return null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-route-handler-dispatch.js
+//#region node_modules/vinext/dist/server/app-route-handler-dispatch.js
 function isAppRouteHandlerFunction(value) {
 	return typeof value === "function";
 }
@@ -9956,7 +10497,7 @@ async function dispatchAppRouteHandler(options) {
 	return applyRouteHandlerMiddlewareContext(new Response(null, { status: 405 }), options.middlewareContext);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/utils/text-stream.js
+//#region node_modules/vinext/dist/utils/text-stream.js
 /**
 * Helpers for the repeated `new TextDecoder()` + `ReadableStream` chunk-loop
 * pattern used across the server. Each helper handles the streaming-decode
@@ -10019,7 +10560,7 @@ async function readStreamAsTextWithLimit(stream, maxBytes, onLimitExceeded) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/server-action-not-found.js
+//#region node_modules/vinext/dist/server/server-action-not-found.js
 var SERVER_ACTION_NOT_FOUND_DOCS = "https://nextjs.org/docs/messages/failed-to-find-server-action";
 var SERVER_ACTION_NOT_FOUND_BODY = "Server action not found.";
 function getServerActionNotFoundPrefix(actionId) {
@@ -10049,7 +10590,7 @@ function createServerActionNotFoundResponse() {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-params.js
+//#region node_modules/vinext/dist/server/app-page-params.js
 function getAppPageSegmentParamName(segment) {
 	if (segment.startsWith("[[...") && segment.endsWith("]]") && segment.length > 7) return segment.slice(5, -2);
 	if (segment.startsWith("[...") && segment.endsWith("]") && segment.length > 5) return segment.slice(4, -1);
@@ -10074,7 +10615,7 @@ function resolveAppPageSegmentParams(routeSegments, treePosition, matchedParams)
 	return segmentParams;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-request.js
+//#region node_modules/vinext/dist/server/app-page-request.js
 function pickRouteParams(matchedParams, routeParamNames) {
 	const params = {};
 	for (const paramName of routeParamNames) {
@@ -10234,7 +10775,7 @@ async function buildAppPageElement(options) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-server-action-execution.js
+//#region node_modules/vinext/dist/server/app-server-action-execution.js
 /**
 * Matches Next.js' server action argument cap to prevent stack overflow in
 * Function.prototype.apply when decoding hostile action payloads.
@@ -10621,7 +11162,7 @@ async function handleServerActionRscRequest(options) {
 	}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-execution.js
+//#region node_modules/vinext/dist/server/app-page-execution.js
 function isPromiseLike(value) {
 	return Boolean(value && (typeof value === "object" || typeof value === "function") && "then" in value && typeof value.then === "function");
 }
@@ -10790,7 +11331,7 @@ function buildAppPageFontLinkHeader(preloads) {
 	return preloads.map((preload) => `<${preload.href}>; rel=preload; as=font; type=${preload.type}; crossorigin`).join(", ");
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-errors.js
+//#region node_modules/vinext/dist/server/app-rsc-errors.js
 function hasDigest(error) {
 	return Boolean(error && typeof error === "object" && "digest" in error);
 }
@@ -10828,7 +11369,7 @@ function createRscOnErrorHandler$1(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-error-handler.js
+//#region node_modules/vinext/dist/server/app-rsc-error-handler.js
 /**
 * Build a per-request RSC error handler that extracts request metadata from
 * the incoming Web `Request`, wires it into a `createRscOnErrorHandler` call,
@@ -10854,24 +11395,24 @@ function createAppRscOnErrorHandler(reportRequestError, request, pathname, route
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/error-boundary.js
+//#region node_modules/vinext/dist/shims/error-boundary.js
 var ErrorBoundary = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'ErrorBoundary' is called on server");
-}, "95c4f645ec6e", "ErrorBoundary");
+}, "593f344dc510", "ErrorBoundary");
 var ForbiddenBoundary = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'ForbiddenBoundary' is called on server");
-}, "95c4f645ec6e", "ForbiddenBoundary");
+}, "593f344dc510", "ForbiddenBoundary");
 var NotFoundBoundary = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'NotFoundBoundary' is called on server");
-}, "95c4f645ec6e", "NotFoundBoundary");
+}, "593f344dc510", "NotFoundBoundary");
 var RedirectBoundary = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'RedirectBoundary' is called on server");
-}, "95c4f645ec6e", "RedirectBoundary");
+}, "593f344dc510", "RedirectBoundary");
 var UnauthorizedBoundary = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'UnauthorizedBoundary' is called on server");
-}, "95c4f645ec6e", "UnauthorizedBoundary");
+}, "593f344dc510", "UnauthorizedBoundary");
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/layout-segment-context.js
+//#region node_modules/vinext/dist/shims/layout-segment-context.js
 /**
 * Layout segment context provider.
 *
@@ -10901,9 +11442,9 @@ var UnauthorizedBoundary = /* @__PURE__ */ registerClientReference(() => {
 */
 var LayoutSegmentProvider = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'LayoutSegmentProvider' is called on server");
-}, "2e1023663a5b", "LayoutSegmentProvider");
+}, "15c18cfaeeff", "LayoutSegmentProvider");
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/slot.js
+//#region node_modules/vinext/dist/shims/slot.js
 /**
 * Holds resolved AppElements (not a Promise). React 19's use(Promise) during
 * hydration triggers "async Client Component" for native Promises that lack
@@ -10911,15 +11452,15 @@ var LayoutSegmentProvider = /* @__PURE__ */ registerClientReference(() => {
 */
 var Children = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'Children' is called on server");
-}, "8616e93aab13", "Children");
+}, "8c0f216c4604", "Children");
 var ParallelSlot = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'ParallelSlot' is called on server");
-}, "8616e93aab13", "ParallelSlot");
+}, "8c0f216c4604", "ParallelSlot");
 var Slot = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'Slot' is called on server");
-}, "8616e93aab13", "Slot");
+}, "8c0f216c4604", "Slot");
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-render-dependency.js
+//#region node_modules/vinext/dist/server/app-render-dependency.js
 function createAppRenderDependency() {
 	let released = false;
 	let resolve;
@@ -10950,7 +11491,7 @@ function renderWithAppDependencyBarrier(children, dependency) {
 	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)(import_jsx_runtime_react_server.Fragment, { children: [children, /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(ReleaseAppRenderDependency, {})] });
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-segment-state.js
+//#region node_modules/vinext/dist/server/app-page-segment-state.js
 function isOptionalCatchAllSegment(segment) {
 	return segment.startsWith("[[...") && segment.endsWith("]]") && segment.length > 7;
 }
@@ -11027,7 +11568,7 @@ function resolveAppPageRouteStateKey(routeSegments, params) {
 	return statePath.length > 0 ? JSON.stringify(statePath) : "";
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-route-wiring.js
+//#region node_modules/vinext/dist/server/app-page-route-wiring.js
 function getDefaultExport$1(module) {
 	return module?.default ?? null;
 }
@@ -11351,7 +11892,7 @@ function buildAppPageElements(options) {
 	return elements;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/file-based-metadata.js
+//#region node_modules/vinext/dist/server/file-based-metadata.js
 function routeApplies(routePath, routePrefix) {
 	if (!routePrefix) return true;
 	return routePath === routePrefix || routePath.startsWith(`${routePrefix}/`);
@@ -11701,7 +12242,7 @@ async function applyFileBasedMetadata(metadata, routePath, params, metadataRoute
 	return nextMetadata;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-head.js
+//#region node_modules/vinext/dist/server/app-page-head.js
 function resolveActiveParallelRouteHeadInputs(options) {
 	return Object.entries(options.slots ?? {}).map(([slotKey, slot]) => {
 		if (options.interceptSlotKey === slotKey && options.interceptPage) return {
@@ -11895,7 +12436,7 @@ async function resolveAppPageHeadInner(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-boundary.js
+//#region node_modules/vinext/dist/server/app-page-boundary.js
 function resolveAppPageHttpAccessBoundaryComponent(options) {
 	let boundaryModule;
 	if (options.statusCode === 403) boundaryModule = options.routeForbiddenModule ?? options.rootForbiddenModule;
@@ -11971,7 +12512,7 @@ async function renderAppPageBoundaryResponse(options) {
 	return options.createHtmlResponse(rscStream, options.status);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-stream.js
+//#region node_modules/vinext/dist/server/app-page-stream.js
 function createAppPageFontData(options) {
 	return {
 		links: options.getLinks(),
@@ -12083,7 +12624,7 @@ function shouldRerenderAppPageWithGlobalError(options) {
 	return Boolean(options.capturedError) && !options.hasLocalBoundary;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-boundary-render.js
+//#region node_modules/vinext/dist/server/app-page-boundary-render.js
 function getDefaultExport(module) {
 	return module?.default ?? null;
 }
@@ -12317,7 +12858,7 @@ function rewriteClientHookError(error) {
 	if (match) error.message = buildClientHookErrorMessage(`${match[1]}()`);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-fallback-renderer.js
+//#region node_modules/vinext/dist/server/app-fallback-renderer.js
 var EMPTY_MW_CTX = {
 	headers: null,
 	status: null
@@ -12392,7 +12933,7 @@ function createAppFallbackRenderer(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-element-builder.js
+//#region node_modules/vinext/dist/server/app-page-element-builder.js
 /**
 * Build the App Router element tree for a matched route.
 *
@@ -12526,7 +13067,7 @@ function collectParamNameSet(params) {
 	return set;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/isr-cache.js
+//#region node_modules/vinext/dist/server/isr-cache.js
 /**
 * ISR (Incremental Static Regeneration) cache layer.
 *
@@ -12637,7 +13178,7 @@ function buildCacheKey(prefix, pathname, suffix) {
 * The suffix mirrors Next.js's separate on-disk app artifacts while keeping the
 * Cloudflare KV key under its 512-byte limit for long pathnames.
 */
-function appIsrCacheKey(pathname, suffix, buildId = "d9fdda66-3d07-4fe3-a0d8-b27da22944d1") {
+function appIsrCacheKey(pathname, suffix, buildId = "fbd787c8-2140-45b9-8afe-a717ab77cc35") {
 	return buildCacheKey(buildId ? `app:${buildId}` : "app", pathname, suffix);
 }
 function appIsrHtmlKey(pathname) {
@@ -12662,7 +13203,7 @@ function appIsrRouteKey(pathname) {
 var _REVALIDATE_KEY = Symbol.for("vinext.isrCache.revalidateDurations");
 _g$1[_REVALIDATE_KEY] ??= /* @__PURE__ */ new Map();
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-cache.js
+//#region node_modules/vinext/dist/server/app-page-cache.js
 var NO_STORE_CACHE_CONTROL = "no-store, must-revalidate";
 function buildAppPageCacheControl(cacheState, revalidateSeconds, expireSeconds) {
 	return buildCachedRevalidateCacheControl(cacheState, revalidateSeconds, expireSeconds);
@@ -12865,7 +13406,7 @@ function scheduleAppPageRscCacheWrite(options) {
 	return true;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-method.js
+//#region node_modules/vinext/dist/server/app-page-method.js
 function isNonGetOrHead(method) {
 	const normalizedMethod = method.toUpperCase();
 	return normalizedMethod !== "GET" && normalizedMethod !== "HEAD";
@@ -12886,7 +13427,7 @@ function resolveAppPageMethodResponse(options) {
 	return methodNotAllowedResponse("GET, HEAD", { headers });
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-probe.js
+//#region node_modules/vinext/dist/server/app-page-probe.js
 async function probeAppPageBeforeRender(options) {
 	let layoutFlags = {};
 	if (options.layoutCount > 0) {
@@ -12930,7 +13471,7 @@ async function probeAppPageBeforeRender(options) {
 	};
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-render.js
+//#region node_modules/vinext/dist/server/app-page-render.js
 function buildResponseTiming(options) {
 	if (options.isProduction) return;
 	return {
@@ -12966,7 +13507,7 @@ function createAppPageArtifactCompatibility(element, routePattern) {
 			routePattern,
 			rootBoundaryId
 		}),
-		deploymentVersion: "d9fdda66-3d07-4fe3-a0d8-b27da22944d1",
+		deploymentVersion: "fbd787c8-2140-45b9-8afe-a717ab77cc35",
 		rootBoundaryId
 	});
 }
@@ -13246,7 +13787,7 @@ async function settleCapturedRscRenderForCacheMetadata(capturedRscDataPromise) {
 	} catch {}
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-page-dispatch.js
+//#region node_modules/vinext/dist/server/app-page-dispatch.js
 function shouldReadAppPageCache(options) {
 	return options.isProduction && !options.isProgressiveActionRender && !options.isDraftMode && !options.isForceDynamic && (options.isRscRequest || !options.scriptNonce) && (options.revalidateSeconds === null || options.revalidateSeconds > 0);
 }
@@ -13592,7 +14133,7 @@ async function renderPageSpecialError(options, specialError) {
 	});
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-segment-config.js
+//#region node_modules/vinext/dist/server/app-segment-config.js
 var DYNAMIC_VALUES = new Set([
 	"auto",
 	"error",
@@ -13679,7 +14220,7 @@ function resolveAppPageFetchCacheMode(options) {
 	return resolveAppPageSegmentConfig(options).fetchCache ?? null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/routing/route-trie.js
+//#region node_modules/vinext/dist/routing/route-trie.js
 function createNode() {
 	return {
 		staticChildren: /* @__PURE__ */ new Map(),
@@ -13825,7 +14366,7 @@ function match(node, urlParts, index) {
 	return null;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-rsc-route-matching.js
+//#region node_modules/vinext/dist/server/app-rsc-route-matching.js
 function createRouteParams() {
 	return Object.create(null);
 }
@@ -13889,7 +14430,7 @@ function mergeMatchedParams(sourceParams, targetParams) {
 	return Object.assign(createRouteParams(), sourceParams, targetParams);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/navigation-state.js
+//#region node_modules/vinext/dist/shims/navigation-state.js
 /**
 * Server-only navigation state backed by AsyncLocalStorage.
 *
@@ -13930,7 +14471,7 @@ var _accessors = {
 _registerStateAccessors(_accessors);
 globalThis[GLOBAL_ACCESSORS_KEY] = _accessors;
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/build/google-fonts/sort-variants.js
+//#region node_modules/vinext/dist/build/google-fonts/sort-variants.js
 function sortFontsVariantValues(valA, valB) {
 	if (valA.includes(",") && valB.includes(",")) {
 		const [aPrefix, aSuffix] = valA.split(",", 2);
@@ -13941,7 +14482,7 @@ function sortFontsVariantValues(valA, valB) {
 	return parseInt(valA) - parseInt(valB);
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/build/google-fonts/build-url.js
+//#region node_modules/vinext/dist/build/google-fonts/build-url.js
 function buildGoogleFontsUrl$1(fontFamily, axes, display) {
 	const variants = [];
 	if (axes.wght) for (const wght of axes.wght) if (!axes.ital) variants.push([["wght", wght], ...axes.variableAxes ?? []]);
@@ -13967,7 +14508,7 @@ function buildGoogleFontsUrl$1(fontFamily, axes, display) {
 	return `${url}&display=${display}`;
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/font-google-base.js
+//#region node_modules/vinext/dist/shims/font-google-base.js
 /**
 * next/font/google shim
 *
@@ -14310,7 +14851,7 @@ var googleFonts = new Proxy({}, { get(_target, prop) {
 	return createFontLoader(prop.replace(/_/g, " ").replace(/([a-z])([A-Z])/g, "$1 $2"));
 } });
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/font-local.js
+//#region node_modules/vinext/dist/shims/font-local.js
 var ssrFontStyles = [];
 var ssrFontPreloads = [];
 /**
@@ -14330,7 +14871,7 @@ function getSSRFontPreloads() {
 	return [...ssrFontPreloads];
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-hook-warning-suppression.js
+//#region node_modules/vinext/dist/server/app-hook-warning-suppression.js
 var suppressHookWarningAls = new AsyncLocalStorage$1();
 var _origConsoleError = console.error;
 console.error = (...args) => {
@@ -14338,7 +14879,7 @@ console.error = (...args) => {
 	_origConsoleError.apply(console, args);
 };
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-request-context.js
+//#region node_modules/vinext/dist/server/app-request-context.js
 /**
 * Set navigation context in the ALS-backed store. "use client" components
 * rendered during SSR need the pathname/searchParams/params but the SSR
@@ -14378,7 +14919,7 @@ function entryRedirect(query) {
 }
 //#endregion
 //#region app/page.tsx
-var page_exports$10 = /* @__PURE__ */ __exportAll({ default: () => Entry });
+var page_exports$19 = /* @__PURE__ */ __exportAll({ default: () => Entry });
 /** The retired entrance opens the existing main site without an entry screen. */
 async function Entry({ searchParams }) {
 	const query = new URLSearchParams();
@@ -14387,7 +14928,7 @@ async function Entry({ searchParams }) {
 	if (destination.status === 307) redirect(destination.location);
 	permanentRedirect(destination.location);
 }
-var Resources$5 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+var Resources$8 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 	return function Resources() {
 		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
 			key: "css:" + href,
@@ -14398,6 +14939,69 @@ var Resources$5 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
 	};
 })(import_react_react_server.default, assetsManifest.serverResources["app/layout.tsx"], void 0, "vite-rsc/importer-resources");
+//#endregion
+//#region app/chatgpt-auth.ts
+var USER_EMAIL_HEADER = "oai-authenticated-user-email";
+var USER_FULL_NAME_HEADER = "oai-authenticated-user-full-name";
+var USER_FULL_NAME_ENCODING_HEADER = "oai-authenticated-user-full-name-encoding";
+var PERCENT_ENCODED_UTF8 = "percent-encoded-utf-8";
+var SIGN_IN_PATH = "/signin-with-chatgpt";
+var SIGN_OUT_PATH = "/signout-with-chatgpt";
+var CALLBACK_PATH = "/callback";
+async function getChatGPTUser() {
+	const requestHeaders = await headers();
+	const email = requestHeaders.get(USER_EMAIL_HEADER);
+	if (!email) return null;
+	const encodedFullName = requestHeaders.get(USER_FULL_NAME_HEADER);
+	const fullName = encodedFullName && requestHeaders.get(USER_FULL_NAME_ENCODING_HEADER) === PERCENT_ENCODED_UTF8 ? safeDecodeURIComponent(encodedFullName) : null;
+	return {
+		displayName: fullName ?? email,
+		email,
+		fullName
+	};
+}
+async function requireChatGPTUser(returnTo) {
+	const user = await getChatGPTUser();
+	if (user) return user;
+	redirect(chatGPTSignInPath(returnTo));
+}
+function chatGPTSignInPath(returnTo) {
+	const safeReturnTo = safeRelativeReturnPath(returnTo);
+	return `${SIGN_IN_PATH}?return_to=${encodeURIComponent(safeReturnTo)}`;
+}
+function safeRelativeReturnPath(value) {
+	if (!value.startsWith("/") || value.startsWith("//")) return "/";
+	let url;
+	try {
+		url = new URL(value, "https://app.local");
+	} catch {
+		return "/";
+	}
+	if (url.origin !== "https://app.local") return "/";
+	if (isReservedAuthPath(url.pathname)) return "/";
+	return `${url.pathname}${url.search}${url.hash}`;
+}
+function isReservedAuthPath(pathname) {
+	return pathname === SIGN_IN_PATH || pathname === SIGN_OUT_PATH || pathname === CALLBACK_PATH;
+}
+function safeDecodeURIComponent(value) {
+	try {
+		return decodeURIComponent(value);
+	} catch {
+		return null;
+	}
+}
+//#endregion
+//#region app/editor/editor-shell.tsx
+var EditorShell = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'EditorShell' is called on server");
+}, "9d4b78043551", "EditorShell");
+//#endregion
+//#region app/editor/owner.ts
+var EDITOR_OWNER_EMAIL = "adamthabo@gmail.com";
+function isEditorOwner(email) {
+	return email?.trim().toLowerCase() === EDITOR_OWNER_EMAIL;
+}
 //#endregion
 //#region app/color-theme-init.ts
 var colorThemeInit = `(function(){var t='dark',q=new URLSearchParams(location.search).get('theme');try{var s=localStorage.getItem('fieldtrip-theme');if(s==='dark'||s==='light')t=s;}catch(e){}if(q==='dark'||q==='light'){t=q;try{localStorage.setItem('fieldtrip-theme',q);}catch(e){}}document.documentElement.dataset.theme=t;})();`;
@@ -14411,10 +15015,10 @@ var ComplementaryColors = /* @__PURE__ */ registerClientReference(() => {
 //#region app/layout.tsx
 var layout_exports = /* @__PURE__ */ __exportAll({
 	default: () => $$wrap_RootLayout,
-	metadata: () => metadata$9,
+	metadata: () => metadata$14,
 	viewport: () => viewport
 });
-var metadata$9 = {
+var metadata$14 = {
 	metadataBase: new URL("https://fieldtripdesign.com"),
 	title: {
 		default: "field trip Design",
@@ -14530,6 +15134,7 @@ var viewport = {
 	colorScheme: "light"
 };
 async function RootLayout({ children }) {
+	const user = await getChatGPTUser();
 	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("html", {
 		lang: "en",
 		suppressHydrationWarning: true,
@@ -14542,16 +15147,21 @@ async function RootLayout({ children }) {
 					children: "Skip to main content"
 				}),
 				children,
-				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(ComplementaryColors, {})
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(ComplementaryColors, {}),
+				isEditorOwner(user?.email) && /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(EditorShell, {
+					canEdit: true,
+					controlsEnabled: false,
+					initialOverrides: []
+				})
 			]
 		})]
 	});
 }
-var $$wrap_RootLayout = /* @__PURE__ */ __vite_rsc_wrap_css__$5(RootLayout, "default");
-function __vite_rsc_wrap_css__$5(value, name) {
+var $$wrap_RootLayout = /* @__PURE__ */ __vite_rsc_wrap_css__$8(RootLayout, "default");
+function __vite_rsc_wrap_css__$8(value, name) {
 	if (typeof value !== "function") return value;
 	function __wrapper(props) {
-		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$5), import_react_react_server.createElement(value, props));
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$8), import_react_react_server.createElement(value, props));
 	}
 	Object.defineProperty(__wrapper, "name", { value: name });
 	return __wrapper;
@@ -14574,7 +15184,7 @@ function BrandText({ children }) {
 	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(import_jsx_runtime_react_server.Fragment, { children: children.split(/(\bfield trip\b)/gi).map((part, index) => /^field trip$/i.test(part) ? /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(FieldTripName, {}, index) : /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(import_react_react_server.Fragment, { children: part }, index)) });
 }
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/shims/link.js
+//#region node_modules/vinext/dist/shims/link.js
 var link_default = /* @__PURE__ */ registerClientReference(() => {
 	throw new Error("Unexpectedly client reference export 'default' is called on server");
 }, "c2747888630f", "default");
@@ -14804,13 +15414,32 @@ function SiteFooter() {
 		})
 	});
 }
+function SectionIntro({ kicker, title, children }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("header", {
+		className: "page-introduction",
+		children: [
+			kicker && /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", {
+				className: "section-kicker",
+				children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(BrandText, { children: kicker })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h1", {
+				className: "section-title",
+				children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(BrandText, { children: title })
+			}),
+			children && /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("div", {
+				className: "section-intro",
+				children
+			})
+		]
+	});
+}
 //#endregion
 //#region app/not-found.tsx
 var not_found_exports = /* @__PURE__ */ __exportAll({
 	default: () => NotFound,
-	metadata: () => metadata$8
+	metadata: () => metadata$13
 });
-var metadata$8 = {
+var metadata$13 = {
 	title: "Page Not Found",
 	description: "Return to field trip or explore the project archive.",
 	robots: {
@@ -15824,11 +16453,11 @@ var founderCopy = {
 };
 //#endregion
 //#region app/about/page.tsx
-var page_exports$9 = /* @__PURE__ */ __exportAll({
+var page_exports$18 = /* @__PURE__ */ __exportAll({
 	default: () => AboutPage,
-	metadata: () => metadata$7
+	metadata: () => metadata$12
 });
-var metadata$7 = {
+var metadata$12 = {
 	title: "About",
 	description: "field trip is a design, fabrication, and installation practice working from Brooklyn and Providence.",
 	alternates: { canonical: "/about" }
@@ -16151,13 +16780,13 @@ function AboutPage() {
 }
 //#endregion
 //#region app/about/rca-exhibition-design/page.tsx
-var page_exports$8 = /* @__PURE__ */ __exportAll({
+var page_exports$17 = /* @__PURE__ */ __exportAll({
 	default: () => RcaExhibitionPage,
-	metadata: () => metadata$6
+	metadata: () => metadata$11
 });
 var title$1 = rcaExhibitionTitle;
 var description$1 = "Exhibitions at the Royal College of Art: the 2006 graduate show with a looping conveyor, Anglepoise and Eco Marketing, and the 2008 Interim Show.";
-var metadata$6 = {
+var metadata$11 = {
 	title: title$1,
 	description: description$1,
 	alternates: { canonical: rcaExhibitionHref },
@@ -16308,13 +16937,13 @@ function RcaExhibitionPage() {
 }
 //#endregion
 //#region app/about/risd-printmaking/page.tsx
-var page_exports$7 = /* @__PURE__ */ __exportAll({
+var page_exports$16 = /* @__PURE__ */ __exportAll({
 	default: () => RisdPrintmakingPage,
-	metadata: () => metadata$5
+	metadata: () => metadata$10
 });
 var title = "Printmaking at RISD";
 var description = "a. thabo’s photogravure work with Paul Taylor at Renaissance Press, with photographs by David Armstrong and Kenro Izu, and a collaboration with Adam Fuss.";
-var metadata$5 = {
+var metadata$10 = {
 	title,
 	description,
 	alternates: { canonical: risdPrintmakingHref },
@@ -16482,28 +17111,3648 @@ function RisdPrintmakingPage() {
 		})
 	});
 }
-var Resources$4 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
-	return function Resources() {
-		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
-			key: "css:" + href,
-			rel: "stylesheet",
-			...precedence ? { precedence } : {},
-			href,
-			"data-rsc-css-href": href
-		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
-	};
-})(import_react_react_server.default, assetsManifest.serverResources["app/home/page.tsx"], void 0, "vite-rsc/importer-resources");
 //#endregion
-//#region app/projects-link.tsx
-function ProjectsLink({ href = "/work", clientNavigation = false }) {
-	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("div", {
-		className: "projects-action",
-		children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(clientNavigation ? link_default : "a", {
-			className: "projects-link",
-			href,
-			children: "Projects"
-		})
+//#region node_modules/zod/v3/helpers/util.js
+var util;
+(function(util) {
+	util.assertEqual = (_) => {};
+	function assertIs(_arg) {}
+	util.assertIs = assertIs;
+	function assertNever(_x) {
+		throw new Error();
+	}
+	util.assertNever = assertNever;
+	util.arrayToEnum = (items) => {
+		const obj = {};
+		for (const item of items) obj[item] = item;
+		return obj;
+	};
+	util.getValidEnumValues = (obj) => {
+		const validKeys = util.objectKeys(obj).filter((k) => typeof obj[obj[k]] !== "number");
+		const filtered = {};
+		for (const k of validKeys) filtered[k] = obj[k];
+		return util.objectValues(filtered);
+	};
+	util.objectValues = (obj) => {
+		return util.objectKeys(obj).map(function(e) {
+			return obj[e];
+		});
+	};
+	util.objectKeys = typeof Object.keys === "function" ? (obj) => Object.keys(obj) : (object) => {
+		const keys = [];
+		for (const key in object) if (Object.prototype.hasOwnProperty.call(object, key)) keys.push(key);
+		return keys;
+	};
+	util.find = (arr, checker) => {
+		for (const item of arr) if (checker(item)) return item;
+	};
+	util.isInteger = typeof Number.isInteger === "function" ? (val) => Number.isInteger(val) : (val) => typeof val === "number" && Number.isFinite(val) && Math.floor(val) === val;
+	function joinValues(array, separator = " | ") {
+		return array.map((val) => typeof val === "string" ? `'${val}'` : val).join(separator);
+	}
+	util.joinValues = joinValues;
+	util.jsonStringifyReplacer = (_, value) => {
+		if (typeof value === "bigint") return value.toString();
+		return value;
+	};
+})(util || (util = {}));
+var objectUtil;
+(function(objectUtil) {
+	objectUtil.mergeShapes = (first, second) => {
+		return {
+			...first,
+			...second
+		};
+	};
+})(objectUtil || (objectUtil = {}));
+var ZodParsedType = util.arrayToEnum([
+	"string",
+	"nan",
+	"number",
+	"integer",
+	"float",
+	"boolean",
+	"date",
+	"bigint",
+	"symbol",
+	"function",
+	"undefined",
+	"null",
+	"array",
+	"object",
+	"unknown",
+	"promise",
+	"void",
+	"never",
+	"map",
+	"set"
+]);
+var getParsedType = (data) => {
+	switch (typeof data) {
+		case "undefined": return ZodParsedType.undefined;
+		case "string": return ZodParsedType.string;
+		case "number": return Number.isNaN(data) ? ZodParsedType.nan : ZodParsedType.number;
+		case "boolean": return ZodParsedType.boolean;
+		case "function": return ZodParsedType.function;
+		case "bigint": return ZodParsedType.bigint;
+		case "symbol": return ZodParsedType.symbol;
+		case "object":
+			if (Array.isArray(data)) return ZodParsedType.array;
+			if (data === null) return ZodParsedType.null;
+			if (data.then && typeof data.then === "function" && data.catch && typeof data.catch === "function") return ZodParsedType.promise;
+			if (typeof Map !== "undefined" && data instanceof Map) return ZodParsedType.map;
+			if (typeof Set !== "undefined" && data instanceof Set) return ZodParsedType.set;
+			if (typeof Date !== "undefined" && data instanceof Date) return ZodParsedType.date;
+			return ZodParsedType.object;
+		default: return ZodParsedType.unknown;
+	}
+};
+//#endregion
+//#region node_modules/zod/v3/ZodError.js
+var ZodIssueCode = util.arrayToEnum([
+	"invalid_type",
+	"invalid_literal",
+	"custom",
+	"invalid_union",
+	"invalid_union_discriminator",
+	"invalid_enum_value",
+	"unrecognized_keys",
+	"invalid_arguments",
+	"invalid_return_type",
+	"invalid_date",
+	"invalid_string",
+	"too_small",
+	"too_big",
+	"invalid_intersection_types",
+	"not_multiple_of",
+	"not_finite"
+]);
+var ZodError = class ZodError extends Error {
+	get errors() {
+		return this.issues;
+	}
+	constructor(issues) {
+		super();
+		this.issues = [];
+		this.addIssue = (sub) => {
+			this.issues = [...this.issues, sub];
+		};
+		this.addIssues = (subs = []) => {
+			this.issues = [...this.issues, ...subs];
+		};
+		const actualProto = new.target.prototype;
+		if (Object.setPrototypeOf) Object.setPrototypeOf(this, actualProto);
+		else this.__proto__ = actualProto;
+		this.name = "ZodError";
+		this.issues = issues;
+	}
+	format(_mapper) {
+		const mapper = _mapper || function(issue) {
+			return issue.message;
+		};
+		const fieldErrors = { _errors: [] };
+		const processError = (error) => {
+			for (const issue of error.issues) if (issue.code === "invalid_union") issue.unionErrors.map(processError);
+			else if (issue.code === "invalid_return_type") processError(issue.returnTypeError);
+			else if (issue.code === "invalid_arguments") processError(issue.argumentsError);
+			else if (issue.path.length === 0) fieldErrors._errors.push(mapper(issue));
+			else {
+				let curr = fieldErrors;
+				let i = 0;
+				while (i < issue.path.length) {
+					const el = issue.path[i];
+					if (!(i === issue.path.length - 1)) curr[el] = curr[el] || { _errors: [] };
+					else {
+						curr[el] = curr[el] || { _errors: [] };
+						curr[el]._errors.push(mapper(issue));
+					}
+					curr = curr[el];
+					i++;
+				}
+			}
+		};
+		processError(this);
+		return fieldErrors;
+	}
+	static assert(value) {
+		if (!(value instanceof ZodError)) throw new Error(`Not a ZodError: ${value}`);
+	}
+	toString() {
+		return this.message;
+	}
+	get message() {
+		return JSON.stringify(this.issues, util.jsonStringifyReplacer, 2);
+	}
+	get isEmpty() {
+		return this.issues.length === 0;
+	}
+	flatten(mapper = (issue) => issue.message) {
+		const fieldErrors = {};
+		const formErrors = [];
+		for (const sub of this.issues) if (sub.path.length > 0) {
+			const firstEl = sub.path[0];
+			fieldErrors[firstEl] = fieldErrors[firstEl] || [];
+			fieldErrors[firstEl].push(mapper(sub));
+		} else formErrors.push(mapper(sub));
+		return {
+			formErrors,
+			fieldErrors
+		};
+	}
+	get formErrors() {
+		return this.flatten();
+	}
+};
+ZodError.create = (issues) => {
+	return new ZodError(issues);
+};
+//#endregion
+//#region node_modules/zod/v3/locales/en.js
+var errorMap = (issue, _ctx) => {
+	let message;
+	switch (issue.code) {
+		case ZodIssueCode.invalid_type:
+			if (issue.received === ZodParsedType.undefined) message = "Required";
+			else message = `Expected ${issue.expected}, received ${issue.received}`;
+			break;
+		case ZodIssueCode.invalid_literal:
+			message = `Invalid literal value, expected ${JSON.stringify(issue.expected, util.jsonStringifyReplacer)}`;
+			break;
+		case ZodIssueCode.unrecognized_keys:
+			message = `Unrecognized key(s) in object: ${util.joinValues(issue.keys, ", ")}`;
+			break;
+		case ZodIssueCode.invalid_union:
+			message = `Invalid input`;
+			break;
+		case ZodIssueCode.invalid_union_discriminator:
+			message = `Invalid discriminator value. Expected ${util.joinValues(issue.options)}`;
+			break;
+		case ZodIssueCode.invalid_enum_value:
+			message = `Invalid enum value. Expected ${util.joinValues(issue.options)}, received '${issue.received}'`;
+			break;
+		case ZodIssueCode.invalid_arguments:
+			message = `Invalid function arguments`;
+			break;
+		case ZodIssueCode.invalid_return_type:
+			message = `Invalid function return type`;
+			break;
+		case ZodIssueCode.invalid_date:
+			message = `Invalid date`;
+			break;
+		case ZodIssueCode.invalid_string:
+			if (typeof issue.validation === "object") if ("includes" in issue.validation) {
+				message = `Invalid input: must include "${issue.validation.includes}"`;
+				if (typeof issue.validation.position === "number") message = `${message} at one or more positions greater than or equal to ${issue.validation.position}`;
+			} else if ("startsWith" in issue.validation) message = `Invalid input: must start with "${issue.validation.startsWith}"`;
+			else if ("endsWith" in issue.validation) message = `Invalid input: must end with "${issue.validation.endsWith}"`;
+			else util.assertNever(issue.validation);
+			else if (issue.validation !== "regex") message = `Invalid ${issue.validation}`;
+			else message = "Invalid";
+			break;
+		case ZodIssueCode.too_small:
+			if (issue.type === "array") message = `Array must contain ${issue.exact ? "exactly" : issue.inclusive ? `at least` : `more than`} ${issue.minimum} element(s)`;
+			else if (issue.type === "string") message = `String must contain ${issue.exact ? "exactly" : issue.inclusive ? `at least` : `over`} ${issue.minimum} character(s)`;
+			else if (issue.type === "number") message = `Number must be ${issue.exact ? `exactly equal to ` : issue.inclusive ? `greater than or equal to ` : `greater than `}${issue.minimum}`;
+			else if (issue.type === "bigint") message = `Number must be ${issue.exact ? `exactly equal to ` : issue.inclusive ? `greater than or equal to ` : `greater than `}${issue.minimum}`;
+			else if (issue.type === "date") message = `Date must be ${issue.exact ? `exactly equal to ` : issue.inclusive ? `greater than or equal to ` : `greater than `}${new Date(Number(issue.minimum))}`;
+			else message = "Invalid input";
+			break;
+		case ZodIssueCode.too_big:
+			if (issue.type === "array") message = `Array must contain ${issue.exact ? `exactly` : issue.inclusive ? `at most` : `less than`} ${issue.maximum} element(s)`;
+			else if (issue.type === "string") message = `String must contain ${issue.exact ? `exactly` : issue.inclusive ? `at most` : `under`} ${issue.maximum} character(s)`;
+			else if (issue.type === "number") message = `Number must be ${issue.exact ? `exactly` : issue.inclusive ? `less than or equal to` : `less than`} ${issue.maximum}`;
+			else if (issue.type === "bigint") message = `BigInt must be ${issue.exact ? `exactly` : issue.inclusive ? `less than or equal to` : `less than`} ${issue.maximum}`;
+			else if (issue.type === "date") message = `Date must be ${issue.exact ? `exactly` : issue.inclusive ? `smaller than or equal to` : `smaller than`} ${new Date(Number(issue.maximum))}`;
+			else message = "Invalid input";
+			break;
+		case ZodIssueCode.custom:
+			message = `Invalid input`;
+			break;
+		case ZodIssueCode.invalid_intersection_types:
+			message = `Intersection results could not be merged`;
+			break;
+		case ZodIssueCode.not_multiple_of:
+			message = `Number must be a multiple of ${issue.multipleOf}`;
+			break;
+		case ZodIssueCode.not_finite:
+			message = "Number must be finite";
+			break;
+		default:
+			message = _ctx.defaultError;
+			util.assertNever(issue);
+	}
+	return { message };
+};
+//#endregion
+//#region node_modules/zod/v3/errors.js
+var overrideErrorMap = errorMap;
+function getErrorMap() {
+	return overrideErrorMap;
+}
+//#endregion
+//#region node_modules/zod/v3/helpers/parseUtil.js
+var makeIssue = (params) => {
+	const { data, path, errorMaps, issueData } = params;
+	const fullPath = [...path, ...issueData.path || []];
+	const fullIssue = {
+		...issueData,
+		path: fullPath
+	};
+	if (issueData.message !== void 0) return {
+		...issueData,
+		path: fullPath,
+		message: issueData.message
+	};
+	let errorMessage = "";
+	const maps = errorMaps.filter((m) => !!m).slice().reverse();
+	for (const map of maps) errorMessage = map(fullIssue, {
+		data,
+		defaultError: errorMessage
+	}).message;
+	return {
+		...issueData,
+		path: fullPath,
+		message: errorMessage
+	};
+};
+function addIssueToContext(ctx, issueData) {
+	const overrideMap = getErrorMap();
+	const issue = makeIssue({
+		issueData,
+		data: ctx.data,
+		path: ctx.path,
+		errorMaps: [
+			ctx.common.contextualErrorMap,
+			ctx.schemaErrorMap,
+			overrideMap,
+			overrideMap === errorMap ? void 0 : errorMap
+		].filter((x) => !!x)
 	});
+	ctx.common.issues.push(issue);
+}
+var ParseStatus = class ParseStatus {
+	constructor() {
+		this.value = "valid";
+	}
+	dirty() {
+		if (this.value === "valid") this.value = "dirty";
+	}
+	abort() {
+		if (this.value !== "aborted") this.value = "aborted";
+	}
+	static mergeArray(status, results) {
+		const arrayValue = [];
+		for (const s of results) {
+			if (s.status === "aborted") return INVALID;
+			if (s.status === "dirty") status.dirty();
+			arrayValue.push(s.value);
+		}
+		return {
+			status: status.value,
+			value: arrayValue
+		};
+	}
+	static async mergeObjectAsync(status, pairs) {
+		const syncPairs = [];
+		for (const pair of pairs) {
+			const key = await pair.key;
+			const value = await pair.value;
+			syncPairs.push({
+				key,
+				value
+			});
+		}
+		return ParseStatus.mergeObjectSync(status, syncPairs);
+	}
+	static mergeObjectSync(status, pairs) {
+		const finalObject = {};
+		for (const pair of pairs) {
+			const { key, value } = pair;
+			if (key.status === "aborted") return INVALID;
+			if (value.status === "aborted") return INVALID;
+			if (key.status === "dirty") status.dirty();
+			if (value.status === "dirty") status.dirty();
+			if (key.value !== "__proto__" && (typeof value.value !== "undefined" || pair.alwaysSet)) finalObject[key.value] = value.value;
+		}
+		return {
+			status: status.value,
+			value: finalObject
+		};
+	}
+};
+var INVALID = Object.freeze({ status: "aborted" });
+var DIRTY = (value) => ({
+	status: "dirty",
+	value
+});
+var OK = (value) => ({
+	status: "valid",
+	value
+});
+var isAborted = (x) => x.status === "aborted";
+var isDirty = (x) => x.status === "dirty";
+var isValid = (x) => x.status === "valid";
+var isAsync = (x) => typeof Promise !== "undefined" && x instanceof Promise;
+//#endregion
+//#region node_modules/zod/v3/helpers/errorUtil.js
+var errorUtil;
+(function(errorUtil) {
+	errorUtil.errToObj = (message) => typeof message === "string" ? { message } : message || {};
+	errorUtil.toString = (message) => typeof message === "string" ? message : message?.message;
+})(errorUtil || (errorUtil = {}));
+//#endregion
+//#region node_modules/zod/v3/types.js
+var ParseInputLazyPath = class {
+	constructor(parent, value, path, key) {
+		this._cachedPath = [];
+		this.parent = parent;
+		this.data = value;
+		this._path = path;
+		this._key = key;
+	}
+	get path() {
+		if (!this._cachedPath.length) if (Array.isArray(this._key)) this._cachedPath.push(...this._path, ...this._key);
+		else this._cachedPath.push(...this._path, this._key);
+		return this._cachedPath;
+	}
+};
+var handleResult = (ctx, result) => {
+	if (isValid(result)) return {
+		success: true,
+		data: result.value
+	};
+	else {
+		if (!ctx.common.issues.length) throw new Error("Validation failed but no issues detected.");
+		return {
+			success: false,
+			get error() {
+				if (this._error) return this._error;
+				const error = new ZodError(ctx.common.issues);
+				this._error = error;
+				return this._error;
+			}
+		};
+	}
+};
+function processCreateParams(params) {
+	if (!params) return {};
+	const { errorMap, invalid_type_error, required_error, description } = params;
+	if (errorMap && (invalid_type_error || required_error)) throw new Error(`Can't use "invalid_type_error" or "required_error" in conjunction with custom error map.`);
+	if (errorMap) return {
+		errorMap,
+		description
+	};
+	const customMap = (iss, ctx) => {
+		const { message } = params;
+		if (iss.code === "invalid_enum_value") return { message: message ?? ctx.defaultError };
+		if (typeof ctx.data === "undefined") return { message: message ?? required_error ?? ctx.defaultError };
+		if (iss.code !== "invalid_type") return { message: ctx.defaultError };
+		return { message: message ?? invalid_type_error ?? ctx.defaultError };
+	};
+	return {
+		errorMap: customMap,
+		description
+	};
+}
+var ZodType = class {
+	get description() {
+		return this._def.description;
+	}
+	_getType(input) {
+		return getParsedType(input.data);
+	}
+	_getOrReturnCtx(input, ctx) {
+		return ctx || {
+			common: input.parent.common,
+			data: input.data,
+			parsedType: getParsedType(input.data),
+			schemaErrorMap: this._def.errorMap,
+			path: input.path,
+			parent: input.parent
+		};
+	}
+	_processInputParams(input) {
+		return {
+			status: new ParseStatus(),
+			ctx: {
+				common: input.parent.common,
+				data: input.data,
+				parsedType: getParsedType(input.data),
+				schemaErrorMap: this._def.errorMap,
+				path: input.path,
+				parent: input.parent
+			}
+		};
+	}
+	_parseSync(input) {
+		const result = this._parse(input);
+		if (isAsync(result)) throw new Error("Synchronous parse encountered promise.");
+		return result;
+	}
+	_parseAsync(input) {
+		const result = this._parse(input);
+		return Promise.resolve(result);
+	}
+	parse(data, params) {
+		const result = this.safeParse(data, params);
+		if (result.success) return result.data;
+		throw result.error;
+	}
+	safeParse(data, params) {
+		const ctx = {
+			common: {
+				issues: [],
+				async: params?.async ?? false,
+				contextualErrorMap: params?.errorMap
+			},
+			path: params?.path || [],
+			schemaErrorMap: this._def.errorMap,
+			parent: null,
+			data,
+			parsedType: getParsedType(data)
+		};
+		return handleResult(ctx, this._parseSync({
+			data,
+			path: ctx.path,
+			parent: ctx
+		}));
+	}
+	"~validate"(data) {
+		const ctx = {
+			common: {
+				issues: [],
+				async: !!this["~standard"].async
+			},
+			path: [],
+			schemaErrorMap: this._def.errorMap,
+			parent: null,
+			data,
+			parsedType: getParsedType(data)
+		};
+		if (!this["~standard"].async) try {
+			const result = this._parseSync({
+				data,
+				path: [],
+				parent: ctx
+			});
+			return isValid(result) ? { value: result.value } : { issues: ctx.common.issues };
+		} catch (err) {
+			if (err?.message?.toLowerCase()?.includes("encountered")) this["~standard"].async = true;
+			ctx.common = {
+				issues: [],
+				async: true
+			};
+		}
+		return this._parseAsync({
+			data,
+			path: [],
+			parent: ctx
+		}).then((result) => isValid(result) ? { value: result.value } : { issues: ctx.common.issues });
+	}
+	async parseAsync(data, params) {
+		const result = await this.safeParseAsync(data, params);
+		if (result.success) return result.data;
+		throw result.error;
+	}
+	async safeParseAsync(data, params) {
+		const ctx = {
+			common: {
+				issues: [],
+				contextualErrorMap: params?.errorMap,
+				async: true
+			},
+			path: params?.path || [],
+			schemaErrorMap: this._def.errorMap,
+			parent: null,
+			data,
+			parsedType: getParsedType(data)
+		};
+		const maybeAsyncResult = this._parse({
+			data,
+			path: ctx.path,
+			parent: ctx
+		});
+		return handleResult(ctx, await (isAsync(maybeAsyncResult) ? maybeAsyncResult : Promise.resolve(maybeAsyncResult)));
+	}
+	refine(check, message) {
+		const getIssueProperties = (val) => {
+			if (typeof message === "string" || typeof message === "undefined") return { message };
+			else if (typeof message === "function") return message(val);
+			else return message;
+		};
+		return this._refinement((val, ctx) => {
+			const result = check(val);
+			const setError = () => ctx.addIssue({
+				code: ZodIssueCode.custom,
+				...getIssueProperties(val)
+			});
+			if (typeof Promise !== "undefined" && result instanceof Promise) return result.then((data) => {
+				if (!data) {
+					setError();
+					return false;
+				} else return true;
+			});
+			if (!result) {
+				setError();
+				return false;
+			} else return true;
+		});
+	}
+	refinement(check, refinementData) {
+		return this._refinement((val, ctx) => {
+			if (!check(val)) {
+				ctx.addIssue(typeof refinementData === "function" ? refinementData(val, ctx) : refinementData);
+				return false;
+			} else return true;
+		});
+	}
+	_refinement(refinement) {
+		return new ZodEffects({
+			schema: this,
+			typeName: ZodFirstPartyTypeKind.ZodEffects,
+			effect: {
+				type: "refinement",
+				refinement
+			}
+		});
+	}
+	superRefine(refinement) {
+		return this._refinement(refinement);
+	}
+	constructor(def) {
+		/** Alias of safeParseAsync */
+		this.spa = this.safeParseAsync;
+		this._def = def;
+		this.parse = this.parse.bind(this);
+		this.safeParse = this.safeParse.bind(this);
+		this.parseAsync = this.parseAsync.bind(this);
+		this.safeParseAsync = this.safeParseAsync.bind(this);
+		this.spa = this.spa.bind(this);
+		this.refine = this.refine.bind(this);
+		this.refinement = this.refinement.bind(this);
+		this.superRefine = this.superRefine.bind(this);
+		this.optional = this.optional.bind(this);
+		this.nullable = this.nullable.bind(this);
+		this.nullish = this.nullish.bind(this);
+		this.array = this.array.bind(this);
+		this.promise = this.promise.bind(this);
+		this.or = this.or.bind(this);
+		this.and = this.and.bind(this);
+		this.transform = this.transform.bind(this);
+		this.brand = this.brand.bind(this);
+		this.default = this.default.bind(this);
+		this.catch = this.catch.bind(this);
+		this.describe = this.describe.bind(this);
+		this.pipe = this.pipe.bind(this);
+		this.readonly = this.readonly.bind(this);
+		this.isNullable = this.isNullable.bind(this);
+		this.isOptional = this.isOptional.bind(this);
+		this["~standard"] = {
+			version: 1,
+			vendor: "zod",
+			validate: (data) => this["~validate"](data)
+		};
+	}
+	optional() {
+		return ZodOptional.create(this, this._def);
+	}
+	nullable() {
+		return ZodNullable.create(this, this._def);
+	}
+	nullish() {
+		return this.nullable().optional();
+	}
+	array() {
+		return ZodArray.create(this);
+	}
+	promise() {
+		return ZodPromise.create(this, this._def);
+	}
+	or(option) {
+		return ZodUnion.create([this, option], this._def);
+	}
+	and(incoming) {
+		return ZodIntersection.create(this, incoming, this._def);
+	}
+	transform(transform) {
+		return new ZodEffects({
+			...processCreateParams(this._def),
+			schema: this,
+			typeName: ZodFirstPartyTypeKind.ZodEffects,
+			effect: {
+				type: "transform",
+				transform
+			}
+		});
+	}
+	default(def) {
+		const defaultValueFunc = typeof def === "function" ? def : () => def;
+		return new ZodDefault({
+			...processCreateParams(this._def),
+			innerType: this,
+			defaultValue: defaultValueFunc,
+			typeName: ZodFirstPartyTypeKind.ZodDefault
+		});
+	}
+	brand() {
+		return new ZodBranded({
+			typeName: ZodFirstPartyTypeKind.ZodBranded,
+			type: this,
+			...processCreateParams(this._def)
+		});
+	}
+	catch(def) {
+		const catchValueFunc = typeof def === "function" ? def : () => def;
+		return new ZodCatch({
+			...processCreateParams(this._def),
+			innerType: this,
+			catchValue: catchValueFunc,
+			typeName: ZodFirstPartyTypeKind.ZodCatch
+		});
+	}
+	describe(description) {
+		const This = this.constructor;
+		return new This({
+			...this._def,
+			description
+		});
+	}
+	pipe(target) {
+		return ZodPipeline.create(this, target);
+	}
+	readonly() {
+		return ZodReadonly.create(this);
+	}
+	isOptional() {
+		return this.safeParse(void 0).success;
+	}
+	isNullable() {
+		return this.safeParse(null).success;
+	}
+};
+var cuidRegex = /^c[^\s-]{8,}$/i;
+var cuid2Regex = /^[0-9a-z]+$/;
+var ulidRegex = /^[0-9A-HJKMNP-TV-Z]{26}$/i;
+var uuidRegex = /^[0-9a-fA-F]{8}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{4}\b-[0-9a-fA-F]{12}$/i;
+var nanoidRegex = /^[a-z0-9_-]{21}$/i;
+var jwtRegex = /^[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]*$/;
+var durationRegex = /^[-+]?P(?!$)(?:(?:[-+]?\d+Y)|(?:[-+]?\d+[.,]\d+Y$))?(?:(?:[-+]?\d+M)|(?:[-+]?\d+[.,]\d+M$))?(?:(?:[-+]?\d+W)|(?:[-+]?\d+[.,]\d+W$))?(?:(?:[-+]?\d+D)|(?:[-+]?\d+[.,]\d+D$))?(?:T(?=[\d+-])(?:(?:[-+]?\d+H)|(?:[-+]?\d+[.,]\d+H$))?(?:(?:[-+]?\d+M)|(?:[-+]?\d+[.,]\d+M$))?(?:[-+]?\d+(?:[.,]\d+)?S)?)??$/;
+var emailRegex = /^(?!\.)(?!.*\.\.)([A-Z0-9_'+\-\.]*)[A-Z0-9_+-]@([A-Z0-9][A-Z0-9\-]*\.)+[A-Z]{2,}$/i;
+var _emojiRegex = `^(\\p{Extended_Pictographic}|\\p{Emoji_Component})+$`;
+var emojiRegex;
+var ipv4Regex = /^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])$/;
+var ipv4CidrRegex = /^(?:(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}(?:25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\/(3[0-2]|[12]?[0-9])$/;
+var ipv6Regex = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/;
+var ipv6CidrRegex = /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))\/(12[0-8]|1[01][0-9]|[1-9]?[0-9])$/;
+var base64Regex = /^([0-9a-zA-Z+/]{4})*(([0-9a-zA-Z+/]{2}==)|([0-9a-zA-Z+/]{3}=))?$/;
+var base64urlRegex = /^([0-9a-zA-Z-_]{4})*(([0-9a-zA-Z-_]{2}(==)?)|([0-9a-zA-Z-_]{3}(=)?))?$/;
+var dateRegexSource = `((\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-((0[13578]|1[02])-(0[1-9]|[12]\\d|3[01])|(0[469]|11)-(0[1-9]|[12]\\d|30)|(02)-(0[1-9]|1\\d|2[0-8])))`;
+var dateRegex = new RegExp(`^${dateRegexSource}$`);
+function timeRegexSource(args) {
+	let secondsRegexSource = `[0-5]\\d`;
+	if (args.precision) secondsRegexSource = `${secondsRegexSource}\\.\\d{${args.precision}}`;
+	else if (args.precision == null) secondsRegexSource = `${secondsRegexSource}(\\.\\d+)?`;
+	const secondsQuantifier = args.precision ? "+" : "?";
+	return `([01]\\d|2[0-3]):[0-5]\\d(:${secondsRegexSource})${secondsQuantifier}`;
+}
+function timeRegex(args) {
+	return new RegExp(`^${timeRegexSource(args)}$`);
+}
+function datetimeRegex(args) {
+	let regex = `${dateRegexSource}T${timeRegexSource(args)}`;
+	const opts = [];
+	opts.push(args.local ? `Z?` : `Z`);
+	if (args.offset) opts.push(`([+-]\\d{2}:?\\d{2})`);
+	regex = `${regex}(${opts.join("|")})`;
+	return new RegExp(`^${regex}$`);
+}
+function isValidIP(ip, version) {
+	if ((version === "v4" || !version) && ipv4Regex.test(ip)) return true;
+	if ((version === "v6" || !version) && ipv6Regex.test(ip)) return true;
+	return false;
+}
+function isValidJWT(jwt, alg) {
+	if (!jwtRegex.test(jwt)) return false;
+	try {
+		const [header] = jwt.split(".");
+		if (!header) return false;
+		const base64 = header.replace(/-/g, "+").replace(/_/g, "/").padEnd(header.length + (4 - header.length % 4) % 4, "=");
+		const decoded = JSON.parse(atob(base64));
+		if (typeof decoded !== "object" || decoded === null) return false;
+		if ("typ" in decoded && decoded?.typ !== "JWT") return false;
+		if (!decoded.alg) return false;
+		if (alg && decoded.alg !== alg) return false;
+		return true;
+	} catch {
+		return false;
+	}
+}
+function isValidCidr(ip, version) {
+	if ((version === "v4" || !version) && ipv4CidrRegex.test(ip)) return true;
+	if ((version === "v6" || !version) && ipv6CidrRegex.test(ip)) return true;
+	return false;
+}
+var ZodString = class ZodString extends ZodType {
+	_parse(input) {
+		if (this._def.coerce) input.data = String(input.data);
+		if (this._getType(input) !== ZodParsedType.string) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.string,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		const status = new ParseStatus();
+		let ctx = void 0;
+		for (const check of this._def.checks) if (check.kind === "min") {
+			if (input.data.length < check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					minimum: check.value,
+					type: "string",
+					inclusive: true,
+					exact: false,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "max") {
+			if (input.data.length > check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					maximum: check.value,
+					type: "string",
+					inclusive: true,
+					exact: false,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "length") {
+			const tooBig = input.data.length > check.value;
+			const tooSmall = input.data.length < check.value;
+			if (tooBig || tooSmall) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				if (tooBig) addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					maximum: check.value,
+					type: "string",
+					inclusive: true,
+					exact: true,
+					message: check.message
+				});
+				else if (tooSmall) addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					minimum: check.value,
+					type: "string",
+					inclusive: true,
+					exact: true,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "email") {
+			if (!emailRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "email",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "emoji") {
+			if (!emojiRegex) emojiRegex = new RegExp(_emojiRegex, "u");
+			if (!emojiRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "emoji",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "uuid") {
+			if (!uuidRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "uuid",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "nanoid") {
+			if (!nanoidRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "nanoid",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "cuid") {
+			if (!cuidRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "cuid",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "cuid2") {
+			if (!cuid2Regex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "cuid2",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "ulid") {
+			if (!ulidRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "ulid",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "url") try {
+			new URL(input.data);
+		} catch {
+			ctx = this._getOrReturnCtx(input, ctx);
+			addIssueToContext(ctx, {
+				validation: "url",
+				code: ZodIssueCode.invalid_string,
+				message: check.message
+			});
+			status.dirty();
+		}
+		else if (check.kind === "regex") {
+			check.regex.lastIndex = 0;
+			if (!check.regex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "regex",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "trim") input.data = input.data.trim();
+		else if (check.kind === "includes") {
+			if (!input.data.includes(check.value, check.position)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_string,
+					validation: {
+						includes: check.value,
+						position: check.position
+					},
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "toLowerCase") input.data = input.data.toLowerCase();
+		else if (check.kind === "toUpperCase") input.data = input.data.toUpperCase();
+		else if (check.kind === "startsWith") {
+			if (!input.data.startsWith(check.value)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_string,
+					validation: { startsWith: check.value },
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "endsWith") {
+			if (!input.data.endsWith(check.value)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_string,
+					validation: { endsWith: check.value },
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "datetime") {
+			if (!datetimeRegex(check).test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_string,
+					validation: "datetime",
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "date") {
+			if (!dateRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_string,
+					validation: "date",
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "time") {
+			if (!timeRegex(check).test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_string,
+					validation: "time",
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "duration") {
+			if (!durationRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "duration",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "ip") {
+			if (!isValidIP(input.data, check.version)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "ip",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "jwt") {
+			if (!isValidJWT(input.data, check.alg)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "jwt",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "cidr") {
+			if (!isValidCidr(input.data, check.version)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "cidr",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "base64") {
+			if (!base64Regex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "base64",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "base64url") {
+			if (!base64urlRegex.test(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					validation: "base64url",
+					code: ZodIssueCode.invalid_string,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else util.assertNever(check);
+		return {
+			status: status.value,
+			value: input.data
+		};
+	}
+	_regex(regex, validation, message) {
+		return this.refinement((data) => regex.test(data), {
+			validation,
+			code: ZodIssueCode.invalid_string,
+			...errorUtil.errToObj(message)
+		});
+	}
+	_addCheck(check) {
+		return new ZodString({
+			...this._def,
+			checks: [...this._def.checks, check]
+		});
+	}
+	email(message) {
+		return this._addCheck({
+			kind: "email",
+			...errorUtil.errToObj(message)
+		});
+	}
+	url(message) {
+		return this._addCheck({
+			kind: "url",
+			...errorUtil.errToObj(message)
+		});
+	}
+	emoji(message) {
+		return this._addCheck({
+			kind: "emoji",
+			...errorUtil.errToObj(message)
+		});
+	}
+	uuid(message) {
+		return this._addCheck({
+			kind: "uuid",
+			...errorUtil.errToObj(message)
+		});
+	}
+	nanoid(message) {
+		return this._addCheck({
+			kind: "nanoid",
+			...errorUtil.errToObj(message)
+		});
+	}
+	cuid(message) {
+		return this._addCheck({
+			kind: "cuid",
+			...errorUtil.errToObj(message)
+		});
+	}
+	cuid2(message) {
+		return this._addCheck({
+			kind: "cuid2",
+			...errorUtil.errToObj(message)
+		});
+	}
+	ulid(message) {
+		return this._addCheck({
+			kind: "ulid",
+			...errorUtil.errToObj(message)
+		});
+	}
+	base64(message) {
+		return this._addCheck({
+			kind: "base64",
+			...errorUtil.errToObj(message)
+		});
+	}
+	base64url(message) {
+		return this._addCheck({
+			kind: "base64url",
+			...errorUtil.errToObj(message)
+		});
+	}
+	jwt(options) {
+		return this._addCheck({
+			kind: "jwt",
+			...errorUtil.errToObj(options)
+		});
+	}
+	ip(options) {
+		return this._addCheck({
+			kind: "ip",
+			...errorUtil.errToObj(options)
+		});
+	}
+	cidr(options) {
+		return this._addCheck({
+			kind: "cidr",
+			...errorUtil.errToObj(options)
+		});
+	}
+	datetime(options) {
+		if (typeof options === "string") return this._addCheck({
+			kind: "datetime",
+			precision: null,
+			offset: false,
+			local: false,
+			message: options
+		});
+		return this._addCheck({
+			kind: "datetime",
+			precision: typeof options?.precision === "undefined" ? null : options?.precision,
+			offset: options?.offset ?? false,
+			local: options?.local ?? false,
+			...errorUtil.errToObj(options?.message)
+		});
+	}
+	date(message) {
+		return this._addCheck({
+			kind: "date",
+			message
+		});
+	}
+	time(options) {
+		if (typeof options === "string") return this._addCheck({
+			kind: "time",
+			precision: null,
+			message: options
+		});
+		return this._addCheck({
+			kind: "time",
+			precision: typeof options?.precision === "undefined" ? null : options?.precision,
+			...errorUtil.errToObj(options?.message)
+		});
+	}
+	duration(message) {
+		return this._addCheck({
+			kind: "duration",
+			...errorUtil.errToObj(message)
+		});
+	}
+	regex(regex, message) {
+		return this._addCheck({
+			kind: "regex",
+			regex,
+			...errorUtil.errToObj(message)
+		});
+	}
+	includes(value, options) {
+		return this._addCheck({
+			kind: "includes",
+			value,
+			position: options?.position,
+			...errorUtil.errToObj(options?.message)
+		});
+	}
+	startsWith(value, message) {
+		return this._addCheck({
+			kind: "startsWith",
+			value,
+			...errorUtil.errToObj(message)
+		});
+	}
+	endsWith(value, message) {
+		return this._addCheck({
+			kind: "endsWith",
+			value,
+			...errorUtil.errToObj(message)
+		});
+	}
+	min(minLength, message) {
+		return this._addCheck({
+			kind: "min",
+			value: minLength,
+			...errorUtil.errToObj(message)
+		});
+	}
+	max(maxLength, message) {
+		return this._addCheck({
+			kind: "max",
+			value: maxLength,
+			...errorUtil.errToObj(message)
+		});
+	}
+	length(len, message) {
+		return this._addCheck({
+			kind: "length",
+			value: len,
+			...errorUtil.errToObj(message)
+		});
+	}
+	/**
+	* Equivalent to `.min(1)`
+	*/
+	nonempty(message) {
+		return this.min(1, errorUtil.errToObj(message));
+	}
+	trim() {
+		return new ZodString({
+			...this._def,
+			checks: [...this._def.checks, { kind: "trim" }]
+		});
+	}
+	toLowerCase() {
+		return new ZodString({
+			...this._def,
+			checks: [...this._def.checks, { kind: "toLowerCase" }]
+		});
+	}
+	toUpperCase() {
+		return new ZodString({
+			...this._def,
+			checks: [...this._def.checks, { kind: "toUpperCase" }]
+		});
+	}
+	get isDatetime() {
+		return !!this._def.checks.find((ch) => ch.kind === "datetime");
+	}
+	get isDate() {
+		return !!this._def.checks.find((ch) => ch.kind === "date");
+	}
+	get isTime() {
+		return !!this._def.checks.find((ch) => ch.kind === "time");
+	}
+	get isDuration() {
+		return !!this._def.checks.find((ch) => ch.kind === "duration");
+	}
+	get isEmail() {
+		return !!this._def.checks.find((ch) => ch.kind === "email");
+	}
+	get isURL() {
+		return !!this._def.checks.find((ch) => ch.kind === "url");
+	}
+	get isEmoji() {
+		return !!this._def.checks.find((ch) => ch.kind === "emoji");
+	}
+	get isUUID() {
+		return !!this._def.checks.find((ch) => ch.kind === "uuid");
+	}
+	get isNANOID() {
+		return !!this._def.checks.find((ch) => ch.kind === "nanoid");
+	}
+	get isCUID() {
+		return !!this._def.checks.find((ch) => ch.kind === "cuid");
+	}
+	get isCUID2() {
+		return !!this._def.checks.find((ch) => ch.kind === "cuid2");
+	}
+	get isULID() {
+		return !!this._def.checks.find((ch) => ch.kind === "ulid");
+	}
+	get isIP() {
+		return !!this._def.checks.find((ch) => ch.kind === "ip");
+	}
+	get isCIDR() {
+		return !!this._def.checks.find((ch) => ch.kind === "cidr");
+	}
+	get isBase64() {
+		return !!this._def.checks.find((ch) => ch.kind === "base64");
+	}
+	get isBase64url() {
+		return !!this._def.checks.find((ch) => ch.kind === "base64url");
+	}
+	get minLength() {
+		let min = null;
+		for (const ch of this._def.checks) if (ch.kind === "min") {
+			if (min === null || ch.value > min) min = ch.value;
+		}
+		return min;
+	}
+	get maxLength() {
+		let max = null;
+		for (const ch of this._def.checks) if (ch.kind === "max") {
+			if (max === null || ch.value < max) max = ch.value;
+		}
+		return max;
+	}
+};
+ZodString.create = (params) => {
+	return new ZodString({
+		checks: [],
+		typeName: ZodFirstPartyTypeKind.ZodString,
+		coerce: params?.coerce ?? false,
+		...processCreateParams(params)
+	});
+};
+function floatSafeRemainder(val, step) {
+	const valDecCount = (val.toString().split(".")[1] || "").length;
+	const stepDecCount = (step.toString().split(".")[1] || "").length;
+	const decCount = valDecCount > stepDecCount ? valDecCount : stepDecCount;
+	return Number.parseInt(val.toFixed(decCount).replace(".", "")) % Number.parseInt(step.toFixed(decCount).replace(".", "")) / 10 ** decCount;
+}
+var ZodNumber = class ZodNumber extends ZodType {
+	constructor() {
+		super(...arguments);
+		this.min = this.gte;
+		this.max = this.lte;
+		this.step = this.multipleOf;
+	}
+	_parse(input) {
+		if (this._def.coerce) input.data = Number(input.data);
+		if (this._getType(input) !== ZodParsedType.number) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.number,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		let ctx = void 0;
+		const status = new ParseStatus();
+		for (const check of this._def.checks) if (check.kind === "int") {
+			if (!util.isInteger(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.invalid_type,
+					expected: "integer",
+					received: "float",
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "min") {
+			if (check.inclusive ? input.data < check.value : input.data <= check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					minimum: check.value,
+					type: "number",
+					inclusive: check.inclusive,
+					exact: false,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "max") {
+			if (check.inclusive ? input.data > check.value : input.data >= check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					maximum: check.value,
+					type: "number",
+					inclusive: check.inclusive,
+					exact: false,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "multipleOf") {
+			if (floatSafeRemainder(input.data, check.value) !== 0) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.not_multiple_of,
+					multipleOf: check.value,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "finite") {
+			if (!Number.isFinite(input.data)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.not_finite,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else util.assertNever(check);
+		return {
+			status: status.value,
+			value: input.data
+		};
+	}
+	gte(value, message) {
+		return this.setLimit("min", value, true, errorUtil.toString(message));
+	}
+	gt(value, message) {
+		return this.setLimit("min", value, false, errorUtil.toString(message));
+	}
+	lte(value, message) {
+		return this.setLimit("max", value, true, errorUtil.toString(message));
+	}
+	lt(value, message) {
+		return this.setLimit("max", value, false, errorUtil.toString(message));
+	}
+	setLimit(kind, value, inclusive, message) {
+		return new ZodNumber({
+			...this._def,
+			checks: [...this._def.checks, {
+				kind,
+				value,
+				inclusive,
+				message: errorUtil.toString(message)
+			}]
+		});
+	}
+	_addCheck(check) {
+		return new ZodNumber({
+			...this._def,
+			checks: [...this._def.checks, check]
+		});
+	}
+	int(message) {
+		return this._addCheck({
+			kind: "int",
+			message: errorUtil.toString(message)
+		});
+	}
+	positive(message) {
+		return this._addCheck({
+			kind: "min",
+			value: 0,
+			inclusive: false,
+			message: errorUtil.toString(message)
+		});
+	}
+	negative(message) {
+		return this._addCheck({
+			kind: "max",
+			value: 0,
+			inclusive: false,
+			message: errorUtil.toString(message)
+		});
+	}
+	nonpositive(message) {
+		return this._addCheck({
+			kind: "max",
+			value: 0,
+			inclusive: true,
+			message: errorUtil.toString(message)
+		});
+	}
+	nonnegative(message) {
+		return this._addCheck({
+			kind: "min",
+			value: 0,
+			inclusive: true,
+			message: errorUtil.toString(message)
+		});
+	}
+	multipleOf(value, message) {
+		return this._addCheck({
+			kind: "multipleOf",
+			value,
+			message: errorUtil.toString(message)
+		});
+	}
+	finite(message) {
+		return this._addCheck({
+			kind: "finite",
+			message: errorUtil.toString(message)
+		});
+	}
+	safe(message) {
+		return this._addCheck({
+			kind: "min",
+			inclusive: true,
+			value: Number.MIN_SAFE_INTEGER,
+			message: errorUtil.toString(message)
+		})._addCheck({
+			kind: "max",
+			inclusive: true,
+			value: Number.MAX_SAFE_INTEGER,
+			message: errorUtil.toString(message)
+		});
+	}
+	get minValue() {
+		let min = null;
+		for (const ch of this._def.checks) if (ch.kind === "min") {
+			if (min === null || ch.value > min) min = ch.value;
+		}
+		return min;
+	}
+	get maxValue() {
+		let max = null;
+		for (const ch of this._def.checks) if (ch.kind === "max") {
+			if (max === null || ch.value < max) max = ch.value;
+		}
+		return max;
+	}
+	get isInt() {
+		return !!this._def.checks.find((ch) => ch.kind === "int" || ch.kind === "multipleOf" && util.isInteger(ch.value));
+	}
+	get isFinite() {
+		let max = null;
+		let min = null;
+		for (const ch of this._def.checks) if (ch.kind === "finite" || ch.kind === "int" || ch.kind === "multipleOf") return true;
+		else if (ch.kind === "min") {
+			if (min === null || ch.value > min) min = ch.value;
+		} else if (ch.kind === "max") {
+			if (max === null || ch.value < max) max = ch.value;
+		}
+		return Number.isFinite(min) && Number.isFinite(max);
+	}
+};
+ZodNumber.create = (params) => {
+	return new ZodNumber({
+		checks: [],
+		typeName: ZodFirstPartyTypeKind.ZodNumber,
+		coerce: params?.coerce || false,
+		...processCreateParams(params)
+	});
+};
+var ZodBigInt = class ZodBigInt extends ZodType {
+	constructor() {
+		super(...arguments);
+		this.min = this.gte;
+		this.max = this.lte;
+	}
+	_parse(input) {
+		if (this._def.coerce) try {
+			input.data = BigInt(input.data);
+		} catch {
+			return this._getInvalidInput(input);
+		}
+		if (this._getType(input) !== ZodParsedType.bigint) return this._getInvalidInput(input);
+		let ctx = void 0;
+		const status = new ParseStatus();
+		for (const check of this._def.checks) if (check.kind === "min") {
+			if (check.inclusive ? input.data < check.value : input.data <= check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					type: "bigint",
+					minimum: check.value,
+					inclusive: check.inclusive,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "max") {
+			if (check.inclusive ? input.data > check.value : input.data >= check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					type: "bigint",
+					maximum: check.value,
+					inclusive: check.inclusive,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "multipleOf") {
+			if (input.data % check.value !== BigInt(0)) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.not_multiple_of,
+					multipleOf: check.value,
+					message: check.message
+				});
+				status.dirty();
+			}
+		} else util.assertNever(check);
+		return {
+			status: status.value,
+			value: input.data
+		};
+	}
+	_getInvalidInput(input) {
+		const ctx = this._getOrReturnCtx(input);
+		addIssueToContext(ctx, {
+			code: ZodIssueCode.invalid_type,
+			expected: ZodParsedType.bigint,
+			received: ctx.parsedType
+		});
+		return INVALID;
+	}
+	gte(value, message) {
+		return this.setLimit("min", value, true, errorUtil.toString(message));
+	}
+	gt(value, message) {
+		return this.setLimit("min", value, false, errorUtil.toString(message));
+	}
+	lte(value, message) {
+		return this.setLimit("max", value, true, errorUtil.toString(message));
+	}
+	lt(value, message) {
+		return this.setLimit("max", value, false, errorUtil.toString(message));
+	}
+	setLimit(kind, value, inclusive, message) {
+		return new ZodBigInt({
+			...this._def,
+			checks: [...this._def.checks, {
+				kind,
+				value,
+				inclusive,
+				message: errorUtil.toString(message)
+			}]
+		});
+	}
+	_addCheck(check) {
+		return new ZodBigInt({
+			...this._def,
+			checks: [...this._def.checks, check]
+		});
+	}
+	positive(message) {
+		return this._addCheck({
+			kind: "min",
+			value: BigInt(0),
+			inclusive: false,
+			message: errorUtil.toString(message)
+		});
+	}
+	negative(message) {
+		return this._addCheck({
+			kind: "max",
+			value: BigInt(0),
+			inclusive: false,
+			message: errorUtil.toString(message)
+		});
+	}
+	nonpositive(message) {
+		return this._addCheck({
+			kind: "max",
+			value: BigInt(0),
+			inclusive: true,
+			message: errorUtil.toString(message)
+		});
+	}
+	nonnegative(message) {
+		return this._addCheck({
+			kind: "min",
+			value: BigInt(0),
+			inclusive: true,
+			message: errorUtil.toString(message)
+		});
+	}
+	multipleOf(value, message) {
+		return this._addCheck({
+			kind: "multipleOf",
+			value,
+			message: errorUtil.toString(message)
+		});
+	}
+	get minValue() {
+		let min = null;
+		for (const ch of this._def.checks) if (ch.kind === "min") {
+			if (min === null || ch.value > min) min = ch.value;
+		}
+		return min;
+	}
+	get maxValue() {
+		let max = null;
+		for (const ch of this._def.checks) if (ch.kind === "max") {
+			if (max === null || ch.value < max) max = ch.value;
+		}
+		return max;
+	}
+};
+ZodBigInt.create = (params) => {
+	return new ZodBigInt({
+		checks: [],
+		typeName: ZodFirstPartyTypeKind.ZodBigInt,
+		coerce: params?.coerce ?? false,
+		...processCreateParams(params)
+	});
+};
+var ZodBoolean = class extends ZodType {
+	_parse(input) {
+		if (this._def.coerce) input.data = Boolean(input.data);
+		if (this._getType(input) !== ZodParsedType.boolean) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.boolean,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+};
+ZodBoolean.create = (params) => {
+	return new ZodBoolean({
+		typeName: ZodFirstPartyTypeKind.ZodBoolean,
+		coerce: params?.coerce || false,
+		...processCreateParams(params)
+	});
+};
+var ZodDate = class ZodDate extends ZodType {
+	_parse(input) {
+		if (this._def.coerce) input.data = new Date(input.data);
+		if (this._getType(input) !== ZodParsedType.date) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.date,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		if (Number.isNaN(input.data.getTime())) {
+			addIssueToContext(this._getOrReturnCtx(input), { code: ZodIssueCode.invalid_date });
+			return INVALID;
+		}
+		const status = new ParseStatus();
+		let ctx = void 0;
+		for (const check of this._def.checks) if (check.kind === "min") {
+			if (input.data.getTime() < check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					message: check.message,
+					inclusive: true,
+					exact: false,
+					minimum: check.value,
+					type: "date"
+				});
+				status.dirty();
+			}
+		} else if (check.kind === "max") {
+			if (input.data.getTime() > check.value) {
+				ctx = this._getOrReturnCtx(input, ctx);
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					message: check.message,
+					inclusive: true,
+					exact: false,
+					maximum: check.value,
+					type: "date"
+				});
+				status.dirty();
+			}
+		} else util.assertNever(check);
+		return {
+			status: status.value,
+			value: new Date(input.data.getTime())
+		};
+	}
+	_addCheck(check) {
+		return new ZodDate({
+			...this._def,
+			checks: [...this._def.checks, check]
+		});
+	}
+	min(minDate, message) {
+		return this._addCheck({
+			kind: "min",
+			value: minDate.getTime(),
+			message: errorUtil.toString(message)
+		});
+	}
+	max(maxDate, message) {
+		return this._addCheck({
+			kind: "max",
+			value: maxDate.getTime(),
+			message: errorUtil.toString(message)
+		});
+	}
+	get minDate() {
+		let min = null;
+		for (const ch of this._def.checks) if (ch.kind === "min") {
+			if (min === null || ch.value > min) min = ch.value;
+		}
+		return min != null ? new Date(min) : null;
+	}
+	get maxDate() {
+		let max = null;
+		for (const ch of this._def.checks) if (ch.kind === "max") {
+			if (max === null || ch.value < max) max = ch.value;
+		}
+		return max != null ? new Date(max) : null;
+	}
+};
+ZodDate.create = (params) => {
+	return new ZodDate({
+		checks: [],
+		coerce: params?.coerce || false,
+		typeName: ZodFirstPartyTypeKind.ZodDate,
+		...processCreateParams(params)
+	});
+};
+var ZodSymbol = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) !== ZodParsedType.symbol) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.symbol,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+};
+ZodSymbol.create = (params) => {
+	return new ZodSymbol({
+		typeName: ZodFirstPartyTypeKind.ZodSymbol,
+		...processCreateParams(params)
+	});
+};
+var ZodUndefined = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) !== ZodParsedType.undefined) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.undefined,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+};
+ZodUndefined.create = (params) => {
+	return new ZodUndefined({
+		typeName: ZodFirstPartyTypeKind.ZodUndefined,
+		...processCreateParams(params)
+	});
+};
+var ZodNull = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) !== ZodParsedType.null) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.null,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+};
+ZodNull.create = (params) => {
+	return new ZodNull({
+		typeName: ZodFirstPartyTypeKind.ZodNull,
+		...processCreateParams(params)
+	});
+};
+var ZodAny = class extends ZodType {
+	constructor() {
+		super(...arguments);
+		this._any = true;
+	}
+	_parse(input) {
+		return OK(input.data);
+	}
+};
+ZodAny.create = (params) => {
+	return new ZodAny({
+		typeName: ZodFirstPartyTypeKind.ZodAny,
+		...processCreateParams(params)
+	});
+};
+var ZodUnknown = class extends ZodType {
+	constructor() {
+		super(...arguments);
+		this._unknown = true;
+	}
+	_parse(input) {
+		return OK(input.data);
+	}
+};
+ZodUnknown.create = (params) => {
+	return new ZodUnknown({
+		typeName: ZodFirstPartyTypeKind.ZodUnknown,
+		...processCreateParams(params)
+	});
+};
+var ZodNever = class extends ZodType {
+	_parse(input) {
+		const ctx = this._getOrReturnCtx(input);
+		addIssueToContext(ctx, {
+			code: ZodIssueCode.invalid_type,
+			expected: ZodParsedType.never,
+			received: ctx.parsedType
+		});
+		return INVALID;
+	}
+};
+ZodNever.create = (params) => {
+	return new ZodNever({
+		typeName: ZodFirstPartyTypeKind.ZodNever,
+		...processCreateParams(params)
+	});
+};
+var ZodVoid = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) !== ZodParsedType.undefined) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.void,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+};
+ZodVoid.create = (params) => {
+	return new ZodVoid({
+		typeName: ZodFirstPartyTypeKind.ZodVoid,
+		...processCreateParams(params)
+	});
+};
+var ZodArray = class ZodArray extends ZodType {
+	_parse(input) {
+		const { ctx, status } = this._processInputParams(input);
+		const def = this._def;
+		if (ctx.parsedType !== ZodParsedType.array) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.array,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		if (def.exactLength !== null) {
+			const tooBig = ctx.data.length > def.exactLength.value;
+			const tooSmall = ctx.data.length < def.exactLength.value;
+			if (tooBig || tooSmall) {
+				addIssueToContext(ctx, {
+					code: tooBig ? ZodIssueCode.too_big : ZodIssueCode.too_small,
+					minimum: tooSmall ? def.exactLength.value : void 0,
+					maximum: tooBig ? def.exactLength.value : void 0,
+					type: "array",
+					inclusive: true,
+					exact: true,
+					message: def.exactLength.message
+				});
+				status.dirty();
+			}
+		}
+		if (def.minLength !== null) {
+			if (ctx.data.length < def.minLength.value) {
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					minimum: def.minLength.value,
+					type: "array",
+					inclusive: true,
+					exact: false,
+					message: def.minLength.message
+				});
+				status.dirty();
+			}
+		}
+		if (def.maxLength !== null) {
+			if (ctx.data.length > def.maxLength.value) {
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					maximum: def.maxLength.value,
+					type: "array",
+					inclusive: true,
+					exact: false,
+					message: def.maxLength.message
+				});
+				status.dirty();
+			}
+		}
+		if (ctx.common.async) return Promise.all([...ctx.data].map((item, i) => {
+			return def.type._parseAsync(new ParseInputLazyPath(ctx, item, ctx.path, i));
+		})).then((result) => {
+			return ParseStatus.mergeArray(status, result);
+		});
+		const result = [...ctx.data].map((item, i) => {
+			return def.type._parseSync(new ParseInputLazyPath(ctx, item, ctx.path, i));
+		});
+		return ParseStatus.mergeArray(status, result);
+	}
+	get element() {
+		return this._def.type;
+	}
+	min(minLength, message) {
+		return new ZodArray({
+			...this._def,
+			minLength: {
+				value: minLength,
+				message: errorUtil.toString(message)
+			}
+		});
+	}
+	max(maxLength, message) {
+		return new ZodArray({
+			...this._def,
+			maxLength: {
+				value: maxLength,
+				message: errorUtil.toString(message)
+			}
+		});
+	}
+	length(len, message) {
+		return new ZodArray({
+			...this._def,
+			exactLength: {
+				value: len,
+				message: errorUtil.toString(message)
+			}
+		});
+	}
+	nonempty(message) {
+		return this.min(1, message);
+	}
+};
+ZodArray.create = (schema, params) => {
+	return new ZodArray({
+		type: schema,
+		minLength: null,
+		maxLength: null,
+		exactLength: null,
+		typeName: ZodFirstPartyTypeKind.ZodArray,
+		...processCreateParams(params)
+	});
+};
+function deepPartialify(schema) {
+	if (schema instanceof ZodObject) {
+		const newShape = {};
+		for (const key in schema.shape) {
+			const fieldSchema = schema.shape[key];
+			newShape[key] = ZodOptional.create(deepPartialify(fieldSchema));
+		}
+		return new ZodObject({
+			...schema._def,
+			shape: () => newShape
+		});
+	} else if (schema instanceof ZodArray) return new ZodArray({
+		...schema._def,
+		type: deepPartialify(schema.element)
+	});
+	else if (schema instanceof ZodOptional) return ZodOptional.create(deepPartialify(schema.unwrap()));
+	else if (schema instanceof ZodNullable) return ZodNullable.create(deepPartialify(schema.unwrap()));
+	else if (schema instanceof ZodTuple) return ZodTuple.create(schema.items.map((item) => deepPartialify(item)));
+	else return schema;
+}
+var ZodObject = class ZodObject extends ZodType {
+	constructor() {
+		super(...arguments);
+		this._cached = null;
+		/**
+		* @deprecated In most cases, this is no longer needed - unknown properties are now silently stripped.
+		* If you want to pass through unknown properties, use `.passthrough()` instead.
+		*/
+		this.nonstrict = this.passthrough;
+		/**
+		* @deprecated Use `.extend` instead
+		*  */
+		this.augment = this.extend;
+	}
+	_getCached() {
+		if (this._cached !== null) return this._cached;
+		const shape = this._def.shape();
+		const keys = util.objectKeys(shape);
+		this._cached = {
+			shape,
+			keys
+		};
+		return this._cached;
+	}
+	_parse(input) {
+		if (this._getType(input) !== ZodParsedType.object) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.object,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		const { status, ctx } = this._processInputParams(input);
+		const { shape, keys: shapeKeys } = this._getCached();
+		const extraKeys = [];
+		if (!(this._def.catchall instanceof ZodNever && this._def.unknownKeys === "strip")) {
+			for (const key in ctx.data) if (!shapeKeys.includes(key)) extraKeys.push(key);
+		}
+		const pairs = [];
+		for (const key of shapeKeys) {
+			const keyValidator = shape[key];
+			const value = ctx.data[key];
+			pairs.push({
+				key: {
+					status: "valid",
+					value: key
+				},
+				value: keyValidator._parse(new ParseInputLazyPath(ctx, value, ctx.path, key)),
+				alwaysSet: key in ctx.data
+			});
+		}
+		if (this._def.catchall instanceof ZodNever) {
+			const unknownKeys = this._def.unknownKeys;
+			if (unknownKeys === "passthrough") for (const key of extraKeys) pairs.push({
+				key: {
+					status: "valid",
+					value: key
+				},
+				value: {
+					status: "valid",
+					value: ctx.data[key]
+				}
+			});
+			else if (unknownKeys === "strict") {
+				if (extraKeys.length > 0) {
+					addIssueToContext(ctx, {
+						code: ZodIssueCode.unrecognized_keys,
+						keys: extraKeys
+					});
+					status.dirty();
+				}
+			} else if (unknownKeys === "strip") {} else throw new Error(`Internal ZodObject error: invalid unknownKeys value.`);
+		} else {
+			const catchall = this._def.catchall;
+			for (const key of extraKeys) {
+				const value = ctx.data[key];
+				pairs.push({
+					key: {
+						status: "valid",
+						value: key
+					},
+					value: catchall._parse(new ParseInputLazyPath(ctx, value, ctx.path, key)),
+					alwaysSet: key in ctx.data
+				});
+			}
+		}
+		if (ctx.common.async) return Promise.resolve().then(async () => {
+			const syncPairs = [];
+			for (const pair of pairs) {
+				const key = await pair.key;
+				const value = await pair.value;
+				syncPairs.push({
+					key,
+					value,
+					alwaysSet: pair.alwaysSet
+				});
+			}
+			return syncPairs;
+		}).then((syncPairs) => {
+			return ParseStatus.mergeObjectSync(status, syncPairs);
+		});
+		else return ParseStatus.mergeObjectSync(status, pairs);
+	}
+	get shape() {
+		return this._def.shape();
+	}
+	strict(message) {
+		errorUtil.errToObj;
+		return new ZodObject({
+			...this._def,
+			unknownKeys: "strict",
+			...message !== void 0 ? { errorMap: (issue, ctx) => {
+				const defaultError = this._def.errorMap?.(issue, ctx).message ?? ctx.defaultError;
+				if (issue.code === "unrecognized_keys") return { message: errorUtil.errToObj(message).message ?? defaultError };
+				return { message: defaultError };
+			} } : {}
+		});
+	}
+	strip() {
+		return new ZodObject({
+			...this._def,
+			unknownKeys: "strip"
+		});
+	}
+	passthrough() {
+		return new ZodObject({
+			...this._def,
+			unknownKeys: "passthrough"
+		});
+	}
+	extend(augmentation) {
+		return new ZodObject({
+			...this._def,
+			shape: () => ({
+				...this._def.shape(),
+				...augmentation
+			})
+		});
+	}
+	/**
+	* Prior to zod@1.0.12 there was a bug in the
+	* inferred type of merged objects. Please
+	* upgrade if you are experiencing issues.
+	*/
+	merge(merging) {
+		return new ZodObject({
+			unknownKeys: merging._def.unknownKeys,
+			catchall: merging._def.catchall,
+			shape: () => ({
+				...this._def.shape(),
+				...merging._def.shape()
+			}),
+			typeName: ZodFirstPartyTypeKind.ZodObject
+		});
+	}
+	setKey(key, schema) {
+		return this.augment({ [key]: schema });
+	}
+	catchall(index) {
+		return new ZodObject({
+			...this._def,
+			catchall: index
+		});
+	}
+	pick(mask) {
+		const shape = {};
+		for (const key of util.objectKeys(mask)) if (mask[key] && this.shape[key]) shape[key] = this.shape[key];
+		return new ZodObject({
+			...this._def,
+			shape: () => shape
+		});
+	}
+	omit(mask) {
+		const shape = {};
+		for (const key of util.objectKeys(this.shape)) if (!mask[key]) shape[key] = this.shape[key];
+		return new ZodObject({
+			...this._def,
+			shape: () => shape
+		});
+	}
+	/**
+	* @deprecated
+	*/
+	deepPartial() {
+		return deepPartialify(this);
+	}
+	partial(mask) {
+		const newShape = {};
+		for (const key of util.objectKeys(this.shape)) {
+			const fieldSchema = this.shape[key];
+			if (mask && !mask[key]) newShape[key] = fieldSchema;
+			else newShape[key] = fieldSchema.optional();
+		}
+		return new ZodObject({
+			...this._def,
+			shape: () => newShape
+		});
+	}
+	required(mask) {
+		const newShape = {};
+		for (const key of util.objectKeys(this.shape)) if (mask && !mask[key]) newShape[key] = this.shape[key];
+		else {
+			let newField = this.shape[key];
+			while (newField instanceof ZodOptional) newField = newField._def.innerType;
+			newShape[key] = newField;
+		}
+		return new ZodObject({
+			...this._def,
+			shape: () => newShape
+		});
+	}
+	keyof() {
+		return createZodEnum(util.objectKeys(this.shape));
+	}
+};
+ZodObject.create = (shape, params) => {
+	return new ZodObject({
+		shape: () => shape,
+		unknownKeys: "strip",
+		catchall: ZodNever.create(),
+		typeName: ZodFirstPartyTypeKind.ZodObject,
+		...processCreateParams(params)
+	});
+};
+ZodObject.strictCreate = (shape, params) => {
+	return new ZodObject({
+		shape: () => shape,
+		unknownKeys: "strict",
+		catchall: ZodNever.create(),
+		typeName: ZodFirstPartyTypeKind.ZodObject,
+		...processCreateParams(params)
+	});
+};
+ZodObject.lazycreate = (shape, params) => {
+	return new ZodObject({
+		shape,
+		unknownKeys: "strip",
+		catchall: ZodNever.create(),
+		typeName: ZodFirstPartyTypeKind.ZodObject,
+		...processCreateParams(params)
+	});
+};
+var ZodUnion = class extends ZodType {
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		const options = this._def.options;
+		function handleResults(results) {
+			for (const result of results) if (result.result.status === "valid") return result.result;
+			for (const result of results) if (result.result.status === "dirty") {
+				ctx.common.issues.push(...result.ctx.common.issues);
+				return result.result;
+			}
+			const unionErrors = results.map((result) => new ZodError(result.ctx.common.issues));
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_union,
+				unionErrors
+			});
+			return INVALID;
+		}
+		if (ctx.common.async) return Promise.all(options.map(async (option) => {
+			const childCtx = {
+				...ctx,
+				common: {
+					...ctx.common,
+					issues: []
+				},
+				parent: null
+			};
+			return {
+				result: await option._parseAsync({
+					data: ctx.data,
+					path: ctx.path,
+					parent: childCtx
+				}),
+				ctx: childCtx
+			};
+		})).then(handleResults);
+		else {
+			let dirty = void 0;
+			const issues = [];
+			for (const option of options) {
+				const childCtx = {
+					...ctx,
+					common: {
+						...ctx.common,
+						issues: []
+					},
+					parent: null
+				};
+				const result = option._parseSync({
+					data: ctx.data,
+					path: ctx.path,
+					parent: childCtx
+				});
+				if (result.status === "valid") return result;
+				else if (result.status === "dirty" && !dirty) dirty = {
+					result,
+					ctx: childCtx
+				};
+				if (childCtx.common.issues.length) issues.push(childCtx.common.issues);
+			}
+			if (dirty) {
+				ctx.common.issues.push(...dirty.ctx.common.issues);
+				return dirty.result;
+			}
+			const unionErrors = issues.map((issues) => new ZodError(issues));
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_union,
+				unionErrors
+			});
+			return INVALID;
+		}
+	}
+	get options() {
+		return this._def.options;
+	}
+};
+ZodUnion.create = (types, params) => {
+	return new ZodUnion({
+		options: types,
+		typeName: ZodFirstPartyTypeKind.ZodUnion,
+		...processCreateParams(params)
+	});
+};
+var getDiscriminator = (type) => {
+	if (type instanceof ZodLazy) return getDiscriminator(type.schema);
+	else if (type instanceof ZodEffects) return getDiscriminator(type.innerType());
+	else if (type instanceof ZodLiteral) return [type.value];
+	else if (type instanceof ZodEnum) return type.options;
+	else if (type instanceof ZodNativeEnum) return util.objectValues(type.enum);
+	else if (type instanceof ZodDefault) return getDiscriminator(type._def.innerType);
+	else if (type instanceof ZodUndefined) return [void 0];
+	else if (type instanceof ZodNull) return [null];
+	else if (type instanceof ZodOptional) return [void 0, ...getDiscriminator(type.unwrap())];
+	else if (type instanceof ZodNullable) return [null, ...getDiscriminator(type.unwrap())];
+	else if (type instanceof ZodBranded) return getDiscriminator(type.unwrap());
+	else if (type instanceof ZodReadonly) return getDiscriminator(type.unwrap());
+	else if (type instanceof ZodCatch) return getDiscriminator(type._def.innerType);
+	else return [];
+};
+var ZodDiscriminatedUnion = class ZodDiscriminatedUnion extends ZodType {
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.object) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.object,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		const discriminator = this.discriminator;
+		const discriminatorValue = ctx.data[discriminator];
+		const option = this.optionsMap.get(discriminatorValue);
+		if (!option) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_union_discriminator,
+				options: Array.from(this.optionsMap.keys()),
+				path: [discriminator]
+			});
+			return INVALID;
+		}
+		if (ctx.common.async) return option._parseAsync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		});
+		else return option._parseSync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		});
+	}
+	get discriminator() {
+		return this._def.discriminator;
+	}
+	get options() {
+		return this._def.options;
+	}
+	get optionsMap() {
+		return this._def.optionsMap;
+	}
+	/**
+	* The constructor of the discriminated union schema. Its behaviour is very similar to that of the normal z.union() constructor.
+	* However, it only allows a union of objects, all of which need to share a discriminator property. This property must
+	* have a different value for each object in the union.
+	* @param discriminator the name of the discriminator property
+	* @param types an array of object schemas
+	* @param params
+	*/
+	static create(discriminator, options, params) {
+		const optionsMap = /* @__PURE__ */ new Map();
+		for (const type of options) {
+			const discriminatorValues = getDiscriminator(type.shape[discriminator]);
+			if (!discriminatorValues.length) throw new Error(`A discriminator value for key \`${discriminator}\` could not be extracted from all schema options`);
+			for (const value of discriminatorValues) {
+				if (optionsMap.has(value)) throw new Error(`Discriminator property ${String(discriminator)} has duplicate value ${String(value)}`);
+				optionsMap.set(value, type);
+			}
+		}
+		return new ZodDiscriminatedUnion({
+			typeName: ZodFirstPartyTypeKind.ZodDiscriminatedUnion,
+			discriminator,
+			options,
+			optionsMap,
+			...processCreateParams(params)
+		});
+	}
+};
+function mergeValues(a, b) {
+	const aType = getParsedType(a);
+	const bType = getParsedType(b);
+	if (a === b) return {
+		valid: true,
+		data: a
+	};
+	else if (aType === ZodParsedType.object && bType === ZodParsedType.object) {
+		const bKeys = util.objectKeys(b);
+		const sharedKeys = util.objectKeys(a).filter((key) => bKeys.indexOf(key) !== -1);
+		const newObj = {
+			...a,
+			...b
+		};
+		for (const key of sharedKeys) {
+			const sharedValue = mergeValues(a[key], b[key]);
+			if (!sharedValue.valid) return { valid: false };
+			newObj[key] = sharedValue.data;
+		}
+		return {
+			valid: true,
+			data: newObj
+		};
+	} else if (aType === ZodParsedType.array && bType === ZodParsedType.array) {
+		if (a.length !== b.length) return { valid: false };
+		const newArray = [];
+		for (let index = 0; index < a.length; index++) {
+			const itemA = a[index];
+			const itemB = b[index];
+			const sharedValue = mergeValues(itemA, itemB);
+			if (!sharedValue.valid) return { valid: false };
+			newArray.push(sharedValue.data);
+		}
+		return {
+			valid: true,
+			data: newArray
+		};
+	} else if (aType === ZodParsedType.date && bType === ZodParsedType.date && +a === +b) return {
+		valid: true,
+		data: a
+	};
+	else return { valid: false };
+}
+var ZodIntersection = class extends ZodType {
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		const handleParsed = (parsedLeft, parsedRight) => {
+			if (isAborted(parsedLeft) || isAborted(parsedRight)) return INVALID;
+			const merged = mergeValues(parsedLeft.value, parsedRight.value);
+			if (!merged.valid) {
+				addIssueToContext(ctx, { code: ZodIssueCode.invalid_intersection_types });
+				return INVALID;
+			}
+			if (isDirty(parsedLeft) || isDirty(parsedRight)) status.dirty();
+			return {
+				status: status.value,
+				value: merged.data
+			};
+		};
+		if (ctx.common.async) return Promise.all([this._def.left._parseAsync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		}), this._def.right._parseAsync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		})]).then(([left, right]) => handleParsed(left, right));
+		else return handleParsed(this._def.left._parseSync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		}), this._def.right._parseSync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		}));
+	}
+};
+ZodIntersection.create = (left, right, params) => {
+	return new ZodIntersection({
+		left,
+		right,
+		typeName: ZodFirstPartyTypeKind.ZodIntersection,
+		...processCreateParams(params)
+	});
+};
+var ZodTuple = class ZodTuple extends ZodType {
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.array) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.array,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		if (ctx.data.length < this._def.items.length) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.too_small,
+				minimum: this._def.items.length,
+				inclusive: true,
+				exact: false,
+				type: "array"
+			});
+			return INVALID;
+		}
+		if (!this._def.rest && ctx.data.length > this._def.items.length) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.too_big,
+				maximum: this._def.items.length,
+				inclusive: true,
+				exact: false,
+				type: "array"
+			});
+			status.dirty();
+		}
+		const items = [...ctx.data].map((item, itemIndex) => {
+			const schema = this._def.items[itemIndex] || this._def.rest;
+			if (!schema) return null;
+			return schema._parse(new ParseInputLazyPath(ctx, item, ctx.path, itemIndex));
+		}).filter((x) => !!x);
+		if (ctx.common.async) return Promise.all(items).then((results) => {
+			return ParseStatus.mergeArray(status, results);
+		});
+		else return ParseStatus.mergeArray(status, items);
+	}
+	get items() {
+		return this._def.items;
+	}
+	rest(rest) {
+		return new ZodTuple({
+			...this._def,
+			rest
+		});
+	}
+};
+ZodTuple.create = (schemas, params) => {
+	if (!Array.isArray(schemas)) throw new Error("You must pass an array of schemas to z.tuple([ ... ])");
+	return new ZodTuple({
+		items: schemas,
+		typeName: ZodFirstPartyTypeKind.ZodTuple,
+		rest: null,
+		...processCreateParams(params)
+	});
+};
+var ZodRecord = class ZodRecord extends ZodType {
+	get keySchema() {
+		return this._def.keyType;
+	}
+	get valueSchema() {
+		return this._def.valueType;
+	}
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.object) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.object,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		const pairs = [];
+		const keyType = this._def.keyType;
+		const valueType = this._def.valueType;
+		for (const key in ctx.data) pairs.push({
+			key: keyType._parse(new ParseInputLazyPath(ctx, key, ctx.path, key)),
+			value: valueType._parse(new ParseInputLazyPath(ctx, ctx.data[key], ctx.path, key)),
+			alwaysSet: key in ctx.data
+		});
+		if (ctx.common.async) return ParseStatus.mergeObjectAsync(status, pairs);
+		else return ParseStatus.mergeObjectSync(status, pairs);
+	}
+	get element() {
+		return this._def.valueType;
+	}
+	static create(first, second, third) {
+		if (second instanceof ZodType) return new ZodRecord({
+			keyType: first,
+			valueType: second,
+			typeName: ZodFirstPartyTypeKind.ZodRecord,
+			...processCreateParams(third)
+		});
+		return new ZodRecord({
+			keyType: ZodString.create(),
+			valueType: first,
+			typeName: ZodFirstPartyTypeKind.ZodRecord,
+			...processCreateParams(second)
+		});
+	}
+};
+var ZodMap = class extends ZodType {
+	get keySchema() {
+		return this._def.keyType;
+	}
+	get valueSchema() {
+		return this._def.valueType;
+	}
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.map) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.map,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		const keyType = this._def.keyType;
+		const valueType = this._def.valueType;
+		const pairs = [...ctx.data.entries()].map(([key, value], index) => {
+			return {
+				key: keyType._parse(new ParseInputLazyPath(ctx, key, ctx.path, [index, "key"])),
+				value: valueType._parse(new ParseInputLazyPath(ctx, value, ctx.path, [index, "value"]))
+			};
+		});
+		if (ctx.common.async) {
+			const finalMap = /* @__PURE__ */ new Map();
+			return Promise.resolve().then(async () => {
+				for (const pair of pairs) {
+					const key = await pair.key;
+					const value = await pair.value;
+					if (key.status === "aborted" || value.status === "aborted") return INVALID;
+					if (key.status === "dirty" || value.status === "dirty") status.dirty();
+					finalMap.set(key.value, value.value);
+				}
+				return {
+					status: status.value,
+					value: finalMap
+				};
+			});
+		} else {
+			const finalMap = /* @__PURE__ */ new Map();
+			for (const pair of pairs) {
+				const key = pair.key;
+				const value = pair.value;
+				if (key.status === "aborted" || value.status === "aborted") return INVALID;
+				if (key.status === "dirty" || value.status === "dirty") status.dirty();
+				finalMap.set(key.value, value.value);
+			}
+			return {
+				status: status.value,
+				value: finalMap
+			};
+		}
+	}
+};
+ZodMap.create = (keyType, valueType, params) => {
+	return new ZodMap({
+		valueType,
+		keyType,
+		typeName: ZodFirstPartyTypeKind.ZodMap,
+		...processCreateParams(params)
+	});
+};
+var ZodSet = class ZodSet extends ZodType {
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.set) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.set,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		const def = this._def;
+		if (def.minSize !== null) {
+			if (ctx.data.size < def.minSize.value) {
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_small,
+					minimum: def.minSize.value,
+					type: "set",
+					inclusive: true,
+					exact: false,
+					message: def.minSize.message
+				});
+				status.dirty();
+			}
+		}
+		if (def.maxSize !== null) {
+			if (ctx.data.size > def.maxSize.value) {
+				addIssueToContext(ctx, {
+					code: ZodIssueCode.too_big,
+					maximum: def.maxSize.value,
+					type: "set",
+					inclusive: true,
+					exact: false,
+					message: def.maxSize.message
+				});
+				status.dirty();
+			}
+		}
+		const valueType = this._def.valueType;
+		function finalizeSet(elements) {
+			const parsedSet = /* @__PURE__ */ new Set();
+			for (const element of elements) {
+				if (element.status === "aborted") return INVALID;
+				if (element.status === "dirty") status.dirty();
+				parsedSet.add(element.value);
+			}
+			return {
+				status: status.value,
+				value: parsedSet
+			};
+		}
+		const elements = [...ctx.data.values()].map((item, i) => valueType._parse(new ParseInputLazyPath(ctx, item, ctx.path, i)));
+		if (ctx.common.async) return Promise.all(elements).then((elements) => finalizeSet(elements));
+		else return finalizeSet(elements);
+	}
+	min(minSize, message) {
+		return new ZodSet({
+			...this._def,
+			minSize: {
+				value: minSize,
+				message: errorUtil.toString(message)
+			}
+		});
+	}
+	max(maxSize, message) {
+		return new ZodSet({
+			...this._def,
+			maxSize: {
+				value: maxSize,
+				message: errorUtil.toString(message)
+			}
+		});
+	}
+	size(size, message) {
+		return this.min(size, message).max(size, message);
+	}
+	nonempty(message) {
+		return this.min(1, message);
+	}
+};
+ZodSet.create = (valueType, params) => {
+	return new ZodSet({
+		valueType,
+		minSize: null,
+		maxSize: null,
+		typeName: ZodFirstPartyTypeKind.ZodSet,
+		...processCreateParams(params)
+	});
+};
+var ZodFunction = class ZodFunction extends ZodType {
+	constructor() {
+		super(...arguments);
+		this.validate = this.implement;
+	}
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.function) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.function,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		function makeArgsIssue(args, error) {
+			return makeIssue({
+				data: args,
+				path: ctx.path,
+				errorMaps: [
+					ctx.common.contextualErrorMap,
+					ctx.schemaErrorMap,
+					getErrorMap(),
+					errorMap
+				].filter((x) => !!x),
+				issueData: {
+					code: ZodIssueCode.invalid_arguments,
+					argumentsError: error
+				}
+			});
+		}
+		function makeReturnsIssue(returns, error) {
+			return makeIssue({
+				data: returns,
+				path: ctx.path,
+				errorMaps: [
+					ctx.common.contextualErrorMap,
+					ctx.schemaErrorMap,
+					getErrorMap(),
+					errorMap
+				].filter((x) => !!x),
+				issueData: {
+					code: ZodIssueCode.invalid_return_type,
+					returnTypeError: error
+				}
+			});
+		}
+		const params = { errorMap: ctx.common.contextualErrorMap };
+		const fn = ctx.data;
+		if (this._def.returns instanceof ZodPromise) {
+			const me = this;
+			return OK(async function(...args) {
+				const error = new ZodError([]);
+				const parsedArgs = await me._def.args.parseAsync(args, params).catch((e) => {
+					error.addIssue(makeArgsIssue(args, e));
+					throw error;
+				});
+				const result = await Reflect.apply(fn, this, parsedArgs);
+				return await me._def.returns._def.type.parseAsync(result, params).catch((e) => {
+					error.addIssue(makeReturnsIssue(result, e));
+					throw error;
+				});
+			});
+		} else {
+			const me = this;
+			return OK(function(...args) {
+				const parsedArgs = me._def.args.safeParse(args, params);
+				if (!parsedArgs.success) throw new ZodError([makeArgsIssue(args, parsedArgs.error)]);
+				const result = Reflect.apply(fn, this, parsedArgs.data);
+				const parsedReturns = me._def.returns.safeParse(result, params);
+				if (!parsedReturns.success) throw new ZodError([makeReturnsIssue(result, parsedReturns.error)]);
+				return parsedReturns.data;
+			});
+		}
+	}
+	parameters() {
+		return this._def.args;
+	}
+	returnType() {
+		return this._def.returns;
+	}
+	args(...items) {
+		return new ZodFunction({
+			...this._def,
+			args: ZodTuple.create(items).rest(ZodUnknown.create())
+		});
+	}
+	returns(returnType) {
+		return new ZodFunction({
+			...this._def,
+			returns: returnType
+		});
+	}
+	implement(func) {
+		return this.parse(func);
+	}
+	strictImplement(func) {
+		return this.parse(func);
+	}
+	static create(args, returns, params) {
+		return new ZodFunction({
+			args: args ? args : ZodTuple.create([]).rest(ZodUnknown.create()),
+			returns: returns || ZodUnknown.create(),
+			typeName: ZodFirstPartyTypeKind.ZodFunction,
+			...processCreateParams(params)
+		});
+	}
+};
+var ZodLazy = class extends ZodType {
+	get schema() {
+		return this._def.getter();
+	}
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		return this._def.getter()._parse({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		});
+	}
+};
+ZodLazy.create = (getter, params) => {
+	return new ZodLazy({
+		getter,
+		typeName: ZodFirstPartyTypeKind.ZodLazy,
+		...processCreateParams(params)
+	});
+};
+var ZodLiteral = class extends ZodType {
+	_parse(input) {
+		if (input.data !== this._def.value) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				received: ctx.data,
+				code: ZodIssueCode.invalid_literal,
+				expected: this._def.value
+			});
+			return INVALID;
+		}
+		return {
+			status: "valid",
+			value: input.data
+		};
+	}
+	get value() {
+		return this._def.value;
+	}
+};
+ZodLiteral.create = (value, params) => {
+	return new ZodLiteral({
+		value,
+		typeName: ZodFirstPartyTypeKind.ZodLiteral,
+		...processCreateParams(params)
+	});
+};
+function createZodEnum(values, params) {
+	return new ZodEnum({
+		values,
+		typeName: ZodFirstPartyTypeKind.ZodEnum,
+		...processCreateParams(params)
+	});
+}
+var ZodEnum = class ZodEnum extends ZodType {
+	_parse(input) {
+		if (typeof input.data !== "string") {
+			const ctx = this._getOrReturnCtx(input);
+			const expectedValues = this._def.values;
+			addIssueToContext(ctx, {
+				expected: util.joinValues(expectedValues),
+				received: ctx.parsedType,
+				code: ZodIssueCode.invalid_type
+			});
+			return INVALID;
+		}
+		if (!this._cache) this._cache = new Set(this._def.values);
+		if (!this._cache.has(input.data)) {
+			const ctx = this._getOrReturnCtx(input);
+			const expectedValues = this._def.values;
+			addIssueToContext(ctx, {
+				received: ctx.data,
+				code: ZodIssueCode.invalid_enum_value,
+				options: expectedValues
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+	get options() {
+		return this._def.values;
+	}
+	get enum() {
+		const enumValues = {};
+		for (const val of this._def.values) enumValues[val] = val;
+		return enumValues;
+	}
+	get Values() {
+		const enumValues = {};
+		for (const val of this._def.values) enumValues[val] = val;
+		return enumValues;
+	}
+	get Enum() {
+		const enumValues = {};
+		for (const val of this._def.values) enumValues[val] = val;
+		return enumValues;
+	}
+	extract(values, newDef = this._def) {
+		return ZodEnum.create(values, {
+			...this._def,
+			...newDef
+		});
+	}
+	exclude(values, newDef = this._def) {
+		return ZodEnum.create(this.options.filter((opt) => !values.includes(opt)), {
+			...this._def,
+			...newDef
+		});
+	}
+};
+ZodEnum.create = createZodEnum;
+var ZodNativeEnum = class extends ZodType {
+	_parse(input) {
+		const nativeEnumValues = util.getValidEnumValues(this._def.values);
+		const ctx = this._getOrReturnCtx(input);
+		if (ctx.parsedType !== ZodParsedType.string && ctx.parsedType !== ZodParsedType.number) {
+			const expectedValues = util.objectValues(nativeEnumValues);
+			addIssueToContext(ctx, {
+				expected: util.joinValues(expectedValues),
+				received: ctx.parsedType,
+				code: ZodIssueCode.invalid_type
+			});
+			return INVALID;
+		}
+		if (!this._cache) this._cache = new Set(util.getValidEnumValues(this._def.values));
+		if (!this._cache.has(input.data)) {
+			const expectedValues = util.objectValues(nativeEnumValues);
+			addIssueToContext(ctx, {
+				received: ctx.data,
+				code: ZodIssueCode.invalid_enum_value,
+				options: expectedValues
+			});
+			return INVALID;
+		}
+		return OK(input.data);
+	}
+	get enum() {
+		return this._def.values;
+	}
+};
+ZodNativeEnum.create = (values, params) => {
+	return new ZodNativeEnum({
+		values,
+		typeName: ZodFirstPartyTypeKind.ZodNativeEnum,
+		...processCreateParams(params)
+	});
+};
+var ZodPromise = class extends ZodType {
+	unwrap() {
+		return this._def.type;
+	}
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		if (ctx.parsedType !== ZodParsedType.promise && ctx.common.async === false) {
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.promise,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return OK((ctx.parsedType === ZodParsedType.promise ? ctx.data : Promise.resolve(ctx.data)).then((data) => {
+			return this._def.type.parseAsync(data, {
+				path: ctx.path,
+				errorMap: ctx.common.contextualErrorMap
+			});
+		}));
+	}
+};
+ZodPromise.create = (schema, params) => {
+	return new ZodPromise({
+		type: schema,
+		typeName: ZodFirstPartyTypeKind.ZodPromise,
+		...processCreateParams(params)
+	});
+};
+var ZodEffects = class extends ZodType {
+	innerType() {
+		return this._def.schema;
+	}
+	sourceType() {
+		return this._def.schema._def.typeName === ZodFirstPartyTypeKind.ZodEffects ? this._def.schema.sourceType() : this._def.schema;
+	}
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		const effect = this._def.effect || null;
+		const checkCtx = {
+			addIssue: (arg) => {
+				addIssueToContext(ctx, arg);
+				if (arg.fatal) status.abort();
+				else status.dirty();
+			},
+			get path() {
+				return ctx.path;
+			}
+		};
+		checkCtx.addIssue = checkCtx.addIssue.bind(checkCtx);
+		if (effect.type === "preprocess") {
+			const processed = effect.transform(ctx.data, checkCtx);
+			if (ctx.common.async) return Promise.resolve(processed).then(async (processed) => {
+				if (status.value === "aborted") return INVALID;
+				const result = await this._def.schema._parseAsync({
+					data: processed,
+					path: ctx.path,
+					parent: ctx
+				});
+				if (result.status === "aborted") return INVALID;
+				if (result.status === "dirty") return DIRTY(result.value);
+				if (status.value === "dirty") return DIRTY(result.value);
+				return result;
+			});
+			else {
+				if (status.value === "aborted") return INVALID;
+				const result = this._def.schema._parseSync({
+					data: processed,
+					path: ctx.path,
+					parent: ctx
+				});
+				if (result.status === "aborted") return INVALID;
+				if (result.status === "dirty") return DIRTY(result.value);
+				if (status.value === "dirty") return DIRTY(result.value);
+				return result;
+			}
+		}
+		if (effect.type === "refinement") {
+			const executeRefinement = (acc) => {
+				const result = effect.refinement(acc, checkCtx);
+				if (ctx.common.async) return Promise.resolve(result);
+				if (result instanceof Promise) throw new Error("Async refinement encountered during synchronous parse operation. Use .parseAsync instead.");
+				return acc;
+			};
+			if (ctx.common.async === false) {
+				const inner = this._def.schema._parseSync({
+					data: ctx.data,
+					path: ctx.path,
+					parent: ctx
+				});
+				if (inner.status === "aborted") return INVALID;
+				if (inner.status === "dirty") status.dirty();
+				executeRefinement(inner.value);
+				return {
+					status: status.value,
+					value: inner.value
+				};
+			} else return this._def.schema._parseAsync({
+				data: ctx.data,
+				path: ctx.path,
+				parent: ctx
+			}).then((inner) => {
+				if (inner.status === "aborted") return INVALID;
+				if (inner.status === "dirty") status.dirty();
+				return executeRefinement(inner.value).then(() => {
+					return {
+						status: status.value,
+						value: inner.value
+					};
+				});
+			});
+		}
+		if (effect.type === "transform") if (ctx.common.async === false) {
+			const base = this._def.schema._parseSync({
+				data: ctx.data,
+				path: ctx.path,
+				parent: ctx
+			});
+			if (!isValid(base)) return INVALID;
+			const result = effect.transform(base.value, checkCtx);
+			if (result instanceof Promise) throw new Error(`Asynchronous transform encountered during synchronous parse operation. Use .parseAsync instead.`);
+			return {
+				status: status.value,
+				value: result
+			};
+		} else return this._def.schema._parseAsync({
+			data: ctx.data,
+			path: ctx.path,
+			parent: ctx
+		}).then((base) => {
+			if (!isValid(base)) return INVALID;
+			return Promise.resolve(effect.transform(base.value, checkCtx)).then((result) => ({
+				status: status.value,
+				value: result
+			}));
+		});
+		util.assertNever(effect);
+	}
+};
+ZodEffects.create = (schema, effect, params) => {
+	return new ZodEffects({
+		schema,
+		typeName: ZodFirstPartyTypeKind.ZodEffects,
+		effect,
+		...processCreateParams(params)
+	});
+};
+ZodEffects.createWithPreprocess = (preprocess, schema, params) => {
+	return new ZodEffects({
+		schema,
+		effect: {
+			type: "preprocess",
+			transform: preprocess
+		},
+		typeName: ZodFirstPartyTypeKind.ZodEffects,
+		...processCreateParams(params)
+	});
+};
+var ZodOptional = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) === ZodParsedType.undefined) return OK(void 0);
+		return this._def.innerType._parse(input);
+	}
+	unwrap() {
+		return this._def.innerType;
+	}
+};
+ZodOptional.create = (type, params) => {
+	return new ZodOptional({
+		innerType: type,
+		typeName: ZodFirstPartyTypeKind.ZodOptional,
+		...processCreateParams(params)
+	});
+};
+var ZodNullable = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) === ZodParsedType.null) return OK(null);
+		return this._def.innerType._parse(input);
+	}
+	unwrap() {
+		return this._def.innerType;
+	}
+};
+ZodNullable.create = (type, params) => {
+	return new ZodNullable({
+		innerType: type,
+		typeName: ZodFirstPartyTypeKind.ZodNullable,
+		...processCreateParams(params)
+	});
+};
+var ZodDefault = class extends ZodType {
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		let data = ctx.data;
+		if (ctx.parsedType === ZodParsedType.undefined) data = this._def.defaultValue();
+		return this._def.innerType._parse({
+			data,
+			path: ctx.path,
+			parent: ctx
+		});
+	}
+	removeDefault() {
+		return this._def.innerType;
+	}
+};
+ZodDefault.create = (type, params) => {
+	return new ZodDefault({
+		innerType: type,
+		typeName: ZodFirstPartyTypeKind.ZodDefault,
+		defaultValue: typeof params.default === "function" ? params.default : () => params.default,
+		...processCreateParams(params)
+	});
+};
+var ZodCatch = class extends ZodType {
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		const newCtx = {
+			...ctx,
+			common: {
+				...ctx.common,
+				issues: []
+			}
+		};
+		const result = this._def.innerType._parse({
+			data: newCtx.data,
+			path: newCtx.path,
+			parent: { ...newCtx }
+		});
+		if (isAsync(result)) return result.then((result) => {
+			return {
+				status: "valid",
+				value: result.status === "valid" ? result.value : this._def.catchValue({
+					get error() {
+						return new ZodError(newCtx.common.issues);
+					},
+					input: newCtx.data
+				})
+			};
+		});
+		else return {
+			status: "valid",
+			value: result.status === "valid" ? result.value : this._def.catchValue({
+				get error() {
+					return new ZodError(newCtx.common.issues);
+				},
+				input: newCtx.data
+			})
+		};
+	}
+	removeCatch() {
+		return this._def.innerType;
+	}
+};
+ZodCatch.create = (type, params) => {
+	return new ZodCatch({
+		innerType: type,
+		typeName: ZodFirstPartyTypeKind.ZodCatch,
+		catchValue: typeof params.catch === "function" ? params.catch : () => params.catch,
+		...processCreateParams(params)
+	});
+};
+var ZodNaN = class extends ZodType {
+	_parse(input) {
+		if (this._getType(input) !== ZodParsedType.nan) {
+			const ctx = this._getOrReturnCtx(input);
+			addIssueToContext(ctx, {
+				code: ZodIssueCode.invalid_type,
+				expected: ZodParsedType.nan,
+				received: ctx.parsedType
+			});
+			return INVALID;
+		}
+		return {
+			status: "valid",
+			value: input.data
+		};
+	}
+};
+ZodNaN.create = (params) => {
+	return new ZodNaN({
+		typeName: ZodFirstPartyTypeKind.ZodNaN,
+		...processCreateParams(params)
+	});
+};
+var ZodBranded = class extends ZodType {
+	_parse(input) {
+		const { ctx } = this._processInputParams(input);
+		const data = ctx.data;
+		return this._def.type._parse({
+			data,
+			path: ctx.path,
+			parent: ctx
+		});
+	}
+	unwrap() {
+		return this._def.type;
+	}
+};
+var ZodPipeline = class ZodPipeline extends ZodType {
+	_parse(input) {
+		const { status, ctx } = this._processInputParams(input);
+		if (ctx.common.async) {
+			const handleAsync = async () => {
+				const inResult = await this._def.in._parseAsync({
+					data: ctx.data,
+					path: ctx.path,
+					parent: ctx
+				});
+				if (inResult.status === "aborted") return INVALID;
+				if (inResult.status === "dirty") {
+					status.dirty();
+					return DIRTY(inResult.value);
+				} else return this._def.out._parseAsync({
+					data: inResult.value,
+					path: ctx.path,
+					parent: ctx
+				});
+			};
+			return handleAsync();
+		} else {
+			const inResult = this._def.in._parseSync({
+				data: ctx.data,
+				path: ctx.path,
+				parent: ctx
+			});
+			if (inResult.status === "aborted") return INVALID;
+			if (inResult.status === "dirty") {
+				status.dirty();
+				return {
+					status: "dirty",
+					value: inResult.value
+				};
+			} else return this._def.out._parseSync({
+				data: inResult.value,
+				path: ctx.path,
+				parent: ctx
+			});
+		}
+	}
+	static create(a, b) {
+		return new ZodPipeline({
+			in: a,
+			out: b,
+			typeName: ZodFirstPartyTypeKind.ZodPipeline
+		});
+	}
+};
+var ZodReadonly = class extends ZodType {
+	_parse(input) {
+		const result = this._def.innerType._parse(input);
+		const freeze = (data) => {
+			if (isValid(data)) data.value = Object.freeze(data.value);
+			return data;
+		};
+		return isAsync(result) ? result.then((data) => freeze(data)) : freeze(result);
+	}
+	unwrap() {
+		return this._def.innerType;
+	}
+};
+ZodReadonly.create = (type, params) => {
+	return new ZodReadonly({
+		innerType: type,
+		typeName: ZodFirstPartyTypeKind.ZodReadonly,
+		...processCreateParams(params)
+	});
+};
+ZodObject.lazycreate;
+var ZodFirstPartyTypeKind;
+(function(ZodFirstPartyTypeKind) {
+	ZodFirstPartyTypeKind["ZodString"] = "ZodString";
+	ZodFirstPartyTypeKind["ZodNumber"] = "ZodNumber";
+	ZodFirstPartyTypeKind["ZodNaN"] = "ZodNaN";
+	ZodFirstPartyTypeKind["ZodBigInt"] = "ZodBigInt";
+	ZodFirstPartyTypeKind["ZodBoolean"] = "ZodBoolean";
+	ZodFirstPartyTypeKind["ZodDate"] = "ZodDate";
+	ZodFirstPartyTypeKind["ZodSymbol"] = "ZodSymbol";
+	ZodFirstPartyTypeKind["ZodUndefined"] = "ZodUndefined";
+	ZodFirstPartyTypeKind["ZodNull"] = "ZodNull";
+	ZodFirstPartyTypeKind["ZodAny"] = "ZodAny";
+	ZodFirstPartyTypeKind["ZodUnknown"] = "ZodUnknown";
+	ZodFirstPartyTypeKind["ZodNever"] = "ZodNever";
+	ZodFirstPartyTypeKind["ZodVoid"] = "ZodVoid";
+	ZodFirstPartyTypeKind["ZodArray"] = "ZodArray";
+	ZodFirstPartyTypeKind["ZodObject"] = "ZodObject";
+	ZodFirstPartyTypeKind["ZodUnion"] = "ZodUnion";
+	ZodFirstPartyTypeKind["ZodDiscriminatedUnion"] = "ZodDiscriminatedUnion";
+	ZodFirstPartyTypeKind["ZodIntersection"] = "ZodIntersection";
+	ZodFirstPartyTypeKind["ZodTuple"] = "ZodTuple";
+	ZodFirstPartyTypeKind["ZodRecord"] = "ZodRecord";
+	ZodFirstPartyTypeKind["ZodMap"] = "ZodMap";
+	ZodFirstPartyTypeKind["ZodSet"] = "ZodSet";
+	ZodFirstPartyTypeKind["ZodFunction"] = "ZodFunction";
+	ZodFirstPartyTypeKind["ZodLazy"] = "ZodLazy";
+	ZodFirstPartyTypeKind["ZodLiteral"] = "ZodLiteral";
+	ZodFirstPartyTypeKind["ZodEnum"] = "ZodEnum";
+	ZodFirstPartyTypeKind["ZodEffects"] = "ZodEffects";
+	ZodFirstPartyTypeKind["ZodNativeEnum"] = "ZodNativeEnum";
+	ZodFirstPartyTypeKind["ZodOptional"] = "ZodOptional";
+	ZodFirstPartyTypeKind["ZodNullable"] = "ZodNullable";
+	ZodFirstPartyTypeKind["ZodDefault"] = "ZodDefault";
+	ZodFirstPartyTypeKind["ZodCatch"] = "ZodCatch";
+	ZodFirstPartyTypeKind["ZodPromise"] = "ZodPromise";
+	ZodFirstPartyTypeKind["ZodBranded"] = "ZodBranded";
+	ZodFirstPartyTypeKind["ZodPipeline"] = "ZodPipeline";
+	ZodFirstPartyTypeKind["ZodReadonly"] = "ZodReadonly";
+})(ZodFirstPartyTypeKind || (ZodFirstPartyTypeKind = {}));
+var stringType = ZodString.create;
+var numberType = ZodNumber.create;
+ZodNaN.create;
+ZodBigInt.create;
+ZodBoolean.create;
+ZodDate.create;
+ZodSymbol.create;
+ZodUndefined.create;
+ZodNull.create;
+ZodAny.create;
+ZodUnknown.create;
+ZodNever.create;
+ZodVoid.create;
+var arrayType = ZodArray.create;
+var objectType = ZodObject.create;
+ZodObject.strictCreate;
+ZodUnion.create;
+ZodDiscriminatedUnion.create;
+ZodIntersection.create;
+ZodTuple.create;
+ZodRecord.create;
+ZodMap.create;
+ZodSet.create;
+ZodFunction.create;
+ZodLazy.create;
+var literalType = ZodLiteral.create;
+var enumType = ZodEnum.create;
+ZodNativeEnum.create;
+ZodPromise.create;
+ZodEffects.create;
+ZodOptional.create;
+ZodNullable.create;
+ZodEffects.createWithPreprocess;
+ZodPipeline.create;
+//#endregion
+//#region app/editor/editor-server.ts
+async function database() {
+	const { env } = await import("cloudflare:workers");
+	return env.DB;
+}
+async function loadContentOverrides() {
+	try {
+		const db = await database();
+		if (!db) return [];
+		return (await db.prepare("SELECT key, value, page_path AS pagePath FROM content_overrides ORDER BY key").all()).results ?? [];
+	} catch {
+		return [];
+	}
+}
+async function saveContentOverride(override) {
+	return (await database()).prepare(`INSERT INTO content_overrides (key, value, page_path, updated_by, updated_at)
+     VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
+     ON CONFLICT(key) DO UPDATE SET
+       value = excluded.value,
+       page_path = excluded.page_path,
+       updated_by = excluded.updated_by,
+       updated_at = CURRENT_TIMESTAMP`).bind(override.key, override.value, override.pagePath, override.updatedBy).run();
+}
+async function deleteContentOverride(key) {
+	return (await database()).prepare("DELETE FROM content_overrides WHERE key = ?").bind(key).run();
+}
+async function deletePageOverrides(pagePath) {
+	return (await database()).prepare("DELETE FROM content_overrides WHERE page_path = ?").bind(pagePath).run();
+}
+async function loadImageMetadataOverrides() {
+	try {
+		const db = await database();
+		if (!db) return [];
+		return (await db.prepare(`SELECT image_id AS imageId, project_slug AS projectSlug, category, caption
+       FROM image_overrides ORDER BY image_id`).all()).results ?? [];
+	} catch {
+		return [];
+	}
+}
+async function saveImageMetadataOverride(override) {
+	return (await database()).prepare(`INSERT INTO image_overrides (image_id, project_slug, category, caption, updated_by, updated_at)
+     VALUES (?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+     ON CONFLICT(image_id) DO UPDATE SET
+       project_slug = excluded.project_slug,
+       category = excluded.category,
+       caption = excluded.caption,
+       updated_by = excluded.updated_by,
+       updated_at = CURRENT_TIMESTAMP`).bind(override.imageId, override.projectSlug, override.category, override.caption, override.updatedBy).run();
+}
+async function deleteImageMetadataOverride(imageId) {
+	return (await database()).prepare("DELETE FROM image_overrides WHERE image_id = ?").bind(imageId).run();
+}
+//#endregion
+//#region app/api/editor/route.ts
+var route_exports$8 = /* @__PURE__ */ __exportAll({
+	DELETE: () => DELETE$1,
+	GET: () => GET$3,
+	PATCH: () => PATCH$3
+});
+var writeSchema$1 = objectType({
+	key: stringType().min(1).max(600),
+	pagePath: stringType().startsWith("/").max(300),
+	value: stringType().max(12e3)
+});
+var deleteSchema$1 = objectType({
+	key: stringType().min(1).max(600).optional(),
+	pagePath: stringType().startsWith("/").max(300)
+});
+async function requireOwner$1() {
+	const user = await getChatGPTUser();
+	return user && isEditorOwner(user.email) ? user : null;
+}
+async function GET$3() {
+	if (!await requireOwner$1()) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	return NextResponse.json({ overrides: await loadContentOverrides() });
+}
+async function PATCH$3(request) {
+	const user = await requireOwner$1();
+	if (!user) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	const parsed = writeSchema$1.safeParse(await request.json().catch(() => null));
+	if (!parsed.success) return NextResponse.json({ error: "Invalid edit" }, { status: 400 });
+	const { key, pagePath, value } = parsed.data;
+	await saveContentOverride({
+		key,
+		value,
+		pagePath,
+		updatedBy: user.email
+	});
+	return NextResponse.json({
+		key,
+		value
+	});
+}
+async function DELETE$1(request) {
+	if (!await requireOwner$1()) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	const parsed = deleteSchema$1.safeParse(await request.json().catch(() => null));
+	if (!parsed.success) return NextResponse.json({ error: "Invalid reset" }, { status: 400 });
+	if (parsed.data.key) await deleteContentOverride(parsed.data.key);
+	else await deletePageOverrides(parsed.data.pagePath);
+	return NextResponse.json({ reset: parsed.data.key ?? parsed.data.pagePath });
 }
 //#endregion
 //#region app/verified-image-credits.json
@@ -16853,268 +21102,6 @@ var verified_image_credits_default = {
 		"href": "https://www.elkanlevinsohn.com/projects/whomen-who-rock-y6dl4"
 	}
 };
-//#endregion
-//#region app/image-credit.tsx
-function imageCredit(src) {
-	return photographerCredit(src ? verified_image_credits_default[src] : void 0);
-}
-/** Public image credits contain only verified photographer names. */
-function ImageCredit({ src, linked = true }) {
-	const credit = imageCredit(src);
-	if (!credit) return null;
-	return linked ? /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
-		className: "project-image-credit",
-		href: credit.href,
-		target: "_blank",
-		rel: "noopener noreferrer",
-		children: credit.label
-	}) : /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("span", {
-		className: "project-image-credit",
-		children: credit.label
-	});
-}
-//#endregion
-//#region app/landing-reel.tsx
-var LandingReel = /* @__PURE__ */ registerClientReference(() => {
-	throw new Error("Unexpectedly client reference export 'LandingReel' is called on server");
-}, "bfdf0cdb8209", "LandingReel");
-//#endregion
-//#region app/project-awards.ts
-var mcnyAwards = [
-	{
-		year: "2017",
-		award: "AIA New York Design Awards",
-		result: "Project Honor Award",
-		href: "https://www.aiany.org/about/press-releases/aia-new-york-announces-2017-design-awards-winners/"
-	},
-	{
-		year: "2017",
-		award: "Architizer A+Awards",
-		result: "Popular Choice Winner / Concepts: Architecture + Learning",
-		href: "https://architizer.com/projects/new-york-at-its-core/"
-	},
-	{
-		year: "2017",
-		award: "Core77 Design Awards",
-		result: "Notable / Built Environment",
-		href: "https://designawards.core77.com/Built-Environment/64618/New-York-at-Its-Core.html"
-	},
-	{
-		year: "2017",
-		award: "NYCxDESIGN Awards",
-		result: "Winner / Exhibition–Installation",
-		href: "https://interiordesign.net/award/nycxdesign-award-winners-2017-2/"
-	},
-	{
-		year: "2017",
-		award: "AAM MUSE Awards",
-		result: "Honorable Mention / Interpretive Interactive Installations",
-		href: "https://www.aam-us.org/programs/awards-program/2017-muse-award-winners/"
-	},
-	{
-		year: "2018",
-		award: "AAM Excellence in Exhibition",
-		result: "Overall Award Winner",
-		href: "https://www.aam-us.org/programs/awards-program/current-recipients-of-excellence-in-exhibition-awards/"
-	},
-	{
-		year: "2018",
-		award: "AIA New York State Design Awards",
-		result: "Institutional / Award of Citation",
-		href: "https://www.aiany.org/news/aia-new-york-state-celebrates-design-excellence/"
-	},
-	{
-		year: "2018",
-		award: "American Architecture Awards",
-		result: "Winner",
-		href: "https://www.chi-athenaeum.org/june-11-2018.html"
-	},
-	{
-		year: "2018",
-		award: "GANYC Apple Awards",
-		result: "Winner / Outstanding Achievement in NYC Museum Exhibitions",
-		href: "https://www.ganyc.org/ganyc-apple-awards-winners"
-	},
-	{
-		year: "2017",
-		award: "SEGD Global Design Awards",
-		result: "Finalist",
-		href: "https://www.pentagram.com/work/new-york-at-its-core/story"
-	}
-];
-var projectAwardGroups = [{
-	slug: "core-nyc",
-	title: "New York at Its Core",
-	venue: "Museum of the City of New York",
-	attribution: "Recognition for the exhibition and its collaborative design team. Field Trip provided industrial design engineering for AV implementation and assisted South Side Design & Building with installation of the map table and standing AV units.",
-	awards: [...mcnyAwards].sort((a, b) => Number(b.year) - Number(a.year))
-}, {
-	slug: "touro-loeb-visitors-center",
-	title: "Loeb Visitors Center",
-	venue: "Touro Synagogue · Newport, RI",
-	attribution: "The curved nickel-silver grand-stair railing, fabricated by South Side Design & Building.",
-	awards: [{
-		year: "2011",
-		award: "North American Copper in Architecture Awards",
-		result: "Winner / Ornamental Applications",
-		href: "https://www.buildings.com/industry-news/article/10190330/sustainability-leads-the-way-for-2011-north-american-copper-in-architecture-awards"
-	}]
-}];
-//#endregion
-//#region app/exhibition-availability.ts
-/** Venue-checked 30 October 2026. Sources and access notes: docs/CURRENTLY-ON-DISPLAY-20261030.md. */
-var displayDates = {
-	"sacred-splendor": ["2026-09-18", "2027-02-07"],
-	"brooklyn-museum": ["2026-05-16", "2027-01-03"],
-	"cooper-hewitt": ["2024-11-02", "2025-08-10"],
-	"china-institute": ["2026-07-09", "2026-07-29"]
-};
-var ongoingDisplayNotes = {
-	"dia-beacon": "Long-term view",
-	"core-nyc": "Permanent exhibition",
-	"coney-island-carousel-museum": "Permanent installation · Seasonal venue hours",
-	"bldg-92": "Permanent exhibition",
-	"dream-machine": "Permanent installation",
-	"touro-loeb-visitors-center": "Permanent displays and architectural metalwork · Check center hours",
-	"central-governor": "Long-term installation · Access subject to weather",
-	"bronx-science-holocaust-museum": "Permanent museum · Arrange access with the school"
-};
-var aliases = {
-	"brooklyn-museum-iris-van-herpen": "brooklyn-museum",
-	"dia-beacon-tehching-hsieh": "dia-beacon"
-};
-function exhibitionToday() {
-	return (/* @__PURE__ */ new Date()).toLocaleDateString("en-CA", { timeZone: "America/New_York" });
-}
-function exhibitionDisplayInfo(slug, today = exhibitionToday()) {
-	const id = aliases[slug] ?? slug;
-	const dates = displayDates[id];
-	if (dates) {
-		const format = (date) => (/* @__PURE__ */ new Date(`${date}T12:00:00Z`)).toLocaleDateString("en-US", {
-			month: "long",
-			day: "numeric",
-			year: "numeric",
-			timeZone: "America/New_York"
-		});
-		if (today < dates[0]) return {
-			open: false,
-			label: `Opens ${format(dates[0])}`
-		};
-		if (today > dates[1]) return {
-			open: false,
-			label: `Completed · Exhibition ended ${format(dates[1])}`
-		};
-		return {
-			open: true,
-			label: `On display through ${format(dates[1])}`
-		};
-	}
-	return ongoingDisplayNotes[id] ? {
-		open: true,
-		label: ongoingDisplayNotes[id]
-	} : null;
-}
-//#endregion
-//#region app/work/project-curation.ts
-/** Owner's 12 October sections. Display choices never imply project scope or credits. */
-var featuredProjectSlugs = [
-	"core-nyc",
-	"ascend",
-	"heart-bot",
-	"beat-repeat"
-];
-var latestProjectSlugs = [
-	"sacred-splendor",
-	"brooklyn-museum",
-	"dia-beacon",
-	"cooper-hewitt",
-	"china-institute"
-];
-/** Latest work leads, followed by the ongoing installations requested on 30 October. */
-var ongoingProjectSlugs = [
-	"core-nyc",
-	"coney-island-carousel-museum",
-	"bldg-92",
-	"dream-machine",
-	"touro-loeb-visitors-center",
-	"central-governor",
-	"bronx-science-holocaust-museum"
-];
-var currentlyOnDisplaySlugs = [...latestProjectSlugs, ...ongoingProjectSlugs];
-/** Owner's 14 October Archive-only opening; Featured and Latest keep their own order. */
-var archiveOpeningSlugs = [
-	"bldg-92",
-	"on-becoming-an-artist",
-	"holocaust-by-bullets",
-	"m-is-for-museum",
-	"dream-machine",
-	"nike-free-hyperfeel",
-	"wheat-thins-popped"
-];
-[
-	{
-		id: "featured-projects",
-		title: "Featured Projects"
-	},
-	{
-		id: "latest-projects",
-		title: "Currently On Display"
-	},
-	{
-		id: "archive",
-		title: "Archive"
-	}
-].filter((group) => group.id !== "archive");
-var priorityProjectSlugs = [
-	...featuredProjectSlugs,
-	...latestProjectSlugs,
-	...archiveOpeningSlugs,
-	"electric-jukebox",
-	"2012-us-olympics",
-	"touro-loeb-visitors-center",
-	"bronx-science-holocaust-museum"
-];
-var corporateProjectSlugs = [
-	"fox-studios-titanic",
-	"electric-jukebox",
-	"ascend",
-	"beat-repeat",
-	"2012-us-olympics",
-	"nike-free-hyperfeel",
-	"wheat-thins-popped",
-	"heart-bot",
-	"hyatt-photo-booth",
-	"tumi",
-	"intel-unknown"
-];
-var artworkProjectSlugs = [
-	"best-of-all-possible-worlds",
-	"jadu-beta",
-	"heliogram-series",
-	"central-governor",
-	"adam-fuss",
-	"katrin-sigurdardottir"
-];
-[...corporateProjectSlugs];
-var presentationOrder = [
-	...priorityProjectSlugs,
-	"hyatt-photo-booth",
-	"tumi",
-	"intel-unknown",
-	"coney-island-carousel-museum",
-	"archive"
-];
-function orderProjects(records) {
-	const rank = (slug) => {
-		const index = presentationOrder.indexOf(slug);
-		if (index >= 0) return index;
-		if (slug === "david-bowie-residence") return presentationOrder.length + 1;
-		if (slug === "klaus-biesenbach-residence") return presentationOrder.length + 2;
-		const artwork = artworkProjectSlugs.indexOf(slug);
-		return artwork < 0 ? presentationOrder.length : presentationOrder.length + 3 + artwork;
-	};
-	return [...records].sort((a, b) => rank(a.slug) - rank(b.slug));
-}
 var core_nyc_media_default = {
 	lead: {
 		"src": "/project-galleries/core-nyc/01.webp",
@@ -18652,9 +22639,9 @@ var approvedAscendPhotographs = [
 	"/project-research-images/ascend/source-215-clean-20261101.webp"
 ];
 var chinaCaptions = [
-	"Chinese Opera: A Century of Dreams, completed gallery front view. Source: East China Normal University, School of Design.",
-	"Chinese Opera: A Century of Dreams, framed works along the gallery wall. Source: East China Normal University, School of Design.",
-	"Chinese Opera: A Century of Dreams, gallery corner with multimedia display. Source: East China Normal University, School of Design.",
+	"Chinese Opera: A Century of Dreams — Art, Design, and Technology, completed gallery front view. Source: East China Normal University, School of Design.",
+	"Chinese Opera: A Century of Dreams — Art, Design, and Technology, framed works along the gallery wall. Source: East China Normal University, School of Design.",
+	"Chinese Opera: A Century of Dreams — Art, Design, and Technology, gallery corner with multimedia display. Source: East China Normal University, School of Design.",
 	"Completed China Institute gallery, wide view",
 	"China Institute exterior and exhibition entrance"
 ];
@@ -19105,6 +23092,55 @@ var rawImageCatalog = [
 	...projectGalleryGroups.flatMap(group),
 	...reelGroups.flatMap(group),
 	...projectCovers,
+	file("/project-galleries/private-residence/01.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
+	file("/project-galleries/private-residence/02.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
+	file("/project-galleries/private-residence/03.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
+	file("/project-galleries/private-residence/04.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
+	file("/project-galleries/private-residence/05.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
+	file("/project-galleries/private-residence/06.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
+	file("/project-galleries/private-residence/07.jpg", {
+		projectSlug: "private-residence",
+		category: "fabrication",
+		identification: "confirmed",
+		kind: "project",
+		date: "2023"
+	}),
 	...processImages,
 	...studioArchiveFiles,
 	...siteAssets,
@@ -19290,8 +23326,257 @@ function getProjectImages(projectSlug, catalog = imageCatalog) {
 	return uniqueImages.sort((a, b) => rank(a.src) - rank(b.src) || galleryPosition.get(a.src) - galleryPosition.get(b.src));
 }
 //#endregion
+//#region app/project-awards.ts
+var mcnyAwards = [
+	{
+		year: "2017",
+		award: "AIA New York Design Awards",
+		result: "Project Honor Award",
+		href: "https://www.aiany.org/about/press-releases/aia-new-york-announces-2017-design-awards-winners/"
+	},
+	{
+		year: "2017",
+		award: "Architizer A+Awards",
+		result: "Popular Choice Winner / Concepts: Architecture + Learning",
+		href: "https://architizer.com/projects/new-york-at-its-core/"
+	},
+	{
+		year: "2017",
+		award: "Core77 Design Awards",
+		result: "Notable / Built Environment",
+		href: "https://designawards.core77.com/Built-Environment/64618/New-York-at-Its-Core.html"
+	},
+	{
+		year: "2017",
+		award: "NYCxDESIGN Awards",
+		result: "Winner / Exhibition–Installation",
+		href: "https://interiordesign.net/award/nycxdesign-award-winners-2017-2/"
+	},
+	{
+		year: "2017",
+		award: "AAM MUSE Awards",
+		result: "Honorable Mention / Interpretive Interactive Installations",
+		href: "https://www.aam-us.org/programs/awards-program/2017-muse-award-winners/"
+	},
+	{
+		year: "2018",
+		award: "AAM Excellence in Exhibition",
+		result: "Overall Award Winner",
+		href: "https://www.aam-us.org/programs/awards-program/current-recipients-of-excellence-in-exhibition-awards/"
+	},
+	{
+		year: "2018",
+		award: "AIA New York State Design Awards",
+		result: "Institutional / Award of Citation",
+		href: "https://www.aiany.org/news/aia-new-york-state-celebrates-design-excellence/"
+	},
+	{
+		year: "2018",
+		award: "American Architecture Awards",
+		result: "Winner",
+		href: "https://www.chi-athenaeum.org/june-11-2018.html"
+	},
+	{
+		year: "2018",
+		award: "GANYC Apple Awards",
+		result: "Winner / Outstanding Achievement in NYC Museum Exhibitions",
+		href: "https://www.ganyc.org/ganyc-apple-awards-winners"
+	},
+	{
+		year: "2017",
+		award: "SEGD Global Design Awards",
+		result: "Finalist",
+		href: "https://www.pentagram.com/work/new-york-at-its-core/story"
+	}
+];
+var projectAwardGroups = [{
+	slug: "core-nyc",
+	title: "New York at Its Core",
+	venue: "Museum of the City of New York",
+	attribution: "Recognition for the exhibition and its collaborative design team. Field Trip provided industrial design engineering for AV implementation and assisted South Side Design & Building with installation of the map table and standing AV units.",
+	awards: [...mcnyAwards].sort((a, b) => Number(b.year) - Number(a.year))
+}, {
+	slug: "touro-loeb-visitors-center",
+	title: "Loeb Visitors Center",
+	venue: "Touro Synagogue · Newport, RI",
+	attribution: "The curved nickel-silver grand-stair railing, fabricated by South Side Design & Building.",
+	awards: [{
+		year: "2011",
+		award: "North American Copper in Architecture Awards",
+		result: "Winner / Ornamental Applications",
+		href: "https://www.buildings.com/industry-news/article/10190330/sustainability-leads-the-way-for-2011-north-american-copper-in-architecture-awards"
+	}]
+}];
+//#endregion
+//#region app/exhibition-availability.ts
+/** Venue-checked 30 October 2026. Sources and access notes: docs/CURRENTLY-ON-DISPLAY-20261030.md. */
+var displayDates = {
+	"sacred-splendor": ["2026-09-18", "2027-02-07"],
+	"brooklyn-museum": ["2026-05-16", "2027-01-03"],
+	"cooper-hewitt": ["2024-11-02", "2025-08-10"],
+	"china-institute": ["2026-07-09", "2026-07-29"]
+};
+var ongoingDisplayNotes = {
+	"dia-beacon": "Long-term view",
+	"core-nyc": "Permanent exhibition",
+	"coney-island-carousel-museum": "Permanent installation · Seasonal venue hours",
+	"bldg-92": "Permanent exhibition",
+	"dream-machine": "Permanent installation",
+	"touro-loeb-visitors-center": "Permanent displays and architectural metalwork · Check center hours",
+	"central-governor": "Long-term installation · Access subject to weather",
+	"bronx-science-holocaust-museum": "Permanent museum · Arrange access with the school"
+};
+var aliases = {
+	"brooklyn-museum-iris-van-herpen": "brooklyn-museum",
+	"dia-beacon-tehching-hsieh": "dia-beacon"
+};
+function exhibitionToday() {
+	return (/* @__PURE__ */ new Date()).toLocaleDateString("en-CA", { timeZone: "America/New_York" });
+}
+function exhibitionDisplayInfo(slug, today = exhibitionToday()) {
+	const id = aliases[slug] ?? slug;
+	const dates = displayDates[id];
+	if (dates) {
+		const format = (date) => (/* @__PURE__ */ new Date(`${date}T12:00:00Z`)).toLocaleDateString("en-US", {
+			month: "long",
+			day: "numeric",
+			year: "numeric",
+			timeZone: "America/New_York"
+		});
+		if (today < dates[0]) return {
+			open: false,
+			label: `Opens ${format(dates[0])}`
+		};
+		if (today > dates[1]) return {
+			open: false,
+			label: `Completed · Exhibition ended ${format(dates[1])}`
+		};
+		return {
+			open: true,
+			label: `On display through ${format(dates[1])}`
+		};
+	}
+	return ongoingDisplayNotes[id] ? {
+		open: true,
+		label: ongoingDisplayNotes[id]
+	} : null;
+}
+//#endregion
+//#region app/work/project-curation.ts
+/** Owner's 12 October sections. Display choices never imply project scope or credits. */
+var featuredProjectSlugs = [
+	"core-nyc",
+	"ascend",
+	"heart-bot",
+	"beat-repeat"
+];
+var latestProjectSlugs = [
+	"sacred-splendor",
+	"brooklyn-museum",
+	"dia-beacon",
+	"cooper-hewitt",
+	"china-institute"
+];
+/** Latest work leads, followed by the ongoing installations requested on 30 October. */
+var ongoingProjectSlugs = [
+	"core-nyc",
+	"coney-island-carousel-museum",
+	"bldg-92",
+	"dream-machine",
+	"touro-loeb-visitors-center",
+	"central-governor",
+	"bronx-science-holocaust-museum"
+];
+var currentlyOnDisplaySlugs = [...latestProjectSlugs, ...ongoingProjectSlugs];
+/** Owner's 14 October Archive-only opening; Featured and Latest keep their own order. */
+var archiveOpeningSlugs = [
+	"bldg-92",
+	"on-becoming-an-artist",
+	"holocaust-by-bullets",
+	"m-is-for-museum",
+	"dream-machine",
+	"nike-free-hyperfeel",
+	"wheat-thins-popped"
+];
+[
+	{
+		id: "featured-projects",
+		title: "Featured Projects"
+	},
+	{
+		id: "latest-projects",
+		title: "Currently On Display"
+	},
+	{
+		id: "archive",
+		title: "Archive"
+	}
+].filter((group) => group.id !== "archive");
+var priorityProjectSlugs = [
+	...featuredProjectSlugs,
+	...latestProjectSlugs,
+	...archiveOpeningSlugs,
+	"electric-jukebox",
+	"2012-us-olympics",
+	"touro-loeb-visitors-center",
+	"bronx-science-holocaust-museum"
+];
+var corporateProjectSlugs = [
+	"fox-studios-titanic",
+	"electric-jukebox",
+	"ascend",
+	"beat-repeat",
+	"2012-us-olympics",
+	"nike-free-hyperfeel",
+	"wheat-thins-popped",
+	"heart-bot",
+	"hyatt-photo-booth",
+	"tumi",
+	"intel-unknown"
+];
+var artworkProjectSlugs = [
+	"best-of-all-possible-worlds",
+	"jadu-beta",
+	"heliogram-series",
+	"central-governor",
+	"adam-fuss",
+	"katrin-sigurdardottir"
+];
+[...corporateProjectSlugs];
+var presentationOrder = [
+	...priorityProjectSlugs,
+	"hyatt-photo-booth",
+	"tumi",
+	"intel-unknown",
+	"coney-island-carousel-museum",
+	"archive"
+];
+function orderProjects(records) {
+	const rank = (slug) => {
+		const index = presentationOrder.indexOf(slug);
+		if (index >= 0) return index;
+		if (slug === "david-bowie-residence") return presentationOrder.length + 1;
+		if (slug === "klaus-biesenbach-residence") return presentationOrder.length + 2;
+		const artwork = artworkProjectSlugs.indexOf(slug);
+		return artwork < 0 ? presentationOrder.length : presentationOrder.length + 3 + artwork;
+	};
+	return [...records].sort((a, b) => rank(a.slug) - rank(b.slug));
+}
+//#endregion
 //#region app/project-data.ts
 var projects = [
+	{
+		"slug": "private-residence",
+		"recordType": "field-trip",
+		"title": "Private Residence",
+		"client": "Private Residence",
+		"location": "Oakland, California",
+		"date": "2023",
+		"scope": "Fabrication",
+		"summary": "Wall lath reclaimed from the original nineteenth-century Victorian residence in Oakland was laminated through multiple glue-ups to create the kitchen’s door and drawer facings. All lath was salvaged from the house, and the completed facings were finished with Rubio.",
+		"galleryCount": 7,
+		"sources": []
+	},
 	{
 		"slug": "women-who-rock",
 		"recordType": "predecessor",
@@ -20033,7 +24318,7 @@ var projects = [
 	{
 		slug: "china-institute",
 		recordType: "field-trip",
-		title: "China Institute",
+		title: "Chinese Opera: A Century of Dreams — Art, Design, and Technology",
 		client: "China Institute of America",
 		location: "New York, NY",
 		date: "2026",
@@ -21322,6 +25607,5866 @@ var visibleResearchSlugs = [
 ];
 var publishedProjects = orderProjects(projects.filter((project) => !ownerExcludedProjectSlugs.has(project.slug) && (project.recordType !== "research" || visibleResearchSlugs.includes(project.slug))));
 //#endregion
+//#region app/api/editor/images/route.ts
+var route_exports$7 = /* @__PURE__ */ __exportAll({
+	DELETE: () => DELETE,
+	GET: () => GET$2,
+	PATCH: () => PATCH$2
+});
+var imageIds = new Set(imageCatalog.map((image) => image.id));
+var projectSlugs = new Set(["unknown", ...projects.map((project) => project.slug)]);
+var writeSchema = objectType({
+	imageId: stringType().min(1).max(600),
+	projectSlug: stringType().min(1).max(160),
+	category: enumType(imageCategories),
+	caption: stringType().trim().max(500)
+});
+var deleteSchema = objectType({ imageId: stringType().min(1).max(600) });
+async function requireOwner() {
+	const user = await getChatGPTUser();
+	return user && isEditorOwner(user.email) ? user : null;
+}
+async function GET$2() {
+	if (!await requireOwner()) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	return NextResponse.json({ overrides: await loadImageMetadataOverrides() });
+}
+async function PATCH$2(request) {
+	const user = await requireOwner();
+	if (!user) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	const parsed = writeSchema.safeParse(await request.json().catch(() => null));
+	if (!parsed.success) return NextResponse.json({ error: "Invalid image correction" }, { status: 400 });
+	if (!imageIds.has(parsed.data.imageId) || !projectSlugs.has(parsed.data.projectSlug)) return NextResponse.json({ error: "Unknown image or project record" }, { status: 400 });
+	await saveImageMetadataOverride({
+		...parsed.data,
+		updatedBy: user.email
+	});
+	return NextResponse.json({ override: parsed.data });
+}
+async function DELETE(request) {
+	if (!await requireOwner()) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	const parsed = deleteSchema.safeParse(await request.json().catch(() => null));
+	if (!parsed.success || !imageIds.has(parsed.data.imageId)) return NextResponse.json({ error: "Invalid image reset" }, { status: 400 });
+	await deleteImageMetadataOverride(parsed.data.imageId);
+	return NextResponse.json({ reset: parsed.data.imageId });
+}
+//#endregion
+//#region lib/object-requests.ts
+var objectRequestSchema = objectType({
+	requestId: stringType().uuid(),
+	name: stringType().trim().min(1).max(100),
+	email: stringType().trim().email().max(254).transform((v) => v.toLowerCase()),
+	ticket: stringType().regex(/^([0-9]{4,12})?$/),
+	object: enumType(["phone-stand", "desk-tray"]),
+	note: stringType().trim().max(2e3),
+	website: literalType("")
+});
+async function requestDatabase() {
+	const { env } = await import("cloudflare:workers");
+	if (!env.DB) throw new Error("Request storage unavailable");
+	return env.DB;
+}
+async function saveObjectRequest(input) {
+	const db = await requestDatabase();
+	const prior = await db.prepare("SELECT reference, email FROM object_requests WHERE id = ?").bind(input.requestId).first();
+	if (prior) {
+		if (prior.email !== input.email) throw new Error("REQUEST_CONFLICT");
+		return prior.reference;
+	}
+	const reference = "FT-" + crypto.randomUUID().replaceAll("-", "").slice(0, 12).toUpperCase();
+	if (!(await db.prepare(`INSERT INTO object_requests (id, reference, name, email, ticket, object, note, status)
+    SELECT ?, ?, ?, ?, ?, ?, ?, 'new' WHERE (SELECT COUNT(*) FROM object_requests WHERE email = ? AND created_at >= datetime('now', '-1 day')) < 3
+    ON CONFLICT(id) DO NOTHING`).bind(input.requestId, reference, input.name, input.email, input.ticket, input.object, input.note, input.email).run()).meta.changes) {
+		const existing = await db.prepare("SELECT reference, email FROM object_requests WHERE id = ?").bind(input.requestId).first();
+		if (existing && existing.email === input.email) return existing.reference;
+		throw new Error("RATE_LIMIT");
+	}
+	return reference;
+}
+async function listObjectRequests() {
+	return (await (await requestDatabase()).prepare("SELECT id, reference, name, email, ticket, object, note, status, created_at AS createdAt FROM object_requests ORDER BY created_at DESC LIMIT 200").all()).results;
+}
+//#endregion
+//#region app/api/object-cards/route.ts
+var route_exports$6 = /* @__PURE__ */ __exportAll({ POST: () => POST$2 });
+async function POST$2(request) {
+	if (!isEditorOwner((await getChatGPTUser())?.email)) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	if (request.headers.get("origin") !== new URL(request.url).origin) return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+	const data = objectType({ greeting: stringType().trim().min(1).max(200) }).safeParse(await request.json().catch(() => null));
+	if (!data.success) return NextResponse.json({ error: "Please enter a welcome message." }, { status: 400 });
+	try {
+		const db = await requestDatabase();
+		for (let i = 0; i < 3; i++) {
+			const bytes = crypto.getRandomValues(new Uint32Array(1));
+			const code = String(1e7 + bytes[0] % 9e7);
+			if ((await db.prepare("INSERT INTO object_cards (code,greeting) VALUES (?,?) ON CONFLICT(code) DO NOTHING").bind(code, data.data.greeting).run()).meta.changes) return NextResponse.json({
+				code,
+				greeting: data.data.greeting,
+				opens: 0
+			}, {
+				status: 201,
+				headers: { "Cache-Control": "no-store" }
+			});
+		}
+		throw Error();
+	} catch {
+		return NextResponse.json({ error: "Could not create the card." }, { status: 503 });
+	}
+}
+//#endregion
+//#region node_modules/qrcode/lib/can-promise.js
+var require_can_promise = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = function() {
+		return typeof Promise === "function" && Promise.prototype && Promise.prototype.then;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/utils.js
+var require_utils$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var toSJISFunction;
+	var CODEWORDS_COUNT = [
+		0,
+		26,
+		44,
+		70,
+		100,
+		134,
+		172,
+		196,
+		242,
+		292,
+		346,
+		404,
+		466,
+		532,
+		581,
+		655,
+		733,
+		815,
+		901,
+		991,
+		1085,
+		1156,
+		1258,
+		1364,
+		1474,
+		1588,
+		1706,
+		1828,
+		1921,
+		2051,
+		2185,
+		2323,
+		2465,
+		2611,
+		2761,
+		2876,
+		3034,
+		3196,
+		3362,
+		3532,
+		3706
+	];
+	/**
+	* Returns the QR Code size for the specified version
+	*
+	* @param  {Number} version QR Code version
+	* @return {Number}         size of QR code
+	*/
+	exports.getSymbolSize = function getSymbolSize(version) {
+		if (!version) throw new Error("\"version\" cannot be null or undefined");
+		if (version < 1 || version > 40) throw new Error("\"version\" should be in range from 1 to 40");
+		return version * 4 + 17;
+	};
+	/**
+	* Returns the total number of codewords used to store data and EC information.
+	*
+	* @param  {Number} version QR Code version
+	* @return {Number}         Data length in bits
+	*/
+	exports.getSymbolTotalCodewords = function getSymbolTotalCodewords(version) {
+		return CODEWORDS_COUNT[version];
+	};
+	/**
+	* Encode data with Bose-Chaudhuri-Hocquenghem
+	*
+	* @param  {Number} data Value to encode
+	* @return {Number}      Encoded value
+	*/
+	exports.getBCHDigit = function(data) {
+		let digit = 0;
+		while (data !== 0) {
+			digit++;
+			data >>>= 1;
+		}
+		return digit;
+	};
+	exports.setToSJISFunction = function setToSJISFunction(f) {
+		if (typeof f !== "function") throw new Error("\"toSJISFunc\" is not a valid function.");
+		toSJISFunction = f;
+	};
+	exports.isKanjiModeEnabled = function() {
+		return typeof toSJISFunction !== "undefined";
+	};
+	exports.toSJIS = function toSJIS(kanji) {
+		return toSJISFunction(kanji);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/error-correction-level.js
+var require_error_correction_level = /* @__PURE__ */ __commonJSMin(((exports) => {
+	exports.L = { bit: 1 };
+	exports.M = { bit: 0 };
+	exports.Q = { bit: 3 };
+	exports.H = { bit: 2 };
+	function fromString(string) {
+		if (typeof string !== "string") throw new Error("Param is not a string");
+		switch (string.toLowerCase()) {
+			case "l":
+			case "low": return exports.L;
+			case "m":
+			case "medium": return exports.M;
+			case "q":
+			case "quartile": return exports.Q;
+			case "h":
+			case "high": return exports.H;
+			default: throw new Error("Unknown EC Level: " + string);
+		}
+	}
+	exports.isValid = function isValid(level) {
+		return level && typeof level.bit !== "undefined" && level.bit >= 0 && level.bit < 4;
+	};
+	exports.from = function from(value, defaultValue) {
+		if (exports.isValid(value)) return value;
+		try {
+			return fromString(value);
+		} catch (e) {
+			return defaultValue;
+		}
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/bit-buffer.js
+var require_bit_buffer = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	function BitBuffer() {
+		this.buffer = [];
+		this.length = 0;
+	}
+	BitBuffer.prototype = {
+		get: function(index) {
+			const bufIndex = Math.floor(index / 8);
+			return (this.buffer[bufIndex] >>> 7 - index % 8 & 1) === 1;
+		},
+		put: function(num, length) {
+			for (let i = 0; i < length; i++) this.putBit((num >>> length - i - 1 & 1) === 1);
+		},
+		getLengthInBits: function() {
+			return this.length;
+		},
+		putBit: function(bit) {
+			const bufIndex = Math.floor(this.length / 8);
+			if (this.buffer.length <= bufIndex) this.buffer.push(0);
+			if (bit) this.buffer[bufIndex] |= 128 >>> this.length % 8;
+			this.length++;
+		}
+	};
+	module.exports = BitBuffer;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/bit-matrix.js
+var require_bit_matrix = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	/**
+	* Helper class to handle QR Code symbol modules
+	*
+	* @param {Number} size Symbol size
+	*/
+	function BitMatrix(size) {
+		if (!size || size < 1) throw new Error("BitMatrix size must be defined and greater than 0");
+		this.size = size;
+		this.data = new Uint8Array(size * size);
+		this.reservedBit = new Uint8Array(size * size);
+	}
+	/**
+	* Set bit value at specified location
+	* If reserved flag is set, this bit will be ignored during masking process
+	*
+	* @param {Number}  row
+	* @param {Number}  col
+	* @param {Boolean} value
+	* @param {Boolean} reserved
+	*/
+	BitMatrix.prototype.set = function(row, col, value, reserved) {
+		const index = row * this.size + col;
+		this.data[index] = value;
+		if (reserved) this.reservedBit[index] = true;
+	};
+	/**
+	* Returns bit value at specified location
+	*
+	* @param  {Number}  row
+	* @param  {Number}  col
+	* @return {Boolean}
+	*/
+	BitMatrix.prototype.get = function(row, col) {
+		return this.data[row * this.size + col];
+	};
+	/**
+	* Applies xor operator at specified location
+	* (used during masking process)
+	*
+	* @param {Number}  row
+	* @param {Number}  col
+	* @param {Boolean} value
+	*/
+	BitMatrix.prototype.xor = function(row, col, value) {
+		this.data[row * this.size + col] ^= value;
+	};
+	/**
+	* Check if bit at specified location is reserved
+	*
+	* @param {Number}   row
+	* @param {Number}   col
+	* @return {Boolean}
+	*/
+	BitMatrix.prototype.isReserved = function(row, col) {
+		return this.reservedBit[row * this.size + col];
+	};
+	module.exports = BitMatrix;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/alignment-pattern.js
+var require_alignment_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
+	/**
+	* Alignment pattern are fixed reference pattern in defined positions
+	* in a matrix symbology, which enables the decode software to re-synchronise
+	* the coordinate mapping of the image modules in the event of moderate amounts
+	* of distortion of the image.
+	*
+	* Alignment patterns are present only in QR Code symbols of version 2 or larger
+	* and their number depends on the symbol version.
+	*/
+	var getSymbolSize = require_utils$1().getSymbolSize;
+	/**
+	* Calculate the row/column coordinates of the center module of each alignment pattern
+	* for the specified QR Code version.
+	*
+	* The alignment patterns are positioned symmetrically on either side of the diagonal
+	* running from the top left corner of the symbol to the bottom right corner.
+	*
+	* Since positions are simmetrical only half of the coordinates are returned.
+	* Each item of the array will represent in turn the x and y coordinate.
+	* @see {@link getPositions}
+	*
+	* @param  {Number} version QR Code version
+	* @return {Array}          Array of coordinate
+	*/
+	exports.getRowColCoords = function getRowColCoords(version) {
+		if (version === 1) return [];
+		const posCount = Math.floor(version / 7) + 2;
+		const size = getSymbolSize(version);
+		const intervals = size === 145 ? 26 : Math.ceil((size - 13) / (2 * posCount - 2)) * 2;
+		const positions = [size - 7];
+		for (let i = 1; i < posCount - 1; i++) positions[i] = positions[i - 1] - intervals;
+		positions.push(6);
+		return positions.reverse();
+	};
+	/**
+	* Returns an array containing the positions of each alignment pattern.
+	* Each array's element represent the center point of the pattern as (x, y) coordinates
+	*
+	* Coordinates are calculated expanding the row/column coordinates returned by {@link getRowColCoords}
+	* and filtering out the items that overlaps with finder pattern
+	*
+	* @example
+	* For a Version 7 symbol {@link getRowColCoords} returns values 6, 22 and 38.
+	* The alignment patterns, therefore, are to be centered on (row, column)
+	* positions (6,22), (22,6), (22,22), (22,38), (38,22), (38,38).
+	* Note that the coordinates (6,6), (6,38), (38,6) are occupied by finder patterns
+	* and are not therefore used for alignment patterns.
+	*
+	* let pos = getPositions(7)
+	* // [[6,22], [22,6], [22,22], [22,38], [38,22], [38,38]]
+	*
+	* @param  {Number} version QR Code version
+	* @return {Array}          Array of coordinates
+	*/
+	exports.getPositions = function getPositions(version) {
+		const coords = [];
+		const pos = exports.getRowColCoords(version);
+		const posLength = pos.length;
+		for (let i = 0; i < posLength; i++) for (let j = 0; j < posLength; j++) {
+			if (i === 0 && j === 0 || i === 0 && j === posLength - 1 || i === posLength - 1 && j === 0) continue;
+			coords.push([pos[i], pos[j]]);
+		}
+		return coords;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/finder-pattern.js
+var require_finder_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var getSymbolSize = require_utils$1().getSymbolSize;
+	var FINDER_PATTERN_SIZE = 7;
+	/**
+	* Returns an array containing the positions of each finder pattern.
+	* Each array's element represent the top-left point of the pattern as (x, y) coordinates
+	*
+	* @param  {Number} version QR Code version
+	* @return {Array}          Array of coordinates
+	*/
+	exports.getPositions = function getPositions(version) {
+		const size = getSymbolSize(version);
+		return [
+			[0, 0],
+			[size - FINDER_PATTERN_SIZE, 0],
+			[0, size - FINDER_PATTERN_SIZE]
+		];
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/mask-pattern.js
+var require_mask_pattern = /* @__PURE__ */ __commonJSMin(((exports) => {
+	/**
+	* Data mask pattern reference
+	* @type {Object}
+	*/
+	exports.Patterns = {
+		PATTERN000: 0,
+		PATTERN001: 1,
+		PATTERN010: 2,
+		PATTERN011: 3,
+		PATTERN100: 4,
+		PATTERN101: 5,
+		PATTERN110: 6,
+		PATTERN111: 7
+	};
+	/**
+	* Weighted penalty scores for the undesirable features
+	* @type {Object}
+	*/
+	var PenaltyScores = {
+		N1: 3,
+		N2: 3,
+		N3: 40,
+		N4: 10
+	};
+	/**
+	* Check if mask pattern value is valid
+	*
+	* @param  {Number}  mask    Mask pattern
+	* @return {Boolean}         true if valid, false otherwise
+	*/
+	exports.isValid = function isValid(mask) {
+		return mask != null && mask !== "" && !isNaN(mask) && mask >= 0 && mask <= 7;
+	};
+	/**
+	* Returns mask pattern from a value.
+	* If value is not valid, returns undefined
+	*
+	* @param  {Number|String} value        Mask pattern value
+	* @return {Number}                     Valid mask pattern or undefined
+	*/
+	exports.from = function from(value) {
+		return exports.isValid(value) ? parseInt(value, 10) : void 0;
+	};
+	/**
+	* Find adjacent modules in row/column with the same color
+	* and assign a penalty value.
+	*
+	* Points: N1 + i
+	* i is the amount by which the number of adjacent modules of the same color exceeds 5
+	*/
+	exports.getPenaltyN1 = function getPenaltyN1(data) {
+		const size = data.size;
+		let points = 0;
+		let sameCountCol = 0;
+		let sameCountRow = 0;
+		let lastCol = null;
+		let lastRow = null;
+		for (let row = 0; row < size; row++) {
+			sameCountCol = sameCountRow = 0;
+			lastCol = lastRow = null;
+			for (let col = 0; col < size; col++) {
+				let module$1 = data.get(row, col);
+				if (module$1 === lastCol) sameCountCol++;
+				else {
+					if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5);
+					lastCol = module$1;
+					sameCountCol = 1;
+				}
+				module$1 = data.get(col, row);
+				if (module$1 === lastRow) sameCountRow++;
+				else {
+					if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5);
+					lastRow = module$1;
+					sameCountRow = 1;
+				}
+			}
+			if (sameCountCol >= 5) points += PenaltyScores.N1 + (sameCountCol - 5);
+			if (sameCountRow >= 5) points += PenaltyScores.N1 + (sameCountRow - 5);
+		}
+		return points;
+	};
+	/**
+	* Find 2x2 blocks with the same color and assign a penalty value
+	*
+	* Points: N2 * (m - 1) * (n - 1)
+	*/
+	exports.getPenaltyN2 = function getPenaltyN2(data) {
+		const size = data.size;
+		let points = 0;
+		for (let row = 0; row < size - 1; row++) for (let col = 0; col < size - 1; col++) {
+			const last = data.get(row, col) + data.get(row, col + 1) + data.get(row + 1, col) + data.get(row + 1, col + 1);
+			if (last === 4 || last === 0) points++;
+		}
+		return points * PenaltyScores.N2;
+	};
+	/**
+	* Find 1:1:3:1:1 ratio (dark:light:dark:light:dark) pattern in row/column,
+	* preceded or followed by light area 4 modules wide
+	*
+	* Points: N3 * number of pattern found
+	*/
+	exports.getPenaltyN3 = function getPenaltyN3(data) {
+		const size = data.size;
+		let points = 0;
+		let bitsCol = 0;
+		let bitsRow = 0;
+		for (let row = 0; row < size; row++) {
+			bitsCol = bitsRow = 0;
+			for (let col = 0; col < size; col++) {
+				bitsCol = bitsCol << 1 & 2047 | data.get(row, col);
+				if (col >= 10 && (bitsCol === 1488 || bitsCol === 93)) points++;
+				bitsRow = bitsRow << 1 & 2047 | data.get(col, row);
+				if (col >= 10 && (bitsRow === 1488 || bitsRow === 93)) points++;
+			}
+		}
+		return points * PenaltyScores.N3;
+	};
+	/**
+	* Calculate proportion of dark modules in entire symbol
+	*
+	* Points: N4 * k
+	*
+	* k is the rating of the deviation of the proportion of dark modules
+	* in the symbol from 50% in steps of 5%
+	*/
+	exports.getPenaltyN4 = function getPenaltyN4(data) {
+		let darkCount = 0;
+		const modulesCount = data.data.length;
+		for (let i = 0; i < modulesCount; i++) darkCount += data.data[i];
+		return Math.abs(Math.ceil(darkCount * 100 / modulesCount / 5) - 10) * PenaltyScores.N4;
+	};
+	/**
+	* Return mask value at given position
+	*
+	* @param  {Number} maskPattern Pattern reference value
+	* @param  {Number} i           Row
+	* @param  {Number} j           Column
+	* @return {Boolean}            Mask value
+	*/
+	function getMaskAt(maskPattern, i, j) {
+		switch (maskPattern) {
+			case exports.Patterns.PATTERN000: return (i + j) % 2 === 0;
+			case exports.Patterns.PATTERN001: return i % 2 === 0;
+			case exports.Patterns.PATTERN010: return j % 3 === 0;
+			case exports.Patterns.PATTERN011: return (i + j) % 3 === 0;
+			case exports.Patterns.PATTERN100: return (Math.floor(i / 2) + Math.floor(j / 3)) % 2 === 0;
+			case exports.Patterns.PATTERN101: return i * j % 2 + i * j % 3 === 0;
+			case exports.Patterns.PATTERN110: return (i * j % 2 + i * j % 3) % 2 === 0;
+			case exports.Patterns.PATTERN111: return (i * j % 3 + (i + j) % 2) % 2 === 0;
+			default: throw new Error("bad maskPattern:" + maskPattern);
+		}
+	}
+	/**
+	* Apply a mask pattern to a BitMatrix
+	*
+	* @param  {Number}    pattern Pattern reference number
+	* @param  {BitMatrix} data    BitMatrix data
+	*/
+	exports.applyMask = function applyMask(pattern, data) {
+		const size = data.size;
+		for (let col = 0; col < size; col++) for (let row = 0; row < size; row++) {
+			if (data.isReserved(row, col)) continue;
+			data.xor(row, col, getMaskAt(pattern, row, col));
+		}
+	};
+	/**
+	* Returns the best mask pattern for data
+	*
+	* @param  {BitMatrix} data
+	* @return {Number} Mask pattern reference number
+	*/
+	exports.getBestMask = function getBestMask(data, setupFormatFunc) {
+		const numPatterns = Object.keys(exports.Patterns).length;
+		let bestPattern = 0;
+		let lowerPenalty = Infinity;
+		for (let p = 0; p < numPatterns; p++) {
+			setupFormatFunc(p);
+			exports.applyMask(p, data);
+			const penalty = exports.getPenaltyN1(data) + exports.getPenaltyN2(data) + exports.getPenaltyN3(data) + exports.getPenaltyN4(data);
+			exports.applyMask(p, data);
+			if (penalty < lowerPenalty) {
+				lowerPenalty = penalty;
+				bestPattern = p;
+			}
+		}
+		return bestPattern;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/error-correction-code.js
+var require_error_correction_code = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var ECLevel = require_error_correction_level();
+	var EC_BLOCKS_TABLE = [
+		1,
+		1,
+		1,
+		1,
+		1,
+		1,
+		1,
+		1,
+		1,
+		1,
+		2,
+		2,
+		1,
+		2,
+		2,
+		4,
+		1,
+		2,
+		4,
+		4,
+		2,
+		4,
+		4,
+		4,
+		2,
+		4,
+		6,
+		5,
+		2,
+		4,
+		6,
+		6,
+		2,
+		5,
+		8,
+		8,
+		4,
+		5,
+		8,
+		8,
+		4,
+		5,
+		8,
+		11,
+		4,
+		8,
+		10,
+		11,
+		4,
+		9,
+		12,
+		16,
+		4,
+		9,
+		16,
+		16,
+		6,
+		10,
+		12,
+		18,
+		6,
+		10,
+		17,
+		16,
+		6,
+		11,
+		16,
+		19,
+		6,
+		13,
+		18,
+		21,
+		7,
+		14,
+		21,
+		25,
+		8,
+		16,
+		20,
+		25,
+		8,
+		17,
+		23,
+		25,
+		9,
+		17,
+		23,
+		34,
+		9,
+		18,
+		25,
+		30,
+		10,
+		20,
+		27,
+		32,
+		12,
+		21,
+		29,
+		35,
+		12,
+		23,
+		34,
+		37,
+		12,
+		25,
+		34,
+		40,
+		13,
+		26,
+		35,
+		42,
+		14,
+		28,
+		38,
+		45,
+		15,
+		29,
+		40,
+		48,
+		16,
+		31,
+		43,
+		51,
+		17,
+		33,
+		45,
+		54,
+		18,
+		35,
+		48,
+		57,
+		19,
+		37,
+		51,
+		60,
+		19,
+		38,
+		53,
+		63,
+		20,
+		40,
+		56,
+		66,
+		21,
+		43,
+		59,
+		70,
+		22,
+		45,
+		62,
+		74,
+		24,
+		47,
+		65,
+		77,
+		25,
+		49,
+		68,
+		81
+	];
+	var EC_CODEWORDS_TABLE = [
+		7,
+		10,
+		13,
+		17,
+		10,
+		16,
+		22,
+		28,
+		15,
+		26,
+		36,
+		44,
+		20,
+		36,
+		52,
+		64,
+		26,
+		48,
+		72,
+		88,
+		36,
+		64,
+		96,
+		112,
+		40,
+		72,
+		108,
+		130,
+		48,
+		88,
+		132,
+		156,
+		60,
+		110,
+		160,
+		192,
+		72,
+		130,
+		192,
+		224,
+		80,
+		150,
+		224,
+		264,
+		96,
+		176,
+		260,
+		308,
+		104,
+		198,
+		288,
+		352,
+		120,
+		216,
+		320,
+		384,
+		132,
+		240,
+		360,
+		432,
+		144,
+		280,
+		408,
+		480,
+		168,
+		308,
+		448,
+		532,
+		180,
+		338,
+		504,
+		588,
+		196,
+		364,
+		546,
+		650,
+		224,
+		416,
+		600,
+		700,
+		224,
+		442,
+		644,
+		750,
+		252,
+		476,
+		690,
+		816,
+		270,
+		504,
+		750,
+		900,
+		300,
+		560,
+		810,
+		960,
+		312,
+		588,
+		870,
+		1050,
+		336,
+		644,
+		952,
+		1110,
+		360,
+		700,
+		1020,
+		1200,
+		390,
+		728,
+		1050,
+		1260,
+		420,
+		784,
+		1140,
+		1350,
+		450,
+		812,
+		1200,
+		1440,
+		480,
+		868,
+		1290,
+		1530,
+		510,
+		924,
+		1350,
+		1620,
+		540,
+		980,
+		1440,
+		1710,
+		570,
+		1036,
+		1530,
+		1800,
+		570,
+		1064,
+		1590,
+		1890,
+		600,
+		1120,
+		1680,
+		1980,
+		630,
+		1204,
+		1770,
+		2100,
+		660,
+		1260,
+		1860,
+		2220,
+		720,
+		1316,
+		1950,
+		2310,
+		750,
+		1372,
+		2040,
+		2430
+	];
+	/**
+	* Returns the number of error correction block that the QR Code should contain
+	* for the specified version and error correction level.
+	*
+	* @param  {Number} version              QR Code version
+	* @param  {Number} errorCorrectionLevel Error correction level
+	* @return {Number}                      Number of error correction blocks
+	*/
+	exports.getBlocksCount = function getBlocksCount(version, errorCorrectionLevel) {
+		switch (errorCorrectionLevel) {
+			case ECLevel.L: return EC_BLOCKS_TABLE[(version - 1) * 4 + 0];
+			case ECLevel.M: return EC_BLOCKS_TABLE[(version - 1) * 4 + 1];
+			case ECLevel.Q: return EC_BLOCKS_TABLE[(version - 1) * 4 + 2];
+			case ECLevel.H: return EC_BLOCKS_TABLE[(version - 1) * 4 + 3];
+			default: return;
+		}
+	};
+	/**
+	* Returns the number of error correction codewords to use for the specified
+	* version and error correction level.
+	*
+	* @param  {Number} version              QR Code version
+	* @param  {Number} errorCorrectionLevel Error correction level
+	* @return {Number}                      Number of error correction codewords
+	*/
+	exports.getTotalCodewordsCount = function getTotalCodewordsCount(version, errorCorrectionLevel) {
+		switch (errorCorrectionLevel) {
+			case ECLevel.L: return EC_CODEWORDS_TABLE[(version - 1) * 4 + 0];
+			case ECLevel.M: return EC_CODEWORDS_TABLE[(version - 1) * 4 + 1];
+			case ECLevel.Q: return EC_CODEWORDS_TABLE[(version - 1) * 4 + 2];
+			case ECLevel.H: return EC_CODEWORDS_TABLE[(version - 1) * 4 + 3];
+			default: return;
+		}
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/galois-field.js
+var require_galois_field = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var EXP_TABLE = new Uint8Array(512);
+	var LOG_TABLE = new Uint8Array(256);
+	(function initTables() {
+		let x = 1;
+		for (let i = 0; i < 255; i++) {
+			EXP_TABLE[i] = x;
+			LOG_TABLE[x] = i;
+			x <<= 1;
+			if (x & 256) x ^= 285;
+		}
+		for (let i = 255; i < 512; i++) EXP_TABLE[i] = EXP_TABLE[i - 255];
+	})();
+	/**
+	* Returns log value of n inside Galois Field
+	*
+	* @param  {Number} n
+	* @return {Number}
+	*/
+	exports.log = function log(n) {
+		if (n < 1) throw new Error("log(" + n + ")");
+		return LOG_TABLE[n];
+	};
+	/**
+	* Returns anti-log value of n inside Galois Field
+	*
+	* @param  {Number} n
+	* @return {Number}
+	*/
+	exports.exp = function exp(n) {
+		return EXP_TABLE[n];
+	};
+	/**
+	* Multiplies two number inside Galois Field
+	*
+	* @param  {Number} x
+	* @param  {Number} y
+	* @return {Number}
+	*/
+	exports.mul = function mul(x, y) {
+		if (x === 0 || y === 0) return 0;
+		return EXP_TABLE[LOG_TABLE[x] + LOG_TABLE[y]];
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/polynomial.js
+var require_polynomial = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var GF = require_galois_field();
+	/**
+	* Multiplies two polynomials inside Galois Field
+	*
+	* @param  {Uint8Array} p1 Polynomial
+	* @param  {Uint8Array} p2 Polynomial
+	* @return {Uint8Array}    Product of p1 and p2
+	*/
+	exports.mul = function mul(p1, p2) {
+		const coeff = new Uint8Array(p1.length + p2.length - 1);
+		for (let i = 0; i < p1.length; i++) for (let j = 0; j < p2.length; j++) coeff[i + j] ^= GF.mul(p1[i], p2[j]);
+		return coeff;
+	};
+	/**
+	* Calculate the remainder of polynomials division
+	*
+	* @param  {Uint8Array} divident Polynomial
+	* @param  {Uint8Array} divisor  Polynomial
+	* @return {Uint8Array}          Remainder
+	*/
+	exports.mod = function mod(divident, divisor) {
+		let result = new Uint8Array(divident);
+		while (result.length - divisor.length >= 0) {
+			const coeff = result[0];
+			for (let i = 0; i < divisor.length; i++) result[i] ^= GF.mul(divisor[i], coeff);
+			let offset = 0;
+			while (offset < result.length && result[offset] === 0) offset++;
+			result = result.slice(offset);
+		}
+		return result;
+	};
+	/**
+	* Generate an irreducible generator polynomial of specified degree
+	* (used by Reed-Solomon encoder)
+	*
+	* @param  {Number} degree Degree of the generator polynomial
+	* @return {Uint8Array}    Buffer containing polynomial coefficients
+	*/
+	exports.generateECPolynomial = function generateECPolynomial(degree) {
+		let poly = new Uint8Array([1]);
+		for (let i = 0; i < degree; i++) poly = exports.mul(poly, new Uint8Array([1, GF.exp(i)]));
+		return poly;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/reed-solomon-encoder.js
+var require_reed_solomon_encoder = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var Polynomial = require_polynomial();
+	function ReedSolomonEncoder(degree) {
+		this.genPoly = void 0;
+		this.degree = degree;
+		if (this.degree) this.initialize(this.degree);
+	}
+	/**
+	* Initialize the encoder.
+	* The input param should correspond to the number of error correction codewords.
+	*
+	* @param  {Number} degree
+	*/
+	ReedSolomonEncoder.prototype.initialize = function initialize(degree) {
+		this.degree = degree;
+		this.genPoly = Polynomial.generateECPolynomial(this.degree);
+	};
+	/**
+	* Encodes a chunk of data
+	*
+	* @param  {Uint8Array} data Buffer containing input data
+	* @return {Uint8Array}      Buffer containing encoded data
+	*/
+	ReedSolomonEncoder.prototype.encode = function encode(data) {
+		if (!this.genPoly) throw new Error("Encoder not initialized");
+		const paddedData = new Uint8Array(data.length + this.degree);
+		paddedData.set(data);
+		const remainder = Polynomial.mod(paddedData, this.genPoly);
+		const start = this.degree - remainder.length;
+		if (start > 0) {
+			const buff = new Uint8Array(this.degree);
+			buff.set(remainder, start);
+			return buff;
+		}
+		return remainder;
+	};
+	module.exports = ReedSolomonEncoder;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/version-check.js
+var require_version_check = /* @__PURE__ */ __commonJSMin(((exports) => {
+	/**
+	* Check if QR Code version is valid
+	*
+	* @param  {Number}  version QR Code version
+	* @return {Boolean}         true if valid version, false otherwise
+	*/
+	exports.isValid = function isValid(version) {
+		return !isNaN(version) && version >= 1 && version <= 40;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/regex.js
+var require_regex = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var numeric = "[0-9]+";
+	var alphanumeric = "[A-Z $%*+\\-./:]+";
+	var kanji = "(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+";
+	kanji = kanji.replace(/u/g, "\\u");
+	var byte = "(?:(?![A-Z0-9 $%*+\\-./:]|" + kanji + ")(?:.|[\r\n]))+";
+	exports.KANJI = new RegExp(kanji, "g");
+	exports.BYTE_KANJI = /* @__PURE__ */ new RegExp("[^A-Z0-9 $%*+\\-./:]+", "g");
+	exports.BYTE = new RegExp(byte, "g");
+	exports.NUMERIC = new RegExp(numeric, "g");
+	exports.ALPHANUMERIC = new RegExp(alphanumeric, "g");
+	var TEST_KANJI = new RegExp("^" + kanji + "$");
+	var TEST_NUMERIC = new RegExp("^" + numeric + "$");
+	var TEST_ALPHANUMERIC = /* @__PURE__ */ new RegExp("^[A-Z0-9 $%*+\\-./:]+$");
+	exports.testKanji = function testKanji(str) {
+		return TEST_KANJI.test(str);
+	};
+	exports.testNumeric = function testNumeric(str) {
+		return TEST_NUMERIC.test(str);
+	};
+	exports.testAlphanumeric = function testAlphanumeric(str) {
+		return TEST_ALPHANUMERIC.test(str);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/mode.js
+var require_mode = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var VersionCheck = require_version_check();
+	var Regex = require_regex();
+	/**
+	* Numeric mode encodes data from the decimal digit set (0 - 9)
+	* (byte values 30HEX to 39HEX).
+	* Normally, 3 data characters are represented by 10 bits.
+	*
+	* @type {Object}
+	*/
+	exports.NUMERIC = {
+		id: "Numeric",
+		bit: 1,
+		ccBits: [
+			10,
+			12,
+			14
+		]
+	};
+	/**
+	* Alphanumeric mode encodes data from a set of 45 characters,
+	* i.e. 10 numeric digits (0 - 9),
+	*      26 alphabetic characters (A - Z),
+	*   and 9 symbols (SP, $, %, *, +, -, ., /, :).
+	* Normally, two input characters are represented by 11 bits.
+	*
+	* @type {Object}
+	*/
+	exports.ALPHANUMERIC = {
+		id: "Alphanumeric",
+		bit: 2,
+		ccBits: [
+			9,
+			11,
+			13
+		]
+	};
+	/**
+	* In byte mode, data is encoded at 8 bits per character.
+	*
+	* @type {Object}
+	*/
+	exports.BYTE = {
+		id: "Byte",
+		bit: 4,
+		ccBits: [
+			8,
+			16,
+			16
+		]
+	};
+	/**
+	* The Kanji mode efficiently encodes Kanji characters in accordance with
+	* the Shift JIS system based on JIS X 0208.
+	* The Shift JIS values are shifted from the JIS X 0208 values.
+	* JIS X 0208 gives details of the shift coded representation.
+	* Each two-byte character value is compacted to a 13-bit binary codeword.
+	*
+	* @type {Object}
+	*/
+	exports.KANJI = {
+		id: "Kanji",
+		bit: 8,
+		ccBits: [
+			8,
+			10,
+			12
+		]
+	};
+	/**
+	* Mixed mode will contain a sequences of data in a combination of any of
+	* the modes described above
+	*
+	* @type {Object}
+	*/
+	exports.MIXED = { bit: -1 };
+	/**
+	* Returns the number of bits needed to store the data length
+	* according to QR Code specifications.
+	*
+	* @param  {Mode}   mode    Data mode
+	* @param  {Number} version QR Code version
+	* @return {Number}         Number of bits
+	*/
+	exports.getCharCountIndicator = function getCharCountIndicator(mode, version) {
+		if (!mode.ccBits) throw new Error("Invalid mode: " + mode);
+		if (!VersionCheck.isValid(version)) throw new Error("Invalid version: " + version);
+		if (version >= 1 && version < 10) return mode.ccBits[0];
+		else if (version < 27) return mode.ccBits[1];
+		return mode.ccBits[2];
+	};
+	/**
+	* Returns the most efficient mode to store the specified data
+	*
+	* @param  {String} dataStr Input data string
+	* @return {Mode}           Best mode
+	*/
+	exports.getBestModeForData = function getBestModeForData(dataStr) {
+		if (Regex.testNumeric(dataStr)) return exports.NUMERIC;
+		else if (Regex.testAlphanumeric(dataStr)) return exports.ALPHANUMERIC;
+		else if (Regex.testKanji(dataStr)) return exports.KANJI;
+		else return exports.BYTE;
+	};
+	/**
+	* Return mode name as string
+	*
+	* @param {Mode} mode Mode object
+	* @returns {String}  Mode name
+	*/
+	exports.toString = function toString(mode) {
+		if (mode && mode.id) return mode.id;
+		throw new Error("Invalid mode");
+	};
+	/**
+	* Check if input param is a valid mode object
+	*
+	* @param   {Mode}    mode Mode object
+	* @returns {Boolean} True if valid mode, false otherwise
+	*/
+	exports.isValid = function isValid(mode) {
+		return mode && mode.bit && mode.ccBits;
+	};
+	/**
+	* Get mode object from its name
+	*
+	* @param   {String} string Mode name
+	* @returns {Mode}          Mode object
+	*/
+	function fromString(string) {
+		if (typeof string !== "string") throw new Error("Param is not a string");
+		switch (string.toLowerCase()) {
+			case "numeric": return exports.NUMERIC;
+			case "alphanumeric": return exports.ALPHANUMERIC;
+			case "kanji": return exports.KANJI;
+			case "byte": return exports.BYTE;
+			default: throw new Error("Unknown mode: " + string);
+		}
+	}
+	/**
+	* Returns mode from a value.
+	* If value is not a valid mode, returns defaultValue
+	*
+	* @param  {Mode|String} value        Encoding mode
+	* @param  {Mode}        defaultValue Fallback value
+	* @return {Mode}                     Encoding mode
+	*/
+	exports.from = function from(value, defaultValue) {
+		if (exports.isValid(value)) return value;
+		try {
+			return fromString(value);
+		} catch (e) {
+			return defaultValue;
+		}
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/version.js
+var require_version = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Utils = require_utils$1();
+	var ECCode = require_error_correction_code();
+	var ECLevel = require_error_correction_level();
+	var Mode = require_mode();
+	var VersionCheck = require_version_check();
+	var G18 = 7973;
+	var G18_BCH = Utils.getBCHDigit(G18);
+	function getBestVersionForDataLength(mode, length, errorCorrectionLevel) {
+		for (let currentVersion = 1; currentVersion <= 40; currentVersion++) if (length <= exports.getCapacity(currentVersion, errorCorrectionLevel, mode)) return currentVersion;
+	}
+	function getReservedBitsCount(mode, version) {
+		return Mode.getCharCountIndicator(mode, version) + 4;
+	}
+	function getTotalBitsFromDataArray(segments, version) {
+		let totalBits = 0;
+		segments.forEach(function(data) {
+			const reservedBits = getReservedBitsCount(data.mode, version);
+			totalBits += reservedBits + data.getBitsLength();
+		});
+		return totalBits;
+	}
+	function getBestVersionForMixedData(segments, errorCorrectionLevel) {
+		for (let currentVersion = 1; currentVersion <= 40; currentVersion++) if (getTotalBitsFromDataArray(segments, currentVersion) <= exports.getCapacity(currentVersion, errorCorrectionLevel, Mode.MIXED)) return currentVersion;
+	}
+	/**
+	* Returns version number from a value.
+	* If value is not a valid version, returns defaultValue
+	*
+	* @param  {Number|String} value        QR Code version
+	* @param  {Number}        defaultValue Fallback value
+	* @return {Number}                     QR Code version number
+	*/
+	exports.from = function from(value, defaultValue) {
+		if (VersionCheck.isValid(value)) return parseInt(value, 10);
+		return defaultValue;
+	};
+	/**
+	* Returns how much data can be stored with the specified QR code version
+	* and error correction level
+	*
+	* @param  {Number} version              QR Code version (1-40)
+	* @param  {Number} errorCorrectionLevel Error correction level
+	* @param  {Mode}   mode                 Data mode
+	* @return {Number}                      Quantity of storable data
+	*/
+	exports.getCapacity = function getCapacity(version, errorCorrectionLevel, mode) {
+		if (!VersionCheck.isValid(version)) throw new Error("Invalid QR Code version");
+		if (typeof mode === "undefined") mode = Mode.BYTE;
+		const dataTotalCodewordsBits = (Utils.getSymbolTotalCodewords(version) - ECCode.getTotalCodewordsCount(version, errorCorrectionLevel)) * 8;
+		if (mode === Mode.MIXED) return dataTotalCodewordsBits;
+		const usableBits = dataTotalCodewordsBits - getReservedBitsCount(mode, version);
+		switch (mode) {
+			case Mode.NUMERIC: return Math.floor(usableBits / 10 * 3);
+			case Mode.ALPHANUMERIC: return Math.floor(usableBits / 11 * 2);
+			case Mode.KANJI: return Math.floor(usableBits / 13);
+			case Mode.BYTE:
+			default: return Math.floor(usableBits / 8);
+		}
+	};
+	/**
+	* Returns the minimum version needed to contain the amount of data
+	*
+	* @param  {Segment} data                    Segment of data
+	* @param  {Number} [errorCorrectionLevel=H] Error correction level
+	* @param  {Mode} mode                       Data mode
+	* @return {Number}                          QR Code version
+	*/
+	exports.getBestVersionForData = function getBestVersionForData(data, errorCorrectionLevel) {
+		let seg;
+		const ecl = ECLevel.from(errorCorrectionLevel, ECLevel.M);
+		if (Array.isArray(data)) {
+			if (data.length > 1) return getBestVersionForMixedData(data, ecl);
+			if (data.length === 0) return 1;
+			seg = data[0];
+		} else seg = data;
+		return getBestVersionForDataLength(seg.mode, seg.getLength(), ecl);
+	};
+	/**
+	* Returns version information with relative error correction bits
+	*
+	* The version information is included in QR Code symbols of version 7 or larger.
+	* It consists of an 18-bit sequence containing 6 data bits,
+	* with 12 error correction bits calculated using the (18, 6) Golay code.
+	*
+	* @param  {Number} version QR Code version
+	* @return {Number}         Encoded version info bits
+	*/
+	exports.getEncodedBits = function getEncodedBits(version) {
+		if (!VersionCheck.isValid(version) || version < 7) throw new Error("Invalid QR Code version");
+		let d = version << 12;
+		while (Utils.getBCHDigit(d) - G18_BCH >= 0) d ^= G18 << Utils.getBCHDigit(d) - G18_BCH;
+		return version << 12 | d;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/format-info.js
+var require_format_info = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Utils = require_utils$1();
+	var G15 = 1335;
+	var G15_MASK = 21522;
+	var G15_BCH = Utils.getBCHDigit(G15);
+	/**
+	* Returns format information with relative error correction bits
+	*
+	* The format information is a 15-bit sequence containing 5 data bits,
+	* with 10 error correction bits calculated using the (15, 5) BCH code.
+	*
+	* @param  {Number} errorCorrectionLevel Error correction level
+	* @param  {Number} mask                 Mask pattern
+	* @return {Number}                      Encoded format information bits
+	*/
+	exports.getEncodedBits = function getEncodedBits(errorCorrectionLevel, mask) {
+		const data = errorCorrectionLevel.bit << 3 | mask;
+		let d = data << 10;
+		while (Utils.getBCHDigit(d) - G15_BCH >= 0) d ^= G15 << Utils.getBCHDigit(d) - G15_BCH;
+		return (data << 10 | d) ^ G15_MASK;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/numeric-data.js
+var require_numeric_data = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var Mode = require_mode();
+	function NumericData(data) {
+		this.mode = Mode.NUMERIC;
+		this.data = data.toString();
+	}
+	NumericData.getBitsLength = function getBitsLength(length) {
+		return 10 * Math.floor(length / 3) + (length % 3 ? length % 3 * 3 + 1 : 0);
+	};
+	NumericData.prototype.getLength = function getLength() {
+		return this.data.length;
+	};
+	NumericData.prototype.getBitsLength = function getBitsLength() {
+		return NumericData.getBitsLength(this.data.length);
+	};
+	NumericData.prototype.write = function write(bitBuffer) {
+		let i, group, value;
+		for (i = 0; i + 3 <= this.data.length; i += 3) {
+			group = this.data.substr(i, 3);
+			value = parseInt(group, 10);
+			bitBuffer.put(value, 10);
+		}
+		const remainingNum = this.data.length - i;
+		if (remainingNum > 0) {
+			group = this.data.substr(i);
+			value = parseInt(group, 10);
+			bitBuffer.put(value, remainingNum * 3 + 1);
+		}
+	};
+	module.exports = NumericData;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/alphanumeric-data.js
+var require_alphanumeric_data = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var Mode = require_mode();
+	/**
+	* Array of characters available in alphanumeric mode
+	*
+	* As per QR Code specification, to each character
+	* is assigned a value from 0 to 44 which in this case coincides
+	* with the array index
+	*
+	* @type {Array}
+	*/
+	var ALPHA_NUM_CHARS = [
+		"0",
+		"1",
+		"2",
+		"3",
+		"4",
+		"5",
+		"6",
+		"7",
+		"8",
+		"9",
+		"A",
+		"B",
+		"C",
+		"D",
+		"E",
+		"F",
+		"G",
+		"H",
+		"I",
+		"J",
+		"K",
+		"L",
+		"M",
+		"N",
+		"O",
+		"P",
+		"Q",
+		"R",
+		"S",
+		"T",
+		"U",
+		"V",
+		"W",
+		"X",
+		"Y",
+		"Z",
+		" ",
+		"$",
+		"%",
+		"*",
+		"+",
+		"-",
+		".",
+		"/",
+		":"
+	];
+	function AlphanumericData(data) {
+		this.mode = Mode.ALPHANUMERIC;
+		this.data = data;
+	}
+	AlphanumericData.getBitsLength = function getBitsLength(length) {
+		return 11 * Math.floor(length / 2) + 6 * (length % 2);
+	};
+	AlphanumericData.prototype.getLength = function getLength() {
+		return this.data.length;
+	};
+	AlphanumericData.prototype.getBitsLength = function getBitsLength() {
+		return AlphanumericData.getBitsLength(this.data.length);
+	};
+	AlphanumericData.prototype.write = function write(bitBuffer) {
+		let i;
+		for (i = 0; i + 2 <= this.data.length; i += 2) {
+			let value = ALPHA_NUM_CHARS.indexOf(this.data[i]) * 45;
+			value += ALPHA_NUM_CHARS.indexOf(this.data[i + 1]);
+			bitBuffer.put(value, 11);
+		}
+		if (this.data.length % 2) bitBuffer.put(ALPHA_NUM_CHARS.indexOf(this.data[i]), 6);
+	};
+	module.exports = AlphanumericData;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/byte-data.js
+var require_byte_data = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var Mode = require_mode();
+	function ByteData(data) {
+		this.mode = Mode.BYTE;
+		if (typeof data === "string") this.data = new TextEncoder().encode(data);
+		else this.data = new Uint8Array(data);
+	}
+	ByteData.getBitsLength = function getBitsLength(length) {
+		return length * 8;
+	};
+	ByteData.prototype.getLength = function getLength() {
+		return this.data.length;
+	};
+	ByteData.prototype.getBitsLength = function getBitsLength() {
+		return ByteData.getBitsLength(this.data.length);
+	};
+	ByteData.prototype.write = function(bitBuffer) {
+		for (let i = 0, l = this.data.length; i < l; i++) bitBuffer.put(this.data[i], 8);
+	};
+	module.exports = ByteData;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/kanji-data.js
+var require_kanji_data = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var Mode = require_mode();
+	var Utils = require_utils$1();
+	function KanjiData(data) {
+		this.mode = Mode.KANJI;
+		this.data = data;
+	}
+	KanjiData.getBitsLength = function getBitsLength(length) {
+		return length * 13;
+	};
+	KanjiData.prototype.getLength = function getLength() {
+		return this.data.length;
+	};
+	KanjiData.prototype.getBitsLength = function getBitsLength() {
+		return KanjiData.getBitsLength(this.data.length);
+	};
+	KanjiData.prototype.write = function(bitBuffer) {
+		let i;
+		for (i = 0; i < this.data.length; i++) {
+			let value = Utils.toSJIS(this.data[i]);
+			if (value >= 33088 && value <= 40956) value -= 33088;
+			else if (value >= 57408 && value <= 60351) value -= 49472;
+			else throw new Error("Invalid SJIS character: " + this.data[i] + "\nMake sure your charset is UTF-8");
+			value = (value >>> 8 & 255) * 192 + (value & 255);
+			bitBuffer.put(value, 13);
+		}
+	};
+	module.exports = KanjiData;
+}));
+//#endregion
+//#region node_modules/dijkstrajs/dijkstra.js
+var require_dijkstra = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	/******************************************************************************
+	* Created 2008-08-19.
+	*
+	* Dijkstra path-finding functions. Adapted from the Dijkstar Python project.
+	*
+	* Copyright (C) 2008
+	*   Wyatt Baldwin <self@wyattbaldwin.com>
+	*   All rights reserved
+	*
+	* Licensed under the MIT license.
+	*
+	*   http://www.opensource.org/licenses/mit-license.php
+	*
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+	* THE SOFTWARE.
+	*****************************************************************************/
+	var dijkstra = {
+		single_source_shortest_paths: function(graph, s, d) {
+			var predecessors = {};
+			var costs = {};
+			costs[s] = 0;
+			var open = dijkstra.PriorityQueue.make();
+			open.push(s, 0);
+			var closest, u, v, cost_of_s_to_u, adjacent_nodes, cost_of_e, cost_of_s_to_u_plus_cost_of_e, cost_of_s_to_v, first_visit;
+			while (!open.empty()) {
+				closest = open.pop();
+				u = closest.value;
+				cost_of_s_to_u = closest.cost;
+				adjacent_nodes = graph[u] || {};
+				for (v in adjacent_nodes) if (adjacent_nodes.hasOwnProperty(v)) {
+					cost_of_e = adjacent_nodes[v];
+					cost_of_s_to_u_plus_cost_of_e = cost_of_s_to_u + cost_of_e;
+					cost_of_s_to_v = costs[v];
+					first_visit = typeof costs[v] === "undefined";
+					if (first_visit || cost_of_s_to_v > cost_of_s_to_u_plus_cost_of_e) {
+						costs[v] = cost_of_s_to_u_plus_cost_of_e;
+						open.push(v, cost_of_s_to_u_plus_cost_of_e);
+						predecessors[v] = u;
+					}
+				}
+			}
+			if (typeof d !== "undefined" && typeof costs[d] === "undefined") {
+				var msg = [
+					"Could not find a path from ",
+					s,
+					" to ",
+					d,
+					"."
+				].join("");
+				throw new Error(msg);
+			}
+			return predecessors;
+		},
+		extract_shortest_path_from_predecessor_list: function(predecessors, d) {
+			var nodes = [];
+			var u = d;
+			while (u) {
+				nodes.push(u);
+				predecessors[u];
+				u = predecessors[u];
+			}
+			nodes.reverse();
+			return nodes;
+		},
+		find_path: function(graph, s, d) {
+			var predecessors = dijkstra.single_source_shortest_paths(graph, s, d);
+			return dijkstra.extract_shortest_path_from_predecessor_list(predecessors, d);
+		},
+		/**
+		* A very naive priority queue implementation.
+		*/
+		PriorityQueue: {
+			make: function(opts) {
+				var T = dijkstra.PriorityQueue, t = {}, key;
+				opts = opts || {};
+				for (key in T) if (T.hasOwnProperty(key)) t[key] = T[key];
+				t.queue = [];
+				t.sorter = opts.sorter || T.default_sorter;
+				return t;
+			},
+			default_sorter: function(a, b) {
+				return a.cost - b.cost;
+			},
+			/**
+			* Add a new item to the queue and ensure the highest priority element
+			* is at the front of the queue.
+			*/
+			push: function(value, cost) {
+				var item = {
+					value,
+					cost
+				};
+				this.queue.push(item);
+				this.queue.sort(this.sorter);
+			},
+			/**
+			* Return the highest priority element in the queue.
+			*/
+			pop: function() {
+				return this.queue.shift();
+			},
+			empty: function() {
+				return this.queue.length === 0;
+			}
+		}
+	};
+	if (typeof module !== "undefined") module.exports = dijkstra;
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/segments.js
+var require_segments = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Mode = require_mode();
+	var NumericData = require_numeric_data();
+	var AlphanumericData = require_alphanumeric_data();
+	var ByteData = require_byte_data();
+	var KanjiData = require_kanji_data();
+	var Regex = require_regex();
+	var Utils = require_utils$1();
+	var dijkstra = require_dijkstra();
+	/**
+	* Returns UTF8 byte length
+	*
+	* @param  {String} str Input string
+	* @return {Number}     Number of byte
+	*/
+	function getStringByteLength(str) {
+		return unescape(encodeURIComponent(str)).length;
+	}
+	/**
+	* Get a list of segments of the specified mode
+	* from a string
+	*
+	* @param  {Mode}   mode Segment mode
+	* @param  {String} str  String to process
+	* @return {Array}       Array of object with segments data
+	*/
+	function getSegments(regex, mode, str) {
+		const segments = [];
+		let result;
+		while ((result = regex.exec(str)) !== null) segments.push({
+			data: result[0],
+			index: result.index,
+			mode,
+			length: result[0].length
+		});
+		return segments;
+	}
+	/**
+	* Extracts a series of segments with the appropriate
+	* modes from a string
+	*
+	* @param  {String} dataStr Input string
+	* @return {Array}          Array of object with segments data
+	*/
+	function getSegmentsFromString(dataStr) {
+		const numSegs = getSegments(Regex.NUMERIC, Mode.NUMERIC, dataStr);
+		const alphaNumSegs = getSegments(Regex.ALPHANUMERIC, Mode.ALPHANUMERIC, dataStr);
+		let byteSegs;
+		let kanjiSegs;
+		if (Utils.isKanjiModeEnabled()) {
+			byteSegs = getSegments(Regex.BYTE, Mode.BYTE, dataStr);
+			kanjiSegs = getSegments(Regex.KANJI, Mode.KANJI, dataStr);
+		} else {
+			byteSegs = getSegments(Regex.BYTE_KANJI, Mode.BYTE, dataStr);
+			kanjiSegs = [];
+		}
+		return numSegs.concat(alphaNumSegs, byteSegs, kanjiSegs).sort(function(s1, s2) {
+			return s1.index - s2.index;
+		}).map(function(obj) {
+			return {
+				data: obj.data,
+				mode: obj.mode,
+				length: obj.length
+			};
+		});
+	}
+	/**
+	* Returns how many bits are needed to encode a string of
+	* specified length with the specified mode
+	*
+	* @param  {Number} length String length
+	* @param  {Mode} mode     Segment mode
+	* @return {Number}        Bit length
+	*/
+	function getSegmentBitsLength(length, mode) {
+		switch (mode) {
+			case Mode.NUMERIC: return NumericData.getBitsLength(length);
+			case Mode.ALPHANUMERIC: return AlphanumericData.getBitsLength(length);
+			case Mode.KANJI: return KanjiData.getBitsLength(length);
+			case Mode.BYTE: return ByteData.getBitsLength(length);
+		}
+	}
+	/**
+	* Merges adjacent segments which have the same mode
+	*
+	* @param  {Array} segs Array of object with segments data
+	* @return {Array}      Array of object with segments data
+	*/
+	function mergeSegments(segs) {
+		return segs.reduce(function(acc, curr) {
+			const prevSeg = acc.length - 1 >= 0 ? acc[acc.length - 1] : null;
+			if (prevSeg && prevSeg.mode === curr.mode) {
+				acc[acc.length - 1].data += curr.data;
+				return acc;
+			}
+			acc.push(curr);
+			return acc;
+		}, []);
+	}
+	/**
+	* Generates a list of all possible nodes combination which
+	* will be used to build a segments graph.
+	*
+	* Nodes are divided by groups. Each group will contain a list of all the modes
+	* in which is possible to encode the given text.
+	*
+	* For example the text '12345' can be encoded as Numeric, Alphanumeric or Byte.
+	* The group for '12345' will contain then 3 objects, one for each
+	* possible encoding mode.
+	*
+	* Each node represents a possible segment.
+	*
+	* @param  {Array} segs Array of object with segments data
+	* @return {Array}      Array of object with segments data
+	*/
+	function buildNodes(segs) {
+		const nodes = [];
+		for (let i = 0; i < segs.length; i++) {
+			const seg = segs[i];
+			switch (seg.mode) {
+				case Mode.NUMERIC:
+					nodes.push([
+						seg,
+						{
+							data: seg.data,
+							mode: Mode.ALPHANUMERIC,
+							length: seg.length
+						},
+						{
+							data: seg.data,
+							mode: Mode.BYTE,
+							length: seg.length
+						}
+					]);
+					break;
+				case Mode.ALPHANUMERIC:
+					nodes.push([seg, {
+						data: seg.data,
+						mode: Mode.BYTE,
+						length: seg.length
+					}]);
+					break;
+				case Mode.KANJI:
+					nodes.push([seg, {
+						data: seg.data,
+						mode: Mode.BYTE,
+						length: getStringByteLength(seg.data)
+					}]);
+					break;
+				case Mode.BYTE: nodes.push([{
+					data: seg.data,
+					mode: Mode.BYTE,
+					length: getStringByteLength(seg.data)
+				}]);
+			}
+		}
+		return nodes;
+	}
+	/**
+	* Builds a graph from a list of nodes.
+	* All segments in each node group will be connected with all the segments of
+	* the next group and so on.
+	*
+	* At each connection will be assigned a weight depending on the
+	* segment's byte length.
+	*
+	* @param  {Array} nodes    Array of object with segments data
+	* @param  {Number} version QR Code version
+	* @return {Object}         Graph of all possible segments
+	*/
+	function buildGraph(nodes, version) {
+		const table = {};
+		const graph = { start: {} };
+		let prevNodeIds = ["start"];
+		for (let i = 0; i < nodes.length; i++) {
+			const nodeGroup = nodes[i];
+			const currentNodeIds = [];
+			for (let j = 0; j < nodeGroup.length; j++) {
+				const node = nodeGroup[j];
+				const key = "" + i + j;
+				currentNodeIds.push(key);
+				table[key] = {
+					node,
+					lastCount: 0
+				};
+				graph[key] = {};
+				for (let n = 0; n < prevNodeIds.length; n++) {
+					const prevNodeId = prevNodeIds[n];
+					if (table[prevNodeId] && table[prevNodeId].node.mode === node.mode) {
+						graph[prevNodeId][key] = getSegmentBitsLength(table[prevNodeId].lastCount + node.length, node.mode) - getSegmentBitsLength(table[prevNodeId].lastCount, node.mode);
+						table[prevNodeId].lastCount += node.length;
+					} else {
+						if (table[prevNodeId]) table[prevNodeId].lastCount = node.length;
+						graph[prevNodeId][key] = getSegmentBitsLength(node.length, node.mode) + 4 + Mode.getCharCountIndicator(node.mode, version);
+					}
+				}
+			}
+			prevNodeIds = currentNodeIds;
+		}
+		for (let n = 0; n < prevNodeIds.length; n++) graph[prevNodeIds[n]].end = 0;
+		return {
+			map: graph,
+			table
+		};
+	}
+	/**
+	* Builds a segment from a specified data and mode.
+	* If a mode is not specified, the more suitable will be used.
+	*
+	* @param  {String} data             Input data
+	* @param  {Mode | String} modesHint Data mode
+	* @return {Segment}                 Segment
+	*/
+	function buildSingleSegment(data, modesHint) {
+		let mode;
+		const bestMode = Mode.getBestModeForData(data);
+		mode = Mode.from(modesHint, bestMode);
+		if (mode !== Mode.BYTE && mode.bit < bestMode.bit) throw new Error("\"" + data + "\" cannot be encoded with mode " + Mode.toString(mode) + ".\n Suggested mode is: " + Mode.toString(bestMode));
+		if (mode === Mode.KANJI && !Utils.isKanjiModeEnabled()) mode = Mode.BYTE;
+		switch (mode) {
+			case Mode.NUMERIC: return new NumericData(data);
+			case Mode.ALPHANUMERIC: return new AlphanumericData(data);
+			case Mode.KANJI: return new KanjiData(data);
+			case Mode.BYTE: return new ByteData(data);
+		}
+	}
+	/**
+	* Builds a list of segments from an array.
+	* Array can contain Strings or Objects with segment's info.
+	*
+	* For each item which is a string, will be generated a segment with the given
+	* string and the more appropriate encoding mode.
+	*
+	* For each item which is an object, will be generated a segment with the given
+	* data and mode.
+	* Objects must contain at least the property "data".
+	* If property "mode" is not present, the more suitable mode will be used.
+	*
+	* @param  {Array} array Array of objects with segments data
+	* @return {Array}       Array of Segments
+	*/
+	exports.fromArray = function fromArray(array) {
+		return array.reduce(function(acc, seg) {
+			if (typeof seg === "string") acc.push(buildSingleSegment(seg, null));
+			else if (seg.data) acc.push(buildSingleSegment(seg.data, seg.mode));
+			return acc;
+		}, []);
+	};
+	/**
+	* Builds an optimized sequence of segments from a string,
+	* which will produce the shortest possible bitstream.
+	*
+	* @param  {String} data    Input string
+	* @param  {Number} version QR Code version
+	* @return {Array}          Array of segments
+	*/
+	exports.fromString = function fromString(data, version) {
+		const graph = buildGraph(buildNodes(getSegmentsFromString(data, Utils.isKanjiModeEnabled())), version);
+		const path = dijkstra.find_path(graph.map, "start", "end");
+		const optimizedSegs = [];
+		for (let i = 1; i < path.length - 1; i++) optimizedSegs.push(graph.table[path[i]].node);
+		return exports.fromArray(mergeSegments(optimizedSegs));
+	};
+	/**
+	* Splits a string in various segments with the modes which
+	* best represent their content.
+	* The produced segments are far from being optimized.
+	* The output of this function is only used to estimate a QR Code version
+	* which may contain the data.
+	*
+	* @param  {string} data Input string
+	* @return {Array}       Array of segments
+	*/
+	exports.rawSplit = function rawSplit(data) {
+		return exports.fromArray(getSegmentsFromString(data, Utils.isKanjiModeEnabled()));
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/core/qrcode.js
+var require_qrcode = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Utils = require_utils$1();
+	var ECLevel = require_error_correction_level();
+	var BitBuffer = require_bit_buffer();
+	var BitMatrix = require_bit_matrix();
+	var AlignmentPattern = require_alignment_pattern();
+	var FinderPattern = require_finder_pattern();
+	var MaskPattern = require_mask_pattern();
+	var ECCode = require_error_correction_code();
+	var ReedSolomonEncoder = require_reed_solomon_encoder();
+	var Version = require_version();
+	var FormatInfo = require_format_info();
+	var Mode = require_mode();
+	var Segments = require_segments();
+	/**
+	* QRCode for JavaScript
+	*
+	* modified by Ryan Day for nodejs support
+	* Copyright (c) 2011 Ryan Day
+	*
+	* Licensed under the MIT license:
+	*   http://www.opensource.org/licenses/mit-license.php
+	*
+	//---------------------------------------------------------------------
+	// QRCode for JavaScript
+	//
+	// Copyright (c) 2009 Kazuhiko Arase
+	//
+	// URL: http://www.d-project.com/
+	//
+	// Licensed under the MIT license:
+	//   http://www.opensource.org/licenses/mit-license.php
+	//
+	// The word "QR Code" is registered trademark of
+	// DENSO WAVE INCORPORATED
+	//   http://www.denso-wave.com/qrcode/faqpatent-e.html
+	//
+	//---------------------------------------------------------------------
+	*/
+	/**
+	* Add finder patterns bits to matrix
+	*
+	* @param  {BitMatrix} matrix  Modules matrix
+	* @param  {Number}    version QR Code version
+	*/
+	function setupFinderPattern(matrix, version) {
+		const size = matrix.size;
+		const pos = FinderPattern.getPositions(version);
+		for (let i = 0; i < pos.length; i++) {
+			const row = pos[i][0];
+			const col = pos[i][1];
+			for (let r = -1; r <= 7; r++) {
+				if (row + r <= -1 || size <= row + r) continue;
+				for (let c = -1; c <= 7; c++) {
+					if (col + c <= -1 || size <= col + c) continue;
+					if (r >= 0 && r <= 6 && (c === 0 || c === 6) || c >= 0 && c <= 6 && (r === 0 || r === 6) || r >= 2 && r <= 4 && c >= 2 && c <= 4) matrix.set(row + r, col + c, true, true);
+					else matrix.set(row + r, col + c, false, true);
+				}
+			}
+		}
+	}
+	/**
+	* Add timing pattern bits to matrix
+	*
+	* Note: this function must be called before {@link setupAlignmentPattern}
+	*
+	* @param  {BitMatrix} matrix Modules matrix
+	*/
+	function setupTimingPattern(matrix) {
+		const size = matrix.size;
+		for (let r = 8; r < size - 8; r++) {
+			const value = r % 2 === 0;
+			matrix.set(r, 6, value, true);
+			matrix.set(6, r, value, true);
+		}
+	}
+	/**
+	* Add alignment patterns bits to matrix
+	*
+	* Note: this function must be called after {@link setupTimingPattern}
+	*
+	* @param  {BitMatrix} matrix  Modules matrix
+	* @param  {Number}    version QR Code version
+	*/
+	function setupAlignmentPattern(matrix, version) {
+		const pos = AlignmentPattern.getPositions(version);
+		for (let i = 0; i < pos.length; i++) {
+			const row = pos[i][0];
+			const col = pos[i][1];
+			for (let r = -2; r <= 2; r++) for (let c = -2; c <= 2; c++) if (r === -2 || r === 2 || c === -2 || c === 2 || r === 0 && c === 0) matrix.set(row + r, col + c, true, true);
+			else matrix.set(row + r, col + c, false, true);
+		}
+	}
+	/**
+	* Add version info bits to matrix
+	*
+	* @param  {BitMatrix} matrix  Modules matrix
+	* @param  {Number}    version QR Code version
+	*/
+	function setupVersionInfo(matrix, version) {
+		const size = matrix.size;
+		const bits = Version.getEncodedBits(version);
+		let row, col, mod;
+		for (let i = 0; i < 18; i++) {
+			row = Math.floor(i / 3);
+			col = i % 3 + size - 8 - 3;
+			mod = (bits >> i & 1) === 1;
+			matrix.set(row, col, mod, true);
+			matrix.set(col, row, mod, true);
+		}
+	}
+	/**
+	* Add format info bits to matrix
+	*
+	* @param  {BitMatrix} matrix               Modules matrix
+	* @param  {ErrorCorrectionLevel}    errorCorrectionLevel Error correction level
+	* @param  {Number}    maskPattern          Mask pattern reference value
+	*/
+	function setupFormatInfo(matrix, errorCorrectionLevel, maskPattern) {
+		const size = matrix.size;
+		const bits = FormatInfo.getEncodedBits(errorCorrectionLevel, maskPattern);
+		let i, mod;
+		for (i = 0; i < 15; i++) {
+			mod = (bits >> i & 1) === 1;
+			if (i < 6) matrix.set(i, 8, mod, true);
+			else if (i < 8) matrix.set(i + 1, 8, mod, true);
+			else matrix.set(size - 15 + i, 8, mod, true);
+			if (i < 8) matrix.set(8, size - i - 1, mod, true);
+			else if (i < 9) matrix.set(8, 15 - i - 1 + 1, mod, true);
+			else matrix.set(8, 15 - i - 1, mod, true);
+		}
+		matrix.set(size - 8, 8, 1, true);
+	}
+	/**
+	* Add encoded data bits to matrix
+	*
+	* @param  {BitMatrix}  matrix Modules matrix
+	* @param  {Uint8Array} data   Data codewords
+	*/
+	function setupData(matrix, data) {
+		const size = matrix.size;
+		let inc = -1;
+		let row = size - 1;
+		let bitIndex = 7;
+		let byteIndex = 0;
+		for (let col = size - 1; col > 0; col -= 2) {
+			if (col === 6) col--;
+			while (true) {
+				for (let c = 0; c < 2; c++) if (!matrix.isReserved(row, col - c)) {
+					let dark = false;
+					if (byteIndex < data.length) dark = (data[byteIndex] >>> bitIndex & 1) === 1;
+					matrix.set(row, col - c, dark);
+					bitIndex--;
+					if (bitIndex === -1) {
+						byteIndex++;
+						bitIndex = 7;
+					}
+				}
+				row += inc;
+				if (row < 0 || size <= row) {
+					row -= inc;
+					inc = -inc;
+					break;
+				}
+			}
+		}
+	}
+	/**
+	* Create encoded codewords from data input
+	*
+	* @param  {Number}   version              QR Code version
+	* @param  {ErrorCorrectionLevel}   errorCorrectionLevel Error correction level
+	* @param  {ByteData} data                 Data input
+	* @return {Uint8Array}                    Buffer containing encoded codewords
+	*/
+	function createData(version, errorCorrectionLevel, segments) {
+		const buffer = new BitBuffer();
+		segments.forEach(function(data) {
+			buffer.put(data.mode.bit, 4);
+			buffer.put(data.getLength(), Mode.getCharCountIndicator(data.mode, version));
+			data.write(buffer);
+		});
+		const dataTotalCodewordsBits = (Utils.getSymbolTotalCodewords(version) - ECCode.getTotalCodewordsCount(version, errorCorrectionLevel)) * 8;
+		if (buffer.getLengthInBits() + 4 <= dataTotalCodewordsBits) buffer.put(0, 4);
+		while (buffer.getLengthInBits() % 8 !== 0) buffer.putBit(0);
+		const remainingByte = (dataTotalCodewordsBits - buffer.getLengthInBits()) / 8;
+		for (let i = 0; i < remainingByte; i++) buffer.put(i % 2 ? 17 : 236, 8);
+		return createCodewords(buffer, version, errorCorrectionLevel);
+	}
+	/**
+	* Encode input data with Reed-Solomon and return codewords with
+	* relative error correction bits
+	*
+	* @param  {BitBuffer} bitBuffer            Data to encode
+	* @param  {Number}    version              QR Code version
+	* @param  {ErrorCorrectionLevel} errorCorrectionLevel Error correction level
+	* @return {Uint8Array}                     Buffer containing encoded codewords
+	*/
+	function createCodewords(bitBuffer, version, errorCorrectionLevel) {
+		const totalCodewords = Utils.getSymbolTotalCodewords(version);
+		const dataTotalCodewords = totalCodewords - ECCode.getTotalCodewordsCount(version, errorCorrectionLevel);
+		const ecTotalBlocks = ECCode.getBlocksCount(version, errorCorrectionLevel);
+		const blocksInGroup1 = ecTotalBlocks - totalCodewords % ecTotalBlocks;
+		const totalCodewordsInGroup1 = Math.floor(totalCodewords / ecTotalBlocks);
+		const dataCodewordsInGroup1 = Math.floor(dataTotalCodewords / ecTotalBlocks);
+		const dataCodewordsInGroup2 = dataCodewordsInGroup1 + 1;
+		const ecCount = totalCodewordsInGroup1 - dataCodewordsInGroup1;
+		const rs = new ReedSolomonEncoder(ecCount);
+		let offset = 0;
+		const dcData = new Array(ecTotalBlocks);
+		const ecData = new Array(ecTotalBlocks);
+		let maxDataSize = 0;
+		const buffer = new Uint8Array(bitBuffer.buffer);
+		for (let b = 0; b < ecTotalBlocks; b++) {
+			const dataSize = b < blocksInGroup1 ? dataCodewordsInGroup1 : dataCodewordsInGroup2;
+			dcData[b] = buffer.slice(offset, offset + dataSize);
+			ecData[b] = rs.encode(dcData[b]);
+			offset += dataSize;
+			maxDataSize = Math.max(maxDataSize, dataSize);
+		}
+		const data = new Uint8Array(totalCodewords);
+		let index = 0;
+		let i, r;
+		for (i = 0; i < maxDataSize; i++) for (r = 0; r < ecTotalBlocks; r++) if (i < dcData[r].length) data[index++] = dcData[r][i];
+		for (i = 0; i < ecCount; i++) for (r = 0; r < ecTotalBlocks; r++) data[index++] = ecData[r][i];
+		return data;
+	}
+	/**
+	* Build QR Code symbol
+	*
+	* @param  {String} data                 Input string
+	* @param  {Number} version              QR Code version
+	* @param  {ErrorCorretionLevel} errorCorrectionLevel Error level
+	* @param  {MaskPattern} maskPattern     Mask pattern
+	* @return {Object}                      Object containing symbol data
+	*/
+	function createSymbol(data, version, errorCorrectionLevel, maskPattern) {
+		let segments;
+		if (Array.isArray(data)) segments = Segments.fromArray(data);
+		else if (typeof data === "string") {
+			let estimatedVersion = version;
+			if (!estimatedVersion) {
+				const rawSegments = Segments.rawSplit(data);
+				estimatedVersion = Version.getBestVersionForData(rawSegments, errorCorrectionLevel);
+			}
+			segments = Segments.fromString(data, estimatedVersion || 40);
+		} else throw new Error("Invalid data");
+		const bestVersion = Version.getBestVersionForData(segments, errorCorrectionLevel);
+		if (!bestVersion) throw new Error("The amount of data is too big to be stored in a QR Code");
+		if (!version) version = bestVersion;
+		else if (version < bestVersion) throw new Error("\nThe chosen QR Code version cannot contain this amount of data.\nMinimum version required to store current data is: " + bestVersion + ".\n");
+		const dataBits = createData(version, errorCorrectionLevel, segments);
+		const modules = new BitMatrix(Utils.getSymbolSize(version));
+		setupFinderPattern(modules, version);
+		setupTimingPattern(modules);
+		setupAlignmentPattern(modules, version);
+		setupFormatInfo(modules, errorCorrectionLevel, 0);
+		if (version >= 7) setupVersionInfo(modules, version);
+		setupData(modules, dataBits);
+		if (isNaN(maskPattern)) maskPattern = MaskPattern.getBestMask(modules, setupFormatInfo.bind(null, modules, errorCorrectionLevel));
+		MaskPattern.applyMask(maskPattern, modules);
+		setupFormatInfo(modules, errorCorrectionLevel, maskPattern);
+		return {
+			modules,
+			version,
+			errorCorrectionLevel,
+			maskPattern,
+			segments
+		};
+	}
+	/**
+	* QR Code
+	*
+	* @param {String | Array} data                 Input data
+	* @param {Object} options                      Optional configurations
+	* @param {Number} options.version              QR Code version
+	* @param {String} options.errorCorrectionLevel Error correction level
+	* @param {Function} options.toSJISFunc         Helper func to convert utf8 to sjis
+	*/
+	exports.create = function create(data, options) {
+		if (typeof data === "undefined" || data === "") throw new Error("No input text");
+		let errorCorrectionLevel = ECLevel.M;
+		let version;
+		let mask;
+		if (typeof options !== "undefined") {
+			errorCorrectionLevel = ECLevel.from(options.errorCorrectionLevel, ECLevel.M);
+			version = Version.from(options.version);
+			mask = MaskPattern.from(options.maskPattern);
+			if (options.toSJISFunc) Utils.setToSJISFunction(options.toSJISFunc);
+		}
+		return createSymbol(data, version, errorCorrectionLevel, mask);
+	};
+}));
+//#endregion
+//#region builtin:esm-external-require-fs
+var require_builtin_esm_external_require_fs = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = m$5.default;
+}));
+//#endregion
+//#region builtin:esm-external-require-util
+var require_builtin_esm_external_require_util = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = m$4.default;
+}));
+//#endregion
+//#region builtin:esm-external-require-stream
+var require_builtin_esm_external_require_stream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = m$3.default;
+}));
+//#endregion
+//#region builtin:esm-external-require-zlib
+var require_builtin_esm_external_require_zlib = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = m$2.default;
+}));
+//#endregion
+//#region node_modules/pngjs/lib/chunkstream.js
+var require_chunkstream = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var util = require_builtin_esm_external_require_util();
+	var Stream = require_builtin_esm_external_require_stream();
+	var ChunkStream = module.exports = function() {
+		Stream.call(this);
+		this._buffers = [];
+		this._buffered = 0;
+		this._reads = [];
+		this._paused = false;
+		this._encoding = "utf8";
+		this.writable = true;
+	};
+	util.inherits(ChunkStream, Stream);
+	ChunkStream.prototype.read = function(length, callback) {
+		this._reads.push({
+			length: Math.abs(length),
+			allowLess: length < 0,
+			func: callback
+		});
+		process.nextTick(function() {
+			this._process();
+			if (this._paused && this._reads && this._reads.length > 0) {
+				this._paused = false;
+				this.emit("drain");
+			}
+		}.bind(this));
+	};
+	ChunkStream.prototype.write = function(data, encoding) {
+		if (!this.writable) {
+			this.emit("error", /* @__PURE__ */ new Error("Stream not writable"));
+			return false;
+		}
+		let dataBuffer;
+		if (Buffer.isBuffer(data)) dataBuffer = data;
+		else dataBuffer = Buffer.from(data, encoding || this._encoding);
+		this._buffers.push(dataBuffer);
+		this._buffered += dataBuffer.length;
+		this._process();
+		if (this._reads && this._reads.length === 0) this._paused = true;
+		return this.writable && !this._paused;
+	};
+	ChunkStream.prototype.end = function(data, encoding) {
+		if (data) this.write(data, encoding);
+		this.writable = false;
+		if (!this._buffers) return;
+		if (this._buffers.length === 0) this._end();
+		else {
+			this._buffers.push(null);
+			this._process();
+		}
+	};
+	ChunkStream.prototype.destroySoon = ChunkStream.prototype.end;
+	ChunkStream.prototype._end = function() {
+		if (this._reads.length > 0) this.emit("error", /* @__PURE__ */ new Error("Unexpected end of input"));
+		this.destroy();
+	};
+	ChunkStream.prototype.destroy = function() {
+		if (!this._buffers) return;
+		this.writable = false;
+		this._reads = null;
+		this._buffers = null;
+		this.emit("close");
+	};
+	ChunkStream.prototype._processReadAllowingLess = function(read) {
+		this._reads.shift();
+		let smallerBuf = this._buffers[0];
+		if (smallerBuf.length > read.length) {
+			this._buffered -= read.length;
+			this._buffers[0] = smallerBuf.slice(read.length);
+			read.func.call(this, smallerBuf.slice(0, read.length));
+		} else {
+			this._buffered -= smallerBuf.length;
+			this._buffers.shift();
+			read.func.call(this, smallerBuf);
+		}
+	};
+	ChunkStream.prototype._processRead = function(read) {
+		this._reads.shift();
+		let pos = 0;
+		let count = 0;
+		let data = Buffer.alloc(read.length);
+		while (pos < read.length) {
+			let buf = this._buffers[count++];
+			let len = Math.min(buf.length, read.length - pos);
+			buf.copy(data, pos, 0, len);
+			pos += len;
+			if (len !== buf.length) this._buffers[--count] = buf.slice(len);
+		}
+		if (count > 0) this._buffers.splice(0, count);
+		this._buffered -= read.length;
+		read.func.call(this, data);
+	};
+	ChunkStream.prototype._process = function() {
+		try {
+			while (this._buffered > 0 && this._reads && this._reads.length > 0) {
+				let read = this._reads[0];
+				if (read.allowLess) this._processReadAllowingLess(read);
+				else if (this._buffered >= read.length) this._processRead(read);
+				else break;
+			}
+			if (this._buffers && !this.writable) this._end();
+		} catch (ex) {
+			this.emit("error", ex);
+		}
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/interlace.js
+var require_interlace = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var imagePasses = [
+		{
+			x: [0],
+			y: [0]
+		},
+		{
+			x: [4],
+			y: [0]
+		},
+		{
+			x: [0, 4],
+			y: [4]
+		},
+		{
+			x: [2, 6],
+			y: [0, 4]
+		},
+		{
+			x: [
+				0,
+				2,
+				4,
+				6
+			],
+			y: [2, 6]
+		},
+		{
+			x: [
+				1,
+				3,
+				5,
+				7
+			],
+			y: [
+				0,
+				2,
+				4,
+				6
+			]
+		},
+		{
+			x: [
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7
+			],
+			y: [
+				1,
+				3,
+				5,
+				7
+			]
+		}
+	];
+	exports.getImagePasses = function(width, height) {
+		let images = [];
+		let xLeftOver = width % 8;
+		let yLeftOver = height % 8;
+		let xRepeats = (width - xLeftOver) / 8;
+		let yRepeats = (height - yLeftOver) / 8;
+		for (let i = 0; i < imagePasses.length; i++) {
+			let pass = imagePasses[i];
+			let passWidth = xRepeats * pass.x.length;
+			let passHeight = yRepeats * pass.y.length;
+			for (let j = 0; j < pass.x.length; j++) if (pass.x[j] < xLeftOver) passWidth++;
+			else break;
+			for (let j = 0; j < pass.y.length; j++) if (pass.y[j] < yLeftOver) passHeight++;
+			else break;
+			if (passWidth > 0 && passHeight > 0) images.push({
+				width: passWidth,
+				height: passHeight,
+				index: i
+			});
+		}
+		return images;
+	};
+	exports.getInterlaceIterator = function(width) {
+		return function(x, y, pass) {
+			let outerXLeftOver = x % imagePasses[pass].x.length;
+			let outerX = (x - outerXLeftOver) / imagePasses[pass].x.length * 8 + imagePasses[pass].x[outerXLeftOver];
+			let outerYLeftOver = y % imagePasses[pass].y.length;
+			let outerY = (y - outerYLeftOver) / imagePasses[pass].y.length * 8 + imagePasses[pass].y[outerYLeftOver];
+			return outerX * 4 + outerY * width * 4;
+		};
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/paeth-predictor.js
+var require_paeth_predictor = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = function paethPredictor(left, above, upLeft) {
+		let paeth = left + above - upLeft;
+		let pLeft = Math.abs(paeth - left);
+		let pAbove = Math.abs(paeth - above);
+		let pUpLeft = Math.abs(paeth - upLeft);
+		if (pLeft <= pAbove && pLeft <= pUpLeft) return left;
+		if (pAbove <= pUpLeft) return above;
+		return upLeft;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/filter-parse.js
+var require_filter_parse = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var interlaceUtils = require_interlace();
+	var paethPredictor = require_paeth_predictor();
+	function getByteWidth(width, bpp, depth) {
+		let byteWidth = width * bpp;
+		if (depth !== 8) byteWidth = Math.ceil(byteWidth / (8 / depth));
+		return byteWidth;
+	}
+	var Filter = module.exports = function(bitmapInfo, dependencies) {
+		let width = bitmapInfo.width;
+		let height = bitmapInfo.height;
+		let interlace = bitmapInfo.interlace;
+		let bpp = bitmapInfo.bpp;
+		let depth = bitmapInfo.depth;
+		this.read = dependencies.read;
+		this.write = dependencies.write;
+		this.complete = dependencies.complete;
+		this._imageIndex = 0;
+		this._images = [];
+		if (interlace) {
+			let passes = interlaceUtils.getImagePasses(width, height);
+			for (let i = 0; i < passes.length; i++) this._images.push({
+				byteWidth: getByteWidth(passes[i].width, bpp, depth),
+				height: passes[i].height,
+				lineIndex: 0
+			});
+		} else this._images.push({
+			byteWidth: getByteWidth(width, bpp, depth),
+			height,
+			lineIndex: 0
+		});
+		if (depth === 8) this._xComparison = bpp;
+		else if (depth === 16) this._xComparison = bpp * 2;
+		else this._xComparison = 1;
+	};
+	Filter.prototype.start = function() {
+		this.read(this._images[this._imageIndex].byteWidth + 1, this._reverseFilterLine.bind(this));
+	};
+	Filter.prototype._unFilterType1 = function(rawData, unfilteredLine, byteWidth) {
+		let xComparison = this._xComparison;
+		let xBiggerThan = xComparison - 1;
+		for (let x = 0; x < byteWidth; x++) unfilteredLine[x] = rawData[1 + x] + (x > xBiggerThan ? unfilteredLine[x - xComparison] : 0);
+	};
+	Filter.prototype._unFilterType2 = function(rawData, unfilteredLine, byteWidth) {
+		let lastLine = this._lastLine;
+		for (let x = 0; x < byteWidth; x++) unfilteredLine[x] = rawData[1 + x] + (lastLine ? lastLine[x] : 0);
+	};
+	Filter.prototype._unFilterType3 = function(rawData, unfilteredLine, byteWidth) {
+		let xComparison = this._xComparison;
+		let xBiggerThan = xComparison - 1;
+		let lastLine = this._lastLine;
+		for (let x = 0; x < byteWidth; x++) {
+			let rawByte = rawData[1 + x];
+			let f3Up = lastLine ? lastLine[x] : 0;
+			let f3Left = x > xBiggerThan ? unfilteredLine[x - xComparison] : 0;
+			unfilteredLine[x] = rawByte + Math.floor((f3Left + f3Up) / 2);
+		}
+	};
+	Filter.prototype._unFilterType4 = function(rawData, unfilteredLine, byteWidth) {
+		let xComparison = this._xComparison;
+		let xBiggerThan = xComparison - 1;
+		let lastLine = this._lastLine;
+		for (let x = 0; x < byteWidth; x++) {
+			let rawByte = rawData[1 + x];
+			let f4Up = lastLine ? lastLine[x] : 0;
+			unfilteredLine[x] = rawByte + paethPredictor(x > xBiggerThan ? unfilteredLine[x - xComparison] : 0, f4Up, x > xBiggerThan && lastLine ? lastLine[x - xComparison] : 0);
+		}
+	};
+	Filter.prototype._reverseFilterLine = function(rawData) {
+		let filter = rawData[0];
+		let unfilteredLine;
+		let currentImage = this._images[this._imageIndex];
+		let byteWidth = currentImage.byteWidth;
+		if (filter === 0) unfilteredLine = rawData.slice(1, byteWidth + 1);
+		else {
+			unfilteredLine = Buffer.alloc(byteWidth);
+			switch (filter) {
+				case 1:
+					this._unFilterType1(rawData, unfilteredLine, byteWidth);
+					break;
+				case 2:
+					this._unFilterType2(rawData, unfilteredLine, byteWidth);
+					break;
+				case 3:
+					this._unFilterType3(rawData, unfilteredLine, byteWidth);
+					break;
+				case 4:
+					this._unFilterType4(rawData, unfilteredLine, byteWidth);
+					break;
+				default: throw new Error("Unrecognised filter type - " + filter);
+			}
+		}
+		this.write(unfilteredLine);
+		currentImage.lineIndex++;
+		if (currentImage.lineIndex >= currentImage.height) {
+			this._lastLine = null;
+			this._imageIndex++;
+			currentImage = this._images[this._imageIndex];
+		} else this._lastLine = unfilteredLine;
+		if (currentImage) this.read(currentImage.byteWidth + 1, this._reverseFilterLine.bind(this));
+		else {
+			this._lastLine = null;
+			this.complete();
+		}
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/filter-parse-async.js
+var require_filter_parse_async = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var util = require_builtin_esm_external_require_util();
+	var ChunkStream = require_chunkstream();
+	var Filter = require_filter_parse();
+	var FilterAsync = module.exports = function(bitmapInfo) {
+		ChunkStream.call(this);
+		let buffers = [];
+		let that = this;
+		this._filter = new Filter(bitmapInfo, {
+			read: this.read.bind(this),
+			write: function(buffer) {
+				buffers.push(buffer);
+			},
+			complete: function() {
+				that.emit("complete", Buffer.concat(buffers));
+			}
+		});
+		this._filter.start();
+	};
+	util.inherits(FilterAsync, ChunkStream);
+}));
+//#endregion
+//#region node_modules/pngjs/lib/constants.js
+var require_constants = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = {
+		PNG_SIGNATURE: [
+			137,
+			80,
+			78,
+			71,
+			13,
+			10,
+			26,
+			10
+		],
+		TYPE_IHDR: 1229472850,
+		TYPE_IEND: 1229278788,
+		TYPE_IDAT: 1229209940,
+		TYPE_PLTE: 1347179589,
+		TYPE_tRNS: 1951551059,
+		TYPE_gAMA: 1732332865,
+		COLORTYPE_GRAYSCALE: 0,
+		COLORTYPE_PALETTE: 1,
+		COLORTYPE_COLOR: 2,
+		COLORTYPE_ALPHA: 4,
+		COLORTYPE_PALETTE_COLOR: 3,
+		COLORTYPE_COLOR_ALPHA: 6,
+		COLORTYPE_TO_BPP_MAP: {
+			0: 1,
+			2: 3,
+			3: 1,
+			4: 2,
+			6: 4
+		},
+		GAMMA_DIVISION: 1e5
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/crc.js
+var require_crc = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var crcTable = [];
+	(function() {
+		for (let i = 0; i < 256; i++) {
+			let currentCrc = i;
+			for (let j = 0; j < 8; j++) if (currentCrc & 1) currentCrc = 3988292384 ^ currentCrc >>> 1;
+			else currentCrc = currentCrc >>> 1;
+			crcTable[i] = currentCrc;
+		}
+	})();
+	var CrcCalculator = module.exports = function() {
+		this._crc = -1;
+	};
+	CrcCalculator.prototype.write = function(data) {
+		for (let i = 0; i < data.length; i++) this._crc = crcTable[(this._crc ^ data[i]) & 255] ^ this._crc >>> 8;
+		return true;
+	};
+	CrcCalculator.prototype.crc32 = function() {
+		return this._crc ^ -1;
+	};
+	CrcCalculator.crc32 = function(buf) {
+		let crc = -1;
+		for (let i = 0; i < buf.length; i++) crc = crcTable[(crc ^ buf[i]) & 255] ^ crc >>> 8;
+		return crc ^ -1;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/parser.js
+var require_parser = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var constants = require_constants();
+	var CrcCalculator = require_crc();
+	var Parser = module.exports = function(options, dependencies) {
+		this._options = options;
+		options.checkCRC = options.checkCRC !== false;
+		this._hasIHDR = false;
+		this._hasIEND = false;
+		this._emittedHeadersFinished = false;
+		this._palette = [];
+		this._colorType = 0;
+		this._chunks = {};
+		this._chunks[constants.TYPE_IHDR] = this._handleIHDR.bind(this);
+		this._chunks[constants.TYPE_IEND] = this._handleIEND.bind(this);
+		this._chunks[constants.TYPE_IDAT] = this._handleIDAT.bind(this);
+		this._chunks[constants.TYPE_PLTE] = this._handlePLTE.bind(this);
+		this._chunks[constants.TYPE_tRNS] = this._handleTRNS.bind(this);
+		this._chunks[constants.TYPE_gAMA] = this._handleGAMA.bind(this);
+		this.read = dependencies.read;
+		this.error = dependencies.error;
+		this.metadata = dependencies.metadata;
+		this.gamma = dependencies.gamma;
+		this.transColor = dependencies.transColor;
+		this.palette = dependencies.palette;
+		this.parsed = dependencies.parsed;
+		this.inflateData = dependencies.inflateData;
+		this.finished = dependencies.finished;
+		this.simpleTransparency = dependencies.simpleTransparency;
+		this.headersFinished = dependencies.headersFinished || function() {};
+	};
+	Parser.prototype.start = function() {
+		this.read(constants.PNG_SIGNATURE.length, this._parseSignature.bind(this));
+	};
+	Parser.prototype._parseSignature = function(data) {
+		let signature = constants.PNG_SIGNATURE;
+		for (let i = 0; i < signature.length; i++) if (data[i] !== signature[i]) {
+			this.error(/* @__PURE__ */ new Error("Invalid file signature"));
+			return;
+		}
+		this.read(8, this._parseChunkBegin.bind(this));
+	};
+	Parser.prototype._parseChunkBegin = function(data) {
+		let length = data.readUInt32BE(0);
+		let type = data.readUInt32BE(4);
+		let name = "";
+		for (let i = 4; i < 8; i++) name += String.fromCharCode(data[i]);
+		let ancillary = Boolean(data[4] & 32);
+		if (!this._hasIHDR && type !== constants.TYPE_IHDR) {
+			this.error(/* @__PURE__ */ new Error("Expected IHDR on beggining"));
+			return;
+		}
+		this._crc = new CrcCalculator();
+		this._crc.write(Buffer.from(name));
+		if (this._chunks[type]) return this._chunks[type](length);
+		if (!ancillary) {
+			this.error(/* @__PURE__ */ new Error("Unsupported critical chunk type " + name));
+			return;
+		}
+		this.read(length + 4, this._skipChunk.bind(this));
+	};
+	Parser.prototype._skipChunk = function() {
+		this.read(8, this._parseChunkBegin.bind(this));
+	};
+	Parser.prototype._handleChunkEnd = function() {
+		this.read(4, this._parseChunkEnd.bind(this));
+	};
+	Parser.prototype._parseChunkEnd = function(data) {
+		let fileCrc = data.readInt32BE(0);
+		let calcCrc = this._crc.crc32();
+		if (this._options.checkCRC && calcCrc !== fileCrc) {
+			this.error(/* @__PURE__ */ new Error("Crc error - " + fileCrc + " - " + calcCrc));
+			return;
+		}
+		if (!this._hasIEND) this.read(8, this._parseChunkBegin.bind(this));
+	};
+	Parser.prototype._handleIHDR = function(length) {
+		this.read(length, this._parseIHDR.bind(this));
+	};
+	Parser.prototype._parseIHDR = function(data) {
+		this._crc.write(data);
+		let width = data.readUInt32BE(0);
+		let height = data.readUInt32BE(4);
+		let depth = data[8];
+		let colorType = data[9];
+		let compr = data[10];
+		let filter = data[11];
+		let interlace = data[12];
+		if (depth !== 8 && depth !== 4 && depth !== 2 && depth !== 1 && depth !== 16) {
+			this.error(/* @__PURE__ */ new Error("Unsupported bit depth " + depth));
+			return;
+		}
+		if (!(colorType in constants.COLORTYPE_TO_BPP_MAP)) {
+			this.error(/* @__PURE__ */ new Error("Unsupported color type"));
+			return;
+		}
+		if (compr !== 0) {
+			this.error(/* @__PURE__ */ new Error("Unsupported compression method"));
+			return;
+		}
+		if (filter !== 0) {
+			this.error(/* @__PURE__ */ new Error("Unsupported filter method"));
+			return;
+		}
+		if (interlace !== 0 && interlace !== 1) {
+			this.error(/* @__PURE__ */ new Error("Unsupported interlace method"));
+			return;
+		}
+		this._colorType = colorType;
+		let bpp = constants.COLORTYPE_TO_BPP_MAP[this._colorType];
+		this._hasIHDR = true;
+		this.metadata({
+			width,
+			height,
+			depth,
+			interlace: Boolean(interlace),
+			palette: Boolean(colorType & constants.COLORTYPE_PALETTE),
+			color: Boolean(colorType & constants.COLORTYPE_COLOR),
+			alpha: Boolean(colorType & constants.COLORTYPE_ALPHA),
+			bpp,
+			colorType
+		});
+		this._handleChunkEnd();
+	};
+	Parser.prototype._handlePLTE = function(length) {
+		this.read(length, this._parsePLTE.bind(this));
+	};
+	Parser.prototype._parsePLTE = function(data) {
+		this._crc.write(data);
+		let entries = Math.floor(data.length / 3);
+		for (let i = 0; i < entries; i++) this._palette.push([
+			data[i * 3],
+			data[i * 3 + 1],
+			data[i * 3 + 2],
+			255
+		]);
+		this.palette(this._palette);
+		this._handleChunkEnd();
+	};
+	Parser.prototype._handleTRNS = function(length) {
+		this.simpleTransparency();
+		this.read(length, this._parseTRNS.bind(this));
+	};
+	Parser.prototype._parseTRNS = function(data) {
+		this._crc.write(data);
+		if (this._colorType === constants.COLORTYPE_PALETTE_COLOR) {
+			if (this._palette.length === 0) {
+				this.error(/* @__PURE__ */ new Error("Transparency chunk must be after palette"));
+				return;
+			}
+			if (data.length > this._palette.length) {
+				this.error(/* @__PURE__ */ new Error("More transparent colors than palette size"));
+				return;
+			}
+			for (let i = 0; i < data.length; i++) this._palette[i][3] = data[i];
+			this.palette(this._palette);
+		}
+		if (this._colorType === constants.COLORTYPE_GRAYSCALE) this.transColor([data.readUInt16BE(0)]);
+		if (this._colorType === constants.COLORTYPE_COLOR) this.transColor([
+			data.readUInt16BE(0),
+			data.readUInt16BE(2),
+			data.readUInt16BE(4)
+		]);
+		this._handleChunkEnd();
+	};
+	Parser.prototype._handleGAMA = function(length) {
+		this.read(length, this._parseGAMA.bind(this));
+	};
+	Parser.prototype._parseGAMA = function(data) {
+		this._crc.write(data);
+		this.gamma(data.readUInt32BE(0) / constants.GAMMA_DIVISION);
+		this._handleChunkEnd();
+	};
+	Parser.prototype._handleIDAT = function(length) {
+		if (!this._emittedHeadersFinished) {
+			this._emittedHeadersFinished = true;
+			this.headersFinished();
+		}
+		this.read(-length, this._parseIDAT.bind(this, length));
+	};
+	Parser.prototype._parseIDAT = function(length, data) {
+		this._crc.write(data);
+		if (this._colorType === constants.COLORTYPE_PALETTE_COLOR && this._palette.length === 0) throw new Error("Expected palette not found");
+		this.inflateData(data);
+		let leftOverLength = length - data.length;
+		if (leftOverLength > 0) this._handleIDAT(leftOverLength);
+		else this._handleChunkEnd();
+	};
+	Parser.prototype._handleIEND = function(length) {
+		this.read(length, this._parseIEND.bind(this));
+	};
+	Parser.prototype._parseIEND = function(data) {
+		this._crc.write(data);
+		this._hasIEND = true;
+		this._handleChunkEnd();
+		if (this.finished) this.finished();
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/bitmapper.js
+var require_bitmapper = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var interlaceUtils = require_interlace();
+	var pixelBppMapper = [
+		function() {},
+		function(pxData, data, pxPos, rawPos) {
+			if (rawPos === data.length) throw new Error("Ran out of data");
+			let pixel = data[rawPos];
+			pxData[pxPos] = pixel;
+			pxData[pxPos + 1] = pixel;
+			pxData[pxPos + 2] = pixel;
+			pxData[pxPos + 3] = 255;
+		},
+		function(pxData, data, pxPos, rawPos) {
+			if (rawPos + 1 >= data.length) throw new Error("Ran out of data");
+			let pixel = data[rawPos];
+			pxData[pxPos] = pixel;
+			pxData[pxPos + 1] = pixel;
+			pxData[pxPos + 2] = pixel;
+			pxData[pxPos + 3] = data[rawPos + 1];
+		},
+		function(pxData, data, pxPos, rawPos) {
+			if (rawPos + 2 >= data.length) throw new Error("Ran out of data");
+			pxData[pxPos] = data[rawPos];
+			pxData[pxPos + 1] = data[rawPos + 1];
+			pxData[pxPos + 2] = data[rawPos + 2];
+			pxData[pxPos + 3] = 255;
+		},
+		function(pxData, data, pxPos, rawPos) {
+			if (rawPos + 3 >= data.length) throw new Error("Ran out of data");
+			pxData[pxPos] = data[rawPos];
+			pxData[pxPos + 1] = data[rawPos + 1];
+			pxData[pxPos + 2] = data[rawPos + 2];
+			pxData[pxPos + 3] = data[rawPos + 3];
+		}
+	];
+	var pixelBppCustomMapper = [
+		function() {},
+		function(pxData, pixelData, pxPos, maxBit) {
+			let pixel = pixelData[0];
+			pxData[pxPos] = pixel;
+			pxData[pxPos + 1] = pixel;
+			pxData[pxPos + 2] = pixel;
+			pxData[pxPos + 3] = maxBit;
+		},
+		function(pxData, pixelData, pxPos) {
+			let pixel = pixelData[0];
+			pxData[pxPos] = pixel;
+			pxData[pxPos + 1] = pixel;
+			pxData[pxPos + 2] = pixel;
+			pxData[pxPos + 3] = pixelData[1];
+		},
+		function(pxData, pixelData, pxPos, maxBit) {
+			pxData[pxPos] = pixelData[0];
+			pxData[pxPos + 1] = pixelData[1];
+			pxData[pxPos + 2] = pixelData[2];
+			pxData[pxPos + 3] = maxBit;
+		},
+		function(pxData, pixelData, pxPos) {
+			pxData[pxPos] = pixelData[0];
+			pxData[pxPos + 1] = pixelData[1];
+			pxData[pxPos + 2] = pixelData[2];
+			pxData[pxPos + 3] = pixelData[3];
+		}
+	];
+	function bitRetriever(data, depth) {
+		let leftOver = [];
+		let i = 0;
+		function split() {
+			if (i === data.length) throw new Error("Ran out of data");
+			let byte = data[i];
+			i++;
+			let byte8, byte7, byte6, byte5, byte4, byte3, byte2, byte1;
+			switch (depth) {
+				default: throw new Error("unrecognised depth");
+				case 16:
+					byte2 = data[i];
+					i++;
+					leftOver.push((byte << 8) + byte2);
+					break;
+				case 4:
+					byte2 = byte & 15;
+					byte1 = byte >> 4;
+					leftOver.push(byte1, byte2);
+					break;
+				case 2:
+					byte4 = byte & 3;
+					byte3 = byte >> 2 & 3;
+					byte2 = byte >> 4 & 3;
+					byte1 = byte >> 6 & 3;
+					leftOver.push(byte1, byte2, byte3, byte4);
+					break;
+				case 1:
+					byte8 = byte & 1;
+					byte7 = byte >> 1 & 1;
+					byte6 = byte >> 2 & 1;
+					byte5 = byte >> 3 & 1;
+					byte4 = byte >> 4 & 1;
+					byte3 = byte >> 5 & 1;
+					byte2 = byte >> 6 & 1;
+					byte1 = byte >> 7 & 1;
+					leftOver.push(byte1, byte2, byte3, byte4, byte5, byte6, byte7, byte8);
+					break;
+			}
+		}
+		return {
+			get: function(count) {
+				while (leftOver.length < count) split();
+				let returner = leftOver.slice(0, count);
+				leftOver = leftOver.slice(count);
+				return returner;
+			},
+			resetAfterLine: function() {
+				leftOver.length = 0;
+			},
+			end: function() {
+				if (i !== data.length) throw new Error("extra data found");
+			}
+		};
+	}
+	function mapImage8Bit(image, pxData, getPxPos, bpp, data, rawPos) {
+		let imageWidth = image.width;
+		let imageHeight = image.height;
+		let imagePass = image.index;
+		for (let y = 0; y < imageHeight; y++) for (let x = 0; x < imageWidth; x++) {
+			let pxPos = getPxPos(x, y, imagePass);
+			pixelBppMapper[bpp](pxData, data, pxPos, rawPos);
+			rawPos += bpp;
+		}
+		return rawPos;
+	}
+	function mapImageCustomBit(image, pxData, getPxPos, bpp, bits, maxBit) {
+		let imageWidth = image.width;
+		let imageHeight = image.height;
+		let imagePass = image.index;
+		for (let y = 0; y < imageHeight; y++) {
+			for (let x = 0; x < imageWidth; x++) {
+				let pixelData = bits.get(bpp);
+				let pxPos = getPxPos(x, y, imagePass);
+				pixelBppCustomMapper[bpp](pxData, pixelData, pxPos, maxBit);
+			}
+			bits.resetAfterLine();
+		}
+	}
+	exports.dataToBitMap = function(data, bitmapInfo) {
+		let width = bitmapInfo.width;
+		let height = bitmapInfo.height;
+		let depth = bitmapInfo.depth;
+		let bpp = bitmapInfo.bpp;
+		let interlace = bitmapInfo.interlace;
+		let bits;
+		if (depth !== 8) bits = bitRetriever(data, depth);
+		let pxData;
+		if (depth <= 8) pxData = Buffer.alloc(width * height * 4);
+		else pxData = new Uint16Array(width * height * 4);
+		let maxBit = Math.pow(2, depth) - 1;
+		let rawPos = 0;
+		let images;
+		let getPxPos;
+		if (interlace) {
+			images = interlaceUtils.getImagePasses(width, height);
+			getPxPos = interlaceUtils.getInterlaceIterator(width, height);
+		} else {
+			let nonInterlacedPxPos = 0;
+			getPxPos = function() {
+				let returner = nonInterlacedPxPos;
+				nonInterlacedPxPos += 4;
+				return returner;
+			};
+			images = [{
+				width,
+				height
+			}];
+		}
+		for (let imageIndex = 0; imageIndex < images.length; imageIndex++) if (depth === 8) rawPos = mapImage8Bit(images[imageIndex], pxData, getPxPos, bpp, data, rawPos);
+		else mapImageCustomBit(images[imageIndex], pxData, getPxPos, bpp, bits, maxBit);
+		if (depth === 8) {
+			if (rawPos !== data.length) throw new Error("extra data found");
+		} else bits.end();
+		return pxData;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/format-normaliser.js
+var require_format_normaliser = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	function dePalette(indata, outdata, width, height, palette) {
+		let pxPos = 0;
+		for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+			let color = palette[indata[pxPos]];
+			if (!color) throw new Error("index " + indata[pxPos] + " not in palette");
+			for (let i = 0; i < 4; i++) outdata[pxPos + i] = color[i];
+			pxPos += 4;
+		}
+	}
+	function replaceTransparentColor(indata, outdata, width, height, transColor) {
+		let pxPos = 0;
+		for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+			let makeTrans = false;
+			if (transColor.length === 1) {
+				if (transColor[0] === indata[pxPos]) makeTrans = true;
+			} else if (transColor[0] === indata[pxPos] && transColor[1] === indata[pxPos + 1] && transColor[2] === indata[pxPos + 2]) makeTrans = true;
+			if (makeTrans) for (let i = 0; i < 4; i++) outdata[pxPos + i] = 0;
+			pxPos += 4;
+		}
+	}
+	function scaleDepth(indata, outdata, width, height, depth) {
+		let maxOutSample = 255;
+		let maxInSample = Math.pow(2, depth) - 1;
+		let pxPos = 0;
+		for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+			for (let i = 0; i < 4; i++) outdata[pxPos + i] = Math.floor(indata[pxPos + i] * maxOutSample / maxInSample + .5);
+			pxPos += 4;
+		}
+	}
+	module.exports = function(indata, imageData) {
+		let depth = imageData.depth;
+		let width = imageData.width;
+		let height = imageData.height;
+		let colorType = imageData.colorType;
+		let transColor = imageData.transColor;
+		let palette = imageData.palette;
+		let outdata = indata;
+		if (colorType === 3) dePalette(indata, outdata, width, height, palette);
+		else {
+			if (transColor) replaceTransparentColor(indata, outdata, width, height, transColor);
+			if (depth !== 8) {
+				if (depth === 16) outdata = Buffer.alloc(width * height * 4);
+				scaleDepth(indata, outdata, width, height, depth);
+			}
+		}
+		return outdata;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/parser-async.js
+var require_parser_async = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var util = require_builtin_esm_external_require_util();
+	var zlib = require_builtin_esm_external_require_zlib();
+	var ChunkStream = require_chunkstream();
+	var FilterAsync = require_filter_parse_async();
+	var Parser = require_parser();
+	var bitmapper = require_bitmapper();
+	var formatNormaliser = require_format_normaliser();
+	var ParserAsync = module.exports = function(options) {
+		ChunkStream.call(this);
+		this._parser = new Parser(options, {
+			read: this.read.bind(this),
+			error: this._handleError.bind(this),
+			metadata: this._handleMetaData.bind(this),
+			gamma: this.emit.bind(this, "gamma"),
+			palette: this._handlePalette.bind(this),
+			transColor: this._handleTransColor.bind(this),
+			finished: this._finished.bind(this),
+			inflateData: this._inflateData.bind(this),
+			simpleTransparency: this._simpleTransparency.bind(this),
+			headersFinished: this._headersFinished.bind(this)
+		});
+		this._options = options;
+		this.writable = true;
+		this._parser.start();
+	};
+	util.inherits(ParserAsync, ChunkStream);
+	ParserAsync.prototype._handleError = function(err) {
+		this.emit("error", err);
+		this.writable = false;
+		this.destroy();
+		if (this._inflate && this._inflate.destroy) this._inflate.destroy();
+		if (this._filter) {
+			this._filter.destroy();
+			this._filter.on("error", function() {});
+		}
+		this.errord = true;
+	};
+	ParserAsync.prototype._inflateData = function(data) {
+		if (!this._inflate) if (this._bitmapInfo.interlace) {
+			this._inflate = zlib.createInflate();
+			this._inflate.on("error", this.emit.bind(this, "error"));
+			this._filter.on("complete", this._complete.bind(this));
+			this._inflate.pipe(this._filter);
+		} else {
+			let imageSize = ((this._bitmapInfo.width * this._bitmapInfo.bpp * this._bitmapInfo.depth + 7 >> 3) + 1) * this._bitmapInfo.height;
+			let chunkSize = Math.max(imageSize, zlib.Z_MIN_CHUNK);
+			this._inflate = zlib.createInflate({ chunkSize });
+			let leftToInflate = imageSize;
+			let emitError = this.emit.bind(this, "error");
+			this._inflate.on("error", function(err) {
+				if (!leftToInflate) return;
+				emitError(err);
+			});
+			this._filter.on("complete", this._complete.bind(this));
+			let filterWrite = this._filter.write.bind(this._filter);
+			this._inflate.on("data", function(chunk) {
+				if (!leftToInflate) return;
+				if (chunk.length > leftToInflate) chunk = chunk.slice(0, leftToInflate);
+				leftToInflate -= chunk.length;
+				filterWrite(chunk);
+			});
+			this._inflate.on("end", this._filter.end.bind(this._filter));
+		}
+		this._inflate.write(data);
+	};
+	ParserAsync.prototype._handleMetaData = function(metaData) {
+		this._metaData = metaData;
+		this._bitmapInfo = Object.create(metaData);
+		this._filter = new FilterAsync(this._bitmapInfo);
+	};
+	ParserAsync.prototype._handleTransColor = function(transColor) {
+		this._bitmapInfo.transColor = transColor;
+	};
+	ParserAsync.prototype._handlePalette = function(palette) {
+		this._bitmapInfo.palette = palette;
+	};
+	ParserAsync.prototype._simpleTransparency = function() {
+		this._metaData.alpha = true;
+	};
+	ParserAsync.prototype._headersFinished = function() {
+		this.emit("metadata", this._metaData);
+	};
+	ParserAsync.prototype._finished = function() {
+		if (this.errord) return;
+		if (!this._inflate) this.emit("error", "No Inflate block");
+		else this._inflate.end();
+	};
+	ParserAsync.prototype._complete = function(filteredData) {
+		if (this.errord) return;
+		let normalisedBitmapData;
+		try {
+			let bitmapData = bitmapper.dataToBitMap(filteredData, this._bitmapInfo);
+			normalisedBitmapData = formatNormaliser(bitmapData, this._bitmapInfo);
+			bitmapData = null;
+		} catch (ex) {
+			this._handleError(ex);
+			return;
+		}
+		this.emit("parsed", normalisedBitmapData);
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/bitpacker.js
+var require_bitpacker = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var constants = require_constants();
+	module.exports = function(dataIn, width, height, options) {
+		let outHasAlpha = [constants.COLORTYPE_COLOR_ALPHA, constants.COLORTYPE_ALPHA].indexOf(options.colorType) !== -1;
+		if (options.colorType === options.inputColorType) {
+			let bigEndian = (function() {
+				let buffer = /* @__PURE__ */ new ArrayBuffer(2);
+				new DataView(buffer).setInt16(0, 256, true);
+				return new Int16Array(buffer)[0] !== 256;
+			})();
+			if (options.bitDepth === 8 || options.bitDepth === 16 && bigEndian) return dataIn;
+		}
+		let data = options.bitDepth !== 16 ? dataIn : new Uint16Array(dataIn.buffer);
+		let maxValue = 255;
+		let inBpp = constants.COLORTYPE_TO_BPP_MAP[options.inputColorType];
+		if (inBpp === 4 && !options.inputHasAlpha) inBpp = 3;
+		let outBpp = constants.COLORTYPE_TO_BPP_MAP[options.colorType];
+		if (options.bitDepth === 16) {
+			maxValue = 65535;
+			outBpp *= 2;
+		}
+		let outData = Buffer.alloc(width * height * outBpp);
+		let inIndex = 0;
+		let outIndex = 0;
+		let bgColor = options.bgColor || {};
+		if (bgColor.red === void 0) bgColor.red = maxValue;
+		if (bgColor.green === void 0) bgColor.green = maxValue;
+		if (bgColor.blue === void 0) bgColor.blue = maxValue;
+		function getRGBA() {
+			let red;
+			let green;
+			let blue;
+			let alpha = maxValue;
+			switch (options.inputColorType) {
+				case constants.COLORTYPE_COLOR_ALPHA:
+					alpha = data[inIndex + 3];
+					red = data[inIndex];
+					green = data[inIndex + 1];
+					blue = data[inIndex + 2];
+					break;
+				case constants.COLORTYPE_COLOR:
+					red = data[inIndex];
+					green = data[inIndex + 1];
+					blue = data[inIndex + 2];
+					break;
+				case constants.COLORTYPE_ALPHA:
+					alpha = data[inIndex + 1];
+					red = data[inIndex];
+					green = red;
+					blue = red;
+					break;
+				case constants.COLORTYPE_GRAYSCALE:
+					red = data[inIndex];
+					green = red;
+					blue = red;
+					break;
+				default: throw new Error("input color type:" + options.inputColorType + " is not supported at present");
+			}
+			if (options.inputHasAlpha) {
+				if (!outHasAlpha) {
+					alpha /= maxValue;
+					red = Math.min(Math.max(Math.round((1 - alpha) * bgColor.red + alpha * red), 0), maxValue);
+					green = Math.min(Math.max(Math.round((1 - alpha) * bgColor.green + alpha * green), 0), maxValue);
+					blue = Math.min(Math.max(Math.round((1 - alpha) * bgColor.blue + alpha * blue), 0), maxValue);
+				}
+			}
+			return {
+				red,
+				green,
+				blue,
+				alpha
+			};
+		}
+		for (let y = 0; y < height; y++) for (let x = 0; x < width; x++) {
+			let rgba = getRGBA(data, inIndex);
+			switch (options.colorType) {
+				case constants.COLORTYPE_COLOR_ALPHA:
+				case constants.COLORTYPE_COLOR:
+					if (options.bitDepth === 8) {
+						outData[outIndex] = rgba.red;
+						outData[outIndex + 1] = rgba.green;
+						outData[outIndex + 2] = rgba.blue;
+						if (outHasAlpha) outData[outIndex + 3] = rgba.alpha;
+					} else {
+						outData.writeUInt16BE(rgba.red, outIndex);
+						outData.writeUInt16BE(rgba.green, outIndex + 2);
+						outData.writeUInt16BE(rgba.blue, outIndex + 4);
+						if (outHasAlpha) outData.writeUInt16BE(rgba.alpha, outIndex + 6);
+					}
+					break;
+				case constants.COLORTYPE_ALPHA:
+				case constants.COLORTYPE_GRAYSCALE: {
+					let grayscale = (rgba.red + rgba.green + rgba.blue) / 3;
+					if (options.bitDepth === 8) {
+						outData[outIndex] = grayscale;
+						if (outHasAlpha) outData[outIndex + 1] = rgba.alpha;
+					} else {
+						outData.writeUInt16BE(grayscale, outIndex);
+						if (outHasAlpha) outData.writeUInt16BE(rgba.alpha, outIndex + 2);
+					}
+					break;
+				}
+				default: throw new Error("unrecognised color Type " + options.colorType);
+			}
+			inIndex += inBpp;
+			outIndex += outBpp;
+		}
+		return outData;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/filter-pack.js
+var require_filter_pack = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var paethPredictor = require_paeth_predictor();
+	function filterNone(pxData, pxPos, byteWidth, rawData, rawPos) {
+		for (let x = 0; x < byteWidth; x++) rawData[rawPos + x] = pxData[pxPos + x];
+	}
+	function filterSumNone(pxData, pxPos, byteWidth) {
+		let sum = 0;
+		let length = pxPos + byteWidth;
+		for (let i = pxPos; i < length; i++) sum += Math.abs(pxData[i]);
+		return sum;
+	}
+	function filterSub(pxData, pxPos, byteWidth, rawData, rawPos, bpp) {
+		for (let x = 0; x < byteWidth; x++) {
+			let left = x >= bpp ? pxData[pxPos + x - bpp] : 0;
+			let val = pxData[pxPos + x] - left;
+			rawData[rawPos + x] = val;
+		}
+	}
+	function filterSumSub(pxData, pxPos, byteWidth, bpp) {
+		let sum = 0;
+		for (let x = 0; x < byteWidth; x++) {
+			let left = x >= bpp ? pxData[pxPos + x - bpp] : 0;
+			let val = pxData[pxPos + x] - left;
+			sum += Math.abs(val);
+		}
+		return sum;
+	}
+	function filterUp(pxData, pxPos, byteWidth, rawData, rawPos) {
+		for (let x = 0; x < byteWidth; x++) {
+			let up = pxPos > 0 ? pxData[pxPos + x - byteWidth] : 0;
+			let val = pxData[pxPos + x] - up;
+			rawData[rawPos + x] = val;
+		}
+	}
+	function filterSumUp(pxData, pxPos, byteWidth) {
+		let sum = 0;
+		let length = pxPos + byteWidth;
+		for (let x = pxPos; x < length; x++) {
+			let up = pxPos > 0 ? pxData[x - byteWidth] : 0;
+			let val = pxData[x] - up;
+			sum += Math.abs(val);
+		}
+		return sum;
+	}
+	function filterAvg(pxData, pxPos, byteWidth, rawData, rawPos, bpp) {
+		for (let x = 0; x < byteWidth; x++) {
+			let left = x >= bpp ? pxData[pxPos + x - bpp] : 0;
+			let up = pxPos > 0 ? pxData[pxPos + x - byteWidth] : 0;
+			let val = pxData[pxPos + x] - (left + up >> 1);
+			rawData[rawPos + x] = val;
+		}
+	}
+	function filterSumAvg(pxData, pxPos, byteWidth, bpp) {
+		let sum = 0;
+		for (let x = 0; x < byteWidth; x++) {
+			let left = x >= bpp ? pxData[pxPos + x - bpp] : 0;
+			let up = pxPos > 0 ? pxData[pxPos + x - byteWidth] : 0;
+			let val = pxData[pxPos + x] - (left + up >> 1);
+			sum += Math.abs(val);
+		}
+		return sum;
+	}
+	function filterPaeth(pxData, pxPos, byteWidth, rawData, rawPos, bpp) {
+		for (let x = 0; x < byteWidth; x++) {
+			let left = x >= bpp ? pxData[pxPos + x - bpp] : 0;
+			let up = pxPos > 0 ? pxData[pxPos + x - byteWidth] : 0;
+			let upleft = pxPos > 0 && x >= bpp ? pxData[pxPos + x - (byteWidth + bpp)] : 0;
+			let val = pxData[pxPos + x] - paethPredictor(left, up, upleft);
+			rawData[rawPos + x] = val;
+		}
+	}
+	function filterSumPaeth(pxData, pxPos, byteWidth, bpp) {
+		let sum = 0;
+		for (let x = 0; x < byteWidth; x++) {
+			let left = x >= bpp ? pxData[pxPos + x - bpp] : 0;
+			let up = pxPos > 0 ? pxData[pxPos + x - byteWidth] : 0;
+			let upleft = pxPos > 0 && x >= bpp ? pxData[pxPos + x - (byteWidth + bpp)] : 0;
+			let val = pxData[pxPos + x] - paethPredictor(left, up, upleft);
+			sum += Math.abs(val);
+		}
+		return sum;
+	}
+	var filters = {
+		0: filterNone,
+		1: filterSub,
+		2: filterUp,
+		3: filterAvg,
+		4: filterPaeth
+	};
+	var filterSums = {
+		0: filterSumNone,
+		1: filterSumSub,
+		2: filterSumUp,
+		3: filterSumAvg,
+		4: filterSumPaeth
+	};
+	module.exports = function(pxData, width, height, options, bpp) {
+		let filterTypes;
+		if (!("filterType" in options) || options.filterType === -1) filterTypes = [
+			0,
+			1,
+			2,
+			3,
+			4
+		];
+		else if (typeof options.filterType === "number") filterTypes = [options.filterType];
+		else throw new Error("unrecognised filter types");
+		if (options.bitDepth === 16) bpp *= 2;
+		let byteWidth = width * bpp;
+		let rawPos = 0;
+		let pxPos = 0;
+		let rawData = Buffer.alloc((byteWidth + 1) * height);
+		let sel = filterTypes[0];
+		for (let y = 0; y < height; y++) {
+			if (filterTypes.length > 1) {
+				let min = Infinity;
+				for (let i = 0; i < filterTypes.length; i++) {
+					let sum = filterSums[filterTypes[i]](pxData, pxPos, byteWidth, bpp);
+					if (sum < min) {
+						sel = filterTypes[i];
+						min = sum;
+					}
+				}
+			}
+			rawData[rawPos] = sel;
+			rawPos++;
+			filters[sel](pxData, pxPos, byteWidth, rawData, rawPos, bpp);
+			rawPos += byteWidth;
+			pxPos += byteWidth;
+		}
+		return rawData;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/packer.js
+var require_packer = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var constants = require_constants();
+	var CrcStream = require_crc();
+	var bitPacker = require_bitpacker();
+	var filter = require_filter_pack();
+	var zlib = require_builtin_esm_external_require_zlib();
+	var Packer = module.exports = function(options) {
+		this._options = options;
+		options.deflateChunkSize = options.deflateChunkSize || 32 * 1024;
+		options.deflateLevel = options.deflateLevel != null ? options.deflateLevel : 9;
+		options.deflateStrategy = options.deflateStrategy != null ? options.deflateStrategy : 3;
+		options.inputHasAlpha = options.inputHasAlpha != null ? options.inputHasAlpha : true;
+		options.deflateFactory = options.deflateFactory || zlib.createDeflate;
+		options.bitDepth = options.bitDepth || 8;
+		options.colorType = typeof options.colorType === "number" ? options.colorType : constants.COLORTYPE_COLOR_ALPHA;
+		options.inputColorType = typeof options.inputColorType === "number" ? options.inputColorType : constants.COLORTYPE_COLOR_ALPHA;
+		if ([
+			constants.COLORTYPE_GRAYSCALE,
+			constants.COLORTYPE_COLOR,
+			constants.COLORTYPE_COLOR_ALPHA,
+			constants.COLORTYPE_ALPHA
+		].indexOf(options.colorType) === -1) throw new Error("option color type:" + options.colorType + " is not supported at present");
+		if ([
+			constants.COLORTYPE_GRAYSCALE,
+			constants.COLORTYPE_COLOR,
+			constants.COLORTYPE_COLOR_ALPHA,
+			constants.COLORTYPE_ALPHA
+		].indexOf(options.inputColorType) === -1) throw new Error("option input color type:" + options.inputColorType + " is not supported at present");
+		if (options.bitDepth !== 8 && options.bitDepth !== 16) throw new Error("option bit depth:" + options.bitDepth + " is not supported at present");
+	};
+	Packer.prototype.getDeflateOptions = function() {
+		return {
+			chunkSize: this._options.deflateChunkSize,
+			level: this._options.deflateLevel,
+			strategy: this._options.deflateStrategy
+		};
+	};
+	Packer.prototype.createDeflate = function() {
+		return this._options.deflateFactory(this.getDeflateOptions());
+	};
+	Packer.prototype.filterData = function(data, width, height) {
+		let packedData = bitPacker(data, width, height, this._options);
+		let bpp = constants.COLORTYPE_TO_BPP_MAP[this._options.colorType];
+		return filter(packedData, width, height, this._options, bpp);
+	};
+	Packer.prototype._packChunk = function(type, data) {
+		let len = data ? data.length : 0;
+		let buf = Buffer.alloc(len + 12);
+		buf.writeUInt32BE(len, 0);
+		buf.writeUInt32BE(type, 4);
+		if (data) data.copy(buf, 8);
+		buf.writeInt32BE(CrcStream.crc32(buf.slice(4, buf.length - 4)), buf.length - 4);
+		return buf;
+	};
+	Packer.prototype.packGAMA = function(gamma) {
+		let buf = Buffer.alloc(4);
+		buf.writeUInt32BE(Math.floor(gamma * constants.GAMMA_DIVISION), 0);
+		return this._packChunk(constants.TYPE_gAMA, buf);
+	};
+	Packer.prototype.packIHDR = function(width, height) {
+		let buf = Buffer.alloc(13);
+		buf.writeUInt32BE(width, 0);
+		buf.writeUInt32BE(height, 4);
+		buf[8] = this._options.bitDepth;
+		buf[9] = this._options.colorType;
+		buf[10] = 0;
+		buf[11] = 0;
+		buf[12] = 0;
+		return this._packChunk(constants.TYPE_IHDR, buf);
+	};
+	Packer.prototype.packIDAT = function(data) {
+		return this._packChunk(constants.TYPE_IDAT, data);
+	};
+	Packer.prototype.packIEND = function() {
+		return this._packChunk(constants.TYPE_IEND, null);
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/packer-async.js
+var require_packer_async = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var util = require_builtin_esm_external_require_util();
+	var Stream = require_builtin_esm_external_require_stream();
+	var constants = require_constants();
+	var Packer = require_packer();
+	var PackerAsync = module.exports = function(opt) {
+		Stream.call(this);
+		let options = opt || {};
+		this._packer = new Packer(options);
+		this._deflate = this._packer.createDeflate();
+		this.readable = true;
+	};
+	util.inherits(PackerAsync, Stream);
+	PackerAsync.prototype.pack = function(data, width, height, gamma) {
+		this.emit("data", Buffer.from(constants.PNG_SIGNATURE));
+		this.emit("data", this._packer.packIHDR(width, height));
+		if (gamma) this.emit("data", this._packer.packGAMA(gamma));
+		let filteredData = this._packer.filterData(data, width, height);
+		this._deflate.on("error", this.emit.bind(this, "error"));
+		this._deflate.on("data", function(compressedData) {
+			this.emit("data", this._packer.packIDAT(compressedData));
+		}.bind(this));
+		this._deflate.on("end", function() {
+			this.emit("data", this._packer.packIEND());
+			this.emit("end");
+		}.bind(this));
+		this._deflate.end(filteredData);
+	};
+}));
+//#endregion
+//#region builtin:esm-external-require-assert
+var require_builtin_esm_external_require_assert = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = m$1.default;
+}));
+//#endregion
+//#region builtin:esm-external-require-buffer
+var require_builtin_esm_external_require_buffer = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = m.default;
+}));
+//#endregion
+//#region node_modules/pngjs/lib/sync-inflate.js
+var require_sync_inflate = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var assert = require_builtin_esm_external_require_assert().ok;
+	var zlib = require_builtin_esm_external_require_zlib();
+	var util = require_builtin_esm_external_require_util();
+	var kMaxLength = require_builtin_esm_external_require_buffer().kMaxLength;
+	function Inflate(opts) {
+		if (!(this instanceof Inflate)) return new Inflate(opts);
+		if (opts && opts.chunkSize < zlib.Z_MIN_CHUNK) opts.chunkSize = zlib.Z_MIN_CHUNK;
+		zlib.Inflate.call(this, opts);
+		this._offset = this._offset === void 0 ? this._outOffset : this._offset;
+		this._buffer = this._buffer || this._outBuffer;
+		if (opts && opts.maxLength != null) this._maxLength = opts.maxLength;
+	}
+	function createInflate(opts) {
+		return new Inflate(opts);
+	}
+	function _close(engine, callback) {
+		if (callback) process.nextTick(callback);
+		if (!engine._handle) return;
+		engine._handle.close();
+		engine._handle = null;
+	}
+	Inflate.prototype._processChunk = function(chunk, flushFlag, asyncCb) {
+		if (typeof asyncCb === "function") return zlib.Inflate._processChunk.call(this, chunk, flushFlag, asyncCb);
+		let self = this;
+		let availInBefore = chunk && chunk.length;
+		let availOutBefore = this._chunkSize - this._offset;
+		let leftToInflate = this._maxLength;
+		let inOff = 0;
+		let buffers = [];
+		let nread = 0;
+		let error;
+		this.on("error", function(err) {
+			error = err;
+		});
+		function handleChunk(availInAfter, availOutAfter) {
+			if (self._hadError) return;
+			let have = availOutBefore - availOutAfter;
+			assert(have >= 0, "have should not go down");
+			if (have > 0) {
+				let out = self._buffer.slice(self._offset, self._offset + have);
+				self._offset += have;
+				if (out.length > leftToInflate) out = out.slice(0, leftToInflate);
+				buffers.push(out);
+				nread += out.length;
+				leftToInflate -= out.length;
+				if (leftToInflate === 0) return false;
+			}
+			if (availOutAfter === 0 || self._offset >= self._chunkSize) {
+				availOutBefore = self._chunkSize;
+				self._offset = 0;
+				self._buffer = Buffer.allocUnsafe(self._chunkSize);
+			}
+			if (availOutAfter === 0) {
+				inOff += availInBefore - availInAfter;
+				availInBefore = availInAfter;
+				return true;
+			}
+			return false;
+		}
+		assert(this._handle, "zlib binding closed");
+		let res;
+		do {
+			res = this._handle.writeSync(flushFlag, chunk, inOff, availInBefore, this._buffer, this._offset, availOutBefore);
+			res = res || this._writeState;
+		} while (!this._hadError && handleChunk(res[0], res[1]));
+		if (this._hadError) throw error;
+		if (nread >= kMaxLength) {
+			_close(this);
+			throw new RangeError("Cannot create final Buffer. It would be larger than 0x" + kMaxLength.toString(16) + " bytes");
+		}
+		let buf = Buffer.concat(buffers, nread);
+		_close(this);
+		return buf;
+	};
+	util.inherits(Inflate, zlib.Inflate);
+	function zlibBufferSync(engine, buffer) {
+		if (typeof buffer === "string") buffer = Buffer.from(buffer);
+		if (!(buffer instanceof Buffer)) throw new TypeError("Not a string or buffer");
+		let flushFlag = engine._finishFlushFlag;
+		if (flushFlag == null) flushFlag = zlib.Z_FINISH;
+		return engine._processChunk(buffer, flushFlag);
+	}
+	function inflateSync(buffer, opts) {
+		return zlibBufferSync(new Inflate(opts), buffer);
+	}
+	module.exports = exports = inflateSync;
+	exports.Inflate = Inflate;
+	exports.createInflate = createInflate;
+	exports.inflateSync = inflateSync;
+}));
+//#endregion
+//#region node_modules/pngjs/lib/sync-reader.js
+var require_sync_reader = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var SyncReader = module.exports = function(buffer) {
+		this._buffer = buffer;
+		this._reads = [];
+	};
+	SyncReader.prototype.read = function(length, callback) {
+		this._reads.push({
+			length: Math.abs(length),
+			allowLess: length < 0,
+			func: callback
+		});
+	};
+	SyncReader.prototype.process = function() {
+		while (this._reads.length > 0 && this._buffer.length) {
+			let read = this._reads[0];
+			if (this._buffer.length && (this._buffer.length >= read.length || read.allowLess)) {
+				this._reads.shift();
+				let buf = this._buffer;
+				this._buffer = buf.slice(read.length);
+				read.func.call(this, buf.slice(0, read.length));
+			} else break;
+		}
+		if (this._reads.length > 0) return /* @__PURE__ */ new Error("There are some read requests waitng on finished stream");
+		if (this._buffer.length > 0) return /* @__PURE__ */ new Error("unrecognised content at end of stream");
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/filter-parse-sync.js
+var require_filter_parse_sync = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var SyncReader = require_sync_reader();
+	var Filter = require_filter_parse();
+	exports.process = function(inBuffer, bitmapInfo) {
+		let outBuffers = [];
+		let reader = new SyncReader(inBuffer);
+		new Filter(bitmapInfo, {
+			read: reader.read.bind(reader),
+			write: function(bufferPart) {
+				outBuffers.push(bufferPart);
+			},
+			complete: function() {}
+		}).start();
+		reader.process();
+		return Buffer.concat(outBuffers);
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/parser-sync.js
+var require_parser_sync = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var hasSyncZlib = true;
+	var zlib = require_builtin_esm_external_require_zlib();
+	var inflateSync = require_sync_inflate();
+	if (!zlib.deflateSync) hasSyncZlib = false;
+	var SyncReader = require_sync_reader();
+	var FilterSync = require_filter_parse_sync();
+	var Parser = require_parser();
+	var bitmapper = require_bitmapper();
+	var formatNormaliser = require_format_normaliser();
+	module.exports = function(buffer, options) {
+		if (!hasSyncZlib) throw new Error("To use the sync capability of this library in old node versions, please pin pngjs to v2.3.0");
+		let err;
+		function handleError(_err_) {
+			err = _err_;
+		}
+		let metaData;
+		function handleMetaData(_metaData_) {
+			metaData = _metaData_;
+		}
+		function handleTransColor(transColor) {
+			metaData.transColor = transColor;
+		}
+		function handlePalette(palette) {
+			metaData.palette = palette;
+		}
+		function handleSimpleTransparency() {
+			metaData.alpha = true;
+		}
+		let gamma;
+		function handleGamma(_gamma_) {
+			gamma = _gamma_;
+		}
+		let inflateDataList = [];
+		function handleInflateData(inflatedData) {
+			inflateDataList.push(inflatedData);
+		}
+		let reader = new SyncReader(buffer);
+		new Parser(options, {
+			read: reader.read.bind(reader),
+			error: handleError,
+			metadata: handleMetaData,
+			gamma: handleGamma,
+			palette: handlePalette,
+			transColor: handleTransColor,
+			inflateData: handleInflateData,
+			simpleTransparency: handleSimpleTransparency
+		}).start();
+		reader.process();
+		if (err) throw err;
+		let inflateData = Buffer.concat(inflateDataList);
+		inflateDataList.length = 0;
+		let inflatedData;
+		if (metaData.interlace) inflatedData = zlib.inflateSync(inflateData);
+		else {
+			let imageSize = ((metaData.width * metaData.bpp * metaData.depth + 7 >> 3) + 1) * metaData.height;
+			inflatedData = inflateSync(inflateData, {
+				chunkSize: imageSize,
+				maxLength: imageSize
+			});
+		}
+		inflateData = null;
+		if (!inflatedData || !inflatedData.length) throw new Error("bad png - invalid inflate data response");
+		let unfilteredData = FilterSync.process(inflatedData, metaData);
+		inflateData = null;
+		let bitmapData = bitmapper.dataToBitMap(unfilteredData, metaData);
+		unfilteredData = null;
+		let normalisedBitmapData = formatNormaliser(bitmapData, metaData);
+		metaData.data = normalisedBitmapData;
+		metaData.gamma = gamma || 0;
+		return metaData;
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/packer-sync.js
+var require_packer_sync = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	var hasSyncZlib = true;
+	var zlib = require_builtin_esm_external_require_zlib();
+	if (!zlib.deflateSync) hasSyncZlib = false;
+	var constants = require_constants();
+	var Packer = require_packer();
+	module.exports = function(metaData, opt) {
+		if (!hasSyncZlib) throw new Error("To use the sync capability of this library in old node versions, please pin pngjs to v2.3.0");
+		let packer = new Packer(opt || {});
+		let chunks = [];
+		chunks.push(Buffer.from(constants.PNG_SIGNATURE));
+		chunks.push(packer.packIHDR(metaData.width, metaData.height));
+		if (metaData.gamma) chunks.push(packer.packGAMA(metaData.gamma));
+		let filteredData = packer.filterData(metaData.data, metaData.width, metaData.height);
+		let compressedData = zlib.deflateSync(filteredData, packer.getDeflateOptions());
+		filteredData = null;
+		if (!compressedData || !compressedData.length) throw new Error("bad png - invalid compressed data response");
+		chunks.push(packer.packIDAT(compressedData));
+		chunks.push(packer.packIEND());
+		return Buffer.concat(chunks);
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/png-sync.js
+var require_png_sync = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var parse = require_parser_sync();
+	var pack = require_packer_sync();
+	exports.read = function(buffer, options) {
+		return parse(buffer, options || {});
+	};
+	exports.write = function(png, options) {
+		return pack(png, options);
+	};
+}));
+//#endregion
+//#region node_modules/pngjs/lib/png.js
+var require_png$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var util = require_builtin_esm_external_require_util();
+	var Stream = require_builtin_esm_external_require_stream();
+	var Parser = require_parser_async();
+	var Packer = require_packer_async();
+	var PNGSync = require_png_sync();
+	var PNG = exports.PNG = function(options) {
+		Stream.call(this);
+		options = options || {};
+		this.width = options.width | 0;
+		this.height = options.height | 0;
+		this.data = this.width > 0 && this.height > 0 ? Buffer.alloc(4 * this.width * this.height) : null;
+		if (options.fill && this.data) this.data.fill(0);
+		this.gamma = 0;
+		this.readable = this.writable = true;
+		this._parser = new Parser(options);
+		this._parser.on("error", this.emit.bind(this, "error"));
+		this._parser.on("close", this._handleClose.bind(this));
+		this._parser.on("metadata", this._metadata.bind(this));
+		this._parser.on("gamma", this._gamma.bind(this));
+		this._parser.on("parsed", function(data) {
+			this.data = data;
+			this.emit("parsed", data);
+		}.bind(this));
+		this._packer = new Packer(options);
+		this._packer.on("data", this.emit.bind(this, "data"));
+		this._packer.on("end", this.emit.bind(this, "end"));
+		this._parser.on("close", this._handleClose.bind(this));
+		this._packer.on("error", this.emit.bind(this, "error"));
+	};
+	util.inherits(PNG, Stream);
+	PNG.sync = PNGSync;
+	PNG.prototype.pack = function() {
+		if (!this.data || !this.data.length) {
+			this.emit("error", "No data provided");
+			return this;
+		}
+		process.nextTick(function() {
+			this._packer.pack(this.data, this.width, this.height, this.gamma);
+		}.bind(this));
+		return this;
+	};
+	PNG.prototype.parse = function(data, callback) {
+		if (callback) {
+			let onParsed, onError;
+			onParsed = function(parsedData) {
+				this.removeListener("error", onError);
+				this.data = parsedData;
+				callback(null, this);
+			}.bind(this);
+			onError = function(err) {
+				this.removeListener("parsed", onParsed);
+				callback(err, null);
+			}.bind(this);
+			this.once("parsed", onParsed);
+			this.once("error", onError);
+		}
+		this.end(data);
+		return this;
+	};
+	PNG.prototype.write = function(data) {
+		this._parser.write(data);
+		return true;
+	};
+	PNG.prototype.end = function(data) {
+		this._parser.end(data);
+	};
+	PNG.prototype._metadata = function(metadata) {
+		this.width = metadata.width;
+		this.height = metadata.height;
+		this.emit("metadata", metadata);
+	};
+	PNG.prototype._gamma = function(gamma) {
+		this.gamma = gamma;
+	};
+	PNG.prototype._handleClose = function() {
+		if (!this._parser.writable && !this._packer.readable) this.emit("close");
+	};
+	PNG.bitblt = function(src, dst, srcX, srcY, width, height, deltaX, deltaY) {
+		srcX |= 0;
+		srcY |= 0;
+		width |= 0;
+		height |= 0;
+		deltaX |= 0;
+		deltaY |= 0;
+		if (srcX > src.width || srcY > src.height || srcX + width > src.width || srcY + height > src.height) throw new Error("bitblt reading outside image");
+		if (deltaX > dst.width || deltaY > dst.height || deltaX + width > dst.width || deltaY + height > dst.height) throw new Error("bitblt writing outside image");
+		for (let y = 0; y < height; y++) src.data.copy(dst.data, (deltaY + y) * dst.width + deltaX << 2, (srcY + y) * src.width + srcX << 2, (srcY + y) * src.width + srcX + width << 2);
+	};
+	PNG.prototype.bitblt = function(dst, srcX, srcY, width, height, deltaX, deltaY) {
+		PNG.bitblt(this, dst, srcX, srcY, width, height, deltaX, deltaY);
+		return this;
+	};
+	PNG.adjustGamma = function(src) {
+		if (src.gamma) {
+			for (let y = 0; y < src.height; y++) for (let x = 0; x < src.width; x++) {
+				let idx = src.width * y + x << 2;
+				for (let i = 0; i < 3; i++) {
+					let sample = src.data[idx + i] / 255;
+					sample = Math.pow(sample, 1 / 2.2 / src.gamma);
+					src.data[idx + i] = Math.round(sample * 255);
+				}
+			}
+			src.gamma = 0;
+		}
+	};
+	PNG.prototype.adjustGamma = function() {
+		PNG.adjustGamma(this);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/utils.js
+var require_utils = /* @__PURE__ */ __commonJSMin(((exports) => {
+	function hex2rgba(hex) {
+		if (typeof hex === "number") hex = hex.toString();
+		if (typeof hex !== "string") throw new Error("Color should be defined as hex string");
+		let hexCode = hex.slice().replace("#", "").split("");
+		if (hexCode.length < 3 || hexCode.length === 5 || hexCode.length > 8) throw new Error("Invalid hex color: " + hex);
+		if (hexCode.length === 3 || hexCode.length === 4) hexCode = Array.prototype.concat.apply([], hexCode.map(function(c) {
+			return [c, c];
+		}));
+		if (hexCode.length === 6) hexCode.push("F", "F");
+		const hexValue = parseInt(hexCode.join(""), 16);
+		return {
+			r: hexValue >> 24 & 255,
+			g: hexValue >> 16 & 255,
+			b: hexValue >> 8 & 255,
+			a: hexValue & 255,
+			hex: "#" + hexCode.slice(0, 6).join("")
+		};
+	}
+	exports.getOptions = function getOptions(options) {
+		if (!options) options = {};
+		if (!options.color) options.color = {};
+		const margin = typeof options.margin === "undefined" || options.margin === null || options.margin < 0 ? 4 : options.margin;
+		const width = options.width && options.width >= 21 ? options.width : void 0;
+		const scale = options.scale || 4;
+		return {
+			width,
+			scale: width ? 4 : scale,
+			margin,
+			color: {
+				dark: hex2rgba(options.color.dark || "#000000ff"),
+				light: hex2rgba(options.color.light || "#ffffffff")
+			},
+			type: options.type,
+			rendererOpts: options.rendererOpts || {}
+		};
+	};
+	exports.getScale = function getScale(qrSize, opts) {
+		return opts.width && opts.width >= qrSize + opts.margin * 2 ? opts.width / (qrSize + opts.margin * 2) : opts.scale;
+	};
+	exports.getImageWidth = function getImageWidth(qrSize, opts) {
+		const scale = exports.getScale(qrSize, opts);
+		return Math.floor((qrSize + opts.margin * 2) * scale);
+	};
+	exports.qrToImageData = function qrToImageData(imgData, qr, opts) {
+		const size = qr.modules.size;
+		const data = qr.modules.data;
+		const scale = exports.getScale(size, opts);
+		const symbolSize = Math.floor((size + opts.margin * 2) * scale);
+		const scaledMargin = opts.margin * scale;
+		const palette = [opts.color.light, opts.color.dark];
+		for (let i = 0; i < symbolSize; i++) for (let j = 0; j < symbolSize; j++) {
+			let posDst = (i * symbolSize + j) * 4;
+			let pxColor = opts.color.light;
+			if (i >= scaledMargin && j >= scaledMargin && i < symbolSize - scaledMargin && j < symbolSize - scaledMargin) {
+				const iSrc = Math.floor((i - scaledMargin) / scale);
+				const jSrc = Math.floor((j - scaledMargin) / scale);
+				pxColor = palette[data[iSrc * size + jSrc] ? 1 : 0];
+			}
+			imgData[posDst++] = pxColor.r;
+			imgData[posDst++] = pxColor.g;
+			imgData[posDst++] = pxColor.b;
+			imgData[posDst] = pxColor.a;
+		}
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/png.js
+var require_png = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var fs = require_builtin_esm_external_require_fs();
+	var PNG = require_png$1().PNG;
+	var Utils = require_utils();
+	exports.render = function render(qrData, options) {
+		const opts = Utils.getOptions(options);
+		const pngOpts = opts.rendererOpts;
+		const size = Utils.getImageWidth(qrData.modules.size, opts);
+		pngOpts.width = size;
+		pngOpts.height = size;
+		const pngImage = new PNG(pngOpts);
+		Utils.qrToImageData(pngImage.data, qrData, opts);
+		return pngImage;
+	};
+	exports.renderToDataURL = function renderToDataURL(qrData, options, cb) {
+		if (typeof cb === "undefined") {
+			cb = options;
+			options = void 0;
+		}
+		exports.renderToBuffer(qrData, options, function(err, output) {
+			if (err) cb(err);
+			let url = "data:image/png;base64,";
+			url += output.toString("base64");
+			cb(null, url);
+		});
+	};
+	exports.renderToBuffer = function renderToBuffer(qrData, options, cb) {
+		if (typeof cb === "undefined") {
+			cb = options;
+			options = void 0;
+		}
+		const png = exports.render(qrData, options);
+		const buffer = [];
+		png.on("error", cb);
+		png.on("data", function(data) {
+			buffer.push(data);
+		});
+		png.on("end", function() {
+			cb(null, Buffer.concat(buffer));
+		});
+		png.pack();
+	};
+	exports.renderToFile = function renderToFile(path, qrData, options, cb) {
+		if (typeof cb === "undefined") {
+			cb = options;
+			options = void 0;
+		}
+		let called = false;
+		const done = (...args) => {
+			if (called) return;
+			called = true;
+			cb.apply(null, args);
+		};
+		const stream = fs.createWriteStream(path);
+		stream.on("error", done);
+		stream.on("close", done);
+		exports.renderToFileStream(stream, qrData, options);
+	};
+	exports.renderToFileStream = function renderToFileStream(stream, qrData, options) {
+		exports.render(qrData, options).pack().pipe(stream);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/utf8.js
+var require_utf8 = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Utils = require_utils();
+	var BLOCK_CHAR = {
+		WW: " ",
+		WB: "▄",
+		BB: "█",
+		BW: "▀"
+	};
+	var INVERTED_BLOCK_CHAR = {
+		BB: " ",
+		BW: "▄",
+		WW: "█",
+		WB: "▀"
+	};
+	function getBlockChar(top, bottom, blocks) {
+		if (top && bottom) return blocks.BB;
+		if (top && !bottom) return blocks.BW;
+		if (!top && bottom) return blocks.WB;
+		return blocks.WW;
+	}
+	exports.render = function(qrData, options, cb) {
+		const opts = Utils.getOptions(options);
+		let blocks = BLOCK_CHAR;
+		if (opts.color.dark.hex === "#ffffff" || opts.color.light.hex === "#000000") blocks = INVERTED_BLOCK_CHAR;
+		const size = qrData.modules.size;
+		const data = qrData.modules.data;
+		let output = "";
+		let hMargin = Array(size + opts.margin * 2 + 1).join(blocks.WW);
+		hMargin = Array(opts.margin / 2 + 1).join(hMargin + "\n");
+		const vMargin = Array(opts.margin + 1).join(blocks.WW);
+		output += hMargin;
+		for (let i = 0; i < size; i += 2) {
+			output += vMargin;
+			for (let j = 0; j < size; j++) {
+				const topModule = data[i * size + j];
+				const bottomModule = data[(i + 1) * size + j];
+				output += getBlockChar(topModule, bottomModule, blocks);
+			}
+			output += vMargin + "\n";
+		}
+		output += hMargin.slice(0, -1);
+		if (typeof cb === "function") cb(null, output);
+		return output;
+	};
+	exports.renderToFile = function renderToFile(path, qrData, options, cb) {
+		if (typeof cb === "undefined") {
+			cb = options;
+			options = void 0;
+		}
+		const fs = require_builtin_esm_external_require_fs();
+		const utf8 = exports.render(qrData, options);
+		fs.writeFile(path, utf8, cb);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/terminal/terminal.js
+var require_terminal$1 = /* @__PURE__ */ __commonJSMin(((exports) => {
+	exports.render = function(qrData, options, cb) {
+		const size = qrData.modules.size;
+		const data = qrData.modules.data;
+		const black = "\x1B[40m  \x1B[0m";
+		const white = "\x1B[47m  \x1B[0m";
+		let output = "";
+		const hMargin = Array(size + 3).join(white);
+		const vMargin = Array(2).join(white);
+		output += hMargin + "\n";
+		for (let i = 0; i < size; ++i) {
+			output += white;
+			for (let j = 0; j < size; j++) output += data[i * size + j] ? black : white;
+			output += vMargin + "\n";
+		}
+		output += hMargin + "\n";
+		if (typeof cb === "function") cb(null, output);
+		return output;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/terminal/terminal-small.js
+var require_terminal_small = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var backgroundWhite = "\x1B[47m";
+	var backgroundBlack = "\x1B[40m";
+	var foregroundWhite = "\x1B[37m";
+	var foregroundBlack = "\x1B[30m";
+	var reset = "\x1B[0m";
+	var lineSetupNormal = backgroundWhite + foregroundBlack;
+	var lineSetupInverse = backgroundBlack + foregroundWhite;
+	var createPalette = function(lineSetup, foregroundWhite, foregroundBlack) {
+		return {
+			"00": reset + " " + lineSetup,
+			"01": reset + foregroundWhite + "▄" + lineSetup,
+			"02": reset + foregroundBlack + "▄" + lineSetup,
+			10: reset + foregroundWhite + "▀" + lineSetup,
+			11: " ",
+			12: "▄",
+			20: reset + foregroundBlack + "▀" + lineSetup,
+			21: "▀",
+			22: "█"
+		};
+	};
+	/**
+	* Returns code for QR pixel
+	* @param {boolean[][]} modules
+	* @param {number} size
+	* @param {number} x
+	* @param {number} y
+	* @return {'0' | '1' | '2'}
+	*/
+	var mkCodePixel = function(modules, size, x, y) {
+		const sizePlus = size + 1;
+		if (x >= sizePlus || y >= sizePlus || y < -1 || x < -1) return "0";
+		if (x >= size || y >= size || y < 0 || x < 0) return "1";
+		return modules[y * size + x] ? "2" : "1";
+	};
+	/**
+	* Returns code for four QR pixels. Suitable as key in palette.
+	* @param {boolean[][]} modules
+	* @param {number} size
+	* @param {number} x
+	* @param {number} y
+	* @return {keyof palette}
+	*/
+	var mkCode = function(modules, size, x, y) {
+		return mkCodePixel(modules, size, x, y) + mkCodePixel(modules, size, x, y + 1);
+	};
+	exports.render = function(qrData, options, cb) {
+		const size = qrData.modules.size;
+		const data = qrData.modules.data;
+		const inverse = !!(options && options.inverse);
+		const lineSetup = options && options.inverse ? lineSetupInverse : lineSetupNormal;
+		const palette = createPalette(lineSetup, inverse ? foregroundBlack : foregroundWhite, inverse ? foregroundWhite : foregroundBlack);
+		const newLine = reset + "\n" + lineSetup;
+		let output = lineSetup;
+		for (let y = -1; y < size + 1; y += 2) {
+			for (let x = -1; x < size; x++) output += palette[mkCode(data, size, x, y)];
+			output += palette[mkCode(data, size, size, y)] + newLine;
+		}
+		output += reset;
+		if (typeof cb === "function") cb(null, output);
+		return output;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/terminal.js
+var require_terminal = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var big = require_terminal$1();
+	var small = require_terminal_small();
+	exports.render = function(qrData, options, cb) {
+		if (options && options.small) return small.render(qrData, options, cb);
+		return big.render(qrData, options, cb);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/svg-tag.js
+var require_svg_tag = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Utils = require_utils();
+	function getColorAttrib(color, attrib) {
+		const alpha = color.a / 255;
+		const str = attrib + "=\"" + color.hex + "\"";
+		return alpha < 1 ? str + " " + attrib + "-opacity=\"" + alpha.toFixed(2).slice(1) + "\"" : str;
+	}
+	function svgCmd(cmd, x, y) {
+		let str = cmd + x;
+		if (typeof y !== "undefined") str += " " + y;
+		return str;
+	}
+	function qrToPath(data, size, margin) {
+		let path = "";
+		let moveBy = 0;
+		let newRow = false;
+		let lineLength = 0;
+		for (let i = 0; i < data.length; i++) {
+			const col = Math.floor(i % size);
+			const row = Math.floor(i / size);
+			if (!col && !newRow) newRow = true;
+			if (data[i]) {
+				lineLength++;
+				if (!(i > 0 && col > 0 && data[i - 1])) {
+					path += newRow ? svgCmd("M", col + margin, .5 + row + margin) : svgCmd("m", moveBy, 0);
+					moveBy = 0;
+					newRow = false;
+				}
+				if (!(col + 1 < size && data[i + 1])) {
+					path += svgCmd("h", lineLength);
+					lineLength = 0;
+				}
+			} else moveBy++;
+		}
+		return path;
+	}
+	exports.render = function render(qrData, options, cb) {
+		const opts = Utils.getOptions(options);
+		const size = qrData.modules.size;
+		const data = qrData.modules.data;
+		const qrcodesize = size + opts.margin * 2;
+		const bg = !opts.color.light.a ? "" : "<path " + getColorAttrib(opts.color.light, "fill") + " d=\"M0 0h" + qrcodesize + "v" + qrcodesize + "H0z\"/>";
+		const path = "<path " + getColorAttrib(opts.color.dark, "stroke") + " d=\"" + qrToPath(data, size, opts.margin) + "\"/>";
+		const viewBox = "viewBox=\"0 0 " + qrcodesize + " " + qrcodesize + "\"";
+		const svgTag = "<svg xmlns=\"http://www.w3.org/2000/svg\" " + (!opts.width ? "" : "width=\"" + opts.width + "\" height=\"" + opts.width + "\" ") + viewBox + " shape-rendering=\"crispEdges\">" + bg + path + "</svg>\n";
+		if (typeof cb === "function") cb(null, svgTag);
+		return svgTag;
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/svg.js
+var require_svg = /* @__PURE__ */ __commonJSMin(((exports) => {
+	exports.render = require_svg_tag().render;
+	exports.renderToFile = function renderToFile(path, qrData, options, cb) {
+		if (typeof cb === "undefined") {
+			cb = options;
+			options = void 0;
+		}
+		const fs = require_builtin_esm_external_require_fs();
+		const xmlStr = "<?xml version=\"1.0\" encoding=\"utf-8\"?><!DOCTYPE svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\">" + exports.render(qrData, options);
+		fs.writeFile(path, xmlStr, cb);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/renderer/canvas.js
+var require_canvas = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var Utils = require_utils();
+	function clearCanvas(ctx, canvas, size) {
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+		if (!canvas.style) canvas.style = {};
+		canvas.height = size;
+		canvas.width = size;
+		canvas.style.height = size + "px";
+		canvas.style.width = size + "px";
+	}
+	function getCanvasElement() {
+		try {
+			return document.createElement("canvas");
+		} catch (e) {
+			throw new Error("You need to specify a canvas element");
+		}
+	}
+	exports.render = function render(qrData, canvas, options) {
+		let opts = options;
+		let canvasEl = canvas;
+		if (typeof opts === "undefined" && (!canvas || !canvas.getContext)) {
+			opts = canvas;
+			canvas = void 0;
+		}
+		if (!canvas) canvasEl = getCanvasElement();
+		opts = Utils.getOptions(opts);
+		const size = Utils.getImageWidth(qrData.modules.size, opts);
+		const ctx = canvasEl.getContext("2d");
+		const image = ctx.createImageData(size, size);
+		Utils.qrToImageData(image.data, qrData, opts);
+		clearCanvas(ctx, canvasEl, size);
+		ctx.putImageData(image, 0, 0);
+		return canvasEl;
+	};
+	exports.renderToDataURL = function renderToDataURL(qrData, canvas, options) {
+		let opts = options;
+		if (typeof opts === "undefined" && (!canvas || !canvas.getContext)) {
+			opts = canvas;
+			canvas = void 0;
+		}
+		if (!opts) opts = {};
+		const canvasEl = exports.render(qrData, canvas, opts);
+		const type = opts.type || "image/png";
+		const rendererOpts = opts.rendererOpts || {};
+		return canvasEl.toDataURL(type, rendererOpts.quality);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/browser.js
+var require_browser = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var canPromise = require_can_promise();
+	var QRCode = require_qrcode();
+	var CanvasRenderer = require_canvas();
+	var SvgRenderer = require_svg_tag();
+	function renderCanvas(renderFunc, canvas, text, opts, cb) {
+		const args = [].slice.call(arguments, 1);
+		const argsNum = args.length;
+		const isLastArgCb = typeof args[argsNum - 1] === "function";
+		if (!isLastArgCb && !canPromise()) throw new Error("Callback required as last argument");
+		if (isLastArgCb) {
+			if (argsNum < 2) throw new Error("Too few arguments provided");
+			if (argsNum === 2) {
+				cb = text;
+				text = canvas;
+				canvas = opts = void 0;
+			} else if (argsNum === 3) if (canvas.getContext && typeof cb === "undefined") {
+				cb = opts;
+				opts = void 0;
+			} else {
+				cb = opts;
+				opts = text;
+				text = canvas;
+				canvas = void 0;
+			}
+		} else {
+			if (argsNum < 1) throw new Error("Too few arguments provided");
+			if (argsNum === 1) {
+				text = canvas;
+				canvas = opts = void 0;
+			} else if (argsNum === 2 && !canvas.getContext) {
+				opts = text;
+				text = canvas;
+				canvas = void 0;
+			}
+			return new Promise(function(resolve, reject) {
+				try {
+					resolve(renderFunc(QRCode.create(text, opts), canvas, opts));
+				} catch (e) {
+					reject(e);
+				}
+			});
+		}
+		try {
+			const data = QRCode.create(text, opts);
+			cb(null, renderFunc(data, canvas, opts));
+		} catch (e) {
+			cb(e);
+		}
+	}
+	exports.create = QRCode.create;
+	exports.toCanvas = renderCanvas.bind(null, CanvasRenderer.render);
+	exports.toDataURL = renderCanvas.bind(null, CanvasRenderer.renderToDataURL);
+	exports.toString = renderCanvas.bind(null, function(data, _, opts) {
+		return SvgRenderer.render(data, opts);
+	});
+}));
+//#endregion
+//#region node_modules/qrcode/lib/server.js
+var require_server = /* @__PURE__ */ __commonJSMin(((exports) => {
+	var canPromise = require_can_promise();
+	var QRCode = require_qrcode();
+	require_png();
+	var Utf8Renderer = require_utf8();
+	var TerminalRenderer = require_terminal();
+	var SvgRenderer = require_svg();
+	function checkParams(text, opts, cb) {
+		if (typeof text === "undefined") throw new Error("String required as first argument");
+		if (typeof cb === "undefined") {
+			cb = opts;
+			opts = {};
+		}
+		if (typeof cb !== "function") if (!canPromise()) throw new Error("Callback required as last argument");
+		else {
+			opts = cb || {};
+			cb = null;
+		}
+		return {
+			opts,
+			cb
+		};
+	}
+	function getStringRendererFromType(type) {
+		switch (type) {
+			case "svg": return SvgRenderer;
+			case "terminal": return TerminalRenderer;
+			default: return Utf8Renderer;
+		}
+	}
+	function render(renderFunc, text, params) {
+		if (!params.cb) return new Promise(function(resolve, reject) {
+			try {
+				return renderFunc(QRCode.create(text, params.opts), params.opts, function(err, data) {
+					return err ? reject(err) : resolve(data);
+				});
+			} catch (e) {
+				reject(e);
+			}
+		});
+		try {
+			return renderFunc(QRCode.create(text, params.opts), params.opts, params.cb);
+		} catch (e) {
+			params.cb(e);
+		}
+	}
+	exports.create = QRCode.create;
+	exports.toCanvas = require_browser().toCanvas;
+	exports.toString = function toString(text, opts, cb) {
+		const params = checkParams(text, opts, cb);
+		return render(getStringRendererFromType(params.opts ? params.opts.type : void 0).render, text, params);
+	};
+}));
+//#endregion
+//#region node_modules/qrcode/lib/index.js
+var require_lib = /* @__PURE__ */ __commonJSMin(((exports, module) => {
+	module.exports = require_server();
+}));
+//#endregion
+//#region app/api/object-cards/qr/route.ts
+var route_exports$5 = /* @__PURE__ */ __exportAll({ GET: () => GET$1 });
+var import_lib = /* @__PURE__ */ __toESM(require_lib(), 1);
+var origin = "https://field-trip-design.adamthabo409.chatgpt.site";
+async function GET$1(request) {
+	const code = new URL(request.url).searchParams.get("code") ?? "";
+	if (!/^\d{8}$/.test(code)) return new Response("Invalid card", { status: 400 });
+	try {
+		if (!await (await requestDatabase()).prepare("SELECT code FROM object_cards WHERE code = ?").bind(code).first()) return new Response("Card not found", { status: 404 });
+		const svg = await import_lib.toString(`${origin}/t/${code}`, {
+			type: "svg",
+			errorCorrectionLevel: "M",
+			margin: 4,
+			color: {
+				dark: "#3B2923",
+				light: "#FFFFFF"
+			}
+		});
+		return new Response(svg, { headers: {
+			"Content-Type": "image/svg+xml",
+			"Content-Disposition": `attachment; filename="Field-Trip-${code}.svg"`,
+			"Cache-Control": "public, max-age=3600"
+		} });
+	} catch {
+		return new Response("QR temporarily unavailable", { status: 503 });
+	}
+}
+//#endregion
+//#region app/api/object-requests/route.ts
+var route_exports$4 = /* @__PURE__ */ __exportAll({ POST: () => POST$1 });
+async function POST$1(request) {
+	const origin = request.headers.get("origin");
+	if (!origin || origin !== new URL(request.url).origin) return NextResponse.json({ error: "Please submit this form from the Field Trip website." }, { status: 403 });
+	if (!request.headers.get("content-type")?.startsWith("application/json")) return NextResponse.json({ error: "Invalid request format." }, { status: 415 });
+	const body = await request.text();
+	if (body.length > 12e3) return NextResponse.json({ error: "Your request is too long." }, { status: 413 });
+	let json;
+	try {
+		json = JSON.parse(body);
+	} catch {
+		return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+	}
+	const parsed = objectRequestSchema.safeParse(json);
+	if (!parsed.success) return NextResponse.json({ error: "Please check your name, email, card number and object selection." }, { status: 400 });
+	try {
+		return NextResponse.json({ reference: await saveObjectRequest(parsed.data) }, {
+			status: 201,
+			headers: { "Cache-Control": "no-store" }
+		});
+	} catch (error) {
+		const message = error instanceof Error ? error.message : "";
+		const status = message === "RATE_LIMIT" ? 429 : message === "REQUEST_CONFLICT" ? 409 : 503;
+		if (status === 503) console.error("Object request storage failed");
+		return NextResponse.json({ error: status === 429 ? "You have already submitted three requests today. Please email us for further changes." : status === 409 ? "Please reload the page before starting another request." : "Your request could not be saved. Please retry or email info@fieldtripdesign.com." }, { status });
+	}
+}
+//#endregion
+//#region app/api/object-requests/status/route.ts
+var route_exports$3 = /* @__PURE__ */ __exportAll({ PATCH: () => PATCH$1 });
+async function PATCH$1(request) {
+	if (!isEditorOwner((await getChatGPTUser())?.email)) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	if (request.headers.get("origin") !== new URL(request.url).origin) return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+	const parsed = objectType({
+		id: stringType().uuid(),
+		status: enumType(["new", "handled"])
+	}).safeParse(await request.json().catch(() => null));
+	if (!parsed.success) return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+	try {
+		const result = await (await requestDatabase()).prepare("UPDATE object_requests SET status = ? WHERE id = ?").bind(parsed.data.status, parsed.data.id).run();
+		return NextResponse.json({ saved: !!result.meta.changes }, { status: result.meta.changes ? 200 : 404 });
+	} catch {
+		return NextResponse.json({ error: "Could not save status" }, { status: 503 });
+	}
+}
+var catalog_default = {
+	categories: [
+		{
+			"id": "desk",
+			"title": "Desk",
+			"description": "Supports and storage for a working desk.",
+			"image": "/shop/collections/desk.jpg",
+			"imageAlt": "Monitor bridge, Laptop stand, Headphone bridge, Vertical laptop dock — collection concept render"
+		},
+		{
+			"id": "workshop",
+			"title": "Workshop",
+			"description": "Small shop fixtures and a full-size sawhorse pair.",
+			"image": "/shop/collections/workshop.jpg",
+			"imageAlt": "Router-bit tray, Sawhorse pair, Clamp station, Offcut sorting dock — collection concept render"
+		},
+		{
+			"id": "home",
+			"title": "Home storage",
+			"description": "Shoes, records, luggage and everyday storage.",
+			"image": "/shop/collections/home.jpg",
+			"imageAlt": "Entry shoe rack, Record browser, Luggage perch, Trunk grocery divider — collection concept render"
+		},
+		{
+			"id": "display",
+			"title": "Display",
+			"description": "Portable displays for markets, counters and samples.",
+			"image": "/shop/collections/display.jpg",
+			"imageAlt": "Three-tier market display, Material-swatch rail, Countertop bag rail, Earring pairing stand — collection concept render"
+		},
+		{
+			"id": "craft",
+			"title": "Art & craft",
+			"description": "Tools for books, textiles, print and clay.",
+			"image": "/shop/collections/craft.jpg",
+			"imageAlt": "Small frame loom, Book sewing cradle, Pottery bat drying rack, Print drying combs — collection concept render"
+		},
+		{
+			"id": "music",
+			"title": "Music",
+			"description": "Instrument, pedal and cable organization.",
+			"image": "/shop/collections/music.jpg",
+			"imageAlt": "Guitar body cradle, Guitar pedalboard, Desktop speaker tilters, Cable winding frame — collection concept render"
+		},
+		{
+			"id": "garden",
+			"title": "Garden & flowers",
+			"description": "Seed starting, flower work and plant displays.",
+			"image": "/shop/collections/garden.jpg",
+			"imageAlt": "Plant-pot ring stand, Bouquet tying cradle, Seed sowing grid, Seed packet file — collection concept render"
+		},
+		{
+			"id": "play",
+			"title": "Play",
+			"description": "Tabletop play and simple practice games.",
+			"image": "/shop/collections/play.jpg",
+			"imageAlt": "Seven-piece square puzzle, Large-piece three-in-a-row, Tabletop puppet theater, Putting gate — collection concept render"
+		}
+	],
+	products: [
+		{
+			"slug": "monitor-bridge",
+			"title": "Monitor bridge",
+			"category": "desk",
+			"source": "15.07",
+			"description": "Raise a monitor base and recover space for a keyboard below.",
+			"dimensions": [
+				612,
+				260,
+				170
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 2,
+			"fit": "560 x 260 mm platform; six blind locators 38.1 mm long x 9 mm high.",
+			"risk": "Screen movement can amplify tipping; trial the actual monitor and top lift-off.",
+			"assembly": [
+				"Slide the two side cheeks onto the solid stretcher.",
+				"Insert one external horizontal tusk wedge at each side.",
+				"Lower the top onto six blind underside pockets; the top remains lift-off."
+			],
+			"image": "/shop/monitor-bridge/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/monitor-bridge/drawing.svg",
+			"assemblyImage": "/shop/monitor-bridge/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/monitor-bridge/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "laptop-stand",
+			"title": "Laptop stand",
+			"category": "desk",
+			"source": "10R.01",
+			"description": "An inclined laptop platform with integral front stops.",
+			"dimensions": [
+				378,
+				308,
+				160
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 2,
+			"fit": "360 × 280 mm platform at 15°. Trial device envelope 310 × 215 × 18 mm. Check feet, ports and screen hinge.",
+			"risk": "Device sliding, airflow, stop contact and tipping require a physical sample. The top is lift-off.",
+			"assembly": ["Join the solid stretcher to the two cheeks with the external wedges.", "Lower the top onto six blind underside locating pockets; no tabs pierce the top."],
+			"image": "/shop/laptop-stand/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/laptop-stand/drawing.svg",
+			"assemblyImage": "/shop/laptop-stand/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/laptop-stand/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "headphone-bridge",
+			"title": "Headphone bridge",
+			"category": "desk",
+			"source": "15.08",
+			"description": "Keep headphones off a crowded desk.",
+			"dimensions": [
+				280,
+				100,
+				230
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "A broad 100 mm-deep perch; review headband width and earcup clearance.",
+			"risk": "Hard edges may mark padded headbands; contact radius and finish need a sample.",
+			"assembly": [
+				"Slide both end panels onto the platform tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the specified object sizes and check loaded balance."
+			],
+			"image": "/shop/headphone-bridge/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/headphone-bridge/drawing.svg",
+			"assemblyImage": "/shop/headphone-bridge/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/headphone-bridge/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "vertical-laptop-dock",
+			"title": "Vertical laptop dock",
+			"category": "desk",
+			"source": "15.06",
+			"description": "Park a closed laptop vertically when using an external display.",
+			"dimensions": [
+				450,
+				180,
+				200
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "One 270 x 26 mm slot; proposed device base 250 mm wide x 22 mm thick.",
+			"risk": "Finish contact, ventilation and balance vary by device; no clamp or lining included.",
+			"assembly": [
+				"Slide both end panels onto the platform tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the specified object sizes and check loaded balance."
+			],
+			"image": "/shop/vertical-laptop-dock/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/vertical-laptop-dock/drawing.svg",
+			"assemblyImage": "/shop/vertical-laptop-dock/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/vertical-laptop-dock/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "router-bit-tray",
+			"title": "Router-bit tray",
+			"category": "workshop",
+			"source": "15.04",
+			"description": "Park router bits with separated cutting edges.",
+			"dimensions": [
+				420,
+				180,
+				160
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "Six 13 mm and six 7 mm blind sockets, 10 mm deep; measure actual shanks.",
+			"risk": "Close cutter heads can touch; review real cutter diameters and extraction grip.",
+			"assembly": [
+				"Slide both end panels onto the platform tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the specified object sizes and check loaded balance."
+			],
+			"image": "/shop/router-bit-tray/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/router-bit-tray/drawing.svg",
+			"assemblyImage": "/shop/router-bit-tray/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/router-bit-tray/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "sawhorse-pair",
+			"title": "Sawhorse pair",
+			"category": "workshop",
+			"source": "10R.02",
+			"description": "Two compact trestles for a temporary work surface.",
+			"dimensions": [
+				580,
+				380,
+				680
+			],
+			"dimensionNote": "Size per sawhorse. Two sawhorses in the pair.",
+			"panels": 6,
+			"wedges": 4,
+			"fit": "Each sawhorse is 580 × 380 × 680 mm. The pair includes six main panels and four wedges. Worktop not included.",
+			"risk": "No load rating. Racking, worktop restraint and uneven loading need physical testing.",
+			"assembly": ["Slide the two end panels over each solid beam’s through-tenons.", "Secure each joint with one external tusk wedge; repeat for the second horse."],
+			"image": "/shop/sawhorse-pair/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/sawhorse-pair/drawing.svg",
+			"assemblyImage": "/shop/sawhorse-pair/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/sawhorse-pair/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "clamp-station",
+			"title": "Clamp station",
+			"category": "workshop",
+			"source": "13.02",
+			"description": "Four front-access slots for hanging woodworking clamps.",
+			"dimensions": [
+				580,
+				300,
+				560
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "Four 26 × 108 mm open slots at 110 mm centers. Proposed 420 mm hanging length leaves 40 mm lower clearance.",
+			"risk": "Clamps vary. Forward pull can remove clamps or tip the rack. Load and finger bending are untested.",
+			"assembly": ["Join upper slotted deck and lower shelf to the end panels.", "Insert four external tusk wedges; trial each actual clamp."],
+			"image": "/shop/clamp-station/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/clamp-station/drawing.svg",
+			"assemblyImage": "/shop/clamp-station/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/clamp-station/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "offcut-sorting-dock",
+			"title": "Offcut sorting dock",
+			"category": "workshop",
+			"source": "15.02",
+			"description": "Separate short strips of plywood and acrylic for reuse.",
+			"dimensions": [
+				480,
+				260,
+				250
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "Four 45 x 180 mm slots; trial strips no thicker than 39 mm and 160 mm deep.",
+			"risk": "Long offcuts could lever the rack over; establish a height and weight limit.",
+			"assembly": [
+				"Slide both end panels onto the platform tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the specified object sizes and check loaded balance."
+			],
+			"image": "/shop/offcut-sorting-dock/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/offcut-sorting-dock/drawing.svg",
+			"assemblyImage": "/shop/offcut-sorting-dock/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/offcut-sorting-dock/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "entry-shoe-rack",
+			"title": "Entry shoe rack",
+			"category": "home",
+			"source": "11.01",
+			"description": "Two open levels for shoes beside an entrance.",
+			"dimensions": [
+				680,
+				320,
+				330
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "Two shelves with 560 × 320 mm clear area. Lower opening 202 mm high; actual shoes vary.",
+			"risk": "Not a seat. Uneven loads, wet shoes and joint fit remain untested.",
+			"assembly": ["Slide end panels onto both shelf tongues.", "Insert one external wedge at each of the four joints."],
+			"image": "/shop/entry-shoe-rack/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/entry-shoe-rack/drawing.svg",
+			"assemblyImage": "/shop/entry-shoe-rack/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/entry-shoe-rack/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "record-browser",
+			"title": "Record browser",
+			"category": "home",
+			"source": "12.02",
+			"description": "A low, angled browser for records and large-format books.",
+			"dimensions": [
+				470,
+				380,
+				310
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "350 mm clear width. Proposed 320 × 320 mm jacket envelope with 120 mm stack depth; loaded height about 395 mm.",
+			"risk": "Browsing forces, record abrasion and forward tipping remain untested; no record-count capacity.",
+			"assembly": ["Seat the inclined floor and back between the end panels.", "Secure all four through-tenon joints with external wedges."],
+			"image": "/shop/record-browser/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/record-browser/drawing.svg",
+			"assemblyImage": "/shop/record-browser/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/record-browser/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "luggage-perch",
+			"title": "Luggage perch",
+			"category": "home",
+			"source": "15.17",
+			"description": "Raise a suitcase for packing without using the bed.",
+			"dimensions": [
+				672,
+				400,
+				420
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 2,
+			"fit": "620 x 400 mm platform; trial suitcase footprint 500 x 330 mm.",
+			"risk": "Off-centre luggage, top lift-off and side sway need physical checks; not a seat.",
+			"assembly": [
+				"Slide the two side cheeks onto the solid stretcher.",
+				"Insert one external horizontal tusk wedge at each side.",
+				"Lower the top onto six blind underside pockets; the top remains lift-off."
+			],
+			"image": "/shop/luggage-perch/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/luggage-perch/drawing.svg",
+			"assemblyImage": "/shop/luggage-perch/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/luggage-perch/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "trunk-grocery-divider",
+			"title": "Trunk grocery divider",
+			"category": "home",
+			"source": "16.04",
+			"description": "Separate two rows of grocery bags on a level trunk floor.",
+			"dimensions": [
+				640,
+				360,
+				230
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "520 mm clear span; two open-bottom bays, about 171 mm front-to-back each.",
+			"risk": "Vehicle-specific restraint is unresolved; the divider is not a cargo restraint.",
+			"assembly": [
+				"Slide the two end profiles onto the connecting panel tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the stated context object, contact and balance before use."
+			],
+			"image": "/shop/trunk-grocery-divider/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/trunk-grocery-divider/drawing.svg",
+			"assemblyImage": "/shop/trunk-grocery-divider/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/trunk-grocery-divider/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "three-tier-market-display",
+			"title": "Three-tier market display",
+			"category": "display",
+			"source": "15.22",
+			"description": "Separate three rows of small merchandise at a market table.",
+			"dimensions": [
+				620,
+				420,
+				390
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 5,
+			"wedges": 6,
+			"fit": "Each clear shelf is 500 x 140 mm; levels rise 130 mm.",
+			"risk": "Tall products may obscure rear rows or destabilize the display.",
+			"assembly": [
+				"Slide both end panels onto the platform tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the specified object sizes and check loaded balance."
+			],
+			"image": "/shop/three-tier-market-display/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/three-tier-market-display/drawing.svg",
+			"assemblyImage": "/shop/three-tier-market-display/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/three-tier-market-display/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "material-swatch-rail",
+			"title": "Material-swatch rail",
+			"category": "display",
+			"source": "15.23",
+			"description": "Display removable material samples using their existing hooks.",
+			"dimensions": [
+				620,
+				220,
+				460
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "Five 14 mm-wide top-entry notches at 90 mm centres; hooks are context items.",
+			"risk": "Sample weight, hook fit and front-back balance vary; no hooks are supplied.",
+			"assembly": [
+				"Slide both end panels over the rail tongues.",
+				"Insert one horizontal external wedge through each intact tongue.",
+				"Check actual context objects, balance and retrieval before use."
+			],
+			"image": "/shop/material-swatch-rail/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/material-swatch-rail/drawing.svg",
+			"assemblyImage": "/shop/material-swatch-rail/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/material-swatch-rail/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "countertop-bag-rail",
+			"title": "Countertop bag rail",
+			"category": "display",
+			"source": "15.21",
+			"description": "Present small tote bags over one wide hanging rail.",
+			"dimensions": [
+				620,
+				300,
+				620
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 4,
+			"fit": "500 mm clear hanging span; hook or handle openings must clear 18 mm stock.",
+			"risk": "Uneven hanging loads can tip the frame; trial retrieval from one side.",
+			"assembly": [
+				"Slide both end panels over the rail tongues.",
+				"Insert one horizontal external wedge through each intact tongue.",
+				"Check actual context objects, balance and retrieval before use."
+			],
+			"image": "/shop/countertop-bag-rail/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/countertop-bag-rail/drawing.svg",
+			"assemblyImage": "/shop/countertop-bag-rail/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/countertop-bag-rail/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "earring-pairing-stand",
+			"title": "Earring pairing stand",
+			"category": "display",
+			"source": "19.05",
+			"description": "Keep matched hook earrings together during making or sorting.",
+			"dimensions": [
+				420,
+				150,
+				250
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "Eight hole pairs: 6 mm diameter, 14 mm within each pair, 34 mm pair pitch.",
+			"risk": "Only for hook-style earrings; posts, finishes and snagging need trials.",
+			"assembly": [
+				"Slide both end panels onto the intact through-tenons.",
+				"Seat one external tusk wedge at each joint.",
+				"Try the actual contents and check access and balance."
+			],
+			"image": "/shop/earring-pairing-stand/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/earring-pairing-stand/drawing.svg",
+			"assemblyImage": "/shop/earring-pairing-stand/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/earring-pairing-stand/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "frame-loom",
+			"title": "Small frame loom",
+			"category": "craft",
+			"source": "17.11",
+			"description": "Weave a small panel on a rigid portable frame.",
+			"dimensions": [
+				420,
+				540,
+				18
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 1,
+			"wedges": 0,
+			"fit": "360 x 400 mm opening; nineteen 6 mm warp notches at 18 mm pitch on each end.",
+			"risk": "Warp tension, yarn abrasion and frame distortion require testing.",
+			"assembly": [
+				"Machine the profile and recesses shown.",
+				"Ease contact edges and try the stated contents.",
+				"No added structural fasteners."
+			],
+			"image": "/shop/frame-loom/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/frame-loom/drawing.svg",
+			"assemblyImage": "/shop/frame-loom/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/frame-loom/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "book-sewing-cradle",
+			"title": "Book sewing cradle",
+			"category": "craft",
+			"source": "17.01",
+			"description": "Support folded signatures while sewing through the open spine.",
+			"dimensions": [
+				420,
+				280,
+				220
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "90-degree V cradles at 318 mm centres; start with a 340 mm-long spine.",
+			"risk": "Actual page format and awl clearance need trials; light hand pressure only.",
+			"assembly": [
+				"Slide the two ends onto the intact through-tenons.",
+				"Insert one external tusk key through each tongue.",
+				"Check contact, removal clearance and balance with actual contents."
+			],
+			"image": "/shop/book-sewing-cradle/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/book-sewing-cradle/drawing.svg",
+			"assemblyImage": "/shop/book-sewing-cradle/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/book-sewing-cradle/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "pottery-bat-drying-rack",
+			"title": "Pottery bat drying rack",
+			"category": "craft",
+			"source": "17.06",
+			"description": "Hold pottery bats upright with air between them.",
+			"dimensions": [
+				320,
+				370,
+				190
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "Six 19 mm slots at 50 mm pitch, 85 mm deep; trial 300 mm-diameter bats.",
+			"risk": "Wet bat weight, slot fit and tipping remain untested.",
+			"assembly": [
+				"Slide the two ends onto the intact through-tenons.",
+				"Insert one external tusk key through each tongue.",
+				"Check contact, removal clearance and balance with actual contents."
+			],
+			"image": "/shop/pottery-bat-drying-rack/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/pottery-bat-drying-rack/drawing.svg",
+			"assemblyImage": "/shop/pottery-bat-drying-rack/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/pottery-bat-drying-rack/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "print-drying-combs",
+			"title": "Print drying combs",
+			"category": "craft",
+			"source": "17.03",
+			"description": "Stand small rigid printed cards on edge while they dry.",
+			"dimensions": [
+				350,
+				200,
+				18
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 2,
+			"wedges": 0,
+			"fit": "Two independent rails; ten 6.5 mm grooves, 12 mm deep, at 30 mm pitch.",
+			"risk": "Trial card stiffness and rail spacing; thin paper may fall over.",
+			"assembly": [
+				"Machine the profile and recesses shown.",
+				"Ease contact edges and try the stated contents.",
+				"No added structural fasteners."
+			],
+			"image": "/shop/print-drying-combs/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/print-drying-combs/drawing.svg",
+			"assemblyImage": "/shop/print-drying-combs/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/print-drying-combs/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "guitar-body-cradle",
+			"title": "Guitar body cradle",
+			"category": "music",
+			"source": "15.16 revised",
+			"description": "Support the lower body of a measured guitar between two profiled cheeks.",
+			"dimensions": [
+				262,
+				359.4,
+				335
+			],
+			"dimensionNote": "CAD envelope including provisional pads. Plywood width: 256 mm. Final joint projections are unresolved.",
+			"panels": 5,
+			"wedges": 0,
+			"fit": "Revised lower-body cradle with a 220 mm clear gap between cheeks and 360 mm fore-aft footprint. Fit a measured guitar body; nothing supports or grips the neck.",
+			"risk": "Design reference only. Rail and backrest joints, retention, racking, tip resistance, retrieval stability and padding compatibility with the specific guitar finish remain unresolved. The reference outlines are not approved cutting parts.",
+			"assembly": ["The revised concept has two profiled cheeks, two low rails and one rear backrest, with three proposed contact pads.", "Joint and retention details must be developed before a build or assembly procedure can be released."],
+			"image": "/shop/guitar-body-cradle/concept.jpg",
+			"imageType": "Untested revised render",
+			"drawing": "/shop/guitar-body-cradle/drawing.svg",
+			"assemblyImage": "/shop/guitar-body-cradle/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/guitar-body-cradle/dimensions.svg",
+			"partsNote": "Plus three contact-pad concepts. Joint and pad-retention details are unresolved."
+		},
+		{
+			"slug": "guitar-pedalboard",
+			"title": "Guitar pedalboard",
+			"category": "music",
+			"source": "15.10",
+			"description": "Group pedals and route their cables through the platform.",
+			"dimensions": [
+				552,
+				291.2,
+				145
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 4,
+			"wedges": 2,
+			"fit": "Three 70 x 16 mm cable openings at the rear; proposed 10-degree slope.",
+			"risk": "Pedal attachment is not resolved; foot pressure may slide the board or lift its top.",
+			"assembly": [
+				"Slide the two side cheeks onto the solid stretcher.",
+				"Insert one external horizontal tusk wedge at each side.",
+				"Lower the top onto six blind underside pockets; the top remains lift-off."
+			],
+			"image": "/shop/guitar-pedalboard/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/guitar-pedalboard/drawing.svg",
+			"assemblyImage": "/shop/guitar-pedalboard/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/guitar-pedalboard/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "desktop-speaker-tilters",
+			"title": "Desktop speaker tilters",
+			"category": "music",
+			"source": "18.09",
+			"description": "Tilt a pair of small speakers using open cheek supports.",
+			"dimensions": [
+				600,
+				240,
+				114.8
+			],
+			"dimensionNote": "Pair arranged side by side.",
+			"panels": 6,
+			"wedges": 4,
+			"fit": "Each support has 178 mm cheek centres; top edges rise 50 mm over 240 mm, about 11.8 degrees.",
+			"risk": "Actual speaker footprint and forward sliding need trials; no isolation claim.",
+			"assembly": [
+				"Assemble two separate three-panel frames.",
+				"Fit two external tusk wedges per frame.",
+				"Trial each actual speaker on the inclined top edges."
+			],
+			"image": "/shop/desktop-speaker-tilters/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/desktop-speaker-tilters/drawing.svg",
+			"assemblyImage": "/shop/desktop-speaker-tilters/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/desktop-speaker-tilters/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "cable-winding-frame",
+			"title": "Cable winding frame",
+			"category": "music",
+			"source": "18.07",
+			"description": "Wrap a loose audio lead into a broad coil for storage.",
+			"dimensions": [
+				420,
+				240,
+				18
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 1,
+			"wedges": 0,
+			"fit": "260 mm neck between broad end lobes; 100 x 40 mm hand opening.",
+			"risk": "Cable bend radius and connector retention depend on the cable.",
+			"assembly": [
+				"Machine the profile and recesses shown.",
+				"Ease the working edges and try the actual contents.",
+				"No structural joint or added fasteners."
+			],
+			"image": "/shop/cable-winding-frame/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/cable-winding-frame/drawing.svg",
+			"assemblyImage": "/shop/cable-winding-frame/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/cable-winding-frame/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "plant-pot-ring-stand",
+			"title": "Plant-pot ring stand",
+			"category": "garden",
+			"source": "15.15",
+			"description": "Lift a rimmed plant pot while keeping the base visually open.",
+			"dimensions": [
+				360,
+				260,
+				270
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "180 mm opening; trial body 175 mm diameter and rim 210 mm.",
+			"risk": "Pot taper, wet weight, tipping and moisture finish remain untested.",
+			"assembly": [
+				"Slide both end panels onto the platform tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the specified object sizes and check loaded balance."
+			],
+			"image": "/shop/plant-pot-ring-stand/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/plant-pot-ring-stand/drawing.svg",
+			"assemblyImage": "/shop/plant-pot-ring-stand/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/plant-pot-ring-stand/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "bouquet-tying-cradle",
+			"title": "Bouquet tying cradle",
+			"category": "garden",
+			"source": "17.22",
+			"description": "Support a bouquet while both hands tie its stems.",
+			"dimensions": [
+				380,
+				230,
+				280
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "Two open 90 mm-wide cradles, 278 mm apart; tie between them.",
+			"risk": "Stem crushing, wet finish and overhanging balance need trials.",
+			"assembly": [
+				"Slide the two ends onto the intact through-tenons.",
+				"Insert one external tusk key through each tongue.",
+				"Check contact, removal clearance and balance with actual contents."
+			],
+			"image": "/shop/bouquet-tying-cradle/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/bouquet-tying-cradle/drawing.svg",
+			"assemblyImage": "/shop/bouquet-tying-cradle/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/bouquet-tying-cradle/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "seed-sowing-grid",
+			"title": "Seed sowing grid",
+			"category": "garden",
+			"source": "17.21",
+			"description": "Lay out repeated starting points in a prepared seed bed.",
+			"dimensions": [
+				500,
+				300,
+				18
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 1,
+			"wedges": 0,
+			"fit": "Fifteen 30 mm holes on a 90 mm grid; choose crop spacing separately.",
+			"risk": "Soil movement and crop requirements control actual spacing.",
+			"assembly": [
+				"Machine the profile and recesses shown.",
+				"Ease contact edges and try the stated contents.",
+				"No added structural fasteners."
+			],
+			"image": "/shop/seed-sowing-grid/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/seed-sowing-grid/drawing.svg",
+			"assemblyImage": "/shop/seed-sowing-grid/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/seed-sowing-grid/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "seed-packet-file",
+			"title": "Seed packet file",
+			"category": "garden",
+			"source": "17.23",
+			"description": "Stand seed packets in grouped shallow rows.",
+			"dimensions": [
+				480,
+				210,
+				160
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "Five 300 x 6.5 mm grooves, 8 mm deep, at 30 mm pitch.",
+			"risk": "Thin packets may lean or slip; dry indoor storage only.",
+			"assembly": [
+				"Slide the two ends onto the intact through-tenons.",
+				"Insert one external tusk key through each tongue.",
+				"Check contact, removal clearance and balance with actual contents."
+			],
+			"image": "/shop/seed-packet-file/product.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/seed-packet-file/drawing.svg",
+			"assemblyImage": "/shop/seed-packet-file/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/seed-packet-file/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "seven-piece-square-puzzle",
+			"title": "Seven-piece square puzzle",
+			"category": "play",
+			"source": "16.20",
+			"description": "Rearrange seven geometric pieces or return them to a square.",
+			"dimensions": [
+				360,
+				360,
+				27
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 8,
+			"wedges": 0,
+			"fit": "300 mm square pocket, 9 mm deep; seven 18 mm pieces with proposed 0.5 mm edge offset.",
+			"risk": "Corner clearance and easy extraction require a cut sample; not a precision-fit claim.",
+			"assembly": [
+				"Profile and pocket the panel or pieces shown.",
+				"Ease the contact edges and trial the proposed fit.",
+				"No structural assembly or additional fasteners."
+			],
+			"image": "/shop/seven-piece-square-puzzle/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/seven-piece-square-puzzle/drawing.svg",
+			"assemblyImage": "/shop/seven-piece-square-puzzle/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/seven-piece-square-puzzle/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "large-piece-three-in-a-row",
+			"title": "Large-piece three-in-a-row",
+			"category": "play",
+			"source": "16.19",
+			"description": "Play a familiar three-in-a-row game with large contrasting shapes.",
+			"dimensions": [
+				380,
+				380,
+				30
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 10,
+			"wedges": 0,
+			"fit": "Nine 86 mm wells, 6 mm deep; five 78 mm discs and four 55 mm square tokens, each 18 mm thick.",
+			"risk": "Loose-piece handling and edge quality need review; no age suitability established.",
+			"assembly": [
+				"Profile and pocket the panel or pieces shown.",
+				"Ease the contact edges and trial the proposed fit.",
+				"No structural assembly or additional fasteners."
+			],
+			"image": "/shop/large-piece-three-in-a-row/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/large-piece-three-in-a-row/drawing.svg",
+			"assemblyImage": "/shop/large-piece-three-in-a-row/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/large-piece-three-in-a-row/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "tabletop-puppet-theater",
+			"title": "Tabletop puppet theater",
+			"category": "play",
+			"source": "16.16",
+			"description": "Frame hand-puppet play on a table without added curtains or hardware.",
+			"dimensions": [
+				620,
+				230,
+				480
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "340 x 250 mm opening; lower edge 120 mm above the table.",
+			"risk": "Tipping, finger access and edge finish need a prototype; no child-safety certification.",
+			"assembly": [
+				"Slide the two end profiles onto the connecting panel tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the stated context object, contact and balance before use."
+			],
+			"image": "/shop/tabletop-puppet-theater/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/tabletop-puppet-theater/drawing.svg",
+			"assemblyImage": "/shop/tabletop-puppet-theater/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/tabletop-puppet-theater/dimensions.svg",
+			"partsNote": ""
+		},
+		{
+			"slug": "putting-gate",
+			"title": "Putting gate",
+			"category": "play",
+			"source": "16.21",
+			"description": "Aim a rolling golf ball through one simple floor-level opening.",
+			"dimensions": [
+				340,
+				220,
+				150
+			],
+			"dimensionNote": "Overall study envelope; loose sets shown arranged.",
+			"panels": 3,
+			"wedges": 2,
+			"fit": "60 mm-wide opening with 65 mm crown; check on the intended putting surface.",
+			"risk": "Ball impacts may move it; no alignment or training-performance claim.",
+			"assembly": [
+				"Slide the two end profiles onto the connecting panel tongues.",
+				"Insert one external tusk wedge through each intact tongue.",
+				"Trial the stated context object, contact and balance before use."
+			],
+			"image": "/shop/putting-gate/concept.jpg",
+			"imageType": "Untested concept render",
+			"drawing": "/shop/putting-gate/drawing.svg",
+			"assemblyImage": "/shop/putting-gate/assembly.svg",
+			"stock": "18 mm nominal birch plywood",
+			"status": "prototype",
+			"designPaymentUrl": null,
+			"objectPaymentUrl": null,
+			"designPrice": null,
+			"objectPrice": null,
+			"dimensionedImage": "/shop/putting-gate/dimensions.svg",
+			"partsNote": ""
+		}
+	]
+};
+catalog_default.categories;
+var shopProducts = catalog_default.products;
+var formatLabel = (format) => format === "design" ? "Design files" : "Finished object";
+var productBySlug = (slug) => shopProducts.find((product) => product.slug === slug);
+//#endregion
+//#region lib/shop-requests.ts
+var shopRequestSchema = objectType({
+	requestId: stringType().uuid(),
+	name: stringType().trim().min(1).max(100),
+	email: stringType().trim().email().max(254).transform((v) => v.toLowerCase()),
+	country: stringType().trim().max(80),
+	postalCode: stringType().trim().max(20),
+	note: stringType().trim().max(3e3),
+	website: literalType(""),
+	lines: arrayType(objectType({
+		slug: stringType().max(100).refine((v) => !!productBySlug(v)),
+		format: enumType(["design", "object"]),
+		quantity: numberType().int().min(1).max(25)
+	})).min(1).max(32)
+}).superRefine((data, ctx) => {
+	if (data.lines.some((l) => l.format === "object") && !data.country) ctx.addIssue({
+		code: "custom",
+		path: ["country"],
+		message: "Country is required for a finished-object quote."
+	});
+	const keys = data.lines.map((l) => l.slug + ":" + l.format);
+	if (new Set(keys).size !== keys.length) ctx.addIssue({
+		code: "custom",
+		path: ["lines"],
+		message: "Duplicate items."
+	});
+});
+async function saveShopRequest(input) {
+	const db = await requestDatabase();
+	const canonical = JSON.stringify({
+		name: input.name,
+		email: input.email,
+		country: input.country,
+		postalCode: input.postalCode,
+		note: input.note,
+		lines: input.lines
+	});
+	const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(canonical));
+	const fingerprint = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, "0")).join("");
+	const prior = await db.prepare("SELECT reference, fingerprint FROM shop_requests WHERE id = ?").bind(input.requestId).first();
+	if (prior) {
+		if (prior.fingerprint !== fingerprint) throw Error("REQUEST_CONFLICT");
+		return prior.reference;
+	}
+	const reference = "SHOP-" + crypto.randomUUID().replaceAll("-", "").slice(0, 12).toUpperCase();
+	const lines = input.lines.map((line) => ({
+		...line,
+		title: productBySlug(line.slug).title,
+		option: formatLabel(line.format)
+	}));
+	if (!(await db.prepare(`INSERT INTO shop_requests (id, reference, fingerprint, name, email, country, postal_code, note, lines_json, status)
+ SELECT ?, ?, ?, ?, ?, ?, ?, ?, ?, 'new' WHERE (SELECT COUNT(*) FROM shop_requests WHERE email = ? AND created_at >= datetime('now', '-1 day')) < 3
+ ON CONFLICT(id) DO NOTHING`).bind(input.requestId, reference, fingerprint, input.name, input.email, input.country, input.postalCode, input.note, JSON.stringify(lines), input.email).run()).meta.changes) {
+		const existing = await db.prepare("SELECT reference, fingerprint FROM shop_requests WHERE id = ?").bind(input.requestId).first();
+		if (existing) {
+			if (existing.fingerprint !== fingerprint) throw Error("REQUEST_CONFLICT");
+			return existing.reference;
+		}
+		throw Error("RATE_LIMIT");
+	}
+	return reference;
+}
+async function listShopRequests() {
+	return (await (await requestDatabase()).prepare("SELECT id, reference, name, email, country, postal_code AS postalCode, note, lines_json AS linesJson, status, created_at AS createdAt FROM shop_requests ORDER BY created_at DESC LIMIT 200").all()).results;
+}
+//#endregion
+//#region app/api/shop-requests/route.ts
+var route_exports$2 = /* @__PURE__ */ __exportAll({ POST: () => POST });
+async function POST(request) {
+	if (request.headers.get("origin") !== new URL(request.url).origin) return NextResponse.json({ error: "Submit this form from the Field Trip website." }, { status: 403 });
+	if (!request.headers.get("content-type")?.startsWith("application/json")) return NextResponse.json({ error: "Invalid request format." }, { status: 415 });
+	const body = await request.text();
+	if (body.length > 2e4) return NextResponse.json({ error: "Your request is too long." }, { status: 413 });
+	let json;
+	try {
+		json = JSON.parse(body);
+	} catch {
+		return NextResponse.json({ error: "Invalid request." }, { status: 400 });
+	}
+	const parsed = shopRequestSchema.safeParse(json);
+	if (!parsed.success) return NextResponse.json({ error: "Check your name, email, country and selected items." }, { status: 400 });
+	try {
+		return NextResponse.json({ reference: await saveShopRequest(parsed.data) }, {
+			status: 201,
+			headers: { "Cache-Control": "no-store" }
+		});
+	} catch (error) {
+		const code = error instanceof Error ? error.message : "";
+		const status = code === "RATE_LIMIT" ? 429 : code === "REQUEST_CONFLICT" ? 409 : 503;
+		if (status === 503) console.error("Shop request storage unavailable");
+		return NextResponse.json({ error: status === 429 ? "Three requests have already been submitted with this email today. Please email us for changes." : status === 409 ? "This request was changed after a previous submission. Start a new request." : "Your request could not be saved. Retry or email info@fieldtripdesign.com." }, { status });
+	}
+}
+//#endregion
+//#region app/api/shop-requests/status/route.ts
+var route_exports$1 = /* @__PURE__ */ __exportAll({ PATCH: () => PATCH });
+async function PATCH(request) {
+	if (!isEditorOwner((await getChatGPTUser())?.email)) return NextResponse.json({ error: "Not authorized" }, { status: 403 });
+	if (request.headers.get("origin") !== new URL(request.url).origin) return NextResponse.json({ error: "Invalid origin" }, { status: 403 });
+	const parsed = objectType({
+		id: stringType().uuid(),
+		status: enumType(["new", "handled"])
+	}).safeParse(await request.json().catch(() => null));
+	if (!parsed.success) return NextResponse.json({ error: "Invalid request" }, { status: 400 });
+	try {
+		const result = await (await requestDatabase()).prepare("UPDATE shop_requests SET status = ? WHERE id = ?").bind(parsed.data.status, parsed.data.id).run();
+		return NextResponse.json({ saved: !!result.meta.changes }, { status: result.meta.changes ? 200 : 404 });
+	} catch {
+		return NextResponse.json({ error: "Could not save status" }, { status: 503 });
+	}
+}
+var Resources$7 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+	return function Resources() {
+		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
+			key: "css:" + href,
+			rel: "stylesheet",
+			...precedence ? { precedence } : {},
+			href,
+			"data-rsc-css-href": href
+		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
+	};
+})(import_react_react_server.default, assetsManifest.serverResources["app/home/page.tsx"], void 0, "vite-rsc/importer-resources");
+//#endregion
+//#region app/projects-link.tsx
+function ProjectsLink({ href = "/work", clientNavigation = false }) {
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("div", {
+		className: "projects-action",
+		children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(clientNavigation ? link_default : "a", {
+			className: "projects-link",
+			href,
+			children: "Projects"
+		})
+	});
+}
+//#endregion
+//#region app/image-credit.tsx
+function imageCredit(src) {
+	return photographerCredit(src ? verified_image_credits_default[src] : void 0);
+}
+/** Public image credits contain only verified photographer names. */
+function ImageCredit({ src, linked = true }) {
+	const credit = imageCredit(src);
+	if (!credit) return null;
+	return linked ? /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+		className: "project-image-credit",
+		href: credit.href,
+		target: "_blank",
+		rel: "noopener noreferrer",
+		children: credit.label
+	}) : /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("span", {
+		className: "project-image-credit",
+		children: credit.label
+	});
+}
+//#endregion
+//#region app/landing-reel.tsx
+var LandingReel = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'LandingReel' is called on server");
+}, "bfdf0cdb8209", "LandingReel");
+//#endregion
 //#region app/project-caption.ts
 /** Compact public captions use only roles corroborated by the existing summary/credits.
 * Public scope labels omit team attribution; unknown participation is not inferred from broad filter tags.
@@ -22134,7 +32279,7 @@ var projectFilms = [{
 }];
 //#endregion
 //#region app/home/home-curated-films.ts
-var metadata$4 = (slug) => {
+var metadata$9 = (slug) => {
 	const p = publishedProjects.find((p) => p.slug === slug);
 	const services = slug === "dream-machine" ? "Concept + Design by Emilie Baltz. Visualizations by Field Trip." : projectCaptionServices(slug);
 	return {
@@ -22147,7 +32292,7 @@ var metadata$4 = (slug) => {
 	};
 };
 var excerpt = (slug, poster, id, start, end) => ({
-	...metadata$4(slug),
+	...metadata$9(slug),
 	poster,
 	alt: `${publishedProjects.find((p) => p.slug === slug).title} — original project film`,
 	vimeo: {
@@ -22165,12 +32310,12 @@ var coreNative = {
 var heroFilms = [
 	{
 		...projectFilms[0],
-		...metadata$4("core-nyc"),
+		...metadata$9("core-nyc"),
 		native: coreNative
 	},
 	{
 		...projectFilms[1],
-		...metadata$4("ascend"),
+		...metadata$9("ascend"),
 		poster: ascendPoster,
 		alt: "Opening frame of the Ascend project film excerpt",
 		native: {
@@ -22184,7 +32329,7 @@ var heroFilms = [
 	excerpt("heart-bot", "/project-film-posters/heart-bot-reel.jpg", 104567379, 45, 60),
 	excerpt("beat-repeat", "/project-galleries/beat-repeat/02.webp", 97760035, 16, 31),
 	{
-		...metadata$4("wheat-thins-popped"),
+		...metadata$9("wheat-thins-popped"),
 		poster: "/project-galleries/wheat-thins-popped/02.webp",
 		alt: "Kelly Osbourne at the Wheat Thins Popped launch in Times Square",
 		photo: {
@@ -22223,7 +32368,7 @@ function LatestWork() {
 		}) })
 	});
 }
-var Resources$3 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+var Resources$6 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 	return function Resources() {
 		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
 			key: "css:" + href,
@@ -22234,16 +32379,6 @@ var Resources$3 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
 	};
 })(import_react_react_server.default, assetsManifest.serverResources["app/home/currently-on-display.tsx"], void 0, "vite-rsc/importer-resources");
-//#endregion
-//#region app/editor/editor-server.ts
-async function loadImageMetadataOverrides() {
-	return [{
-		imageId: "project-galleries--brooklyn-museum--01.webp",
-		projectSlug: "brooklyn-museum",
-		category: "installation",
-		caption: "Iris van Herpen: Sculpting the Senses"
-	}];
-}
 //#endregion
 //#region app/portfolio-image-dimensions.ts
 var portfolioImageDimensions = {
@@ -22524,22 +32659,22 @@ async function CurrentlyOnDisplay() {
 		}), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(OnDisplayCarousel, { slides })]
 	});
 }
-CurrentlyOnDisplay = /* @__PURE__ */ __vite_rsc_wrap_css__$4(CurrentlyOnDisplay, "CurrentlyOnDisplay");
-function __vite_rsc_wrap_css__$4(value, name) {
+CurrentlyOnDisplay = /* @__PURE__ */ __vite_rsc_wrap_css__$7(CurrentlyOnDisplay, "CurrentlyOnDisplay");
+function __vite_rsc_wrap_css__$7(value, name) {
 	if (typeof value !== "function") return value;
 	function __wrapper(props) {
-		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$3), import_react_react_server.createElement(value, props));
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$6), import_react_react_server.createElement(value, props));
 	}
 	Object.defineProperty(__wrapper, "name", { value: name });
 	return __wrapper;
 }
 //#endregion
 //#region app/home/page.tsx
-var page_exports$6 = /* @__PURE__ */ __exportAll({
+var page_exports$15 = /* @__PURE__ */ __exportAll({
 	default: () => $$wrap_HomePage,
-	metadata: () => metadata$3
+	metadata: () => metadata$8
 });
-var metadata$3 = {
+var metadata$8 = {
 	title: "Home",
 	description: "Architectural millwork, exhibitions, custom furniture and installations. Design development, engineering, fabrication and installation from Brooklyn and Providence.",
 	alternates: { canonical: "/home" }
@@ -22635,22 +32770,22 @@ function HomePage() {
 		})
 	});
 }
-var $$wrap_HomePage = /* @__PURE__ */ __vite_rsc_wrap_css__$3(HomePage, "default");
-function __vite_rsc_wrap_css__$3(value, name) {
+var $$wrap_HomePage = /* @__PURE__ */ __vite_rsc_wrap_css__$6(HomePage, "default");
+function __vite_rsc_wrap_css__$6(value, name) {
 	if (typeof value !== "function") return value;
 	function __wrapper(props) {
-		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$4), import_react_react_server.createElement(value, props));
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$7), import_react_react_server.createElement(value, props));
 	}
 	Object.defineProperty(__wrapper, "name", { value: name });
 	return __wrapper;
 }
 //#endregion
 //#region app/capabilities/page.tsx
-var page_exports$5 = /* @__PURE__ */ __exportAll({
+var page_exports$14 = /* @__PURE__ */ __exportAll({
 	default: () => $$wrap_HomePage,
-	metadata: () => metadata$3
+	metadata: () => metadata$8
 });
-var Resources$2 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+var Resources$5 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 	return function Resources() {
 		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
 			key: "css:" + href,
@@ -22711,11 +32846,11 @@ var ProjectBrief = /* @__PURE__ */ registerClientReference(() => {
 }, "adebd0ee59eb", "ProjectBrief");
 //#endregion
 //#region app/contact/page.tsx
-var page_exports$4 = /* @__PURE__ */ __exportAll({
+var page_exports$13 = /* @__PURE__ */ __exportAll({
 	default: () => $$wrap_ContactPage,
-	metadata: () => metadata$2
+	metadata: () => metadata$7
 });
-var metadata$2 = {
+var metadata$7 = {
 	title: "Contact",
 	description: "Contact field trip about design, fabrication, or installation work.",
 	alternates: { canonical: "/contact" }
@@ -22841,19 +32976,235 @@ async function ContactPage({ searchParams }) {
 		})
 	});
 }
-var $$wrap_ContactPage = /* @__PURE__ */ __vite_rsc_wrap_css__$2(ContactPage, "default");
-function __vite_rsc_wrap_css__$2(value, name) {
+var $$wrap_ContactPage = /* @__PURE__ */ __vite_rsc_wrap_css__$5(ContactPage, "default");
+function __vite_rsc_wrap_css__$5(value, name) {
 	if (typeof value !== "function") return value;
 	function __wrapper(props) {
-		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$2), import_react_react_server.createElement(value, props));
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$5), import_react_react_server.createElement(value, props));
 	}
 	Object.defineProperty(__wrapper, "name", { value: name });
 	return __wrapper;
 }
 //#endregion
 //#region app/entrance/page.tsx
-var page_exports$3 = /* @__PURE__ */ __exportAll({ default: () => Entry });
-var Resources$1 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+var page_exports$12 = /* @__PURE__ */ __exportAll({ default: () => Entry });
+//#endregion
+//#region app/estimator/page.tsx
+var page_exports$11 = /* @__PURE__ */ __exportAll({
+	default: () => EstimatorPage,
+	metadata: () => metadata$6
+});
+var metadata$6 = {
+	title: "Estimator",
+	description: "Plan an initial fabrication budget or send a project brief to Field Trip.",
+	alternates: { canonical: "/estimator" }
+};
+function EstimatorPage() {
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionFrame, { children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("main", {
+		id: "main-content",
+		className: "section-main section-main--wide",
+		tabIndex: -1,
+		children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionIntro, {
+			kicker: "Project planning",
+			title: "Estimator",
+			children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Estimates are provisional. Scope, pricing and schedule are confirmed in a written proposal." })
+		}), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+			className: "service-options",
+			children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("section", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h2", { children: "Plan a budget" }),
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Use the public estimator to work through quantities, labor and materials." }),
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+					className: "action-link",
+					href: "https://field-trip-estimator-alpha41.adamthabo409.chatgpt.site/product.html",
+					target: "_blank",
+					rel: "noopener noreferrer",
+					children: "Open budget estimator"
+				})
+			] }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("section", { children: [
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h2", { children: "Request a proposal" }),
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Send the project location, drawings, desired quantities, target dates and budget range." }),
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(link_default, {
+					className: "action-link",
+					href: "/contact",
+					children: "Prepare a project brief"
+				})
+			] })]
+		})]
+	}) });
+}
+var Resources$4 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+	return function Resources() {
+		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
+			key: "css:" + href,
+			rel: "stylesheet",
+			...precedence ? { precedence } : {},
+			href,
+			"data-rsc-css-href": href
+		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
+	};
+})(import_react_react_server.default, assetsManifest.serverResources["app/footer-study/page.tsx"], void 0, "vite-rsc/importer-resources");
+//#endregion
+//#region app/footer-study/page.tsx
+var page_exports$10 = /* @__PURE__ */ __exportAll({
+	default: () => $$wrap_FooterStudyPage,
+	metadata: () => metadata$5
+});
+var metadata$5 = {
+	title: "Footer study",
+	robots: {
+		index: false,
+		follow: false
+	}
+};
+var groups = [
+	{
+		title: "Explore",
+		links: [
+			["Home", "/home"],
+			["Projects", "/work"],
+			["Services", "/home#capabilities"],
+			["News", "/news"]
+		]
+	},
+	{
+		title: "Studio",
+		links: [
+			["About", "/about"],
+			["Brooklyn", "/about#brooklyn-facilities-title"],
+			["Providence", "/about#spaces"],
+			["Contact", "/contact"]
+		]
+	},
+	{
+		title: "Links",
+		links: [
+			["Ready-Made", "https://field-trip-3d.adamthabo409.chatgpt.site"],
+			["South Side", "https://www.southsidedb.com/"],
+			["RISD faculty", "https://www.risd.edu/academics/interior-architecture/faculty/adam-thabo"],
+			["NYU faculty", "https://steinhardt.nyu.edu/people/adam-thabo"]
+		]
+	}
+];
+function FooterStudyPage() {
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+		className: "section-shell footer-study-shell",
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SiteHeader, {}),
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("main", {
+				id: "main-content",
+				className: "footer-study-intro",
+				tabIndex: -1,
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h1", { children: "Footer study" }),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "A fuller footer, with room for useful links." }),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(link_default, {
+						href: "/about#adam-thabo",
+						children: "View the updated bio and school logos"
+					})
+				]
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("footer", {
+				className: "footer-study",
+				"aria-label": "Proposed Field Trip footer",
+				children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+					className: "footer-study-top",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+						className: "footer-study-enquiry",
+						children: [
+							/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h2", { children: "Discuss a project." }),
+							/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("p", { children: [
+								"Send drawings, share an idea,",
+								/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("br", {}),
+								"or talk through fabrication."
+							] }),
+							/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(link_default, {
+								className: "footer-study-cta",
+								href: "/contact",
+								children: "Get in touch"
+							})
+						]
+					}), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("nav", {
+						className: "footer-study-links",
+						"aria-label": "Footer links",
+						children: groups.map((group) => /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+							className: "footer-study-group",
+							children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h3", { children: group.title }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("ul", { children: group.links.map(([label, href]) => /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("li", { children: href.startsWith("https:") ? /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("a", {
+								href,
+								target: "_blank",
+								rel: "noopener noreferrer",
+								children: [label, /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("span", {
+									className: "sr-only",
+									children: " (opens in a new tab)"
+								})]
+							}) : /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(link_default, {
+								href,
+								children: label
+							}) }, label)) })]
+						}, group.title))
+					})]
+				}), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+					className: "footer-study-base",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("address", { children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "tel:+16465252776",
+						children: "+1 646 525 2776"
+					}), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "mailto:info@fieldtripdesign.com",
+						children: "info@fieldtripdesign.com"
+					})] }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", {
+						className: "footer-study-company",
+						children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Field Trip Design LLC" }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+							className: "footer-study-social",
+							href: "https://instagram.com/fieldtrip.nyc",
+							target: "_blank",
+							rel: "noopener noreferrer",
+							"aria-label": "Instagram — @fieldtrip.nyc (opens in a new tab)",
+							children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("svg", {
+								width: "24",
+								height: "24",
+								viewBox: "0 0 24 24",
+								fill: "none",
+								stroke: "currentColor",
+								strokeWidth: "1.6",
+								"aria-hidden": "true",
+								children: [
+									/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("rect", {
+										x: "3",
+										y: "3",
+										width: "18",
+										height: "18",
+										rx: "5"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("circle", {
+										cx: "12",
+										cy: "12",
+										r: "4"
+									}),
+									/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("circle", {
+										cx: "17.5",
+										cy: "6.5",
+										r: ".9",
+										fill: "currentColor",
+										stroke: "none"
+									})
+								]
+							})
+						})]
+					})]
+				})]
+			})
+		]
+	});
+}
+var $$wrap_FooterStudyPage = /* @__PURE__ */ __vite_rsc_wrap_css__$4(FooterStudyPage, "default");
+function __vite_rsc_wrap_css__$4(value, name) {
+	if (typeof value !== "function") return value;
+	function __wrapper(props) {
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$4), import_react_react_server.createElement(value, props));
+	}
+	Object.defineProperty(__wrapper, "name", { value: name });
+	return __wrapper;
+}
+var Resources$3 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 	return function Resources() {
 		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
 			key: "css:" + href,
@@ -23148,11 +33499,11 @@ var newsUpdates = [
 	{
 		id: "china-institute-chinese-opera",
 		image: "/project-galleries/china-institute/completed-gallery-front.jpg",
-		imageAlt: "Chinese Opera: A Century of Dreams, frontal view of the completed China Institute gallery",
+		imageAlt: "Chinese Opera: A Century of Dreams — Art, Design, and Technology, frontal view of the completed China Institute gallery",
 		imageCredit: "Source: East China Normal University, School of Design",
 		status: "Completed",
 		date: "July 9–29, 2026",
-		title: "Chinese Opera: A Century of Dreams—Art, Design, and Technology",
+		title: "Chinese Opera: A Century of Dreams — Art, Design, and Technology",
 		client: "China Institute of America",
 		copy: "Field Trip fabricated 44 scenic flats and four column forms with No.4 Studio, installed June 30–July 2, and removed August 1–2, 2026. Design by East China Normal University’s School of Design and Perry Hu; produced by Yongqiang Lin.",
 		href: "/work/china-institute",
@@ -23520,11 +33871,11 @@ function NewsLeadingImage() {
 }
 //#endregion
 //#region app/news/page.tsx
-var page_exports$2 = /* @__PURE__ */ __exportAll({
+var page_exports$9 = /* @__PURE__ */ __exportAll({
 	default: () => $$wrap_NewsPage,
-	metadata: () => metadata$1
+	metadata: () => metadata$4
 });
-var metadata$1 = {
+var metadata$4 = {
 	title: "News",
 	description: "field trip studio announcements, exhibitions currently on display, press, awards and upcoming events.",
 	alternates: { canonical: "/news" }
@@ -23581,11 +33932,221 @@ function NewsPage() {
 		})
 	});
 }
-var $$wrap_NewsPage = /* @__PURE__ */ __vite_rsc_wrap_css__$1(NewsPage, "default");
-function __vite_rsc_wrap_css__$1(value, name) {
+var $$wrap_NewsPage = /* @__PURE__ */ __vite_rsc_wrap_css__$3(NewsPage, "default");
+function __vite_rsc_wrap_css__$3(value, name) {
 	if (typeof value !== "function") return value;
 	function __wrapper(props) {
-		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$1), import_react_react_server.createElement(value, props));
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$3), import_react_react_server.createElement(value, props));
+	}
+	Object.defineProperty(__wrapper, "name", { value: name });
+	return __wrapper;
+}
+//#endregion
+//#region app/objects/request-form.tsx
+var ObjectRequestForm = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'ObjectRequestForm' is called on server");
+}, "9f472d1aab02", "ObjectRequestForm");
+//#endregion
+//#region app/objects/page.tsx
+var page_exports$8 = /* @__PURE__ */ __exportAll({
+	default: () => ObjectsPage,
+	metadata: () => metadata$3
+});
+var metadata$3 = {
+	title: "Card-holder request",
+	description: "Contact field trip about your numbered studio card.",
+	robots: {
+		index: false,
+		follow: true
+	},
+	alternates: { canonical: "/objects" }
+};
+async function ObjectsPage({ searchParams }) {
+	const params = await searchParams;
+	const raw = params.ticket ?? params.number;
+	const ticket = typeof raw === "string" && /^[0-9]{4,12}$/.test(raw) ? raw : "";
+	let greeting = "";
+	if (/^[0-9]{8}$/.test(ticket)) try {
+		greeting = (await (await requestDatabase()).prepare("SELECT greeting FROM object_cards WHERE code = ?").bind(ticket).first())?.greeting ?? "";
+	} catch {}
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionFrame, {
+		current: "contact",
+		children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("main", {
+			className: "section-main section-main--wide",
+			id: "main-content",
+			tabIndex: -1,
+			children: [
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionIntro, {
+					kicker: "field trip",
+					title: "Card-holder request"
+				}),
+				greeting && /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("aside", {
+					className: "ticket-welcome",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("p", { children: ["Card ", ticket] }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: greeting })]
+				}),
+				/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("section", {
+					className: "object-request-section",
+					id: "request",
+					children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("div", { children: [
+						/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", {
+							className: "section-kicker",
+							children: "Card holders / studio visitors"
+						}),
+						/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h2", { children: "Request an object" }),
+						/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(BrandText, { children: "Enter the number on your field trip card, or leave it blank. We’ll confirm the object, availability and pickup arrangements before making a reservation." }) }),
+						/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Requests are free. A request does not guarantee an object or a collection date." }),
+						/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Your contact details are used to respond to this request. They are not shown publicly." })
+					] }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(ObjectRequestForm, { initialTicket: ticket })]
+				})
+			]
+		})
+	});
+}
+//#endregion
+//#region app/shop/page.tsx
+var page_exports$7 = /* @__PURE__ */ __exportAll({ default: () => RetiredShopPage$2 });
+function RetiredShopPage$2() {
+	redirect("/contact");
+}
+//#endregion
+//#region app/shop/request/page.tsx
+var page_exports$6 = /* @__PURE__ */ __exportAll({ default: () => RetiredShopPage$1 });
+function RetiredShopPage$1() {
+	redirect("/contact");
+}
+var Resources$2 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+	return function Resources() {
+		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
+			key: "css:" + href,
+			rel: "stylesheet",
+			...precedence ? { precedence } : {},
+			href,
+			"data-rsc-css-href": href
+		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
+	};
+})(import_react_react_server.default, assetsManifest.serverResources["app/studio-tools/page.tsx"], void 0, "vite-rsc/importer-resources");
+//#endregion
+//#region app/studio-tools/studio-controls.tsx
+var StudioControls = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'StudioControls' is called on server");
+}, "3045d328bf38", "StudioControls");
+//#endregion
+//#region app/studio-tools/shop-inbox.tsx
+var ShopInbox = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'ShopInbox' is called on server");
+}, "259afb3484dc", "ShopInbox");
+//#endregion
+//#region app/studio-tools/page.tsx
+var page_exports$5 = /* @__PURE__ */ __exportAll({
+	default: () => $$wrap_StudioTools,
+	dynamic: () => dynamic,
+	metadata: () => metadata$2
+});
+var dynamic = "force-dynamic";
+var metadata$2 = {
+	title: "Studio tools",
+	robots: {
+		index: false,
+		follow: false
+	}
+};
+async function StudioTools() {
+	if (!isEditorOwner((await requireChatGPTUser("/studio-tools")).email)) return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionFrame, { children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("main", {
+		className: "section-main",
+		id: "main-content",
+		children: [/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("h1", { children: "Studio access" }), /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("p", { children: [
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(BrandText, { children: "This area is for the Field Trip site owner. For a project inquiry, email " }),
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+				href: "mailto:info@fieldtripdesign.com",
+				children: "info@fieldtripdesign.com"
+			}),
+			"."
+		] })]
+	}) });
+	let requests = [], cards = [], unavailable = false;
+	try {
+		requests = await listObjectRequests();
+		cards = (await (await requestDatabase()).prepare("SELECT code, greeting, opens FROM object_cards ORDER BY created_at DESC LIMIT 100").all()).results;
+	} catch {
+		unavailable = true;
+	}
+	let shopRequests = [], shopUnavailable = false;
+	try {
+		shopRequests = await listShopRequests();
+	} catch {
+		shopUnavailable = true;
+	}
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionFrame, { children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("main", {
+		className: "section-main section-main--wide",
+		id: "main-content",
+		tabIndex: -1,
+		children: [
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionIntro, {
+				kicker: "Field Trip / owner access",
+				title: "Studio tools",
+				children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", { children: "Project planning, production tools and object requests." })
+			}),
+			/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsxs)("nav", {
+				className: "studio-tool-links",
+				"aria-label": "Field Trip applications",
+				children: [
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "https://field-trip-v2.adamthabo409.chatgpt.site/estimator",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						children: "Estimator"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "https://field-trip-v2.adamthabo409.chatgpt.site/tasks",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						children: "Task manager"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "https://field-trip-v2.adamthabo409.chatgpt.site/setup",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						children: "ClickUp setup"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "https://project-activation.adamthabo409.chatgpt.site",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						children: "Project dashboard"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "https://field-trip-ticket-register.adamthabo409.chatgpt.site",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						children: "Card printing"
+					}),
+					/* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("a", {
+						href: "https://field-trip-campaign-wizard.adamthabo409.chatgpt.site",
+						target: "_blank",
+						rel: "noopener noreferrer",
+						children: "Campaign tools"
+					})
+				]
+			}),
+			shopUnavailable ? /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", {
+				role: "alert",
+				children: "Shop requests are temporarily unavailable. Reload to try again."
+			}) : /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(ShopInbox, { initialRequests: shopRequests }),
+			unavailable ? /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)("p", {
+				role: "alert",
+				children: "The sample inbox is temporarily unavailable. Reload to try again."
+			}) : /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(StudioControls, {
+				initialRequests: requests,
+				initialCards: cards
+			})
+		]
+	}) });
+}
+var $$wrap_StudioTools = /* @__PURE__ */ __vite_rsc_wrap_css__$2(StudioTools, "default");
+function __vite_rsc_wrap_css__$2(value, name) {
+	if (typeof value !== "function") return value;
+	function __wrapper(props) {
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$2), import_react_react_server.createElement(value, props));
 	}
 	Object.defineProperty(__wrapper, "name", { value: name });
 	return __wrapper;
@@ -23650,7 +34211,11 @@ var categoryProjects = {
 		"m-is-for-museum",
 		"archive"
 	],
-	residential: ["david-bowie-residence", "klaus-biesenbach-residence"],
+	residential: [
+		"private-residence",
+		"david-bowie-residence",
+		"klaus-biesenbach-residence"
+	],
 	"brand-collaborations": [
 		"electric-jukebox",
 		"ascend",
@@ -23714,15 +34279,15 @@ function projectHrefWithArchive(slug, archiveHref) {
 }
 //#endregion
 //#region app/work/page.tsx
-var page_exports$1 = /* @__PURE__ */ __exportAll({
+var page_exports$4 = /* @__PURE__ */ __exportAll({
 	default: () => WorkPage,
-	metadata: () => metadata
+	metadata: () => metadata$1
 });
 var projectsByYear = [...publishedProjects].sort((a, b) => {
 	const aYear = Number(a.date.match(/\b(?:19|20)\d{2}\b/)?.[0] ?? 0);
 	return Number(b.date.match(/\b(?:19|20)\d{2}\b/)?.[0] ?? 0) - aYear;
 });
-var metadata = {
+var metadata$1 = {
 	title: "Projects",
 	description: "Exhibition design, museum casework, artwork fabrication and interactive installations by field trip and its collaborators.",
 	alternates: { canonical: "/work" }
@@ -23813,6 +34378,79 @@ async function WorkPage({ searchParams }) {
 			]
 		})
 	});
+}
+//#endregion
+//#region app/work/images/page.tsx
+var page_exports$3 = /* @__PURE__ */ __exportAll({ default: () => ImageInventoryPage });
+function ImageInventoryPage() {
+	notFound();
+}
+var Resources$1 = ((React, deps, RemoveDuplicateServerCss, precedence) => {
+	return function Resources() {
+		return React.createElement(React.Fragment, null, [...deps.css.map((href) => React.createElement("link", {
+			key: "css:" + href,
+			rel: "stylesheet",
+			...precedence ? { precedence } : {},
+			href,
+			"data-rsc-css-href": href
+		})), RemoveDuplicateServerCss && React.createElement(RemoveDuplicateServerCss, { key: "remove-duplicate-css" })]);
+	};
+})(import_react_react_server.default, assetsManifest.serverResources["app/work/private-residence/page.tsx"], void 0, "vite-rsc/importer-resources");
+//#endregion
+//#region app/work/private-residence/gallery.tsx
+var ResidenceGallery = /* @__PURE__ */ registerClientReference(() => {
+	throw new Error("Unexpectedly client reference export 'ResidenceGallery' is called on server");
+}, "ec9e25dba902", "ResidenceGallery");
+//#endregion
+//#region app/work/private-residence/page.tsx
+var page_exports$2 = /* @__PURE__ */ __exportAll({
+	default: () => $$wrap_PrivateResidence,
+	metadata: () => metadata
+});
+var metadata = {
+	title: "Private Residence",
+	description: "Wall lath reclaimed from the original nineteenth-century Victorian residence in Oakland was laminated through multiple glue-ups to create the kitchen’s door and drawer facings. All lath was salvaged from the house, and the completed facings were finished with Rubio.",
+	alternates: { canonical: "/work/private-residence" }
+};
+function PrivateResidence() {
+	return /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(SectionFrame, {
+		current: "work",
+		children: /* @__PURE__ */ (0, import_jsx_runtime_react_server.jsx)(ResidenceGallery, {})
+	});
+}
+var $$wrap_PrivateResidence = /* @__PURE__ */ __vite_rsc_wrap_css__$1(PrivateResidence, "default");
+function __vite_rsc_wrap_css__$1(value, name) {
+	if (typeof value !== "function") return value;
+	function __wrapper(props) {
+		return import_react_react_server.createElement(import_react_react_server.Fragment, null, import_react_react_server.createElement(Resources$1), import_react_react_server.createElement(value, props));
+	}
+	Object.defineProperty(__wrapper, "name", { value: name });
+	return __wrapper;
+}
+//#endregion
+//#region app/shop/[slug]/page.tsx
+var page_exports$1 = /* @__PURE__ */ __exportAll({ default: () => RetiredShopPage });
+function RetiredShopPage() {
+	redirect("/contact");
+}
+//#endregion
+//#region app/t/[code]/route.ts
+var route_exports = /* @__PURE__ */ __exportAll({ GET: () => GET });
+async function GET(request, { params }) {
+	const { code } = await params;
+	if (!/^\d{8}$/.test(code)) return new Response("Card not found", { status: 404 });
+	try {
+		if (!await (await requestDatabase()).prepare("UPDATE object_cards SET opens = opens + 1 WHERE code = ? RETURNING code").bind(code).first()) return new Response("Card not found. Visit /objects to request a sample.", { status: 404 });
+		return new Response(null, {
+			status: 302,
+			headers: {
+				Location: `/objects?ticket=${code}`,
+				"Cache-Control": "no-store"
+			}
+		});
+	} catch {
+		return new Response("The card is temporarily unavailable. Please visit /objects or try again.", { status: 503 });
+	}
 }
 var Resources = ((React, deps, RemoveDuplicateServerCss, precedence) => {
 	return function Resources() {
@@ -24573,17 +35211,6 @@ function __resolveRouteFetchCacheMode(route) {
 }
 function __VINEXT_CLASS(routeIdx) { return ((routeIdx) => {
     switch (routeIdx) {
-      case 0: return new Map([[0, "static"]]);
-      case 1: return new Map([[0, "static"]]);
-      case 2: return new Map([[0, "static"]]);
-      case 3: return new Map([[0, "static"]]);
-      case 4: return new Map([[0, "static"]]);
-      case 5: return new Map([[0, "static"]]);
-      case 6: return new Map([[0, "static"]]);
-      case 7: return new Map([[0, "static"]]);
-      case 8: return new Map([[0, "static"]]);
-      case 9: return new Map([[0, "static"]]);
-      case 10: return new Map([[0, "static"]]);
       default: return null;
     }
   })(routeIdx); }
@@ -24608,7 +35235,7 @@ var routes = [
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$10,
+		page: page_exports$19,
 		routeHandler: null,
 		layouts: [layout_exports],
 		routeSegments: [],
@@ -24645,7 +35272,7 @@ var routes = [
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$9,
+		page: page_exports$18,
 		routeHandler: null,
 		layouts: [layout_exports],
 		routeSegments: ["about"],
@@ -24682,7 +35309,7 @@ var routes = [
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$8,
+		page: page_exports$17,
 		routeHandler: null,
 		layouts: [layout_exports],
 		routeSegments: ["about", "rca-exhibition-design"],
@@ -24719,7 +35346,7 @@ var routes = [
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$7,
+		page: page_exports$16,
 		routeHandler: null,
 		layouts: [layout_exports],
 		routeSegments: ["about", "risd-printmaking"],
@@ -24743,23 +35370,23 @@ var routes = [
 		__buildTimeClassifications: __VINEXT_CLASS(4),
 		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(4) : null,
 		ids: {
-			"route": "route:/capabilities",
-			"page": "page:/capabilities",
-			"routeHandler": null,
+			"route": "route:/api/editor",
+			"page": null,
+			"routeHandler": "route-handler:/api/editor",
 			"rootBoundary": "root-boundary:/",
 			"layouts": ["layout:/"],
 			"templates": [],
 			"slots": {}
 		},
-		pattern: "/capabilities",
-		patternParts: ["capabilities"],
+		pattern: "/api/editor",
+		patternParts: ["api", "editor"],
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$5,
-		routeHandler: null,
+		page: null,
+		routeHandler: route_exports$8,
 		layouts: [layout_exports],
-		routeSegments: ["capabilities"],
+		routeSegments: ["api", "editor"],
 		templateTreePositions: [],
 		layoutTreePositions: [0],
 		templates: [],
@@ -24780,23 +35407,31 @@ var routes = [
 		__buildTimeClassifications: __VINEXT_CLASS(5),
 		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(5) : null,
 		ids: {
-			"route": "route:/contact",
-			"page": "page:/contact",
-			"routeHandler": null,
+			"route": "route:/api/editor/images",
+			"page": null,
+			"routeHandler": "route-handler:/api/editor/images",
 			"rootBoundary": "root-boundary:/",
 			"layouts": ["layout:/"],
 			"templates": [],
 			"slots": {}
 		},
-		pattern: "/contact",
-		patternParts: ["contact"],
+		pattern: "/api/editor/images",
+		patternParts: [
+			"api",
+			"editor",
+			"images"
+		],
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$4,
-		routeHandler: null,
+		page: null,
+		routeHandler: route_exports$7,
 		layouts: [layout_exports],
-		routeSegments: ["contact"],
+		routeSegments: [
+			"api",
+			"editor",
+			"images"
+		],
 		templateTreePositions: [],
 		layoutTreePositions: [0],
 		templates: [],
@@ -24817,23 +35452,23 @@ var routes = [
 		__buildTimeClassifications: __VINEXT_CLASS(6),
 		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(6) : null,
 		ids: {
-			"route": "route:/entrance",
-			"page": "page:/entrance",
-			"routeHandler": null,
+			"route": "route:/api/object-cards",
+			"page": null,
+			"routeHandler": "route-handler:/api/object-cards",
 			"rootBoundary": "root-boundary:/",
 			"layouts": ["layout:/"],
 			"templates": [],
 			"slots": {}
 		},
-		pattern: "/entrance",
-		patternParts: ["entrance"],
+		pattern: "/api/object-cards",
+		patternParts: ["api", "object-cards"],
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$3,
-		routeHandler: null,
+		page: null,
+		routeHandler: route_exports$6,
 		layouts: [layout_exports],
-		routeSegments: ["entrance"],
+		routeSegments: ["api", "object-cards"],
 		templateTreePositions: [],
 		layoutTreePositions: [0],
 		templates: [],
@@ -24854,23 +35489,31 @@ var routes = [
 		__buildTimeClassifications: __VINEXT_CLASS(7),
 		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(7) : null,
 		ids: {
-			"route": "route:/home",
-			"page": "page:/home",
-			"routeHandler": null,
+			"route": "route:/api/object-cards/qr",
+			"page": null,
+			"routeHandler": "route-handler:/api/object-cards/qr",
 			"rootBoundary": "root-boundary:/",
 			"layouts": ["layout:/"],
 			"templates": [],
 			"slots": {}
 		},
-		pattern: "/home",
-		patternParts: ["home"],
+		pattern: "/api/object-cards/qr",
+		patternParts: [
+			"api",
+			"object-cards",
+			"qr"
+		],
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$6,
-		routeHandler: null,
+		page: null,
+		routeHandler: route_exports$5,
 		layouts: [layout_exports],
-		routeSegments: ["home"],
+		routeSegments: [
+			"api",
+			"object-cards",
+			"qr"
+		],
 		templateTreePositions: [],
 		layoutTreePositions: [0],
 		templates: [],
@@ -24891,23 +35534,23 @@ var routes = [
 		__buildTimeClassifications: __VINEXT_CLASS(8),
 		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(8) : null,
 		ids: {
-			"route": "route:/news",
-			"page": "page:/news",
-			"routeHandler": null,
+			"route": "route:/api/object-requests",
+			"page": null,
+			"routeHandler": "route-handler:/api/object-requests",
 			"rootBoundary": "root-boundary:/",
 			"layouts": ["layout:/"],
 			"templates": [],
 			"slots": {}
 		},
-		pattern: "/news",
-		patternParts: ["news"],
+		pattern: "/api/object-requests",
+		patternParts: ["api", "object-requests"],
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$2,
-		routeHandler: null,
+		page: null,
+		routeHandler: route_exports$4,
 		layouts: [layout_exports],
-		routeSegments: ["news"],
+		routeSegments: ["api", "object-requests"],
 		templateTreePositions: [],
 		layoutTreePositions: [0],
 		templates: [],
@@ -24928,6 +35571,540 @@ var routes = [
 		__buildTimeClassifications: __VINEXT_CLASS(9),
 		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(9) : null,
 		ids: {
+			"route": "route:/api/object-requests/status",
+			"page": null,
+			"routeHandler": "route-handler:/api/object-requests/status",
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/api/object-requests/status",
+		patternParts: [
+			"api",
+			"object-requests",
+			"status"
+		],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: null,
+		routeHandler: route_exports$3,
+		layouts: [layout_exports],
+		routeSegments: [
+			"api",
+			"object-requests",
+			"status"
+		],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(10),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(10) : null,
+		ids: {
+			"route": "route:/api/shop-requests",
+			"page": null,
+			"routeHandler": "route-handler:/api/shop-requests",
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/api/shop-requests",
+		patternParts: ["api", "shop-requests"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: null,
+		routeHandler: route_exports$2,
+		layouts: [layout_exports],
+		routeSegments: ["api", "shop-requests"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(11),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(11) : null,
+		ids: {
+			"route": "route:/api/shop-requests/status",
+			"page": null,
+			"routeHandler": "route-handler:/api/shop-requests/status",
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/api/shop-requests/status",
+		patternParts: [
+			"api",
+			"shop-requests",
+			"status"
+		],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: null,
+		routeHandler: route_exports$1,
+		layouts: [layout_exports],
+		routeSegments: [
+			"api",
+			"shop-requests",
+			"status"
+		],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(12),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(12) : null,
+		ids: {
+			"route": "route:/capabilities",
+			"page": "page:/capabilities",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/capabilities",
+		patternParts: ["capabilities"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$14,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["capabilities"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(13),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(13) : null,
+		ids: {
+			"route": "route:/contact",
+			"page": "page:/contact",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/contact",
+		patternParts: ["contact"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$13,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["contact"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(14),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(14) : null,
+		ids: {
+			"route": "route:/entrance",
+			"page": "page:/entrance",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/entrance",
+		patternParts: ["entrance"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$12,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["entrance"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(15),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(15) : null,
+		ids: {
+			"route": "route:/estimator",
+			"page": "page:/estimator",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/estimator",
+		patternParts: ["estimator"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$11,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["estimator"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(16),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(16) : null,
+		ids: {
+			"route": "route:/footer-study",
+			"page": "page:/footer-study",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/footer-study",
+		patternParts: ["footer-study"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$10,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["footer-study"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(17),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(17) : null,
+		ids: {
+			"route": "route:/home",
+			"page": "page:/home",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/home",
+		patternParts: ["home"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$15,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["home"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(18),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(18) : null,
+		ids: {
+			"route": "route:/news",
+			"page": "page:/news",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/news",
+		patternParts: ["news"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$9,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["news"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(19),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(19) : null,
+		ids: {
+			"route": "route:/objects",
+			"page": "page:/objects",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/objects",
+		patternParts: ["objects"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$8,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["objects"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(20),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(20) : null,
+		ids: {
+			"route": "route:/shop",
+			"page": "page:/shop",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/shop",
+		patternParts: ["shop"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$7,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["shop"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(21),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(21) : null,
+		ids: {
+			"route": "route:/shop/request",
+			"page": "page:/shop/request",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/shop/request",
+		patternParts: ["shop", "request"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$6,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["shop", "request"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(22),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(22) : null,
+		ids: {
+			"route": "route:/studio-tools",
+			"page": "page:/studio-tools",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/studio-tools",
+		patternParts: ["studio-tools"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$5,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["studio-tools"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(23),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(23) : null,
+		ids: {
 			"route": "route:/work",
 			"page": "page:/work",
 			"routeHandler": null,
@@ -24941,7 +36118,7 @@ var routes = [
 		isDynamic: false,
 		params: [],
 		rootParamNames: [],
-		page: page_exports$1,
+		page: page_exports$4,
 		routeHandler: null,
 		layouts: [layout_exports],
 		routeSegments: ["work"],
@@ -24962,8 +36139,156 @@ var routes = [
 		unauthorizeds: [null]
 	},
 	{
-		__buildTimeClassifications: __VINEXT_CLASS(10),
-		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(10) : null,
+		__buildTimeClassifications: __VINEXT_CLASS(24),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(24) : null,
+		ids: {
+			"route": "route:/work/images",
+			"page": "page:/work/images",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/work/images",
+		patternParts: ["work", "images"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$3,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["work", "images"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(25),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(25) : null,
+		ids: {
+			"route": "route:/work/private-residence",
+			"page": "page:/work/private-residence",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/work/private-residence",
+		patternParts: ["work", "private-residence"],
+		isDynamic: false,
+		params: [],
+		rootParamNames: [],
+		page: page_exports$2,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["work", "private-residence"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(26),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(26) : null,
+		ids: {
+			"route": "route:/shop/:slug",
+			"page": "page:/shop/:slug",
+			"routeHandler": null,
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/shop/:slug",
+		patternParts: ["shop", ":slug"],
+		isDynamic: true,
+		params: ["slug"],
+		rootParamNames: [],
+		page: page_exports$1,
+		routeHandler: null,
+		layouts: [layout_exports],
+		routeSegments: ["shop", "[slug]"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(27),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(27) : null,
+		ids: {
+			"route": "route:/t/:code",
+			"page": null,
+			"routeHandler": "route-handler:/t/:code",
+			"rootBoundary": "root-boundary:/",
+			"layouts": ["layout:/"],
+			"templates": [],
+			"slots": {}
+		},
+		pattern: "/t/:code",
+		patternParts: ["t", ":code"],
+		isDynamic: true,
+		params: ["code"],
+		rootParamNames: [],
+		page: null,
+		routeHandler: route_exports,
+		layouts: [layout_exports],
+		routeSegments: ["t", "[code]"],
+		templateTreePositions: [],
+		layoutTreePositions: [0],
+		templates: [],
+		errors: [null],
+		errorPaths: [],
+		errorTreePositions: [],
+		slots: {},
+		loading: null,
+		error: null,
+		notFound: not_found_exports,
+		notFounds: [not_found_exports],
+		forbidden: null,
+		forbiddens: [null],
+		unauthorized: null,
+		unauthorizeds: [null]
+	},
+	{
+		__buildTimeClassifications: __VINEXT_CLASS(28),
+		__buildTimeReasons: __classDebug ? __VINEXT_CLASS_REASONS(28) : null,
 		ids: {
 			"route": "route:/work/:slug",
 			"page": "page:/work/:slug",
@@ -25088,6 +36413,7 @@ var __configRewrites = {
 };
 var __configHeaders = [];
 var __publicFiles = new Set([
+	"/.field-trip-master-mobile-v25.png.NE5gI5",
 	"/agency-logos/akqa.svg",
 	"/agency-logos/mkg.png",
 	"/agency-logos/pink-sparrow.svg",
@@ -25771,6 +37097,13 @@ var __publicFiles = new Set([
 	"/project-galleries/on-becoming-an-artist/02.webp",
 	"/project-galleries/on-becoming-an-artist/03.webp",
 	"/project-galleries/on-becoming-an-artist/04.webp",
+	"/project-galleries/private-residence/01.jpg",
+	"/project-galleries/private-residence/02.jpg",
+	"/project-galleries/private-residence/03.jpg",
+	"/project-galleries/private-residence/04.jpg",
+	"/project-galleries/private-residence/05.jpg",
+	"/project-galleries/private-residence/06.jpg",
+	"/project-galleries/private-residence/07.jpg",
 	"/project-galleries/sacred-splendor/01.jpg",
 	"/project-galleries/sacred-splendor/02.jpg",
 	"/project-galleries/sacred-splendor/03.jpg",
@@ -26237,12 +37570,15 @@ var _virtual_vinext_rsc_entry_default = createAppRscHandler({
 	},
 	rootParamNamesByPattern: {},
 	setNavigationContext: setAppNavigationContext,
-	staticParamsMap: { "/work/:slug": generateStaticParams ?? null },
+	staticParamsMap: {
+		"/shop/:slug": null,
+		"/work/:slug": generateStaticParams ?? null
+	},
 	trailingSlash: __trailingSlash,
 	validateDevRequestOrigin: __validateDevRequestOrigin
 });
 //#endregion
-//#region ../fieldtrip-v574/node_modules/vinext/dist/server/app-router-entry.js
+//#region node_modules/vinext/dist/server/app-router-entry.js
 /**
 * Default Cloudflare Worker entry point for vinext App Router.
 *
@@ -26291,7 +37627,7 @@ function prepareStandaloneRequest(request, enabled) {
 	if (!enabled) return request;
 	let path = new URL(request.url).pathname;
 	try {
-		path = decodeURIComponent(path).replace(/\/+/g, "/").replace(/\/$/, "").replace(/\.rsc$/, "");
+		path = decodeURIComponent(path).replace(/\/+/g, "/").replace(/\/$/, "");
 	} catch {
 		return new Response("Not found", { status: 404 });
 	}
@@ -26301,10 +37637,7 @@ function prepareStandaloneRequest(request, enabled) {
 		"/t",
 		"/signin-with-chatgpt",
 		"/signout-with-chatgpt",
-		"/callback",
-		"/work/images",
-		"/estimator",
-		"/footer-study"
+		"/callback"
 	].some((root) => path === root || path.startsWith(`${root}/`))) return new Response("Not found", {
 		status: 404,
 		headers: { "Cache-Control": "private, no-store" }
@@ -26316,7 +37649,7 @@ function prepareStandaloneRequest(request, enabled) {
 //#endregion
 //#region \0virtual:cloudflare/worker-entry
 var worker_entry_default = { async fetch(request, env, ctx) {
-	const prepared = prepareStandaloneRequest(request, true);
+	const prepared = prepareStandaloneRequest(request, env.FIELDTRIP_STANDALONE === "1");
 	if (prepared instanceof Response) return prepared;
 	request = prepared;
 	const url = new URL(request.url);
@@ -26365,11 +37698,18 @@ var worker_entry_default = { async fetch(request, env, ctx) {
 		status: 301,
 		headers: { Location: redirects[normalizedPath] + url.search }
 	});
-	if (url.pathname === "/_vinext/image") return new Response("Not found", { status: 404 });
-	if ((normalizedPath === "/objects" || normalizedPath.startsWith("/objects/")) && ["GET", "HEAD"].includes(request.method)) return new Response(null, {
-		status: 302,
-		headers: { Location: "/contact" }
-	});
+	if (url.pathname === "/_vinext/image") {
+		const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
+		return handleImageOptimization(request, {
+			fetchAsset: (path) => env.ASSETS.fetch(new Request(new URL(path, request.url))),
+			transformImage: async (body, { width, format, quality }) => {
+				return (await env.IMAGES.input(body).transform(width > 0 ? { width } : {}).output({
+					format,
+					quality
+				})).response();
+			}
+		}, allowedWidths);
+	}
 	const response = await app_router_entry_default.fetch(request, env, ctx);
 	if (url.pathname.startsWith("/studio-tools") || url.pathname.startsWith("/api/object-requests") || url.pathname === "/api/object-cards") {
 		const protectedResponse = new Response(response.body, response);

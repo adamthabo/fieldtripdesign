@@ -1,20 +1,20 @@
 export default {
-  "bootstrapScriptContent": "import(\"/assets/index-WawYrrAd-autoplay1.js\")",
+  "bootstrapScriptContent": "import(\"/assets/index-T2OQ6td2.js\")",
   "clientReferenceDeps": {
     "940e0de65e88": {
       "js": [
         "/assets/capability-anchors-BylvFFyX.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": []
     },
     "6dde22f37187": {
       "js": [
-        "/assets/chameleon-wordmark-BpVz3aec-autoplay1.js",
+        "/assets/chameleon-wordmark-Bv4p3jBG.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
@@ -24,62 +24,78 @@ export default {
         "/assets/color-theme-_OQbZFPL.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": []
     },
     "a5dbec3c8d9d": {
       "js": [
-        "/assets/complementary-colors-CXBEv4r7-autoplay1.js",
+        "/assets/complementary-colors-dSN66CCl.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
     },
     "adebd0ee59eb": {
       "js": [
-        "/assets/project-brief-dOll2dyo.js",
+        "/assets/project-brief-AJiB7cVX.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
+        "/assets/textarea-CpYtL2Km.js",
         "/assets/utils-BqdF6cM_.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
+      ],
+      "css": []
+    },
+    "9d4b78043551": {
+      "js": [
+        "/assets/editor-shell-6Xd6FJFN.js",
+        "/assets/rolldown-runtime-S-ySWqyJ.js",
+        "/assets/index-T2OQ6td2.js",
+        "/assets/framework-CXnKph_e.js",
+        "/assets/button-CfmuHrFm.js",
+        "/assets/utils-BqdF6cM_.js",
+        "/assets/dist-CY-ixoiK.js",
+        "/assets/dist-DuLpYydG.js",
+        "/assets/x-DqkdE5AF.js",
+        "/assets/createLucideIcon-7N_3PleG.js"
       ],
       "css": []
     },
     "d1d4a134ddb3": {
       "js": [
-        "/assets/header-menu-DVXtfUPk-autoplay1.js",
+        "/assets/header-menu-CFKgzs4c.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/link-CmbG7NRD-autoplay1.js"
+        "/assets/link-gaaWBYhL.js"
       ],
       "css": []
     },
     "3131aab6be57": {
       "js": [
-        "/assets/header-scroll-offset-Cv1vvfxy.js",
+        "/assets/header-scroll-offset-DeKlyY6q.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": []
     },
     "4e53140a2f13": {
       "js": [
-        "/assets/desktop-home-films-C6rhYUxK-autoplay1.js",
+        "/assets/desktop-home-films-DwCvJ1D-.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/image-catalog-B4-Y1HMF.js",
-        "/assets/core-nyc-media-BcR7VisQ.js",
-        "/assets/verified-image-credits-Bj9pwluZ.js",
-        "/assets/field-trip-name--QdBMp7U.js",
+        "/assets/image-catalog-DMxnBbj-.js",
+        "/assets/core-nyc-media-RE1JSHgd.js",
+        "/assets/verified-image-credits-ylJ0Uauh.js",
+        "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/home-video-sequence-D50dtifk-autoplay1.js",
-        "/assets/archive-vimeo-Cx9FFbQM-autoplay1.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
-        "/assets/project-caption-QmrOEeOg.js",
-        "/assets/reel-fullscreen-button-DFQFqtZo.js"
+        "/assets/home-video-sequence-P0ckMocu.js",
+        "/assets/archive-vimeo-BBgM2zyG.js",
+        "/assets/index-T2OQ6td2.js",
+        "/assets/project-caption-poSWGFHI.js",
+        "/assets/reel-fullscreen-button-kDrKLMeE.js"
       ],
       "css": [
         "/assets/desktop-home-films-Czq1j_Ll.css",
@@ -88,12 +104,12 @@ export default {
     },
     "a7a2f223b383": {
       "js": [
-        "/assets/on-display-carousel-CwhtoRdM.js",
+        "/assets/on-display-carousel-D9uJE3c7.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/image-credit-policy-DDKKWur1.js",
-        "/assets/reel-fullscreen-button-DFQFqtZo.js",
+        "/assets/image-credit-policy-C7ojE7ol.js",
+        "/assets/reel-fullscreen-button-kDrKLMeE.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": [
         "/assets/reel-fullscreen-button-BLUj-fRd.css"
@@ -101,123 +117,186 @@ export default {
     },
     "bfdf0cdb8209": {
       "js": [
-        "/assets/landing-reel-D0RsfE5I-autoplay1.js",
+        "/assets/landing-reel-BnDn_dZv.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/core-nyc-media-BcR7VisQ.js",
-        "/assets/field-trip-name--QdBMp7U.js",
+        "/assets/core-nyc-media-RE1JSHgd.js",
+        "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/home-video-sequence-D50dtifk-autoplay1.js",
-        "/assets/archive-vimeo-Cx9FFbQM-autoplay1.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
-        "/assets/image-credit-policy-DDKKWur1.js",
-        "/assets/project-caption-QmrOEeOg.js",
-        "/assets/project-title-B0bEZ937.js",
-        "/assets/reel-fullscreen-button-DFQFqtZo.js"
+        "/assets/home-video-sequence-P0ckMocu.js",
+        "/assets/archive-vimeo-BBgM2zyG.js",
+        "/assets/index-T2OQ6td2.js",
+        "/assets/image-credit-policy-C7ojE7ol.js",
+        "/assets/project-caption-poSWGFHI.js",
+        "/assets/project-title-B8g49iZv.js",
+        "/assets/reel-fullscreen-button-kDrKLMeE.js"
       ],
       "css": [
         "/assets/landing-reel-wdaXh3OY.css",
         "/assets/reel-fullscreen-button-BLUj-fRd.css"
       ]
     },
+    "9f472d1aab02": {
+      "js": [
+        "/assets/request-form-xb_1Ch26.js",
+        "/assets/rolldown-runtime-S-ySWqyJ.js",
+        "/assets/field-trip-name-BZ06n7Fu.js",
+        "/assets/framework-CXnKph_e.js",
+        "/assets/button-CfmuHrFm.js",
+        "/assets/utils-BqdF6cM_.js",
+        "/assets/dist-CY-ixoiK.js",
+        "/assets/input-DW14JYzk.js",
+        "/assets/native-select-d1rPnUJL.js",
+        "/assets/createLucideIcon-7N_3PleG.js",
+        "/assets/textarea-CpYtL2Km.js",
+        "/assets/index-T2OQ6td2.js"
+      ],
+      "css": []
+    },
     "f5ddc2e52535": {
       "js": [
-        "/assets/page-section-navigation-2jMVaN7b.js",
+        "/assets/page-section-navigation-BPzD-7t4.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/field-trip-name--QdBMp7U.js",
+        "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": []
     },
     "6c2c9b01870e": {
       "js": [
-        "/assets/project-photo-motion-B2-ds7pR-autoplay1.js",
+        "/assets/project-photo-motion-BCxIhfVt.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/framework-CXnKph_e.js"
+      ],
+      "css": []
+    },
+    "259afb3484dc": {
+      "js": [
+        "/assets/shop-inbox-CT00Jesl.js",
+        "/assets/rolldown-runtime-S-ySWqyJ.js",
+        "/assets/button-CfmuHrFm.js",
+        "/assets/utils-BqdF6cM_.js",
+        "/assets/dist-CY-ixoiK.js",
+        "/assets/framework-CXnKph_e.js",
+        "/assets/index-T2OQ6td2.js"
+      ],
+      "css": []
+    },
+    "3045d328bf38": {
+      "js": [
+        "/assets/studio-controls-DRN1JErh.js",
+        "/assets/rolldown-runtime-S-ySWqyJ.js",
+        "/assets/button-CfmuHrFm.js",
+        "/assets/utils-BqdF6cM_.js",
+        "/assets/dist-CY-ixoiK.js",
+        "/assets/framework-CXnKph_e.js",
+        "/assets/input-DW14JYzk.js",
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": []
     },
     "75a9cb13681b": {
       "js": [
-        "/assets/theme-artwork-3yXpZkR9.js",
+        "/assets/theme-artwork-BM9srxBV.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": []
     },
     "98996e1f0272": {
       "js": [
-        "/assets/archive-explorer-B48GENQr-autoplay1.js",
+        "/assets/archive-explorer-Bg90Uppd.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/core-nyc-media-BcR7VisQ.js",
-        "/assets/image-catalog-B4-Y1HMF.js",
-        "/assets/verified-image-credits-Bj9pwluZ.js",
-        "/assets/field-trip-name--QdBMp7U.js",
+        "/assets/core-nyc-media-RE1JSHgd.js",
+        "/assets/image-catalog-DMxnBbj-.js",
+        "/assets/verified-image-credits-ylJ0Uauh.js",
+        "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/dist-DMe5_7ii.js",
-        "/assets/image-credit-policy-DDKKWur1.js",
+        "/assets/motion-image-BtbRm0n5.js",
+        "/assets/image-credit-policy-C7ojE7ol.js",
+        "/assets/project-caption-poSWGFHI.js",
+        "/assets/project-title-B8g49iZv.js",
+        "/assets/input-DW14JYzk.js",
         "/assets/utils-BqdF6cM_.js",
-        "/assets/project-caption-QmrOEeOg.js",
-        "/assets/project-title-B0bEZ937.js",
-        "/assets/link-CmbG7NRD-autoplay1.js",
-        "/assets/index-WawYrrAd-autoplay1.js"
+        "/assets/native-select-d1rPnUJL.js",
+        "/assets/createLucideIcon-7N_3PleG.js",
+        "/assets/dist-DuLpYydG.js",
+        "/assets/dist-CY-ixoiK.js",
+        "/assets/link-gaaWBYhL.js",
+        "/assets/index-T2OQ6td2.js"
       ],
       "css": [
         "/assets/archive-explorer-CmsICZr7.css"
       ]
     },
+    "ec9e25dba902": {
+      "js": [
+        "/assets/gallery-BxndN9Su.js",
+        "/assets/rolldown-runtime-S-ySWqyJ.js",
+        "/assets/framework-CXnKph_e.js",
+        "/assets/index-T2OQ6td2.js"
+      ],
+      "css": [
+        "/assets/gallery-DRq9nw5M.css"
+      ]
+    },
     "fe8329376085": {
       "js": [
-        "/assets/project-image-archive-D2vuOYd--autoplay1.js",
+        "/assets/project-image-archive-BbzH-r9W.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/field-trip-name--QdBMp7U.js",
+        "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/archive-vimeo-Cx9FFbQM-autoplay1.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
-        "/assets/image-credit-policy-DDKKWur1.js",
-        "/assets/dist-DMe5_7ii.js",
-        "/assets/verified-image-credits-Bj9pwluZ.js",
+        "/assets/archive-vimeo-BBgM2zyG.js",
+        "/assets/index-T2OQ6td2.js",
+        "/assets/image-credit-policy-C7ojE7ol.js",
+        "/assets/motion-image-BtbRm0n5.js",
+        "/assets/verified-image-credits-ylJ0Uauh.js",
+        "/assets/project-caption-poSWGFHI.js",
+        "/assets/project-title-B8g49iZv.js",
+        "/assets/reel-fullscreen-button-kDrKLMeE.js",
+        "/assets/button-CfmuHrFm.js",
         "/assets/utils-BqdF6cM_.js",
-        "/assets/project-caption-QmrOEeOg.js",
-        "/assets/project-title-B0bEZ937.js",
-        "/assets/reel-fullscreen-button-DFQFqtZo.js"
+        "/assets/dist-CY-ixoiK.js",
+        "/assets/x-DqkdE5AF.js",
+        "/assets/dist-DuLpYydG.js",
+        "/assets/createLucideIcon-7N_3PleG.js"
       ],
       "css": [
         "/assets/project-image-archive-s1Hhu1v1.css",
         "/assets/reel-fullscreen-button-BLUj-fRd.css"
       ]
     },
-    "95c4f645ec6e": {
+    "593f344dc510": {
       "js": [
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
     },
-    "2e1023663a5b": {
+    "15c18cfaeeff": {
       "js": [
-        "/assets/layout-segment-context-C4B2m5w8-autoplay1.js",
+        "/assets/layout-segment-context-BHuoiSKR.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
     },
     "c2747888630f": {
       "js": [
-        "/assets/link-CmbG7NRD-autoplay1.js",
+        "/assets/link-gaaWBYhL.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
     },
-    "8616e93aab13": {
+    "8c0f216c4604": {
       "js": [
-        "/assets/index-WawYrrAd-autoplay1.js",
+        "/assets/index-T2OQ6td2.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js"
       ],
@@ -228,37 +307,55 @@ export default {
     "app/contact/page.tsx": {
       "js": [],
       "css": [
-        "/assets/index-DkZevx7d.css"
+        "/assets/index-CLCEweB_.css"
+      ]
+    },
+    "app/footer-study/page.tsx": {
+      "js": [],
+      "css": [
+        "/assets/index-CLCEweB_.css"
       ]
     },
     "app/home/currently-on-display.tsx": {
       "js": [],
       "css": [
-        "/assets/index-DkZevx7d.css"
+        "/assets/index-CLCEweB_.css"
       ]
     },
     "app/home/page.tsx": {
       "js": [],
       "css": [
-        "/assets/index-DkZevx7d.css"
+        "/assets/index-CLCEweB_.css"
       ]
     },
     "app/layout.tsx": {
       "js": [],
       "css": [
-        "/assets/index-DkZevx7d.css"
+        "/assets/index-CLCEweB_.css"
       ]
     },
     "app/news/page.tsx": {
       "js": [],
       "css": [
-        "/assets/index-DkZevx7d.css"
+        "/assets/index-CLCEweB_.css"
+      ]
+    },
+    "app/studio-tools/page.tsx": {
+      "js": [],
+      "css": [
+        "/assets/index-CLCEweB_.css"
       ]
     },
     "app/work/[slug]/page.tsx": {
       "js": [],
       "css": [
-        "/assets/index-DkZevx7d.css"
+        "/assets/index-CLCEweB_.css"
+      ]
+    },
+    "app/work/private-residence/page.tsx": {
+      "js": [],
+      "css": [
+        "/assets/index-CLCEweB_.css"
       ]
     }
   }
