@@ -1,10 +1,11 @@
 {
-  "prepared_at": "2026-11-07",
-  "source_commit": "16d76accdb971cbffaca2a5e0868fd8557f58c24",
+  "prepared_at": "2026-11-08",
+  "source_commit": "a1f5df93a4f882c695efd4d8ec972d2468c9369f",
   "target_worker": "fieldtripdesign",
-  "status": "prepared; not deployed",
-  "previous_github_commit": "52a711884df9bbcaa6e5b2cfaae1802e05585252",
+  "status": "validated release",
+  "previous_github_commit": "0ca8a12f8d3298b5ea0df3411c2001085e6e2ae4",
   "changes": [
+    "Place Private Residence immediately after Klaus Biesenbach Residence on Projects and in the Residential filter",
     "Private Residence, Oakland, California, 2023",
     "Seven approved images; 01\u201307 only",
     "Residential project listing",
@@ -16,6 +17,12 @@
     "projectPages": 38,
     "privateRoutes": "blocked",
     "residenceGallery": "seven numbered images; no titles or diagram",
-    "wranglerDryRun": "passed"
+    "wranglerDryRun": "passed",
+    "projectOrder": [
+      "david-bowie-residence",
+      "klaus-biesenbach-residence",
+      "private-residence"
+    ],
+    "buildOnlyPrerenderMetadata": "excluded"
   }
 }
