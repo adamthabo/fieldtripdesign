@@ -1,0 +1,1 @@
+import{r as e}from"./framework-CXnKph_e.js";import{t}from"./field-trip-name-BZ06n7Fu.js";var n=e();function r({title:e}){return e===`TUMI at Tribeca Film Festival`?(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t,{children:`TUMI`}),(0,n.jsx)(`span`,{className:`project-title-context`,children:` at Tribeca Film Festival`})]}):(0,n.jsx)(t,{children:e})}export{r as t};
