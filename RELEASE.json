@@ -1,10 +1,13 @@
 {
   "prepared_at": "2026-11-08",
-  "source_commit": "a1f5df93a4f882c695efd4d8ec972d2468c9369f",
+  "source_commit": "77dd103bfb0d5eb4b02c63b27ea6cbade07b7382",
   "target_worker": "fieldtripdesign",
   "status": "validated release",
-  "previous_github_commit": "0ca8a12f8d3298b5ea0df3411c2001085e6e2ae4",
+  "previous_github_commit": "1dcf51aa670aa4d0cf9feabc1bfa19ee5b042f9c",
   "changes": [
+    "Update Instagram to https://www.instagram.com/field_trip_design/",
+    "Use the owner-designated LinkedIn company page at https://www.linkedin.com/company/144095495/",
+    "Remove Facebook from the site footer until a company page exists",
     "Place Private Residence immediately after Klaus Biesenbach Residence on Projects and in the Residential filter",
     "Private Residence, Oakland, California, 2023",
     "Seven approved images; 01\u201307 only",
@@ -23,6 +26,12 @@
       "klaus-biesenbach-residence",
       "private-residence"
     ],
-    "buildOnlyPrerenderMetadata": "excluded"
+    "buildOnlyPrerenderMetadata": "excluded",
+    "socialLinksPerPage": 2,
+    "socialTargets": [
+      "https://www.instagram.com/field_trip_design/",
+      "https://www.linkedin.com/company/144095495/"
+    ],
+    "facebookLink": "removed"
   }
 }
