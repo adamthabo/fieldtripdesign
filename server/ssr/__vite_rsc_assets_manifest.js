@@ -1,20 +1,20 @@
 export default {
-  "bootstrapScriptContent": "import(\"/assets/index-T2OQ6td2.js\")",
+  "bootstrapScriptContent": "import(\"/assets/index-B8KW9up3.js\")",
   "clientReferenceDeps": {
     "940e0de65e88": {
       "js": [
         "/assets/capability-anchors-BylvFFyX.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
     "6dde22f37187": {
       "js": [
-        "/assets/chameleon-wordmark-Bv4p3jBG.js",
+        "/assets/chameleon-wordmark-BvaicdBg.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
@@ -24,15 +24,15 @@ export default {
         "/assets/color-theme-_OQbZFPL.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
     "a5dbec3c8d9d": {
       "js": [
-        "/assets/complementary-colors-dSN66CCl.js",
+        "/assets/complementary-colors-CW5n_TCX.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
@@ -44,15 +44,15 @@ export default {
         "/assets/textarea-CpYtL2Km.js",
         "/assets/utils-BqdF6cM_.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
     "9d4b78043551": {
       "js": [
-        "/assets/editor-shell-6Xd6FJFN.js",
+        "/assets/editor-shell-zWqjBVU5.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js",
         "/assets/button-CfmuHrFm.js",
         "/assets/utils-BqdF6cM_.js",
@@ -65,11 +65,11 @@ export default {
     },
     "d1d4a134ddb3": {
       "js": [
-        "/assets/header-menu-CFKgzs4c.js",
+        "/assets/header-menu-CA6jr20z.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/link-gaaWBYhL.js"
+        "/assets/link-BfgkOGq1.js"
       ],
       "css": []
     },
@@ -78,22 +78,22 @@ export default {
         "/assets/header-scroll-offset-DeKlyY6q.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
     "4e53140a2f13": {
       "js": [
-        "/assets/desktop-home-films-DwCvJ1D-.js",
+        "/assets/desktop-home-films-CIqp1F1U.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/image-catalog-DMxnBbj-.js",
+        "/assets/image-catalog-BZMxseFL.js",
         "/assets/core-nyc-media-RE1JSHgd.js",
         "/assets/verified-image-credits-ylJ0Uauh.js",
         "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/home-video-sequence-P0ckMocu.js",
-        "/assets/archive-vimeo-BBgM2zyG.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/home-video-sequence-DookY0fi.js",
+        "/assets/archive-vimeo-B1OphJRK.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/project-caption-poSWGFHI.js",
         "/assets/reel-fullscreen-button-kDrKLMeE.js"
       ],
@@ -109,7 +109,7 @@ export default {
         "/assets/image-credit-policy-C7ojE7ol.js",
         "/assets/reel-fullscreen-button-kDrKLMeE.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": [
         "/assets/reel-fullscreen-button-BLUj-fRd.css"
@@ -117,14 +117,14 @@ export default {
     },
     "bfdf0cdb8209": {
       "js": [
-        "/assets/landing-reel-BnDn_dZv.js",
+        "/assets/landing-reel-Cd3PYZ18.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/core-nyc-media-RE1JSHgd.js",
         "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/home-video-sequence-P0ckMocu.js",
-        "/assets/archive-vimeo-BBgM2zyG.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/home-video-sequence-DookY0fi.js",
+        "/assets/archive-vimeo-B1OphJRK.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/image-credit-policy-C7ojE7ol.js",
         "/assets/project-caption-poSWGFHI.js",
         "/assets/project-title-B8g49iZv.js",
@@ -148,7 +148,7 @@ export default {
         "/assets/native-select-d1rPnUJL.js",
         "/assets/createLucideIcon-7N_3PleG.js",
         "/assets/textarea-CpYtL2Km.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
@@ -158,15 +158,15 @@ export default {
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
     "6c2c9b01870e": {
       "js": [
-        "/assets/project-photo-motion-BCxIhfVt.js",
+        "/assets/project-photo-motion-DCRHWla0.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
@@ -179,7 +179,7 @@ export default {
         "/assets/utils-BqdF6cM_.js",
         "/assets/dist-CY-ixoiK.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
@@ -192,7 +192,7 @@ export default {
         "/assets/dist-CY-ixoiK.js",
         "/assets/framework-CXnKph_e.js",
         "/assets/input-DW14JYzk.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
@@ -201,16 +201,16 @@ export default {
         "/assets/theme-artwork-BM9srxBV.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": []
     },
     "98996e1f0272": {
       "js": [
-        "/assets/archive-explorer-Bg90Uppd.js",
+        "/assets/archive-explorer-D8T-50MP.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/core-nyc-media-RE1JSHgd.js",
-        "/assets/image-catalog-DMxnBbj-.js",
+        "/assets/image-catalog-BZMxseFL.js",
         "/assets/verified-image-credits-ylJ0Uauh.js",
         "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
@@ -224,8 +224,8 @@ export default {
         "/assets/createLucideIcon-7N_3PleG.js",
         "/assets/dist-DuLpYydG.js",
         "/assets/dist-CY-ixoiK.js",
-        "/assets/link-gaaWBYhL.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/link-BfgkOGq1.js",
+        "/assets/index-B8KW9up3.js"
       ],
       "css": [
         "/assets/archive-explorer-CmsICZr7.css"
@@ -236,7 +236,7 @@ export default {
         "/assets/gallery-BxndN9Su.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/index-T2OQ6td2.js"
+        "/assets/index-B8KW9up3.js"
       ],
       "css": [
         "/assets/gallery-DRq9nw5M.css"
@@ -244,12 +244,12 @@ export default {
     },
     "fe8329376085": {
       "js": [
-        "/assets/project-image-archive-BbzH-r9W.js",
+        "/assets/project-image-archive-CD2dY0qJ.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/field-trip-name-BZ06n7Fu.js",
         "/assets/framework-CXnKph_e.js",
-        "/assets/archive-vimeo-BBgM2zyG.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/archive-vimeo-B1OphJRK.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/image-credit-policy-C7ojE7ol.js",
         "/assets/motion-image-BtbRm0n5.js",
         "/assets/verified-image-credits-ylJ0Uauh.js",
@@ -270,7 +270,7 @@ export default {
     },
     "593f344dc510": {
       "js": [
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js"
       ],
@@ -278,25 +278,25 @@ export default {
     },
     "15c18cfaeeff": {
       "js": [
-        "/assets/layout-segment-context-BHuoiSKR.js",
+        "/assets/layout-segment-context-Bhl2VaUL.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
     },
     "c2747888630f": {
       "js": [
-        "/assets/link-gaaWBYhL.js",
+        "/assets/link-BfgkOGq1.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/framework-CXnKph_e.js"
       ],
       "css": []
     },
     "8c0f216c4604": {
       "js": [
-        "/assets/index-T2OQ6td2.js",
+        "/assets/index-B8KW9up3.js",
         "/assets/rolldown-runtime-S-ySWqyJ.js",
         "/assets/framework-CXnKph_e.js"
       ],

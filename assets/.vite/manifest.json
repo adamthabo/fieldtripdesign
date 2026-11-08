@@ -1,6 +1,6 @@
 {
-  "_archive-vimeo-BBgM2zyG.js": {
-    "file": "assets/archive-vimeo-BBgM2zyG.js",
+  "_archive-vimeo-B1OphJRK.js": {
+    "file": "assets/archive-vimeo-B1OphJRK.js",
     "name": "archive-vimeo",
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
@@ -63,17 +63,17 @@
       "_rolldown-runtime-S-ySWqyJ.js"
     ]
   },
-  "_home-video-sequence-P0ckMocu.js": {
-    "file": "assets/home-video-sequence-P0ckMocu.js",
+  "_home-video-sequence-DookY0fi.js": {
+    "file": "assets/home-video-sequence-DookY0fi.js",
     "name": "home-video-sequence",
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
-      "_archive-vimeo-BBgM2zyG.js",
+      "_archive-vimeo-B1OphJRK.js",
       "_framework-CXnKph_e.js"
     ]
   },
-  "_image-catalog-DMxnBbj-.js": {
-    "file": "assets/image-catalog-DMxnBbj-.js",
+  "_image-catalog-BZMxseFL.js": {
+    "file": "assets/image-catalog-BZMxseFL.js",
     "name": "image-catalog",
     "imports": [
       "_core-nyc-media-RE1JSHgd.js",
@@ -182,7 +182,7 @@
     ]
   },
   "app/chameleon-wordmark.tsx": {
-    "file": "assets/chameleon-wordmark-Bv4p3jBG.js",
+    "file": "assets/chameleon-wordmark-BvaicdBg.js",
     "name": "chameleon-wordmark",
     "src": "app/chameleon-wordmark.tsx",
     "isDynamicEntry": true,
@@ -203,7 +203,7 @@
     ]
   },
   "app/complementary-colors.tsx": {
-    "file": "assets/complementary-colors-dSN66CCl.js",
+    "file": "assets/complementary-colors-CW5n_TCX.js",
     "name": "complementary-colors",
     "src": "app/complementary-colors.tsx",
     "isDynamicEntry": true,
@@ -225,7 +225,7 @@
     ]
   },
   "app/editor/editor-shell.tsx": {
-    "file": "assets/editor-shell-6Xd6FJFN.js",
+    "file": "assets/editor-shell-zWqjBVU5.js",
     "name": "editor-shell",
     "src": "app/editor/editor-shell.tsx",
     "isDynamicEntry": true,
@@ -240,7 +240,7 @@
     ]
   },
   "app/header-menu.tsx": {
-    "file": "assets/header-menu-CFKgzs4c.js",
+    "file": "assets/header-menu-CA6jr20z.js",
     "name": "header-menu",
     "src": "app/header-menu.tsx",
     "isDynamicEntry": true,
@@ -262,16 +262,16 @@
     ]
   },
   "app/home/desktop-home-films.tsx": {
-    "file": "assets/desktop-home-films-DwCvJ1D-.js",
+    "file": "assets/desktop-home-films-CIqp1F1U.js",
     "name": "desktop-home-films",
     "src": "app/home/desktop-home-films.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
-      "_image-catalog-DMxnBbj-.js",
+      "_image-catalog-BZMxseFL.js",
       "_field-trip-name-BZ06n7Fu.js",
-      "_home-video-sequence-P0ckMocu.js",
-      "_archive-vimeo-BBgM2zyG.js",
+      "_home-video-sequence-DookY0fi.js",
+      "_archive-vimeo-B1OphJRK.js",
       "_project-caption-poSWGFHI.js",
       "_reel-fullscreen-button-kDrKLMeE.js",
       "_framework-CXnKph_e.js"
@@ -293,7 +293,7 @@
     ]
   },
   "app/landing-reel.tsx": {
-    "file": "assets/landing-reel-BnDn_dZv.js",
+    "file": "assets/landing-reel-Cd3PYZ18.js",
     "name": "landing-reel",
     "src": "app/landing-reel.tsx",
     "isDynamicEntry": true,
@@ -301,7 +301,7 @@
       "_rolldown-runtime-S-ySWqyJ.js",
       "_core-nyc-media-RE1JSHgd.js",
       "_field-trip-name-BZ06n7Fu.js",
-      "_home-video-sequence-P0ckMocu.js",
+      "_home-video-sequence-DookY0fi.js",
       "_image-credit-policy-C7ojE7ol.js",
       "_project-caption-poSWGFHI.js",
       "_project-title-B8g49iZv.js",
@@ -339,7 +339,7 @@
     ]
   },
   "app/project-photo-motion.tsx": {
-    "file": "assets/project-photo-motion-BCxIhfVt.js",
+    "file": "assets/project-photo-motion-DCRHWla0.js",
     "name": "project-photo-motion",
     "src": "app/project-photo-motion.tsx",
     "isDynamicEntry": true,
@@ -383,14 +383,14 @@
     ]
   },
   "app/work/archive-explorer.tsx": {
-    "file": "assets/archive-explorer-Bg90Uppd.js",
+    "file": "assets/archive-explorer-D8T-50MP.js",
     "name": "archive-explorer",
     "src": "app/work/archive-explorer.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
       "_core-nyc-media-RE1JSHgd.js",
-      "_image-catalog-DMxnBbj-.js",
+      "_image-catalog-BZMxseFL.js",
       "_field-trip-name-BZ06n7Fu.js",
       "_motion-image-BtbRm0n5.js",
       "_project-caption-poSWGFHI.js",
@@ -421,14 +421,14 @@
     ]
   },
   "app/work/project-image-archive.tsx": {
-    "file": "assets/project-image-archive-BbzH-r9W.js",
+    "file": "assets/project-image-archive-CD2dY0qJ.js",
     "name": "project-image-archive",
     "src": "app/work/project-image-archive.tsx",
     "isDynamicEntry": true,
     "imports": [
       "_rolldown-runtime-S-ySWqyJ.js",
       "_field-trip-name-BZ06n7Fu.js",
-      "_archive-vimeo-BBgM2zyG.js",
+      "_archive-vimeo-B1OphJRK.js",
       "_image-credit-policy-C7ojE7ol.js",
       "_motion-image-BtbRm0n5.js",
       "_project-caption-poSWGFHI.js",
@@ -450,7 +450,7 @@
     "isDynamicEntry": true
   },
   "node_modules/vinext/dist/shims/layout-segment-context.js": {
-    "file": "assets/layout-segment-context-BHuoiSKR.js",
+    "file": "assets/layout-segment-context-Bhl2VaUL.js",
     "name": "layout-segment-context",
     "src": "node_modules/vinext/dist/shims/layout-segment-context.js",
     "isDynamicEntry": true,
@@ -461,7 +461,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/link.js": {
-    "file": "assets/link-gaaWBYhL.js",
+    "file": "assets/link-BfgkOGq1.js",
     "name": "link",
     "src": "node_modules/vinext/dist/shims/link.js",
     "isDynamicEntry": true,
@@ -475,7 +475,7 @@
     ]
   },
   "node_modules/vinext/dist/shims/router.js": {
-    "file": "assets/router-Bb-O66sx.js",
+    "file": "assets/router-zAh3SG0e.js",
     "name": "router",
     "src": "node_modules/vinext/dist/shims/router.js",
     "isDynamicEntry": true,
@@ -490,7 +490,7 @@
     ]
   },
   "virtual:vinext-app-browser-entry": {
-    "file": "assets/index-T2OQ6td2.js",
+    "file": "assets/index-B8KW9up3.js",
     "name": "index",
     "src": "virtual:vinext-app-browser-entry",
     "isEntry": true,
